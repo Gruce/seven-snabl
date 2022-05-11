@@ -44,7 +44,7 @@ class Form extends Model
         $this->fill($data);
         $this->save();
 
-        // لا تمسحها 
+        // لا تمسحها
         // $form = Form::create([
         //     'user_id' => auth()->id(),
         //     'city_id' => $data['city_id'],
@@ -61,5 +61,9 @@ class Form extends Model
 
     }
 
+
+
     ### END MATHOD ###
+
+    
 }
