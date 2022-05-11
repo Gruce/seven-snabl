@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('head_of_the_family_infos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('person_id')->nullable()->constrained('personal_infos')->onDelete('cascade');
+
             $table->string('name')->nullable();
-            $table->string('code')->nullable();
+            $table->boolean('is_mr')->default(false); // النسب
+            $table->boolean('is_alive')->default(true);
+            $table->string('job')->nullable(); // عمل الرب الاسرة
+            $table->integer('salary')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('head_of_the_family_infos');
     }
 };

@@ -15,42 +15,35 @@ return new class extends Migration
     {
         Schema::create('personal_infos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('form_id')->nullable()->constrained('forms')->onDelete('cascade');
+
             $table->integer('level')->default(1); // 1 - B1 , 2 - B2 , 3 - B3 , 4 - B4
-            $table->string('head_family')->nullable(); // رب الاسرة
-            $table->boolean('is_mr')->default(false); // النسب
-            $table->boolean('is_alive')->default(true);
-            $table->string('head_job')->nullable(); // عمل الرب الاسرة
-            $table->integer('head_salary')->nullable();
-            $table->string('wife_name')->nullable();
-            $table->boolean('is_mis')->default(false); //  النسب الزوجة
-            $table->integer('wife_state')->default(1);
-            /*
-            1 - حي
-            2 - متوفية
-            3 - مطلقة
-            4 - ارملة
-            */
-            $table->string('location')->nullable();
-            $table->string('point')->nullable(); // مكان
+            $table->string('location')->nullable(); // المنطقة
+            $table->string('point')->nullable(); // اقرب نقطة دالة
             $table->integer('location_type')->default(1);
             /*
-            1 - ملك
-            2 - تجاوز
-            3 - ايجار
-            4 - زراعي
+                1 - ملك
+                2 - تجاوز
+                3 - ايجار
+                4 - زراعي
             */
+
             $table->integer('rent')->nullable(); // الايجار
             $table->text('family_work')->nullable();
             $table->integer('family_count')->nullable();
             $table->integer('have_salary')->default(1);
             /*
-            1 - تقاعد
-            2 - رعاية
-            3 - مؤسسة
-            4 - مساعدات
-            5 - حكومي
+                1 - تقاعد
+                2 - رعاية
+                3 - مؤسسة
+                4 - مساعدات
+                5 - حكومي
             */
+            $table->integer('salary')->nullable();
+            $table->string('father_phonenumber')->nullable();
+            $table->string('mother_phonenumber')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

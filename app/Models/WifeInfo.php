@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FamilyMember extends Model
+class WifeInfo extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
+    ### START RELATIONS ###
     public function form(){
         return $this->belongsTo(Form::class);
     }
+    ### END RELATIONS ###
 }

@@ -13,10 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('wife_infos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('person_id')->nullable()->constrained('personal_infos')->onDelete('cascade');
+
             $table->string('name')->nullable();
-            $table->string('code')->nullable();
+            $table->boolean('is_mis')->default(false); //  النسب الزوجة
+            $table->integer('state')->default(1);
+            /*
+                1 - حي
+                2 - متوفية
+                3 - مطلقة
+                4 - ارملة
+            */
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('wife_infos');
     }
 };

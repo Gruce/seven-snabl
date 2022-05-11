@@ -15,17 +15,19 @@ return new class extends Migration
     {
         Schema::create('family_members', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('person_id')->nullable()->constrained('personal_infos')->onDelete('cascade');
+
             $table->string('name');
             $table->integer('kinship')->nullable();
             /*
-            1 - اب
-            2 - ام
-            3 - ابن
-            4 - جد
-            5 - جدة
-            6 - اخ
-            7- اخت
-            8 - حفيد
+                1 - اب
+                2 - ام
+                3 - ابن
+                4 - جد
+                5 - جدة
+                6 - اخ
+                7- اخت
+                8 - حفيد
             */
             $table->date('birthday')->nullable();
             $table->boolean('is_mr')->default(false);
@@ -33,6 +35,7 @@ return new class extends Migration
             $table->text('health_state')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
