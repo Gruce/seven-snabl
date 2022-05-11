@@ -69,4 +69,15 @@ class User extends Authenticatable
     }
 
     ### END RELATIONS ###
+
+
+    ### START METHODS ###
+
+    //add
+    public function add($data){
+        $this->fill($data);
+        $this->save();
+    }
+
+    ### END METHODS ###
 }
