@@ -5,12 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 
+use function Psy\debug;
+
 class Test extends Component
 {
     use Actions;
     public function tt()
     {
-        // dd('d');
         $this->dialog()->confirm([
             'title'       => 'Are you Sure?',
             'description' => 'Save the information?',
