@@ -6,58 +6,77 @@ use App\Models\Form;
 use App\Models\HeadOfTheFamilyInfo;
 use App\Models\PersonalInfo;
 use App\Models\WifeInfo;
+use App\Models\City;
 use Livewire\Component;
+use phpDocumentor\Reflection\Types\Null_;
 
 class Add extends Component
 {
-    public $head_name, $city_id, $level, $location, $point, $location_type, $rent, $family_work,
-    $family_count, $have_salary, $person_salary, $father_phonenumber, $mother_phonenumber, $is_alive,
-    $is_mr, $job, $head_salary,$is_mis, $wife_name, $state ;
+    public $form;
+    
+    protected $rules = [
+        // Personal Info
+        'form.person.level' => 'required',
+        'form.person.location' => 'required',
+        'form.person.point' => 'required',
+        'form.person.location_type' => 'required',
+        'form.person.rent' => 'required',
+        'form.person.family_work' => 'required',
+        'form.person.family_count' => 'required',
+        'form.person.have_salary' => 'required',
+        'form.person.salary' => 'required',
+        'form.person.father_phonenumber' => 'required',
+        'form.person.mother_phonenumber' => 'required',
 
+        // Head of the family
+        'form.head_family.name' => 'required',
+        'form.head_family.is_mr' => 'required',
+        'form.head_family.job' => 'required',
+        'form.head_family.is_alive' => 'required',
+        'form.head_family.salary' => 'required',
 
-    public function add() {
-        $form = new Form;
-        $form->add([
-            'user_id' => auth()->id(),
-            'city_id' => $this->city_id,
-        ]);
+        // Wife
+        'form.wife.name' => 'required',
+        'form.wife.is_mis' => 'required',
+        'form.wife.job' => 'required',
+        'form.wife.state' => 'required',
 
-        $person = new PersonalInfo;
-        $person->add([
-            'form_id' => $form->id,
-            'level'   => $this->level,
-            'location'=> $this->location,
-            'point'=> $this->point,
-            'location_type'=> $this->location_type,
-            'rent'=> $this->rent,
-            'family_work'=> $this->family_work,
-            'family_count'=> $this->family_count,
-            'have_salary' => $this->have_salary,
-            'salary'      => $this->person_salary,
-            'father_phonenumber' => $this->father_phonenumber,
-            'mother_phonenumber' => $this->mother_phonenumber,
-        ]);
+        // City
+        'form.city.id' => 'required',
 
-        $head_family = new HeadOfTheFamilyInfo;
-        $head_family->add([
-            'form_id'=> $form->id,
-            'name' => $this->head_name,
-            'is_mr' => $this->is_mr,
-            'job' => $this->job,
-            'salary' => $this->head_salary,
-        ]);
+        'form.family_members.*.name' => 'required',
+    ];
 
-        $wife = new WifeInfo;
-        $wife->add([
-            'form_id'=> $form->id,
-            'name' => $this->wife_name,
-            'is_mis' => $this->is_mis,
-            'state' => $this->state,
-        ]);
+    public function addFamilyMember(){
+        $this->form['family_members'][] = [
+            'name' => '',
+        ];
+    }
+    public function deleteFamilyMember($index){
+        unset($this->form['family_members'][$index]);
     }
 
-    public function render()
-    {
+    public function updatedFormPersonFamilyCount(){
+        $this->form['family_members'] = [];
+        foreach(range(1, $this->form['person']['family_count']) as $member)
+            $this->form['family_members'][] = [
+                'name' => '',
+            ];
+    }
+
+    public function mount(){
+        $this->cities = City::get(['id', 'name'])->toArray();
+        $this->form['city']['id'] = 1;
+    }
+
+    public function save() {
+        $this->validate();
+
+        $form = new Form();
+        $form->add($this->form);
+    }
+
+    public function render(){
         return view('livewire.form.add');
     }
 }

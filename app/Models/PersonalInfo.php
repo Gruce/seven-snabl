@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class PersonalInfo extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = [
+        'family_work'
+    ];
 
     protected $appends = ['level_name', 'location_name', 'have_salary' ];
 
@@ -43,16 +48,17 @@ class PersonalInfo extends Model
     protected function levelName(): Attribute {
         return Attribute::make(
             get: function () {
-                switch ($this->level){
-                    case 1:
-                        return 'B1';
-                    case 2:
-                        return 'B2';
-                    case 3:
-                        return 'B3';
-                    case 4:
-                        return 'B4';
-                }
+                if ($this->level)
+                    switch ($this->level){
+                        case 1:
+                            return 'B1';
+                        case 2:
+                            return 'B2';
+                        case 3:
+                            return 'B3';
+                        case 4:
+                            return 'B4';
+                    }
             },
         );
     }

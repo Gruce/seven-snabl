@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\PersonalInfo;
 class Form extends Model
 {
     use HasFactory;
@@ -24,7 +25,7 @@ class Form extends Model
         return $this->hasOne(PersonalInfo::class);
     }
 
-    public function family_memebers(){
+    public function family_members(){
         return $this->hasMany(FamilyMember::class);
     }
 
@@ -41,8 +42,15 @@ class Form extends Model
     ### START MATHOD ###
 
     public function add($data){
-        $this->fill($data);
-        $this->save();
+        // Personal Info
+        $this->person = new PersonalInfo($data['person']);
+
+        // 
+
+        return $this;
+
+        // $this->fill($data);
+        // $this->save();
 
         // لا تمسحها
         // $form = Form::create([
@@ -64,6 +72,10 @@ class Form extends Model
 
 
     ### END MATHOD ###
+
+
+
+
 
     
 }

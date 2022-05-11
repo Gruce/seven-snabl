@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use App\Http\Livewire\City\Main as CityMain;
 use App\Http\Livewire\Form\Main as FormMain;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +45,9 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('cities')->group(function(){
         Route::get('/', CityMain::class)->name('cities');
     });
+
+    Route::get('/cities_select', CityController::class)->name('cities_select');
 });
+
+
 
