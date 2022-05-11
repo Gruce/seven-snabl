@@ -16,4 +16,13 @@ class WifeInfo extends Model
         return $this->belongsTo(Form::class);
     }
     ### END RELATIONS ###
+
+    ### START MATHOD ###
+
+    public function add($data){
+        $this->fill($data);
+        $this->save();
+    }
+
+    ### END MATHOD ###
 }

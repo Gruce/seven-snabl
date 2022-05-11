@@ -17,4 +17,13 @@ class City extends Model
     }
     ### END RELATIONS ###
 
+    ### START MATHOD ###
+
+    public function add($data){
+        $this->fill($data);
+        $this->save();
+    }
+
+    ### END MATHOD ###
+
 }

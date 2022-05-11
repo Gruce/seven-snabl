@@ -14,4 +14,13 @@ class FamilyMember extends Model
     public function form(){
         return $this->belongsTo(Form::class);
     }
+
+    ### START MATHOD ###
+
+    public function add($data){
+        $this->fill($data);
+        $this->save();
+    }
+
+    ### END MATHOD ###
 }

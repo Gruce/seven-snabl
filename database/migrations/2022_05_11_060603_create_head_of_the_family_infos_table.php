@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('head_of_the_family_infos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('person_id')->nullable()->constrained('personal_infos')->onDelete('cascade');
+            $table->foreignId('form_id')->nullable()->constrained('forms')->onDelete('cascade');
 
             $table->string('name')->nullable();
             $table->boolean('is_mr')->default(false); // النسب
