@@ -37,4 +37,29 @@ class Form extends Model
     }
 
     ### END RELATIONS ###
+
+    ### START MATHOD ###
+
+    public function add($data){
+        $this->fill($data);
+        $this->save();
+
+        // لا تمسحها 
+        // $form = Form::create([
+        //     'user_id' => auth()->id(),
+        //     'city_id' => $data['city_id'],
+        // ]);
+
+        // $head_family = new HeadOfTheFamilyInfo();
+        // $head_family->name = $data['head_name'];
+        // $head_family->is_mr = $data['is_mr'];
+        // $head_family->job = $data['job'];
+        // $head_family->salary = $data['head_salary'];
+        // $form->head_family()->save($head_family);
+
+
+
+    }
+
+    ### END MATHOD ###
 }
