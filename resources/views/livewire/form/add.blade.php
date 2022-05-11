@@ -22,10 +22,11 @@
                     </div>
                 </div>
 
-                <div class="flex justify-end px-10">
-                    <button @click="formStep += 1" class="p-3 mt-4 text-white bg-black rounded-lg" type="button">
-                        التالي
-                    </button>
+                <div class="flex justify-end px-10 mt-5">
+                    <x-button label="التالي"
+                        primary
+                        @click="formStep += 1"
+                    />
                 </div>
             </div>
 
@@ -57,10 +58,10 @@
                         </div>
                     </div>
                 </div>
-                @livewire('form.accessories.buttons')
+                <x-ui.button></x-ui.button>
             </div>
 
-            <!-- ! Family head name -->
+            <!-- Head info -->
             <div x-show="formStep === 3" class="space-y-4">
                 <div class="px-10">
                     <div class="grid grid-cols-10 gap-5">
@@ -68,7 +69,7 @@
                             <x-input label="اسم رب الاسرة" placeholder="ادخل الاسم" />
                         </div>
                     </div>
-                    <div class="grid grid-cols-10 gap-10 mt-10">
+                    <div class="grid grid-cols-10 gap-5 mt-10">
                         <div>
                             <h1 class="text-lg">النسب</h1>
                         </div>
@@ -100,37 +101,63 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                @livewire('form.accessories.buttons')
-            </div>
-
-            <!--  Family head work -->
-            <div x-show="formStep === 4" class="space-y-4">
-                <div class="grid grid-cols-2 gap-10 px-10">
-                    <div>
+                    <div class="grid grid-cols-2 gap-5 mt-10">
                         <div>
                             <x-input label="عمل رب الاسرة" placeholder="ادخل العمل " />
                         </div>
-                    </div>
-                    <div>
                         <div>
                             <x-input label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
                         </div>
                     </div>
+                    <div class="grid grid-cols-12 gap-5 mt-10">
+                        <div class="col-span-2">
+                            <h1 class="text-lg">هل يتقاضى راتب ؟</h1>
+                        </div>
+                        <div class="col-span-4 w-auto">
+                            <div class="grid grid-cols-5 gap-6">
+                                <div>
+                                    <label>تقاعد</label>
+                                    <x-radio id="top-label" lg wire:model.defer="model" />
+                                </div>
+                                <div>
+                                    <label>رعاية</label>
+                                    <x-radio id="top-label" lg wire:model.defer="model" />
+                                </div>
+                                <div>
+                                    <label>مؤسسة</label>
+                                    <x-radio id="top-label" lg wire:model.defer="model" />
+                                </div>
+                                <div>
+                                    <label>مساعدات</label>
+                                    <x-radio id="top-label" lg wire:model.defer="model" />
+                                </div>
+                                <div>
+                                    <label>حكومي</label>
+                                    <x-radio id="top-label" lg wire:model.defer="model" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-6 w-auto">
+                            <x-input label="مقداره" placeholder="ادخل المقدار" />
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <x-input label="رقم هاتف الاب" placeholder="ادخل الرقم " />
+                    </div>
                 </div>
-                @livewire('form.accessories.buttons')
+                <x-ui.button></x-ui.button>
             </div>
 
-            <!--  Family wife name -->
-            <div x-show="formStep === 5" class="space-y-4">
+            <!--  Wife info -->
+            <div x-show="formStep === 4" class="space-y-4">
                 <div class="grid grid-cols-10 gap-5 px-10">
-                    <div class="col-span-10 w-auto">
+                    <div class="col-span-10">
                         <x-input label="اسم ربة الاسرة" placeholder="ادخل الاسم" />
                     </div>
                     <div>
                         <h1 class="text-lg">النسب</h1>
                     </div>
-                    <div class="col-span-4 w-auto">
+                    <div class="col-span-4">
                         <div class="grid grid-cols-4 gap-6">
                             <div>
                                 <label>سيد</label>
@@ -145,7 +172,7 @@
                     <div>
                         <h1 class="text-lg">الحالة</h1>
                     </div>
-                    <div class="col-span-4 w-auto">
+                    <div class="col-span-4">
                         <div class="grid grid-cols-4 gap-6">
                             <div>
                                 <label>حي</label>
@@ -165,30 +192,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-span-10">
+                        <x-input label="رقم هاتف الام" placeholder="ادخل الرقم " />
+                    </div>
                 </div>
-                @livewire('form.accessories.buttons')
+                <x-ui.button></x-ui.button>
             </div>
 
             <!--  Location -->
-            <div x-show="formStep === 6" class="space-y-4">
-                <div class="grid grid-cols-2 gap-10 px-10">
-                    <div>
-                        <div>
-                            <x-input label="عنوان السكن" placeholder="ادخل العنوان " />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <x-input label="اقرب نقطة دالة" placeholder="ادخل العنوان " />
-                        </div>
-                    </div>
-                </div>
-                @livewire('form.accessories.buttons')
-            </div>
-
-            <!--  Living -->
-            <div x-show="formStep === 7" class="space-y-4">
+            <div x-show="formStep === 5" class="space-y-4">
                 <div class="grid grid-cols-10 gap-10 px-10">
+                    <div class="col-span-5 w-auto">
+                        <x-input label="عنوان السكن" placeholder="ادخل العنوان " />
+                    </div>
+                    <div class="col-span-5 w-auto">
+                        <x-input label="اقرب نقطة دالة" placeholder="ادخل العنوان " />
+                    </div>
                     <div>
                         <h1 class="text-lg">نوع السكن</h1>
                     </div>
@@ -216,11 +235,11 @@
                         <x-input label="مقدار الايجار الشهري" placeholder="ادخل المقدار" />
                     </div>
                 </div>
-                @livewire('form.accessories.buttons')
+                <x-ui.button></x-ui.button>
             </div>
 
-            <!--  Family member work & family count  -->
-            <div x-show="formStep === 8" class="space-y-4">
+            <!--  Family member info  -->
+            <div x-show="formStep === 6" class="space-y-4">
                 <div class="grid grid-cols-2 gap-10 px-10">
                     <div>
                         <div>
@@ -233,83 +252,22 @@
                         </div>
                     </div>
                 </div>
-                @livewire('form.accessories.buttons')
-            </div>
-
-            <!--  Have Salary & Amount -->
-            <div x-show="formStep === 9" class="space-y-4">
-                <div class="grid grid-cols-10 gap-10 px-10">
-                    <div class="col-span-2">
-                        <h1 class="text-lg">هل يتقاضى راتب ؟</h1>
-                    </div>
-                    <div class="col-span-8 w-auto">
-                        <div class="grid grid-cols-5 gap-6">
-                            <div>
-                                <label>تقاعد</label>
-                                <x-radio id="top-label" lg wire:model.defer="model" />
-                            </div>
-                            <div>
-                                <label>رعاية</label>
-                                <x-radio id="top-label" lg wire:model.defer="model" />
-                            </div>
-                            <div>
-                                <label>مؤسسة</label>
-                                <x-radio id="top-label" lg wire:model.defer="model" />
-                            </div>
-                            <div>
-                                <label>مساعدات</label>
-                                <x-radio id="top-label" lg wire:model.defer="model" />
-                            </div>
-                            <div>
-                                <label>حكومي</label>
-                                <x-radio id="top-label" lg wire:model.defer="model" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-10 w-auto">
-                        <x-input label="مقداره" placeholder="ادخل المقدار" />
-                    </div>
-                </div>
-                @livewire('form.accessories.buttons')
-            </div>
-
-            <!--  Family phonenumbers -->
-            <div x-show="formStep === 10" class="space-y-4">
-                <div class="grid grid-cols-2 gap-10 px-10">
-                    <div>
-                        <div>
-                            <x-input label="رقم هاتف الاب" placeholder="ادخل الرقم " />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <x-input label="رقم هاتف الام" placeholder="ادخل الرقم " />
-                        </div>
-                    </div>
-                </div>
-                @livewire('form.accessories.buttons')
-            </div>
-
-            <!--  Family member -->
-            <div x-show="formStep === 11" class="space-y-4">
-
-                <p class="text-xl font-bold">اسماء افراد العائلة</p>
-
                 <!--  Buttons -->
                 <div class="grid grid-cols-2 gap-4 px-10">
                     <div class="flex justify-start">
-                        <button @click="formStep -= 1" class="p-3 text-white bg-black rounded-lg" type="button">
-                            عودة
-                        </button>
+                        <x-button label="عودة"
+                            primary
+                            @click="formStep -= 1"
+                        />
                     </div>
                     <div class="flex justify-end">
-                        <button class="p-3 text-white bg-black rounded-lg" type="submit">
-                            ارسال
-                        </button>
+                        <x-button label="ارسال"
+                            primary
+                            type="submit"
+                        />
                     </div>
                 </div>
             </div>
-
         </form>
     </x-card>
 </div>
