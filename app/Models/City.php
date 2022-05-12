@@ -11,6 +11,10 @@ class City extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'name',
+    ];
+
     ### START RELATIONS ###
     public function forms(){
         return $this->hasMany(Form::class);

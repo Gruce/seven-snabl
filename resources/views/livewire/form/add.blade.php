@@ -5,19 +5,20 @@
             <!-- Date & number -->
             <div x-show="formStep === 1">
                 <div class="px-10">
-                    <div class="mt-5">
+                    {{-- <div class="mt-5">
                         <x-input wire:model="firstName" label="تاريخ التنظيم" placeholder="User's first name" type="date" />
                     </div>
                     <div class="mt-10">
                         <x-input wire:model="firstName" label="رقم الاستمارة" placeholder="User's first name" type="number" />
-                    </div>
+                    </div> --}}
                     <div class="mt-10">
                         <x-select
-                            label="رمز المنطقة"
-                            wire:model="model"
+                            label="Search a User"
+                            wire:model="city_id"
                             placeholder="Select some user"
-                            :async-data="route('index')"
-                            option-label="name" option-value="id"
+                            {{-- :async-data="route('city.index' , ['search' => $city_id])" --}}
+                            option-label="name"
+                            option-value="id"
                         />
                     </div>
                 </div>

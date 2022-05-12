@@ -58,6 +58,7 @@ class Add extends Component
 
     public function render()
     {
+        debug($this->city_id);
         return view('livewire.form.add');
     }
 }

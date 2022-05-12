@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use App\Http\Livewire\City\Main as CityMain;
 use App\Http\Livewire\Form\Main as FormMain;
 use App\Http\Livewire\Index;
@@ -44,6 +45,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('cities')->group(function(){
         Route::get('/', CityMain::class)->name('cities');
+        Route::controller(CityController::class)->group(function(){
+            Route::get('city/{search?}' , 'index')->name('city.index');
+        });
     });
+
 });
 
