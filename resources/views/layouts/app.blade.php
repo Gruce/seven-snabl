@@ -18,7 +18,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased"  dir="rtl">
+    <body class="font-sans antialiased" dir="rtl">
         <x-jet-banner />
         <x-notifications />
         <x-dialog />
@@ -28,7 +28,7 @@
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -36,7 +36,7 @@
 
             <!-- Page Content -->
             <main>
-                <div class="container mx-auto px-4 py-5">
+                <div class="container px-4 py-5 mx-auto">
                     {{ $slot }}
                 </div>
             </main>
