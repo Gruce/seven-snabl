@@ -2,7 +2,7 @@
     <x-card shadow=false>
         <form x-data="{ formStep: 1 }" wire:submit.prevent="save" >
             <!-- Date & number -->
-            <div x-show="formStep === 1">
+            {{-- <div x-show="formStep === 1">
                 <div class="px-10">
                     <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 px-10">
                         <div class="border rounded p-3 m-4">
@@ -17,10 +17,10 @@
                 <div class="flex justify-end px-10 mt-5">
                     <x-button label="التالي" primary @click="formStep += 1" />
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Poverty level -->
-            <div x-show="formStep === 2" class="space-y-4">
+            <div x-show="formStep === 1" class="space-y-4">
                 <div class="grid lg:grid-cols-6 sm:grid-cols-1  gap-4 px-10">
                     <div>
                         <h1 class="text-lg">مستوى الفقر</h1>
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Head info -->
-            <div x-show="formStep === 3" class="space-y-4">
+            <div x-show="formStep === 2" class="space-y-4">
                 <div class="px-10">
                     <div class="grid gap-5 lg:grid-cols-10 md:grid-cols-10 sm:grid-cols-1">
                         <div class="lg:col-span-5 sm:col-span-10 xs:col-span-10">
@@ -152,7 +152,7 @@
             </div>
 
             <!--  Wife info -->
-            <div x-show="formStep === 4" class="space-y-4">
+            <div x-show="formStep === 3" class="space-y-4">
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5 px-10">
                     <div class="border rounded p-3 m-4">
                         <x-input wire:model.defer="form.wife.name" label="اسم ربة الاسرة" placeholder="ادخل الاسم" />
@@ -208,7 +208,7 @@
             </div>
 
             <!--  Location -->
-            <div x-show="formStep === 5" class="space-y-4">
+            <div x-show="formStep === 4" class="space-y-4">
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2 px-10">
                     <div class="border rounded p-3 m-4">
                         <x-input wire:model.defer="form.person.location" label="عنوان السكن" placeholder="ادخل العنوان " />
@@ -249,7 +249,7 @@
             </div>
 
             <!--  Family member info  -->
-            <div x-show="formStep === 6" class="space-y-4">
+            <div x-show="formStep === 5" class="space-y-4">
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-10 px-10">
                     <div class="border rounded p-3 m-4">
                         <x-input wire:model.defer="form.person.family_work" label="عمل افراد الاسرة" placeholder="ادخل العمل " />
