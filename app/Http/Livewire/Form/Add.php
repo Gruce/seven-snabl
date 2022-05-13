@@ -48,7 +48,7 @@ class Add extends Component
     public function addFamilyMember(){
         $this->form['family_members'][] = [
             'name' => '',
-            
+
         ];
     }
     public function deleteFamilyMember($index){
@@ -69,9 +69,6 @@ class Add extends Component
     }
 
     public function save() {
-        dg($this->form);
-
-
         $form = new Form();
         $form->add($this->form);
         $this->notification()->success(
