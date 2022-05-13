@@ -6,8 +6,8 @@
             </x-slot>
             <x-slot name="footer">
                 <div class="flex justify-between items-center">
-                    <x-button negative icon="x" />
-                    <x-button primary icon="view-grid-add" href="{{route('show')}}" />
+                    <x-button  negative icon="x" class="w-full ml-3"/>
+                    <x-button  primary icon="view-grid-add" class="w-full" href="{{route('show')}}" />
                 </div>
             </x-slot>
             <!-- Card Content -->
