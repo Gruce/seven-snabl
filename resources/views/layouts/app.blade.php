@@ -23,7 +23,10 @@
         <x-notifications />
         <x-dialog />
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            <div class="print:hidden">
+                @livewire('navigation-menu')
+            </div>
+
 
             <!-- Page Heading -->
             @if (isset($header))

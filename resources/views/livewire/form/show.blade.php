@@ -1,7 +1,7 @@
 <div>
     <x-card>
-        <div class="flex  justify-between  ">
-            <div>
+        <div class="flex  ">
+            <div class=" basis-1/3">
                 <h1 class="text-lg font-bold">
                     مجمع سبع سنابل الطبي الخيري
                 </h1>
@@ -9,19 +9,19 @@
                     لجنة الرعاية الاجتماعية
                 </span>
             </div>
-            <div class="text-center">
-                <img width="100" height="100" src="{{ asset('img/a.png') }}">
+            <div class="flex justify-center basis-1/3 ">
+                <img  width="100" height="100" src="{{ asset('img/a.png') }}">
             </div>
-            <div>
-                <div class="flex gap-2 flex-row  ">
+            <div class="  basis-1/3">
+                <div class="flex gap-2 flex-row justify-end ">
                     <div class="text-sm"> تاريخ التنظيم</div>
                     <span class="text-sm">2022/5/13</span>
                 </div>
-                <div class="flex gap-2 flex-row">
+                <div class="flex gap-2 flex-row justify-end">
                     <div class="text-sm"> رقم الاستمارة </div>
                     <div class="text-sm">2022/5/13</div>
                 </div>
-                <div class="flex gap-2 flex-row">
+                <div class="flex gap-2 flex-row justify-end">
                     <div class="text-sm"> رمز المنطقة</div>
                     <div class="text-sm">565656</div>
                 </div>
@@ -69,7 +69,7 @@
                         <tr class="bg-white border-b ">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> B   </button>
+                                    <button x-show="!open" @click="open = true"> B   </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -78,7 +78,7 @@
                             </th>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> حسن حازم جداوي </button>
+                                    <button x-show="!open"  @click="open = true"> حسن حازم جداوي </button >
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -88,7 +88,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> سيد </button>
+                                    <button x-show="!open" @click="open = true"> سيد </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -97,7 +97,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> حي </button>
+                                    <button x-show="!open" @click="open = true"> حي </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -106,7 +106,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> موظف   </button>
+                                    <button x-show="!open" @click="open = true"> موظف   </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -115,7 +115,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> 346   </button>
+                                    <button x-show="!open" @click="open = true"> 346   </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -154,7 +154,7 @@
 
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> هدى احمد مصطفى </button>
+                                    <button x-show="!open" @click="open = true"> هدى احمد مصطفى </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -163,7 +163,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> سيد  </button>
+                                    <button x-show="!open" @click="open = true"> سيد  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -172,7 +172,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> حيه  </button>
+                                    <button x-show="!open" @click="open = true"> حيه  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -181,7 +181,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> 07729454553  </button>
+                                    <button x-show="!open" @click="open = true"> 07729454553  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -191,7 +191,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> 077159454553  </button>
+                                    <button x-show="!open" @click="open = true"> 077159454553  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -226,7 +226,7 @@
                         <tr class="bg-white border-b  ">
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> التنومة  </button>
+                                    <button x-show="!open" @click="open = true"> التنومة  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -235,7 +235,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> شارع 34  </button>
+                                    <button x-show="!open" @click="open = true"> شارع 34  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -244,7 +244,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> ملك  </button>
+                                    <button x-show="!open" @click="open = true"> ملك  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -253,7 +253,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> 0  </button>
+                                    <button x-show="!open" @click="open = true"> 0  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -288,7 +288,7 @@
                         <tr class="bg-white border-b  ">
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> لايوجد  </button>
+                                    <button x-show="!open" @click="open = true"> لايوجد  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -297,7 +297,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> 4  </button>
+                                    <button x-show="!open" @click="open = true"> 4  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -306,7 +306,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> نعم  </button>
+                                    <button x-show="!open" @click="open = true"> نعم  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -315,7 +315,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> 4435  </button>
+                                    <button x-show="!open" @click="open = true"> 4435  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -368,7 +368,7 @@
 
                             <td x-data="{ open: false }" class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> حسن كاظم حميد</button>
+                                    <button x-show="!open" @click="open = true"> حسن كاظم حميد</button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -377,7 +377,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true">ابن</button>
+                                    <button x-show="!open" @click="open = true">ابن</button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -386,7 +386,7 @@
                             </td>
                             <td class="px-6 py-4 ">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> ابي الخصيب </button>
+                                    <button x-show="!open" @click="open = true"> ابي الخصيب </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -395,7 +395,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> سيد  </button>
+                                    <button x-show="!open" @click="open = true"> سيد  </button>
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
                                     </ul>
@@ -403,7 +403,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> عاطل  </button>
+                                    <button x-show="!open" @click="open = true"> عاطل  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -412,7 +412,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button @click="open = true"> مريض  </button>
+                                    <button x-show="!open" @click="open = true"> مريض  </button>
 
                                     <ul x-show="open" @click.away="open = false">
                                         <input type="text">
@@ -430,7 +430,7 @@
             <div class="flex flex-row justify-between mt-5">
                 <div>
                     <h1>
-                        -:اسم المتابع وتوقيعه
+                        اسم المتابع
                     </h1>
                 </div>
                 <div>
