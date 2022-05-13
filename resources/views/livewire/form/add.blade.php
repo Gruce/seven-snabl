@@ -54,7 +54,7 @@
             <!-- Head info -->
             <div x-show="formStep === 3" class="space-y-4">
                 <div class="px-10">
-                    <div class="grid lg:grid-cols-10 md:grid-cols-10 sm:grid-cols-1 gap-5">
+                    <div class="grid gap-5 lg:grid-cols-10 md:grid-cols-10 sm:grid-cols-1">
                         <div class="lg:col-span-5 sm:col-span-10 xs:col-span-10">
                             <x-card shadow=false>
                                 <x-input wire:model.defer="form.head_family.name" label="اسم رب الاسرة" placeholder="ادخل الاسم" />
@@ -62,7 +62,7 @@
                         </div>
                         <div class="lg:col-span-5 sm:col-span-10" xs:col-span-10>
                             <x-card shadow=false>
-                                <div class="grid lg:grid-cols-10 sm:grid-cols-5 gap-5 place-content-center">
+                                <div class="grid gap-5 lg:grid-cols-10 sm:grid-cols-5 place-content-center">
                                     <div>
                                         <span class="lg:text-lg sm:text-xs">النسب</span>
                                     </div>
@@ -97,7 +97,7 @@
                             </x-card>
                         </div>
                     </div>
-                    <div class="grid lg:grid-cols-2 sm:grid-cols-1 gap-5 mt-10">
+                    <div class="grid gap-5 mt-10 lg:grid-cols-2 sm:grid-cols-1">
                         <div>
                             <x-card shadow=false>
                                 <x-input wire:model.defer="form.head_family.job" label="عمل رب الاسرة" placeholder="ادخل العمل " />
@@ -110,12 +110,12 @@
                         </div>
                     </div>
                     <x-card shadow=false>
-                        <div class="grid lg:grid-cols-12 sm:grid-cols-6 gap-5">
+                        <div class="grid gap-5 lg:grid-cols-12 sm:grid-cols-6">
                             <div class="lg:col-span-2 sm:col-span-2">
                                 <span class="lg:text-lg sm:text-xs">هل يتقاضى راتب ؟</span>
                             </div>
                             <div class="w-auto lg:col-span-4 sm:col-span-12">
-                                <div class="grid lg:grid-cols-5 sm:grid-cols-2 gap-6">
+                                <div class="grid gap-6 lg:grid-cols-5 sm:grid-cols-2">
                                     <div>
                                         <label>تقاعد</label>
                                         <x-radio value="1" lg wire:model.defer="form.person.have_salary" />
