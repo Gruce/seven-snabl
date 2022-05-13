@@ -17,21 +17,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b ">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
-                    1
-                </th>
-                <td class="px-6 py-4">
-                    التنومة
-                </td>
-                <td class="px-6 py-4">
-                    45456
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <x-button class="text-gray-500" icon="pencil-alt" secondary   />
-                    <x-button class="text-red" icon="trash" negative  />
-                </td>
-            </tr>
+            @forelse ($cities as $city)
+                <tr class="bg-white  ">
+                    <td class="px-6 py-4">
+                        {{ $loop->index + 1 }}
+                    <td class="px-6 py-4">
+                        {{ $city->name }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $city->code }}
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <x-button   class="text-gray-500" icon="pencil-alt" secondary />
+                        <x-button wire:click="confirm({{$city->id}},'delete')" class="text-red" icon="trash" negative />
+                    </td>
+                </tr>
+            @empty
+
+                <td colspan="4" class="text-center">لايوجد</td>
+            @endforelse
         </tbody>
     </table>
 </div>
