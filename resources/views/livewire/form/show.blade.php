@@ -9,10 +9,8 @@
                     لجنة الرعاية الاجتماعية
                 </span>
             </div>
-            <div>
-                <img width="50" height="50"
-                    src="https://media.istockphoto.com/vectors/success-logo-vector-id1180882238?k=20&m=1180882238&s=612x612&w=0&h=TELzlQoUq4BXsD4RqO6UBpsDehyV8Tm6bxc7v2FCZCs="
-                    alt="">
+            <div class="text-center">
+                <img width="100" height="100" src="{{ asset('img/a.png') }}">
             </div>
             <div>
                 <div class="flex gap-2 flex-row  ">
@@ -46,13 +44,13 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                               مستوى الفقر
+                                مستوى الفقر
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 اسم رب الاسرة
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                 النسب
+                                النسب
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 الحالة
@@ -62,37 +60,69 @@
                                 عمل رب الاسرة
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                  مقدار الدخل الشهري
+                                مقدار الدخل الشهري
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                الاجراءات
-                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="bg-white border-b ">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
-                                B
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> B   </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </th>
                             <td class="px-6 py-4">
-                                حسن حازم جداوي
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> حسن حازم جداوي </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
+
                             </td>
                             <td class="px-6 py-4">
-                                سيد
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> سيد </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                متوفي
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> حي </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                موظف
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> موظف   </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                            298
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> 346   </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <x-button class="text-gray-500" icon="pencil-alt" secondary   />
-                                <x-button class="text-red" icon="trash" negative  />
-                            </td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -116,33 +146,59 @@
                             <th scope="col" class="px-6 py-3">
                                 رقم هاتف الام
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                الاجراءات
-                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="bg-white border-b ">
 
                             <td class="px-6 py-4">
-                                هدى ناصر حسين
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> هدى احمد مصطفى </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                سيد
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> سيد  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                متوفية
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> حيه  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                07729454553
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> 07729454553  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
+
                             </td>
                             <td class="px-6 py-4">
-                                07719458827
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> 077159454553  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <x-button class="text-gray-500" icon="pencil-alt" secondary   />
-                                <x-button class="text-red" icon="trash" negative  />
-                            </td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -163,29 +219,48 @@
                             <th scope="col" class="px-6 py-3">
                                 مقدار الايجاد الشهري
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                الاجراءات
-                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="bg-white border-b  ">
                             <td class="px-6 py-4">
-                                التنومة
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> التنومة  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                شارع 34
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> شارع 34  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                ملك
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> ملك  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                0
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> 0  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <x-button class="text-gray-500" icon="pencil-alt" secondary   />
-                                <x-button class="text-red" icon="trash" negative  />
-                            </td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -198,37 +273,56 @@
                                 عمل افراد الاسرة
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                  عددهم
+                                عددهم
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                 هل يتقاضى راتب
+                                هل يتقاضى راتب
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                  مقداره
+                                مقداره
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                الاجراءات
-                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="bg-white border-b  ">
                             <td class="px-6 py-4">
-                            لايوجد
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> لايوجد  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                4
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> 4  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                نعم
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> نعم  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                346
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> 4435  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <x-button class="text-gray-500" icon="pencil-alt" secondary   />
-                                <x-button class="text-red" icon="trash" negative  />
-                            </td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -243,16 +337,16 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                  #
+                                #
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                  الاسم
+                                الاسم
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                   الصلة
+                                الصلة
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                  التولد
+                                التولد
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 النسب
@@ -263,38 +357,69 @@
                             <th scope="col" class="px-6 py-3">
                                 الحالة الصحية
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                 الاجراءات
-                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="bg-white border-b  ">
                             <td class="px-6 py-4">
-                            1
+                                1
+                            </td>
+
+                            <td x-data="{ open: false }" class="px-6 py-4">
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> حسن كاظم حميد</button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                حسن كاظم حميد
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true">ابن</button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 ">
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> ابي الخصيب </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                ابن
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> سيد  </button>
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                ابو الخصيب
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> عاطل  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
-                                سيد
+                                <div x-data="{ open: false }">
+                                    <button @click="open = true"> مريض  </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <input type="text">
+                                    </ul>
+                                </div>
                             </td>
-                            <td class="px-6 py-4">
-                                عاطل
-                            </td>
-                            <td class="px-6 py-4">
-                                مريض
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <x-button class="text-gray-500" icon="pencil-alt" secondary   />
-                                <x-button class="text-red" icon="trash" negative  />
-                            </td>
+
                         </tr>
                     </tbody>
                 </table>
