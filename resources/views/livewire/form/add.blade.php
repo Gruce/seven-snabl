@@ -1,6 +1,7 @@
 <div>
-    <x-card title="المعلومات الشخصية">
+    <x-card >
         <form x-data="{ formStep: 1 }" wire:submit.prevent="save">
+            <!-- Tabs -->
 
             <!-- Date & number -->
             <div x-show="formStep === 1">
@@ -11,15 +12,7 @@
                     <div class="mt-10">
                         <x-input wire:model.defer="firstName" label="رقم الاستمارة" placeholder="User's first name" type="number" />
                     </div>
-                    <div class="mt-10">
-                        <x-select label="رمز المنطقة"
-                         wire:model.lazy="form.city.id"
-                         placeholder="Select city"
-                         :async-data="route('cities_select')"
-                         {{-- :options="$cities" --}}
-                         clearable="false"
-                         option-label="name" option-value="id" />
-                    </div>
+
                 </div>
 
                 <div class="flex justify-end px-10 mt-5">
