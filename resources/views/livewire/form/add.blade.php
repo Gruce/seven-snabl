@@ -7,10 +7,10 @@
             <div x-show="formStep === 1">
                 <div class="px-10">
                     <div class="mt-5">
-                        <x-input wire:model.defer="firstName" label="تاريخ التنظيم" placeholder="User's first name" type="date" />
+                        <x-input  label="تاريخ التنظيم" placeholder="User's first name" type="date" />
                     </div>
                     <div class="mt-10">
-                        <x-input wire:model.defer="firstName" label="رقم الاستمارة" placeholder="User's first name" type="number" />
+                        <x-input  label="رقم الاستمارة" placeholder="User's first name" type="number" />
                     </div>
 
                 </div>
