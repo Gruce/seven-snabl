@@ -5,7 +5,7 @@ use App\Http\Livewire\City\Main as CityMain;
 use App\Http\Livewire\Form\Main as FormMain;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Livewire\Form\Show;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('forms')->group(function(){
         Route::get('/', FormMain::class)->name('forms');
+        Route::get('/show', Show::class)->name('show');
     });
 
     Route::prefix('cities')->group(function(){
