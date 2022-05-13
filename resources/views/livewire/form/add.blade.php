@@ -7,10 +7,10 @@
             <div x-show="formStep === 1">
                 <div class="px-10">
                     <div class="mt-5">
-                        <x-input wire:model.defer="firstName" label="تاريخ التنظيم" placeholder="User's first name" type="date" />
+                        <x-input  label="تاريخ التنظيم" placeholder="User's first name" type="date" />
                     </div>
                     <div class="mt-10">
-                        <x-input wire:model.defer="firstName" label="رقم الاستمارة" placeholder="User's first name" type="number" />
+                        <x-input  label="رقم الاستمارة" placeholder="User's first name" type="number" />
                     </div>
 
                 </div>
@@ -54,7 +54,7 @@
             <!-- Head info -->
             <div x-show="formStep === 3" class="space-y-4">
                 <div class="px-10">
-                    <div class="grid lg:grid-cols-10 md:grid-cols-10 sm:grid-cols-1 gap-5">
+                    <div class="grid gap-5 lg:grid-cols-10 md:grid-cols-10 sm:grid-cols-1">
                         <div class="lg:col-span-5 sm:col-span-10 xs:col-span-10">
                             <x-card shadow=false>
                                 <x-input wire:model.defer="form.head_family.name" label="اسم رب الاسرة" placeholder="ادخل الاسم" />
@@ -62,11 +62,11 @@
                         </div>
                         <div class="lg:col-span-5 sm:col-span-10" xs:col-span-10>
                             <x-card shadow=false>
-                                <div class="grid grid-cols-10 gap-5">
-                                    <div class="ml-5">
-                                        <h1 class="text-lg">النسب</h1>
+                                <div class="grid gap-5 lg:grid-cols-10 sm:grid-cols-5 place-content-center">
+                                    <div>
+                                        <span class="lg:text-lg sm:text-xs">النسب</span>
                                     </div>
-                                    <div class="w-auto col-span-4">
+                                    <div class="lg:col-span-4 sm:col-span-2">
                                         <div class="grid grid-cols-4 gap-6">
                                             <div>
                                                 <label>سيد</label>
@@ -78,10 +78,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="ml-5">
-                                        <h1 class="text-lg">الحالة</h1>
+                                    <div>
+                                        <span class="lg:text-lg sm:text-xs">الحالة</span>
                                     </div>
-                                    <div class="w-auto col-span-4">
+                                    <div class="lg:col-span-4 sm:col-span-2">
                                         <div class="grid grid-cols-4 gap-6">
                                             <div>
                                                 <label>حي</label>
@@ -97,48 +97,56 @@
                             </x-card>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-5 mt-10">
+                    <div class="grid gap-5 mt-10 lg:grid-cols-2 sm:grid-cols-1">
                         <div>
-                            <x-input wire:model.defer="form.head_family.job" label="عمل رب الاسرة" placeholder="ادخل العمل " />
+                            <x-card shadow=false>
+                                <x-input wire:model.defer="form.head_family.job" label="عمل رب الاسرة" placeholder="ادخل العمل " />
+                            </x-card>
                         </div>
                         <div>
-                            <x-input wire:model.defer="form.head_family.salary" label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
+                            <x-card shadow=false>
+                                <x-input wire:model.defer="form.head_family.salary" label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
+                            </x-card>
                         </div>
                     </div>
-                    <div class="grid grid-cols-12 gap-5 mt-10">
-                        <div class="col-span-2">
-                            <h1 class="text-lg">هل يتقاضى راتب ؟</h1>
-                        </div>
-                        <div class="w-auto col-span-4">
-                            <div class="grid grid-cols-5 gap-6">
-                                <div>
-                                    <label>تقاعد</label>
-                                    <x-radio value="1" lg wire:model.defer="form.person.have_salary" />
-                                </div>
-                                <div>
-                                    <label>رعاية</label>
-                                    <x-radio value="2" lg wire:model.defer="form.person.have_salary" />
-                                </div>
-                                <div>
-                                    <label>مؤسسة</label>
-                                    <x-radio value="3" lg wire:model.defer="form.person.have_salary" />
-                                </div>
-                                <div>
-                                    <label>مساعدات</label>
-                                    <x-radio value="4" lg wire:model.defer="form.person.have_salary" />
-                                </div>
-                                <div>
-                                    <label>حكومي</label>
-                                    <x-radio value="5" lg wire:model.defer="form.person.have_salary" />
+                    <x-card shadow=false>
+                        <div class="grid gap-5 lg:grid-cols-12 sm:grid-cols-6">
+                            <div class="lg:col-span-2 sm:col-span-2">
+                                <span class="lg:text-lg sm:text-xs">هل يتقاضى راتب ؟</span>
+                            </div>
+                            <div class="w-auto lg:col-span-4 sm:col-span-12">
+                                <div class="grid gap-6 lg:grid-cols-5 sm:grid-cols-2">
+                                    <div>
+                                        <label>تقاعد</label>
+                                        <x-radio value="1" lg wire:model.defer="form.person.have_salary" />
+                                    </div>
+                                    <div>
+                                        <label>رعاية</label>
+                                        <x-radio value="2" lg wire:model.defer="form.person.have_salary" />
+                                    </div>
+                                    <div>
+                                        <label>مؤسسة</label>
+                                        <x-radio value="3" lg wire:model.defer="form.person.have_salary" />
+                                    </div>
+                                    <div>
+                                        <label>مساعدات</label>
+                                        <x-radio value="4" lg wire:model.defer="form.person.have_salary" />
+                                    </div>
+                                    <div>
+                                        <label>حكومي</label>
+                                        <x-radio value="5" lg wire:model.defer="form.person.have_salary" />
+                                    </div>
                                 </div>
                             </div>
+                            <div class="w-auto lg:col-span-6 sm:col-span-12">
+                                <x-input wire:model.defer="form.person.salary" label="مقداره" placeholder="ادخل مقداره" />
+                            </div>
                         </div>
-                        <div class="w-auto col-span-6">
-                            <x-input wire:model.defer="form.person.salary" label="مقداره" placeholder="ادخل مقداره" />
-                        </div>
-                    </div>
+                    </x-card>
                     <div class="mt-10">
-                        <x-input wire:model.defer="form.person.father_phonenumber" label="رقم هاتف الاب" placeholder="ادخل الرقم " />
+                        <x-card shadow=false>
+                            <x-input wire:model.defer="form.person.father_phonenumber" label="رقم هاتف الاب" placeholder="ادخل الرقم " />
+                        </x-card>
                     </div>
                 </div>
                 <x-ui.button></x-ui.button>

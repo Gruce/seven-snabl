@@ -13,7 +13,7 @@ use phpDocumentor\Reflection\Types\Null_;
 class Add extends Component
 {
     public $form;
-    
+
     protected $rules = [
         // Personal Info
         'form.person.level' => 'required',
@@ -47,6 +47,7 @@ class Add extends Component
         'form.family_members.*.name' => 'required',
     ];
 
+
     public function addFamilyMember(){
         $this->form['family_members'][] = [
             'name' => '',
@@ -70,7 +71,8 @@ class Add extends Component
     }
 
     public function save() {
-        $this->validate();
+        dg($this->form);
+
 
         $form = new Form();
         $form->add($this->form);

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('form_id')->nullable()->constrained('forms')->onDelete('cascade');
 
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->integer('kinship')->nullable();
             /*
                 1 - اب
