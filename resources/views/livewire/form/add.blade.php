@@ -54,41 +54,47 @@
             <!-- Head info -->
             <div x-show="formStep === 3" class="space-y-4">
                 <div class="px-10">
-                    <div class="grid grid-cols-10 gap-5">
-                        <div class="w-auto col-span-10">
-                            <x-input wire:model.defer="form.head_family.name" label="اسم رب الاسرة" placeholder="ادخل الاسم" />
+                    <div class="grid lg:grid-cols-10 md:grid-cols-10 sm:grid-cols-1 gap-5">
+                        <div class="lg:col-span-5 sm:col-span-10 xs:col-span-10">
+                            <x-card shadow=false>
+                                <x-input wire:model.defer="form.head_family.name" label="اسم رب الاسرة" placeholder="ادخل الاسم" />
+                            </x-card>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-10 gap-5 mt-10">
-                        <div>
-                            <h1 class="text-lg">النسب</h1>
-                        </div>
-                        <div class="w-auto col-span-4">
-                            <div class="grid grid-cols-4 gap-6">
-                                <div>
-                                    <label>سيد</label>
-                                    <x-radio value="1" lg wire:model.defer="form.head_family.is_mr" />
+                        <div class="lg:col-span-5 sm:col-span-10" xs:col-span-10>
+                            <x-card shadow=false>
+                                <div class="grid grid-cols-10 gap-5">
+                                    <div class="ml-5">
+                                        <h1 class="text-lg">النسب</h1>
+                                    </div>
+                                    <div class="w-auto col-span-4">
+                                        <div class="grid grid-cols-4 gap-6">
+                                            <div>
+                                                <label>سيد</label>
+                                                <x-radio value="1" lg wire:model.defer="form.head_family.is_mr" />
+                                            </div>
+                                            <div>
+                                                <label>عامي</label>
+                                                <x-radio value="0" lg wire:model.defer="form.head_family.is_mr" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ml-5">
+                                        <h1 class="text-lg">الحالة</h1>
+                                    </div>
+                                    <div class="w-auto col-span-4">
+                                        <div class="grid grid-cols-4 gap-6">
+                                            <div>
+                                                <label>حي</label>
+                                                <x-radio value="1" lg wire:model.defer="form.head_family.is_alive" />
+                                            </div>
+                                            <div>
+                                                <label>متوفي</label>
+                                                <x-radio value="0" lg wire:model.defer="form.head_family.is_alive" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label>عامي</label>
-                                    <x-radio value="0" lg wire:model.defer="form.head_family.is_mr" />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h1 class="text-lg">الحالة</h1>
-                        </div>
-                        <div class="w-auto col-span-4">
-                            <div class="grid grid-cols-4 gap-6">
-                                <div>
-                                    <label>حي</label>
-                                    <x-radio value="1" lg wire:model.defer="form.head_family.is_alive" />
-                                </div>
-                                <div>
-                                    <label>متوفي</label>
-                                    <x-radio value="0" lg wire:model.defer="form.head_family.is_alive" />
-                                </div>
-                            </div>
+                            </x-card>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-5 mt-10">

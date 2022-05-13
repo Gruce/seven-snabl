@@ -1,15 +1,15 @@
 <div>
     <div class="mt-3" x-data="{ open: false }">
-        <x-button
-            @click="open = ! open"
-            primary
-            label="+"
-            class="mb-3"
-        />
-        <div x-show="open" @click.outside="open = false" class="mb-3">
-            @livewire('form.add')
-        </div>
         <x-card>
+            <x-button
+                @click="open = ! open"
+                primary
+                label="اضافة"
+                class="mb-3"
+            />
+            <div x-show="open" @click.outside="open = false" class="mb-3">
+                @livewire('form.add')
+            </div>
             <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ">
                 @for ($i=0 ; $i < 10 ; $i++)
                     <x-card class="shadow-none" title="التنومة">
@@ -20,8 +20,8 @@
                         </x-slot>
                         <x-slot name="footer">
                             <div class="flex justify-between items-center">
-                                <x-button label="حذف" flat negative />
-                                <x-button label="عرض" primary />
+                                <x-button negative icon="x" />
+                                <x-button primary icon="view-grid-add" />
                             </div>
                         </x-slot>
                         <!-- Card Content -->
