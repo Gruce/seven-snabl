@@ -1,3 +1,12 @@
 <div>
-    {{-- Close your eyes. Count to one. That is how long forever feels. --}}
+    <div class="mt-3">
+        <x-card>
+            <div>
+                @livewire('city.add')
+            </div>
+            <div>
+                @livewire('city.show')
+            </div>
+        </x-card>
+    </div>
 </div>
