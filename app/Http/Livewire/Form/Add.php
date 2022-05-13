@@ -3,12 +3,9 @@
 namespace App\Http\Livewire\Form;
 
 use App\Models\Form;
-use App\Models\HeadOfTheFamilyInfo;
-use App\Models\PersonalInfo;
-use App\Models\WifeInfo;
+
 use App\Models\City;
 use Livewire\Component;
-use phpDocumentor\Reflection\Types\Null_;
 
 class Add extends Component
 {
@@ -51,6 +48,7 @@ class Add extends Component
     public function addFamilyMember(){
         $this->form['family_members'][] = [
             'name' => '',
+
         ];
     }
     public function deleteFamilyMember($index){
@@ -71,11 +69,11 @@ class Add extends Component
     }
 
     public function save() {
-        dg($this->form);
-
-
         $form = new Form();
         $form->add($this->form);
+        $this->notification()->success(
+            $title = 'تم إضافة البيانات بنجاح',
+        );
     }
 
     public function render(){
