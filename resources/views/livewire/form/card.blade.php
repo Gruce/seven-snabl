@@ -40,7 +40,6 @@
                             </li>
                         </ul>
                     </nav>
-
                     <div class="p-2 mt-1 border rounded">
                         <div x-show="activeTab === 'first'">
                             <div class="flex items-center justify-between p-2 text-sm rounded bg-slate-50">
@@ -120,12 +119,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
-
         </div>
         </x-card>
         @endfor
