@@ -12,7 +12,7 @@ class FamilyMember extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $appends = ['kinship_name'];
+    protected $appends = ['kinship_name', 'is_mr_name', 'is_alive' ];
 
     public function form(){
         return $this->belongsTo(Form::class);
@@ -27,7 +27,7 @@ class FamilyMember extends Model
 
     ### END MATHOD ###
 
-    
+
     ### Accessors & Mutators ###
 
     protected function kinshipName(): Attribute {
@@ -50,6 +50,32 @@ class FamilyMember extends Model
                         return 'اخت';
                     case 8:
                         return 'حفيد';
+                }
+            },
+        );
+    }
+
+    protected function isMrName(): Attribute {
+        return Attribute::make(
+            get: function () {
+                switch ($this->is_mr){
+                    case true:
+                        return 'سيد';
+                    case false:
+                        return 'عامي';
+                }
+            },
+        );
+    }
+
+    protected function isAlive(): Attribute {
+        return Attribute::make(
+            get: function () {
+                switch ($this->is_aliv){
+                    case true:
+                        return 'حي';
+                    case false:
+                        return 'ميت';
                 }
             },
         );

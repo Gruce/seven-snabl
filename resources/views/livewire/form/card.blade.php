@@ -1,5 +1,5 @@
 <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
-    @for ($i=0 ; $i < 10 ; $i++) <x-card shadow=false title="التنومة">
+     <x-card shadow=false title="التنومة">
         <x-slot name="action">
             <x-dropdown>
                 <x-dropdown.item icon="document-text" label="استعراض" />
@@ -46,87 +46,87 @@
                             <div class="flex items-center justify-between p-2 text-sm rounded bg-slate-50">
                                 <div>
                                     <span class="text-sm text-slate-500">#12689</span>
-                                    <span class="font-semibold text-slate-600 text-md">جبار علي محمد</span>
+                                    <span class="font-semibold text-slate-600 text-md">{{$form->head_family->name}}  </span>
                                 </div>
-                                <span class="px-2 py-1 font-semibold rounded text-slate-500 bg-slate-100">B2</span>
+                                <span class="px-2 py-1 font-semibold rounded text-slate-500 bg-slate-100">{{$form->person->level_name}}</span>
                             </div>
                             <div class="grid grid-cols-2 gap-1 mt-1 text-center text-slate-500">
-                                <span class="py-1 text-sm rounded bg-slate-50">سيد</span>
-                                <span class="py-1 text-sm rounded bg-slate-50">حي</span>
+                                <span class="py-1 text-sm rounded bg-slate-50">{{$form->head_family->is_mr_name}}</span>
+                                <span class="py-1 text-sm rounded bg-slate-50">{{$form->head_family->is_alive}}</span>
                             </div>
                             <div class="grid grid-cols-2 gap-1 mt-1 text-center text-slate-500">
-                                <span class="py-1 text-sm rounded bg-slate-50">نجار</span>
-                                <span class="py-1 text-sm rounded bg-slate-50">300,000 د.ع</span>
+                                <span class="py-1 text-sm rounded bg-slate-50">{{$form->head_family->job}}</span>
+                                <span class="py-1 text-sm rounded bg-slate-50">{{$form->head_family->salary}}</span>
                             </div>
                             <div class="flex items-center p-2 mt-1 text-sm rounded bg-slate-50">
                                 <span class="text-sm text-slate-500">الزوجة</span>
-                                <span class="mr-2 font-semibold text-slate-600 text-md">جباره علي محمد</span>
+                                <span class="mr-2 font-semibold text-slate-600 text-md"> {{$form->wife->name}} </span>
                             </div>
                             <div class="grid grid-cols-2 gap-1 mt-1 text-center text-slate-500">
-                                <span class="py-1 text-sm rounded bg-slate-50">سيد</span>
-                                <span class="py-1 text-sm rounded bg-slate-50">حي</span>
+                                <span class="py-1 text-sm rounded bg-slate-50">{{$form->wife->is_mis_name}}</span>
+                                <span class="py-1 text-sm rounded bg-slate-50">{{$form->head_family->is_alive}}</span>
                             </div>
                             <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
                                 <span class="mr-2 text-slate-600 text-md">رقم هاتف الأب</span>
-                                <span class="text-sm text-slate-500">077123456789</span>
+                                <span class="text-sm text-slate-500">{{$form->person->father_phonenumber}}</span>
                             </div>
                             <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
                                 <span class="mr-2 text-slate-600 text-md">رقم هاتف الأم</span>
-                                <span class="text-sm text-slate-500">077123456789</span>
+                                <span class="text-sm text-slate-500">{{$form->person->mother_phonenumber}}</span>
                             </div>
                         </div>
 
                         <div x-show="activeTab === 'second'">
                             <div class="flex items-center p-2 text-sm rounded bg-slate-50">
-                                <span class="text-slate-600 text-md">البصرة، التنومة، شط العرب، حي جاسم ابو الغاز</span>
+                                <span class="text-slate-600 text-md">{{$form->person->location}}</span>
                             </div>
                             <div class="flex items-center p-2 mt-1 text-sm rounded bg-slate-50">
                                 <span class="text-sm text-slate-500">قرب</span>
-                                <span class="mr-2 text-slate-600 text-md">خالتك الشكره</span>
+                                <span class="mr-2 text-slate-600 text-md">{{$form->person->point}}</span>
                             </div>
                             <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
-                                <span class="text-sm text-slate-600">تجاوز</span>
-                                <span class="text-slate-600 text-md">300,000 د.ع</span>
+                                <span class="text-sm text-slate-600">{{$form->person->location_name}}</span>
+                                <span class="text-slate-600 text-md">{{$form->person->rent}}</span>
                             </div>
                         </div>
 
                         <div x-show="activeTab === 'third'">
                             <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
-                                <span class="text-sm text-slate-600">5 أفراد</span>
-                                <span class="text-slate-600 text-md">يعملون في المستشفى</span>
+                                <span class="text-sm text-slate-600">{{$form->person->family_count}} أفراد</span>
+                                <span class="text-slate-600 text-md">يعملون في {{$form->person->family_work}}</span>
                             </div>
-                            {{-- Foreach members --}}
+                            @forelse ($form->family_members as $family_member) )
                             <div class="flex flex-col p-2 mt-1 text-sm rounded bg-slate-50">
                                 <div class="flex justify-between mb-1">
                                     <div>
                                         <span class="px-2 rounded bg-slate-100">1</span>
-                                        <span class="text-sm font-semibold text-slate-600">جبار علي محمد</span>
+                                    <span class="text-sm font-semibold text-slate-600"> {{$family_member->name}} </span>
                                     </div>
                                     <div>
-                                        <span class="px-2 rounded text-slate-600 bg-slate-100"">صلة</span>
-                                        <span class="px-2 rounded text-slate-600 bg-slate-100"">1997-11-30</span>
+                                        <span class="px-2 rounded text-slate-600 bg-slate-100"">{{$family_member->kinship_name}} </span>
+                                        <span class="px-2 rounded text-slate-600 bg-slate-100"">{{$family_member->birthday}}</span>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-1 mt-1 text-center text-slate-500">
-                                    <span class="py-1 text-sm rounded bg-slate-100">سيد</span>
-                                    <span class="py-1 text-sm rounded bg-slate-100">حي</span>
+                                    <span class="py-1 text-sm rounded bg-slate-100">{{$family_member->is_mr_name}}</span>
+                                    <span class="py-1 text-sm rounded bg-slate-100">{{$family_member->is_alive}}</span>
                                 </div>
                                 <div class="grid grid-cols-2 gap-1 mt-1 text-center text-slate-500">
-                                    <span class="py-1 text-sm rounded bg-slate-100">المهنة</span>
-                                    <span class="py-1 text-sm rounded bg-slate-100">الحالة الصحية</span>
+                                    <span class="py-1 text-sm rounded bg-slate-100">{{$family_member->job}}</span>
+                                    <span class="py-1 text-sm rounded bg-slate-100">{{$family_member->health_state}}</span>
                                 </div>
                             </div>
+                            @empty
+                            <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
+                                <span class="text-sm text-slate-600">لا يوجد أفراد</span>
+                            @endforelse
+
                             {{-- End Foreach members --}}
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
-
         </div>
         </x-card>
-        @endfor
+
 </div>

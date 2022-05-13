@@ -40,7 +40,7 @@ class FormSeeder extends Seeder
         // Wife Info
 
         $wife = new WifeInfo;
-        $wife->name = "حمدية عمار جاسم";
+        $wife->name = "هدى عمار جاسم";
         $wife->state = 1;
         $form->wife()->save($wife);
 
@@ -63,7 +63,13 @@ class FormSeeder extends Seeder
         // Family Members
 
         $family_member = new FamilyMember;
-        $family_member->name = "احمد";
+        $family_member->name = "حسن كاظم";
+        $family_member->kinship =1;
+        $family_member->birthday = "2020-05-11";
+        $family_member->is_mr = 1;
+        $family_member->job = "صباغ";
+        $family_member->health_state = "جيدة";
+        $family_member->note = "لا يوجد";
         $form->family_members()->save($family_member);
 
     }
