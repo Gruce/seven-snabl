@@ -1457,9 +1457,6 @@ select {
 .w-64 {
   width: 16rem;
 }
-.w-32 {
-  width: 8rem;
-}
 .min-w-0 {
   min-width: 0px;
 }
@@ -2455,6 +2452,12 @@ select {
 }
 .pr-10 {
   padding-right: 2.5rem;
+}
+.pr-3\.5 {
+  padding-right: 0.875rem;
+}
+.pr-3 {
+  padding-right: 0.75rem;
 }
 .text-left {
   text-align: left;

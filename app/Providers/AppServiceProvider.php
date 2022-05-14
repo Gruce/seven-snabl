@@ -5,6 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;    // Must Must use
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Arr;
+
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +33,14 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('admin', function () {
             return auth()->check() && auth()->user()->is_admin ;
+        });
+
+        ### whereExist ###
+        Collection::macro('toFilter', function () {
+            $dots = Arr::dot($this->toArray());
+            return collect($dots)->map(function ($value, $key) {
+                return [$key, $value];
+            })->toArray();
         });
 
     }

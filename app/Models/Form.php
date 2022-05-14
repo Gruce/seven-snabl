@@ -73,6 +73,19 @@ class Form extends Model
 
 
 
+    ### START SCOPES ###
+
+    public function scopeWhereExist($query, $column, $value = null){
+        if (is_array($column)) foreach ($column as $value) $query->whereExist($value[0], $value[1]);
+        elseif ($value) {
+            $column = explode('.', $column);
+            if (isset($column[1])) $query->whereRelation($column[0], $column[1], $value);
+            else $query->where($column[0], $value);
+        }
+    }
+
+    ### END SCOPES ###
+
 
 
 
