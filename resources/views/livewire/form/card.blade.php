@@ -1,8 +1,9 @@
 <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
     <x-card shadow=false :title="'#'. $form->id. ' التنومة'">
-        <x-slot name="action">
+        <x-slot  name="action">
             <x-dropdown>
                 <x-dropdown.item href="{{route('show', [ 'id'=> $form->id]) }}" icon="document-text" label="استعراض" />
+                <x-dropdown.item @click="$openModal('cardModal-{{$form->id}}')" icon="document-text" label="تقديم هبه" />
                 <x-dropdown.item icon="x" label="حذف" />
             </x-dropdown>
         </x-slot>
@@ -43,6 +44,10 @@
                             <li class="grow">
                                 <x-button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full" slate outline href="#third" icon="user-group" label="العائلة" />
                                 <x-button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full" href="#third" icon="user-group" label="العائلة" />
+                            </li>
+                            <li class="grow mr-1">
+                                <x-button x-show="activeTab === 'fourth'" @click="activeTab = 'fourth'" class="w-full" slate outline href="#fourth" icon="user-group" label="الهبات" />
+                                <x-button x-show="activeTab != 'fourth'" @click="activeTab = 'fourth'" class="w-full" href="#fourth" icon="user-group" label="العائلة" />
                             </li>
                         </ul>
                     </nav>
@@ -191,8 +196,28 @@
                         {{-- End Foreach members --}}
                     </div>
                     {{-- END : THIRD TAB --}}
+
+                    {{-- FOURTH TAB --}}
+                    <div x-show="activeTab === 'fourth'">
+                        <div>
+                            <h1 class="mt-5">اضافة هبة</h1>
+                        <div>
+                        <div class="grid grid-cols-1 gap-1 my-1 text-center">
+                            <div class="flex flex-col py-1 text-sm  border-gray-200 ">
+                                <span class="text-slate-400 text-2xs">رقم الهبة</span>
+                                <x-input  placeholder="your name" type="number"/>
+                            </div>
+                            <div class="flex flex-col py-1 text-sm  border-gray-200 ">
+
+                                <x-textarea  placeholder="الملاحظات" />
+                            </div>
+                            <x-button class="mt-5  col-start-1 col-end-7" primary label="اضافة" />
+                        </div>
+                    </div>
+                    {{-- END : FOURTH TAB --}}
                 </div>
             </div>
-    </x-card>
 
+    </x-card>
+    @livewire('give.add', ['form' => $form])
 </div>
