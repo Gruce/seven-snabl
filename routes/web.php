@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('forms')->group(function(){
         Route::get('/', FormMain::class)->name('forms');
-        Route::get('/show', Show::class)->name('show');
+        Route::get('/show/{id}', Show::class)->name('show');
     });
 
     Route::prefix('cities')->group(function(){

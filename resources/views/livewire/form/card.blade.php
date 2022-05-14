@@ -1,8 +1,8 @@
 <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
-     <x-card shadow=false title="التنومة">
+    <x-card shadow=false title="التنومة">
         <x-slot name="action">
             <x-dropdown>
-                <x-dropdown.item icon="document-text" label="استعراض" />
+                <x-dropdown.item  href="{{route('show', [ 'id'=> $form->id]) }}"  icon="document-text" label="استعراض" />
                 <x-dropdown.item icon="x" label="حذف" />
             </x-dropdown>
         </x-slot>
@@ -95,7 +95,7 @@
                                 <span class="text-sm text-slate-600">{{$form->person->family_count}} أفراد</span>
                                 <span class="text-slate-600 text-md">يعملون في {{$form->person->family_work}}</span>
                             </div>
-                            @forelse ($form->family_members as $family_member) 
+                            @forelse ($form->family_members as $family_member)
                             <div class="flex flex-col p-2 mt-1 text-sm rounded bg-slate-50">
                                 <div class="flex justify-between mb-1">
                                     <div>
