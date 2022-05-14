@@ -6,6 +6,8 @@ use App\Http\Livewire\Form\Main as FormMain;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Form\Show;
+use App\Http\Livewire\Give\Main as GiveMain;
+use App\Http\Livewire\GiveType\Main as GiveTypeMain;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +48,12 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('cities')->group(function(){
         Route::get('/', CityMain::class)->name('cities');
     });
+
+    Route::prefix('give')->group(function(){
+        Route::get('/', GiveMain::class)->name('give');
+        Route::get('/type', GiveTypeMain::class)->name('give-type');
+    });
+
 
     Route::get('/cities_select', CityController::class)->name('cities_select');
 });
