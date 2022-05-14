@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\GiveForme;
-class GiveFormeSeeder extends Seeder
+use App\Models\GiveForm;
+
+class GiveFormSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,11 +15,11 @@ class GiveFormeSeeder extends Seeder
      */
     public function run()
     {
-        $giveForme = new GiveForme;
+        $giveForme = new GiveForm;
         $giveForme->form_id = 1;
         $giveForme->give_id = 1;
         $giveForme->note = 'ملاحظة ملاحظة';
-        
+
         $giveForme->save();
     }
 }
