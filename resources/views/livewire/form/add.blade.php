@@ -19,12 +19,13 @@
                     </div>
                     <div class="mt-10">
                         <x-select label="رمز المنطقة"
-                         wire:model.lazy="form.city.id"
-                         placeholder="Select city"
-                         :async-data="route('cities_select')"
-                         {{-- :options="$cities" --}}
-                         clearable="false"
-                         option-label="name" option-value="id" />
+                            wire:model.lazy="form.city.id"
+                            placeholder="Select city"
+                            :async-data="route('cities_select')"
+                            {{-- :options="$cities" --}}
+                            clearable="false"
+                            option-label="name" option-value="id"
+                        />
                     </div>
                 </div>
 
