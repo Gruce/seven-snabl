@@ -21,7 +21,7 @@
             </div> --}}
         </x-slot>
         <!-- Card Content -->
-        <div class="">
+        <div>
             <div class="flex flex-col">
                 <div class="mt-1" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
                     <nav>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="grid grid-cols-2 gap-1 mt-1 text-center text-slate-500">
                                 <span class="py-1 text-sm rounded bg-slate-50">{{$form->head_family->job}}</span>
-                                <span class="py-1 text-sm rounded bg-slate-50">{{$form->head_family->salary}}</span>
+                                <span class="py-1 text-sm rounded bg-slate-50">@money($form->head_family->salary)</span>
                             </div>
                             <div class="flex items-center p-2 mt-1 text-sm rounded bg-slate-50">
                                 <span class="text-sm text-slate-500">الزوجة</span>

@@ -1,3 +1,4 @@
+@section('title', 'الكشوفات')
 <div>
     <div class="mt-3" x-data="{ open: false }">
         <x-card>
