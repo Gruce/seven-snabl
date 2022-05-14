@@ -30,7 +30,7 @@ class FormSeeder extends Seeder
         // Head Family Info
 
         $head_family = new HeadOfTheFamilyInfo;
-        $head_family->name = 'حسن حازم';
+        $head_family->name = 'فلان فلان فلان';
         $head_family->is_mr = 1;
         $head_family->job = "صباغ";
         $head_family->salary = 200000;
@@ -40,7 +40,7 @@ class FormSeeder extends Seeder
         // Wife Info
 
         $wife = new WifeInfo;
-        $wife->name = "هدى عمار جاسم";
+        $wife->name = "فلانة فلان فلان";
         $wife->state = 1;
         $form->wife()->save($wife);
 
