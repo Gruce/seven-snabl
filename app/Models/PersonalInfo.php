@@ -16,7 +16,7 @@ class PersonalInfo extends Model
         'family_work'
     ];
 
-    protected $appends = ['level_name', 'location_name', 'have_salary' ];
+    protected $appends = ['level_name', 'location_name' ];
 
     ### START RELATIONS ###
 
@@ -80,22 +80,22 @@ class PersonalInfo extends Model
         );
     }
 
-    protected function haveSalary(): Attribute {
-        return Attribute::make(
-            get: function () {
-                switch ($this->have_salary){
-                    case 1:
-                        return 'تقاعد';
-                    case 2:
-                        return 'رعاية';
-                    case 3:
-                        return 'مؤسسة';
-                    case 4:
-                        return 'مساعدات';
-                    case 5:
-                        return 'حكومي';
-                }
-            },
-        );
-    }
+    // protected function haveSalary(): Attribute {
+    //     return Attribute::make(
+    //         get: function () {
+    //             switch ($this->have_salary){
+    //                 case 1:
+    //                     return 'تقاعد';
+    //                 case 2:
+    //                     return 'رعاية';
+    //                 case 3:
+    //                     return 'مؤسسة';
+    //                 case 4:
+    //                     return 'مساعدات';
+    //                 case 5:
+    //                     return 'حكومي';
+    //             }
+    //         },
+    //     );
+    // }
 }

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Database\Eloquent\Casts\Attribute;
 class HeadOfTheFamilyInfo extends Model
 {
     use HasFactory;
     use SoftDeletes;
-
+    protected $appends = ['is_mr_name','is_alive' ];
     ### START RELATIONS ###
     public function form(){
         return $this->belongsTo(Form::class);
@@ -24,5 +24,38 @@ class HeadOfTheFamilyInfo extends Model
         $this->save();
     }
 
+
+
+
     ### END MATHOD ###
+
+        ### Accessors & Mutators ###
+
+
+
+    protected function isMrName(): Attribute {
+        return Attribute::make(
+            get: function () {
+                switch ($this->is_mr){
+                    case true:
+                        return 'سيد';
+                    case false:
+                        return 'عامي';
+                }
+            },
+        );
+    }
+
+    protected function isAlive(): Attribute {
+        return Attribute::make(
+            get: function () {
+                switch ($this->is_aliv){
+                    case true:
+                        return 'حي';
+                    case false:
+                        return 'ميت';
+                }
+            },
+        );
+    }
 }

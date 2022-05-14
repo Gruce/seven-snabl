@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Form;
 
 use Livewire\Component;
-
+use App\Models\Form;
 class Main extends Component
 {
     public function render()
     {
-        return view('livewire.form.main');
+        $forms = Form::get();
+
+        return view('livewire.form.main',compact('forms'));
     }
 }
