@@ -2,13 +2,13 @@
     <x-card shadow=false title="التنومة">
         <x-slot name="action">
             <x-dropdown>
-                <x-dropdown.item  href="{{route('show', [ 'id'=> $form->id]) }}"  icon="document-text" label="استعراض" />
+                <x-dropdown.item href="{{route('show', [ 'id'=> $form->id]) }}" icon="document-text" label="استعراض" />
                 <x-dropdown.item icon="x" label="حذف" />
             </x-dropdown>
         </x-slot>
         <x-slot name="footer">
             <div class="flex justify-between text-xs">
-                <span class="px-2 py-1 rounded">1 Hour</span>
+                <span class="px-2 py-1 rounded">{{$form->updated_at->diffForHumans()}}</span>
                 @if (true)
                 <span class="px-2 py-1 text-green-600 bg-green-100 rounded">تمت مراجعتها</span>
                 @else
@@ -45,7 +45,7 @@
                             <div class="flex items-center justify-between p-2 text-sm rounded bg-slate-50">
                                 <div>
                                     <span class="text-sm text-slate-500">#12689</span>
-                                    <span class="font-semibold text-slate-600 text-md">{{$form->head_family->name}}  </span>
+                                    <span class="font-semibold text-slate-600 text-md">{{$form->head_family->name}} </span>
                                 </div>
                                 <span class="px-2 py-1 font-semibold rounded text-slate-500 bg-slate-100">{{$form->person->level_name}}</span>
                             </div>
@@ -99,7 +99,7 @@
                                 <div class="flex justify-between mb-1">
                                     <div>
                                         <span class="px-2 rounded bg-slate-100">1</span>
-                                    <span class="text-sm font-semibold text-slate-600"> {{$family_member->name}} </span>
+                                        <span class="text-sm font-semibold text-slate-600"> {{$family_member->name}} </span>
                                     </div>
                                     <div>
                                         <span class="px-2 rounded text-slate-600 bg-slate-100"">{{$family_member->kinship_name}} </span>
@@ -118,14 +118,14 @@
                             @empty
                             <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
                                 <span class="text-sm text-slate-600">لا يوجد أفراد</span>
-                            @endforelse
+                                @endforelse
 
-                            {{-- End Foreach members --}}
+                                {{-- End Foreach members --}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </x-card>
+    </x-card>
 
 </div>
