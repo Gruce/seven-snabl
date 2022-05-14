@@ -51,51 +51,18 @@ class Form extends Model
     ### START MATHOD ###
 
     public function add($data){
-        $form = Form::create([
-            'user_id' => auth()->id(),
-            'city_id' => $data['city']['id'],
-        ]);
+        // personal info
+        $this->person()->create($data['personal_info']);
 
-        // Head Family Info
+        // head of the family info
+        $this->head_family()->create($data['head_family']);
 
-        $head_family = new HeadOfTheFamilyInfo;
-        $head_family->name = $data['head_family']['name'];
-        $head_family->is_mr = $data['head_family']['is_mr'];
-        $head_family->job = $data['head_family']['job'];
-        $head_family->salary = $data['head_family']['salary'];
-        $head_family->is_alive = $data['head_family']['is_alive'];
-        $form->head_family()->save($head_family);
+        // wife info
+        $this->wife()->create($data['wife_info']);
 
-        // Wife Info
+        // family members
+        $this->family_members()->createMany($data['family_members']);
 
-        $wife = new WifeInfo;
-        $wife->name = $data['wife']['name'];
-        $wife->state = $data['wife']['state'];
-        $form->wife()->save($wife);
-
-        // Personal Info
-
-        $person = new PersonalInfo;
-        $person->level = $data['person']['level'];
-        $person->location = $data['person']['location'];
-        $person->point = $data['person']['point'];
-        $person->location_type = $data['person']['location_type'];
-        $person->rent = $data['person']['rent'];
-        $person->family_work = $data['person']['family_work'];
-        $person->family_count = $data['person']['family_count'];
-        $person->have_salary = $data['person']['have_salary'];
-        $person->salary = $data['person']['salary'];
-        $person->father_phonenumber = $data['person']['father_phonenumber'];
-        $person->mother_phonenumber = $data['person']['mother_phonenumber'];
-        $form->person()->save($person);
-
-        // Family Members
-
-        foreach ($data['family_members'] as $family_member) {
-            $family_member = new FamilyMember;
-            $family_member->name = $family_member['name'];
-            $form->family_members()->save($family_member);
-        }
     }
 
 

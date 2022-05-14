@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('personal_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('form_id')->nullable()->constrained('forms')->onDelete('cascade');
-
+            $table->string('name');
             $table->integer('level')->default(1); // 1 - B1 , 2 - B2 , 3 - B3 , 4 - B4
             $table->string('location')->nullable(); // المنطقة
             $table->string('point')->nullable(); // اقرب نقطة دالة
@@ -30,8 +30,6 @@ return new class extends Migration
 
             $table->integer('rent')->nullable(); // الايجار
             $table->text('family_work')->nullable();
-            $table->integer('family_count')->nullable();
-            $table->integer('have_salary')->default(1);
             /*
                 1 - تقاعد
                 2 - رعاية
