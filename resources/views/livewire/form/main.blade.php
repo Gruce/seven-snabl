@@ -1,6 +1,6 @@
 @section('title', 'الكشوفات')
 <div>
-    <div class="mt-3" x-data="{ open: false, filter: true }">
+    <div class="mt-3" x-data="{ open: false, filter: false }">
         <x-card shadow=false>
             <div class="flex justify-between p-2 mb-3 rounded bg-slate-50">
                 <x-button icon="plus" @click="open = ! open" primary label="اضافة" />
