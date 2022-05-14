@@ -48,13 +48,13 @@ class Add extends Component
     public function addFamilyMember(){
         $this->form['family_members'][] = [
             'name' => '',
-
         ];
     }
+
     public function deleteFamilyMember($index){
         unset($this->form['family_members'][$index]);
     }
-
+    
     public function updatedFormPersonFamilyCount(){
         $this->form['family_members'] = [];
         foreach(range(1, $this->form['person']['family_count']) as $member)
@@ -65,15 +65,24 @@ class Add extends Component
 
     public function mount(){
         $this->cities = City::get(['id', 'name'])->toArray();
+        // Initiate data
         $this->form['city']['id'] = 1;
+        $this->form['person']['level'] = 1;
+        $this->form['person']['have_salary'] = 1;
+        $this->form['person']['location_type'] = 1;
+        $this->form['head_family']['is_mr'] = 1;
+        $this->form['head_family']['is_alive'] = 1;
+        $this->form['wife']['name'] = '';
+        $this->form['wife']['state'] = 1;
     }
 
     public function save() {
-        $form = new Form();
-        $form->add($this->form);
-        $this->notification()->success(
-            $title = 'تم إضافة البيانات بنجاح',
-        );
+        dg($this->form);
+        // $form = new Form();
+        // $form->add($this->form);
+        // $this->notification()->success(
+        //     $title = 'تم إضافة البيانات بنجاح',
+        // );
     }
 
     public function render(){

@@ -75,7 +75,7 @@ class FamilyMember extends Model
                     case true:
                         return 'حي';
                     case false:
-                        return 'ميت';
+                        return 'متوفي';
                 }
             },
         );
