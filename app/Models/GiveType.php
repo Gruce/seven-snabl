@@ -12,4 +12,10 @@ class GiveType extends Model
     public function form_gives(){
         return $this->hasMany(GiveForm::class);
     }
+    public function add($data){
+        
+        $this->name=$data['name'];
+        $this->save();
+    }
+
 }

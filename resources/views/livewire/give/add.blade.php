@@ -1,8 +1,12 @@
-<x-modal.card title="Edit Customer" blur wire:model.defer="cardModal-{{$form->id}}">
+<x-modal.card title="Edit Customer" blur wire:model.defer="cardModal-{{ $form->id }}">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <x-input label="Name" placeholder="Your full name" />
+        <x-select
+        @foreach($gives as $give)
+              <option value="{{ $item->id }}">{{ $item->text }}</option>
+              @endforeach
+        ]" wire:model.lazy="input.person.level" option-label="name" option-value="id" />
         <x-input label="Phone" placeholder="USA phone" />
-        {{$form->id}}
+        {{ $form->id }}
     </div>
 
     <x-slot name="footer">
