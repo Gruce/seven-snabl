@@ -4,53 +4,74 @@ namespace App\Http\Livewire\Form;
 
 use Livewire\Component;
 use App\Models\Form;
+use WireUi\Traits\Actions;
 
 class Show extends Component
 {
+    use Actions;
+
+    public $input;
 
     protected $rules = [
-
         // Personal Info
-        'form.person.level' => 'required',
-        'form.person.location' => 'required',
-        'form.person.point' => 'required',
-        'form.person.location_type' => 'required',
-        'form.person.rent' => 'required',
-        'form.person.family_work' => 'required',
-        'form.person.family_count' => 'required',
-        'form.person.have_salary' => 'required',
-        'form.person.salary' => 'required',
-        'form.person.father_phonenumber' => 'required',
-        'form.person.mother_phonenumber' => 'required',
+        'input.person.level' => 'required',
+        'input.person.location' => 'required',
+        'input.person.point' => 'required',
+        'input.person.location_type' => 'required',
+        'input.person.rent' => 'required',
+        'input.person.family_work' => 'required',
+        'input.person.family_count' => 'required',
+        'input.person.have_salary' => 'required',
+        'input.person.salary' => 'required',
+        'input.person.father_phonenumber' => 'required',
+        'input.person.mother_phonenumber' => 'required',
 
         // Head of the family
-        'form.head_family.name' => 'required',
-        'form.head_family.is_mr' => 'required',
-        'form.head_family.job' => 'required',
-        'form.head_family.is_alive' => 'required',
-        'form.head_family.salary' => 'required',
+        'input.head_family.name' => 'required',
+        'input.head_family.is_mr' => 'required',
+        'input.head_family.job' => 'required',
+        'input.head_family.is_alive' => 'required',
+        'input.head_family.salary' => 'required',
 
         // Wife
-        'form.wife.name' => 'required',
-        'form.wife.is_mis' => 'required',
-        'form.wife.state' => 'required',
+        'input.wife.name' => 'required',
+        'input.wife.is_mis' => 'required',
+        'input.wife.state' => 'required',
 
 
         // Family Member
-        'form.family_members.name' => 'required',
-        'form.family_members.birthday' => 'required',
-        'form.family_members.kinship' => 'required',
-        'form.family_members.is_mr' => 'required',
-        'form.family_members.job' => 'required',
-        'form.family_members.health_state' => 'required',
-        'form.family_members.note' => 'required',
+        'input.family_members.*.name' => 'required',
+        'input.family_members.*.birthday' => 'required',
+        'input.family_members.*.kinship' => 'required',
+        'input.family_members.*.is_mr' => 'required',
+        'input.family_members.*.job' => 'required',
+        'input.family_members.*.health_state' => 'required',
+        'input.family_members.*.note' => 'required',
     ];
 
-    public function mount($id)
-    {
+    public function updatedInput($value, $index){
+        $index = explode('.', $index);
 
+        if (count($index) == 3) {
+            dg($index);
+            $this->form[$index[0]][$index[1]][$index[2]] = $value;
+            $this->form[$index[0]][$index[1]]->save();
+        } else {
+            $this->form[$index[0]][$index[1]] = $value;
+            $this->form[$index[0]]->save();
+        }
+
+        $this->notification()->info(
+            $title = 'تم تحديث البيانات بنجاح',
+        );
+    }
+
+    public function mount($id){
         $this->form = Form::findOrfail($id);
-       
+        $this->input['person'] = $this->form->person->toArray();
+        $this->input['family_members'] = $this->form->family_members->toArray();
+        $this->input['wife'] = $this->form->wife->toArray();
+        $this->input['head_family'] = $this->form->head_family->toArray();
     }
 
     public function render()

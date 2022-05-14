@@ -22,55 +22,56 @@ class FormSeeder extends Seeder
      */
     public function run() {
 
-        $form = Form::create([
-            'user_id' => 1,
-            'city_id' => 1,
+        $form = new Form;
+        $form->user_id = 1;
+        $form->city_id = 1;
+
+        $form->save();
+
+        $form->add([
+            'personal_info' => [
+                'name' => 'عبد العزيز',
+                'level' => 1,
+                'location' => 'شط العرب',
+                'point' => 'جسر الحوامد',
+                'location_type' => 1,
+                'rent' => 300000,
+                'family_work' => 'اي شي',
+                'salary' => 200000,
+                'father_phonenumber' => '0123456789',
+                'mother_phonenumber' => '0123456709',
+            ],
+            'head_family' => [
+                'name' => 'فلان فلان فلان',
+                'is_mr' => false,
+                'job' => 'مدرس',
+                'salary' => 200000,
+            ],
+            'wife_info' => [
+                'name' => 'زوجة',
+                'state' => 1,
+            ],
+            'family_members' => [
+                [
+                    'name' => 'ابن عبد العزيز',
+                    'is_mr' => false,
+                    'kinship' => 1,
+                    'birthday' => '2020-01-01',
+                    'health_state' => 'مريض',
+                    'job' => 'مدرس',
+                    'note' => 'لا يعمل',
+                ],
+                [
+                    'name' => 'ابن عبد عبدالله',
+                    'is_mr' => false,
+                    'kinship' => 1,
+                    'birthday' => '2020-01-01',
+                    'health_state' => 'صاحي',
+                    'job' => 'مدرس',
+                    'note' => 'لا يعمل',
+                ]
+            ]
         ]);
-
-        // Head Family Info
-
-        $head_family = new HeadOfTheFamilyInfo;
-        $head_family->name = 'فلان فلان فلان';
-        $head_family->is_mr = 1;
-        $head_family->job = "صباغ";
-        $head_family->salary = 200000;
-        $head_family->is_alive = 1;
-        $form->head_family()->save($head_family);
-
-        // Wife Info
-
-        $wife = new WifeInfo;
-        $wife->name = "فلانة فلان فلان";
-        $wife->state = 1;
-        $form->wife()->save($wife);
-
-        // Personal Info
-
-        $person = new PersonalInfo;
-        $person->level = 1;
-        $person->location = 'بصرة';
-        $person->point = "جسر الحوامد";
-        $person->location_type = 1;
-        $person->rent = 2000;
-        $person->family_work = "اي شي";
-        $person->family_count = 4;
-        $person->have_salary = 400000;
-        $person->salary = 600000;
-        $person->father_phonenumber = "077154906";
-        $person->mother_phonenumber = "076169507";
-        $form->person()->save($person);
-
-        // Family Members
-
-        $family_member = new FamilyMember;
-        $family_member->name = "حسن كاظم";
-        $family_member->kinship =1;
-        $family_member->birthday = "2020-05-11";
-        $family_member->is_mr = 1;
-        $family_member->job = "صباغ";
-        $family_member->health_state = "جيدة";
-        $family_member->note = "لا يوجد";
-        $form->family_members()->save($family_member);
 
     }
 }

@@ -120,7 +120,7 @@
                             </div>
                             <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                 <span class="text-slate-400 text-2xs">الإيجار</span>
-                                <span class="text-slate-500">{{$form->person->rent}}</span>
+                                <span class="text-slate-500">@money($form->person->rent, 'IQD')</span>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         <div class="grid grid-cols-2 gap-1 my-1 text-center">
                             <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                 <span class="text-slate-400 text-2xs">عدد افراد الأسرة</span>
-                                <span class="text-slate-500">{{$form->person->family_count}}</span>
+                                <span class="text-slate-500">{{$form->family_members->count()}}</span>
                             </div>
                             <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                 <span class="text-slate-400 text-2xs">العمل</span>
