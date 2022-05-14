@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\GiveForme;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CitySeeder::class,
             FormSeeder::class,
+            GiveTypeSeeder::class,
+            GiveFormeSeeder::class,
         ]);
     }
 }
