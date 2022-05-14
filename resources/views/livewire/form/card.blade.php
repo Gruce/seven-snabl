@@ -105,7 +105,7 @@
 
                     {{-- SECOND TAB --}}
                     <div x-show="activeTab === 'second'">
-                        <div class="grid grid-cols-2 gap-1 mt-1 text-center">
+                        <div class="grid grid-cols-2 gap-1 my-1 text-center">
                             <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                 <span class="text-slate-400 text-2xs">العنوان</span>
                                 <span class="text-slate-500">{{$form->person->location}}</span>
@@ -141,12 +141,12 @@
                         @forelse ($form->family_members as $family_member)
                         <div class="p-1 mb-1 border rounded">
                             <span class="mr-1 text-2xs text-slate-400">معلومات الفرد {{$loop->index+1}}</span>
-                            <div class="flex items-center justify-between p-1 text-sm">
-                                <span class="font-semibold text-slate-500 text-md">
+                            <div class="flex items-center justify-between p-1">
+                                <span class="text-sm font-semibold text-slate-500">
                                     {{$family_member->name}}
-                                    <span class="px-2 font-normal rounded bg-slate-50">{{$family_member->kinship_name}}</span>
+                                    <span class="px-2 text-xs font-normal rounded">( {{$family_member->kinship_name}} )</span>
                                 </span>
-                                <span class="text-slate-500">{{$family_member->birthday}}</span>
+                                <span class="text-xs text-slate-500">{{$family_member->birthday}}</span>
                             </div>
                             <div class="grid grid-cols-2 gap-1 mt-1 text-center">
                                 <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
