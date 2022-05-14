@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\SelectController;
 use App\Http\Livewire\City\Main as CityMain;
 use App\Http\Livewire\Form\Main as FormMain;
 use App\Http\Livewire\Index;
@@ -55,7 +56,11 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
-    Route::get('/cities_select', CityController::class)->name('cities_select');
+    // Route::get('/cities_select', CityController::class)->name('cities_select');
+    Route::controller(SelectController::class)->group(function () {
+        Route::get('/cities', 'cities')->name('cities_select');
+        Route::get('/give_types', 'giveTypes')->name('give_types_select');
+    });
 });
 
 

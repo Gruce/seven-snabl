@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('give_forms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('form_id')->nullable()->constrained('forms')->onDelete('cascade');
-            $table->foreignId('give_id')->nullable()->constrained('forms')->onDelete('cascade');
+            $table->foreignId('give_id')->nullable()->constrained('give_types')->onDelete('cascade');
             $table->text('note')->nullable();
             $table->timestamps();
         });

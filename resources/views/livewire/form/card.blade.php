@@ -45,10 +45,7 @@
                                 <x-button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full" slate outline href="#third" icon="user-group" label="العائلة" />
                                 <x-button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full" href="#third" icon="user-group" label="العائلة" />
                             </li>
-                            <li class="grow mr-1">
-                                <x-button x-show="activeTab === 'fourth'" @click="activeTab = 'fourth'" class="w-full" slate outline href="#fourth" icon="user-group" label="الهبات" />
-                                <x-button x-show="activeTab != 'fourth'" @click="activeTab = 'fourth'" class="w-full" href="#fourth" icon="user-group" label="العائلة" />
-                            </li>
+                           
                         </ul>
                     </nav>
                     {{-- FIRST TAB - BASICS --}}
@@ -149,14 +146,14 @@
                                 <span class="text-slate-500">{{$form->person->family_work}}</span>
                             </div>
                         </div>
-                        
+
                         @if ($family_count > 1)
                         <div class="flex justify-center my-1">
                             <x-button x-show="max > 1 && count != 1" xs label="السابق" icon="arrow-narrow-right" @click="count--" />
                             <x-button x-show="max > count" @click="count++" xs label="التالي" icon="arrow-narrow-left" />
                         </div>
                         @endif
-                        
+
                         @forelse ($form->family_members as $index => $family_member)
                         <div x-show="count == {{$index+1}}" class="p-1 mb-1 border rounded">
                             <span class="mr-1 text-2xs text-slate-400">معلومات الفرد {{$loop->index+1}}</span>
@@ -186,8 +183,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                         @empty
                         <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
                             <span class="text-sm text-slate-600">لا يوجد أفراد</span>
@@ -197,24 +194,7 @@
                     </div>
                     {{-- END : THIRD TAB --}}
 
-                    {{-- FOURTH TAB --}}
-                    <div x-show="activeTab === 'fourth'">
-                        <div>
-                            <h1 class="mt-5">اضافة هبة</h1>
-                        <div>
-                        <div class="grid grid-cols-1 gap-1 my-1 text-center">
-                            <div class="flex flex-col py-1 text-sm  border-gray-200 ">
-                                <span class="text-slate-400 text-2xs">رقم الهبة</span>
-                                <x-input  placeholder="your name" type="number"/>
-                            </div>
-                            <div class="flex flex-col py-1 text-sm  border-gray-200 ">
 
-                                <x-textarea  placeholder="الملاحظات" />
-                            </div>
-                            <x-button class="mt-5  col-start-1 col-end-7" primary label="اضافة" />
-                        </div>
-                    </div>
-                    {{-- END : FOURTH TAB --}}
                 </div>
             </div>
 

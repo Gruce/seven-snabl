@@ -4,6 +4,7 @@ namespace App\Http\Livewire\City;
 
 use Livewire\Component;
 use App\Models\City;
+
 class Add extends Component
 {
     public $city;
@@ -14,7 +15,8 @@ class Add extends Component
         'city.code' => 'required',
     ];
 
-    public function save() {
+    public function save()
+    {
 
         $this->validate();
         $city = new City;
@@ -22,12 +24,12 @@ class Add extends Component
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-        $this->emitTo('city.show','$refresh');
-
+        $this->emitTo('city.show', '$refresh');
     }
 
 
-    public function render() {
+    public function render()
+    {
         return view('livewire.city.add');
     }
 }
