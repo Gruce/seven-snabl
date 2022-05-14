@@ -32,7 +32,7 @@
 
         <x-dynamic-component
             :component="WireUiComponent::resolve('input')"
-            class="cursor-pointer overflow-hidden text-transparent dark:text-transparent"
+            class="overflow-hidden text-transparent cursor-pointer dark:text-transparent"
             x-ref="input"
             x-on:click="togglePopover"
             x-on:keydown.enter.stop.prevent="togglePopover"
@@ -51,9 +51,9 @@
                     'cursor-pointer': !config.readonly,
                 }">
                     <template x-if="!config.multiselect">
-                        <div class="absolute left-0 inset-y-0 pl-3.5 w-[calc(100%-3.5rem)] flex items-center" x-on:click="togglePopover">
+                        <div class="absolute right-0 inset-y-0 pr-3.5 w-[calc(100%-3.5rem)] flex items-center" x-on:click="togglePopover">
                             <span
-                                class="truncate text-secondary-700 dark:text-secondary-400 text-sm"
+                                class="text-sm truncate text-secondary-700 dark:text-secondary-400"
                                 x-show="!isEmpty()"
                                 x-html="getSelectedDysplayText()">
                             </span>
@@ -61,10 +61,10 @@
                     </template>
 
                     <template x-if="config.multiselect">
-                        <div class="absolute left-0 inset-y-0 pl-3 pr-14 w-full flex items-center overflow-hidden" x-on:click="togglePopover">
+                        <div class="absolute inset-y-0 left-0 flex items-center w-full pl-3 overflow-hidden pr-14" x-on:click="togglePopover">
                             <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar">
                                 <span
-                                    class="inline-flex text-secondary-700 dark:text-secondary-400 text-sm"
+                                    class="inline-flex text-sm text-secondary-700 dark:text-secondary-400"
                                     x-show="selectedOptions.length"
                                     x-text="selectedOptions.length">
                                 </span>
@@ -78,13 +78,13 @@
                                         <span style="max-width: 5rem" class="truncate" x-text="option.label"></span>
 
                                         <button
-                                            class="shrink-0 h-4 w-4 flex items-center text-secondary-400 justify-center hover:text-secondary-500"
+                                            class="flex items-center justify-center w-4 h-4 shrink-0 text-secondary-400 hover:text-secondary-500"
                                             x-on:click.stop="unSelect(option)"
                                             tabindex="-1"
                                             type="button">
                                             <x-dynamic-component
                                                 :component="WireUiComponent::resolve('icon')"
-                                                class="h-3 w-3"
+                                                class="w-3 h-3"
                                                 name="x"
                                             />
                                         </button>
@@ -97,7 +97,7 @@
             </x-slot>
 
             <x-slot name="append">
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 gap-x-2">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-2 gap-x-2">
                     @if ($clearable && !$readonly && !$disabled)
                         <button
                             x-show="!isEmpty()"
@@ -129,10 +129,7 @@
         </x-dynamic-component>
     </div>
 
-    <div class="
-            absolute w-full mt-1 rounded-lg overflow-hidden shadow-md bg-white z-10 border border-secondary-200
-            dark:bg-secondary-800 dark:border-secondary-600
-        "
+    <div class="absolute z-10 w-full mt-1 overflow-hidden bg-white border rounded-lg shadow-md border-secondary-200 dark:bg-secondary-800 dark:border-secondary-600"
         x-show="popover"
         x-transition
         x-cloak
@@ -155,7 +152,7 @@
         </template>
 
         <template x-if="popover">
-            <ul class="max-h-60 overflow-y-auto overscroll-contain soft-scrollbar select-none"
+            <ul class="overflow-y-auto select-none max-h-60 overscroll-contain soft-scrollbar"
                 tabindex="-1"
                 x-ref="optionsContainer"
                 name="wireui.select.options.{{ $name }}"
@@ -177,7 +174,7 @@
                     <div x-transition x-html="renderOption(option)"></div>
                 </template>
 
-                <li class="py-2 px-3 text-secondary-500 cursor-pointer"
+                <li class="px-3 py-2 cursor-pointer text-secondary-500"
                     x-show="displayOptions.length === 0"
                     x-on:click="closePopover">
                     {{ $emptyMessage ?? __('wireui::messages.empty_options') }}
