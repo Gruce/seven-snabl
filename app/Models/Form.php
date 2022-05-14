@@ -38,6 +38,10 @@ class Form extends Model
         return $this->hasMany(FamilyMember::class);
     }
 
+    public function gives(){
+        return $this->hasMany(GiveForme::class);
+    }
+
     public function head_family(){
         return $this->hasOne(HeadOfTheFamilyInfo::class);
     }
