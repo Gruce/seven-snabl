@@ -4,8 +4,10 @@ namespace App\Http\Livewire\City;
 
 use Livewire\Component;
 use App\Models\City;
+use WireUi\Traits\Actions;
 class Show extends Component
 {
+    use Actions;
     protected $listeners = [ '$refresh' ];
     // public function mount(){
     //     $this->cities = City::get();
@@ -32,7 +34,7 @@ class Show extends Component
         $this->notification()->success(
             $title = 'تم حذف البيانات بنجاح',
         );
-      
+
     }
 
 

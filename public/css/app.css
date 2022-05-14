@@ -1457,6 +1457,9 @@ select {
 .w-64 {
   width: 16rem;
 }
+.w-32 {
+  width: 8rem;
+}
 .min-w-0 {
   min-width: 0px;
 }

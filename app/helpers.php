@@ -8,3 +8,4 @@
         else $msg = 'warning';
         \Debugbar::$msg($data);
     }
+

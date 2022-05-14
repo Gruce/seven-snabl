@@ -29,14 +29,14 @@ class FormSeeder extends Seeder
         $form->save();
 
         $form->add([
-            'personal_info' => [
-                'name' => 'عبد العزيز',
+            'person' => [
                 'level' => 1,
                 'location' => 'شط العرب',
                 'point' => 'جسر الحوامد',
                 'location_type' => 1,
                 'rent' => 300000,
                 'family_work' => 'اي شي',
+                'salary_type' => 1,
                 'salary' => 200000,
                 'father_phonenumber' => '0123456789',
                 'mother_phonenumber' => '0123456709',
@@ -47,7 +47,7 @@ class FormSeeder extends Seeder
                 'job' => 'مدرس',
                 'salary' => 200000,
             ],
-            'wife_info' => [
+            'wife' => [
                 'name' => 'زوجة',
                 'state' => 1,
             ],

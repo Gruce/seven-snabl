@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        {{-- <x-jet-application-mark class="block h-9 w-auto" /> --}}
+                        <img src="{{ asset('img/a.png') }}" class="mt-3 pb-3" alt="logo" width="80" height="80">
                     </a>
                 </div>
 
@@ -17,6 +18,9 @@
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('forms') }}" :active="request()->routeIs('forms')">
                         الكشوفات
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('cities') }}" :active="request()->routeIs('cities')">
+                        المدن
                     </x-jet-nav-link>
                 </div>
             </div>
