@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -18,17 +18,20 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased"  dir="rtl">
+    <body class="font-sans antialiased" dir="rtl">
         <x-jet-banner />
         <x-notifications />
         <x-dialog />
         <div class="min-h-screen bg-gray-100">
-            {{-- @livewire('navigation-menu') --}}
+            <div class="print:hidden">
+                @livewire('navigation-menu')
+            </div>
+
 
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -36,7 +39,7 @@
 
             <!-- Page Content -->
             <main>
-                <div class="container mx-auto px-4 py-5">
+                <div class="container px-4 py-5 mx-auto">
                     {{ $slot }}
                 </div>
             </main>

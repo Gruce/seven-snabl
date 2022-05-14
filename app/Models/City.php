@@ -24,7 +24,8 @@ class City extends Model
     ### START MATHOD ###
 
     public function add($data){
-        $this->fill($data);
+        $this->name = $data['name'];
+        $this->code = $data['code'];
         $this->save();
     }
 

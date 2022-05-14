@@ -5,7 +5,7 @@ use App\Http\Livewire\City\Main as CityMain;
 use App\Http\Livewire\Form\Main as FormMain;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Livewire\Form\Show;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,15 +22,15 @@ Route::get('/', function () {
 });
 
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 Route::middleware(['auth'])->group(function () {
 
@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('forms')->group(function(){
         Route::get('/', FormMain::class)->name('forms');
+        Route::get('/show/{id}', Show::class)->name('show');
     });
 
     Route::prefix('cities')->group(function(){

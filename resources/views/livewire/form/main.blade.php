@@ -1,13 +1,21 @@
 <div>
-    @livewire('form.add')
+    <div class="mt-3" x-data="{ open: false }">
+        <x-card>
+            <x-button
+                @click="open = ! open"
+                primary
+                label="اضافة"
+                class="mb-3"
+            />
+            <div x-show="open" @click.outside="open = false" class="mb-3">
+                @livewire('form.add')
+            </div>
+            @forelse ($forms as $form)
+            @livewire('form.card', ['form' => $form])
+            @empty
+                <div><h1>لايوجد</h1></div>
+            @endforelse
 
-    {{-- <div class="mt-3">
-        <x-card title="Your title here">
-            <x-slot name="action">
-                <button class="rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-600">
-                    <x-icon name="dots-vertical" class="w-4 h-4 text-gray-500" />
-                </button>
-            </x-slot>
         </x-card>
-    </div> --}}
+    </div>
 </div>
