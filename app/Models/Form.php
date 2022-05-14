@@ -51,7 +51,6 @@ class Form extends Model
     ### START MATHOD ###
 
     public function add($data){
-
         $form = Form::create([
             'user_id' => auth()->id(),
             'city_id' => $data['city']['id'],
