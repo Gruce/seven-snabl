@@ -50,7 +50,7 @@ class Show extends Component
     {
 
         $this->form = Form::findOrfail($id);
-        dd($this->form->toArray());
+       
     }
 
     public function render()
