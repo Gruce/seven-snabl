@@ -72,6 +72,7 @@
                                     <button x-show="!open" @click="open = true">{{ $form->person->level_name }}</button>
                                     <ul x-show="open" @click.away="open = false">
                                         <x-select
+                                        
                                         :options="[
                                             ['name' => 'B1',  'id' => 1],
                                             ['name' => 'B2', 'id' => 2],
@@ -82,7 +83,7 @@
                                         option-label="name"
                                         option-value="id"
                                     />
-                                        
+
                                     </ul>
                                 </div>
                             </th>
