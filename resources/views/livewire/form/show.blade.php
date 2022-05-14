@@ -10,7 +10,7 @@
                 </span>
             </div>
             <div class="flex justify-center basis-1/3 ">
-                <img  width="100" height="100" src="{{ asset('img/a.png') }}">
+                <img width="100" height="100" src="{{ asset('img/a.png') }}">
             </div>
             <div class="  basis-1/3">
                 <div class="flex gap-2 flex-row justify-end ">
@@ -69,56 +69,57 @@
                         <tr class="bg-white border-b ">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> B   </button>
+                                    <button x-show="!open" @click="open = true">{{ $form->person->level_name }}</button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.level" type="text">
                                     </ul>
                                 </div>
                             </th>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open"  @click="open = true"> حسن حازم جداوي </button >
+                                    <button x-show="!open" @click="open = true">{{ $form->head_family->name }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.name" type="text">
                                     </ul>
                                 </div>
 
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> سيد </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->head_family->is_mr_name }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.is_mr" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> حي </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->head_family->is_alive }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.is_alive" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> موظف   </button>
-
+                                    <button x-show="!open" @click="open = true"> {{ $form->head_family->job }} </button>
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.job" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> 346   </button>
-
+                                    <button x-show="!open" @click="open = true"> {{ $form->head_family->salary }}
+                                    </button>
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.salary" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -154,47 +155,50 @@
 
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> هدى احمد مصطفى </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->wife->name }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> سيد  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->wife->is_mis_name }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.is_mis" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> حيه  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->wife->is_alive }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.state" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> 07729454553  </button>
+                                    <button x-show="!open" @click="open = true">
+                                        {{ $form->person->father_phonenumber }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.father_phonenumber" type="text">
                                     </ul>
                                 </div>
 
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> 077159454553  </button>
+                                    <button x-show="!open" @click="open = true">
+                                        {{ $form->person->mother_phonenumber }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.mother_phonenumber" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -226,37 +230,41 @@
                         <tr class="bg-white border-b  ">
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> التنومة  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->person->location }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.location" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> شارع 34  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->person->point }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.point" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> ملك  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->person->location_name }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.location_type" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> 0  </button>
+                                    <button x-show="!open" @click="open = true">
+                                        {{ $form->person->location_name == 'ايجار' ? $form->person->rent : 'لايوجد' }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.rent" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -288,37 +296,40 @@
                         <tr class="bg-white border-b  ">
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> لايوجد  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->person->family_work }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.family_work" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> 4  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->person->family_count }}
+                                    </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.family_count" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> نعم  </button>
+                                    <button x-show="!open" @click="open = true">
+                                        {{ $form->person->salary != '0' ? 'نعم' : 'لا' }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.have_salary" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> 4435  </button>
+                                    <button x-show="!open" @click="open = true"> {{ $form->person->salary }} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.salary" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -361,66 +372,71 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($form->family_members as $member)
                         <tr class="bg-white border-b  ">
-                            <td class="px-6 py-4">
-                                1
-                            </td>
+                            <td class="px-6 py-4">{{ $loop->iteration }}</td>
 
                             <td x-data="{ open: false }" class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> حسن كاظم حميد</button>
+                                    <button x-show="!open" @click="open = true"> {{$member->name}} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true">ابن</button>
+                                    <button x-show="!open" @click="open = true">{{$member->kinship_name}}</button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4 ">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> ابي الخصيب </button>
+                                    <button x-show="!open" @click="open = true"> {{$member->birthday}} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> سيد  </button>
+                                    <button x-show="!open" @click="open = true"> {{$member->is_mr_name}} </button>
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> عاطل  </button>
+                                    <button x-show="!open" @click="open = true"> {{$member->job}} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> مريض  </button>
+                                    <button x-show="!open" @click="open = true"> {{$member->health_state}}  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
 
                         </tr>
+                        @empty
+                        <tr>
+                            <td colspan="7" class="text-center">
+                                لا يوجد بيانات
+                            </td>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
