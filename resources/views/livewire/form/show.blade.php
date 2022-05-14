@@ -441,7 +441,7 @@
                 </table>
             </div>
             <div>
-                <textarea class="w-full" name="" id="" cols="10" rows="3" placeholder="الملاحظات"></textarea>
+                <x-textarea class="w-full mt-3" placeholder="الملاحظات" />
             </div>
             <div class="flex flex-row justify-between mt-5">
                 <div>
