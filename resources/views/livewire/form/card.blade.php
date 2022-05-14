@@ -8,17 +8,23 @@
         </x-slot>
         <x-slot name="footer">
             <div class="flex justify-between text-xs">
-                <span class="px-2 py-1 rounded">{{$form->updated_at->diffForHumans()}}</span>
-                @if (true)
-                <span class="px-2 py-1 text-green-600 bg-green-100 rounded">تمت مراجعتها</span>
-                @else
-                <span class="px-2 py-1 text-red-600 bg-red-100 rounded">لم تتم المراجعة</span>
-                @endif
+                <div class="flex flex-col items-center justify-center gap-1">
+                    <x-icon name="clock" class="w-4 h-4 text-slate-400" />
+                    <span class="px-2 py-1 rounded text-slate-500">
+                        {{$form->updated_at->diffForHumans()}}
+                    </span>
+                </div>
+
+                <div class="flex flex-col items-center justify-center gap-1">
+                    @if (true)
+                        <x-icon name="check" class="w-4 h-4 text-green-500" />
+                        <span class="px-2 py-1 text-slate-500">تمت مراجعتها</span>
+                    @else
+                        <x-icon name="x" class="w-4 h-4 text-red-500" />
+                        <span class="px-2 py-1 text-slate-500">لم تتم المراجعة</span>
+                    @endif
+                </div>
             </div>
-            {{-- <div class="flex items-center justify-between">
-                <x-button negative icon="x" label="حذف" />
-                <x-button primary icon="view-grid-add" label="استعراض" href="{{route('show')}}" />
-            </div> --}}
         </x-slot>
         <!-- Card Content -->
         <div>
@@ -127,7 +133,7 @@
                     {{-- END : SECOND TAB --}}
 
                     {{-- THIRD TAB --}}
-                    <div x-show="activeTab === 'third'">
+                    <div x-data="{count: 1, max: $wire.family_count}" x-show="activeTab === 'third'">
                         <div class="grid grid-cols-2 gap-1 my-1 text-center">
                             <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                 <span class="text-slate-400 text-2xs">عدد افراد الأسرة</span>
@@ -138,8 +144,16 @@
                                 <span class="text-slate-500">{{$form->person->family_work}}</span>
                             </div>
                         </div>
-                        @forelse ($form->family_members as $family_member)
-                        <div class="p-1 mb-1 border rounded">
+                        
+                        @if ($family_count > 1)
+                        <div class="flex justify-center my-1">
+                            <x-button x-show="max > 1 && count != 1" xs label="السابق" icon="arrow-narrow-right" @click="count--" />
+                            <x-button x-show="max > count" @click="count++" xs label="التالي" icon="arrow-narrow-left" />
+                        </div>
+                        @endif
+                        
+                        @forelse ($form->family_members as $index => $family_member)
+                        <div x-show="count == {{$index+1}}" class="p-1 mb-1 border rounded">
                             <span class="mr-1 text-2xs text-slate-400">معلومات الفرد {{$loop->index+1}}</span>
                             <div class="flex items-center justify-between p-1">
                                 <span class="text-sm font-semibold text-slate-500">
@@ -167,6 +181,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        
                         @empty
                         <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
                             <span class="text-sm text-slate-600">لا يوجد أفراد</span>
