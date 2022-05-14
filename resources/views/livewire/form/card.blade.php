@@ -95,7 +95,7 @@
                                 <span class="text-sm text-slate-600">{{$form->person->family_count}} أفراد</span>
                                 <span class="text-slate-600 text-md">يعملون في {{$form->person->family_work}}</span>
                             </div>
-                            @forelse ($form->family_members as $family_member) )
+                            @forelse ($form->family_members as $family_member) 
                             <div class="flex flex-col p-2 mt-1 text-sm rounded bg-slate-50">
                                 <div class="flex justify-between mb-1">
                                     <div>

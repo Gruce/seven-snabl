@@ -14,6 +14,6 @@ class HeadOfTheFamilyInfoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }
