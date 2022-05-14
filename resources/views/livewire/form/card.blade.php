@@ -1,8 +1,9 @@
 <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
     <x-card shadow=false :title="'#'. $form->id. ' التنومة'">
-        <x-slot name="action">
+        <x-slot  name="action">
             <x-dropdown>
                 <x-dropdown.item href="{{route('show', [ 'id'=> $form->id]) }}" icon="document-text" label="استعراض" />
+                <x-dropdown.item @click="$openModal('cardModal-{{$form->id}}')" icon="document-text" label="تقديم هبه" />
                 <x-dropdown.item icon="x" label="حذف" />
             </x-dropdown>
         </x-slot>
@@ -44,6 +45,7 @@
                                 <x-button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full" slate outline href="#third" icon="user-group" label="العائلة" />
                                 <x-button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full" href="#third" icon="user-group" label="العائلة" />
                             </li>
+                           
                         </ul>
                     </nav>
                     {{-- FIRST TAB - BASICS --}}
@@ -144,14 +146,14 @@
                                 <span class="text-slate-500">{{$form->person->family_work}}</span>
                             </div>
                         </div>
-                        
+
                         @if ($family_count > 1)
                         <div class="flex justify-center my-1">
                             <x-button x-show="max > 1 && count != 1" xs label="السابق" icon="arrow-narrow-right" @click="count--" />
                             <x-button x-show="max > count" @click="count++" xs label="التالي" icon="arrow-narrow-left" />
                         </div>
                         @endif
-                        
+
                         @forelse ($form->family_members as $index => $family_member)
                         <div x-show="count == {{$index+1}}" class="p-1 mb-1 border rounded">
                             <span class="mr-1 text-2xs text-slate-400">معلومات الفرد {{$loop->index+1}}</span>
@@ -181,8 +183,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                         @empty
                         <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
                             <span class="text-sm text-slate-600">لا يوجد أفراد</span>
@@ -191,8 +193,11 @@
                         {{-- End Foreach members --}}
                     </div>
                     {{-- END : THIRD TAB --}}
+
+
                 </div>
             </div>
-    </x-card>
 
+    </x-card>
+    @livewire('give.add', ['form' => $form])
 </div>

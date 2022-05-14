@@ -10,6 +10,12 @@ class GiveType extends Model
     use HasFactory;
 
     public function form_gives(){
-        return $this->hasMany(GiveForme::class);
+        return $this->hasMany(GiveForm::class);
     }
+    public function add($data){
+        
+        $this->name=$data['name'];
+        $this->save();
+    }
+
 }

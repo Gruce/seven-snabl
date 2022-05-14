@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GiveForme extends Model
+class GiveForm extends Model
 {
     use HasFactory;
 
@@ -15,5 +15,13 @@ class GiveForme extends Model
 
     public function give_form(){
         return $this->belongsTo(GiveType::class);
+    }
+    public function add($data){
+
+        $this->note=$data['note'];
+        $this->form_id=$data['form_id'];
+        $this->give_id=$data['give_id'];
+        
+        $this->save();
     }
 }

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             FormSeeder::class,
             GiveTypeSeeder::class,
-            GiveFormeSeeder::class,
+            GiveFormSeeder::class,
         ]);
     }
 }

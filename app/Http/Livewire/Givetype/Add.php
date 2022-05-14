@@ -1,35 +1,35 @@
 <?php
 
-namespace App\Http\Livewire\City;
+namespace App\Http\Livewire\Givetype;
 
+use App\Models\GiveType;
 use Livewire\Component;
-use App\Models\City;
 
 class Add extends Component
 {
-    public $city;
+    public $give;
 
     protected $rules = [
-        // City
-        'city.name' => 'required',
-        'city.code' => 'required',
+
+        'give.name' => 'required',
+
+
     ];
 
     public function save()
     {
 
         $this->validate();
-        $city = new City;
-        $city->add($this->city);
+        $give = new GiveType;
+        $give->add($this->give);
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-        $this->emitTo('city.show', '$refresh');
+        $this->emitTo('give.main', '$refresh');
     }
-
-
     public function render()
     {
-        return view('livewire.city.add');
+
+        return view('livewire.givetype.add');
     }
 }

@@ -39,7 +39,7 @@ class Form extends Model
     }
 
     public function gives(){
-        return $this->hasMany(GiveForme::class);
+        return $this->hasMany(GiveForm::class);
     }
 
     public function head_family(){
