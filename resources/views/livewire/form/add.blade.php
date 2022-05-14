@@ -22,21 +22,28 @@
                     <div class="p-2 mt-1 border rounded">
                         <div x-show="activeTab === 'first'">
                             <div class="grid lg:grid-cols-1">
-                                <div class="border rounded p-3 m-2">
+                                <div class="p-3 m-2 border rounded">
                                     <x-select
                                         label="مستوى الفقر"
                                         placeholder="اختر مستوى الفقر"
-                                        :options="['B1', 'B2', 'B3', 'B4']"
+                                        :options="[
+                                            ['name' => 'B1',  'id' => 1],
+                                            ['name' => 'B2', 'id' => 2],
+                                            ['name' => 'B3',   'id' => 3],
+                                            ['name' => 'B4',    'id' => 4],
+                                        ]"
                                         wire:model.defer="form.person.level"
+                                        option-label="name"
+                                        option-value="id"
                                     />
                                 </div>
                             </div>
                             <div class="grid gap-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
-                                <div class="border rounded p-3 m-2">
+                                <div class="p-3 m-2 border rounded">
                                     <x-input wire:model.defer="form.head_family.name" label="اسم رب الاسرة" placeholder="ادخل الاسم" />
                                 </div>
-                                <div class="border rounded p-3 m-2">
-                                    <div class="grid gap-2 lg:grid-cols-2 sm:grid-cols-1 justify-center">
+                                <div class="p-3 m-2 border rounded">
+                                    <div class="grid justify-center gap-2 lg:grid-cols-2 sm:grid-cols-1">
                                         <x-select
                                             label="النسب"
                                             placeholder="اختر النسب"
@@ -54,12 +61,12 @@
                             </div>
                             <div class="grid gap-5 lg:grid-cols-2 sm:grid-cols-1">
                                 <div>
-                                    <div class="border rounded p-3 m-2">
+                                    <div class="p-3 m-2 border rounded">
                                         <x-input wire:model.defer="form.head_family.job" label="عمل رب الاسرة" placeholder="ادخل العمل " />
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="border rounded p-3 m-2">
+                                    <div class="p-3 m-2 border rounded">
                                         <x-input wire:model.defer="form.head_family.salary" label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
                                     </div>
                                 </div>
@@ -69,7 +76,7 @@
                         <div x-show="activeTab === 'second'">
                             <div class="px-5">
                                 <div class="grid gap-2 lg:grid-cols-2 sm:grid-cols-1">
-                                    <div class="border rounded p-3 m-2">
+                                    <div class="p-3 m-2 border rounded">
                                         <x-select
                                             label="هل يتقاضى راتب ؟"
                                             placeholder="اختر الراتب"
@@ -77,12 +84,12 @@
                                             wire:model.defer="form.person.have_salary"
                                         />
                                     </div>
-                                    <div class="border rounded p-3 m-2">
+                                    <div class="p-3 m-2 border rounded">
                                         <x-input wire:model.defer="form.person.salary" label="مقداره" placeholder="ادخل مقداره" />
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="border rounded p-3 m-2">
+                                    <div class="p-3 m-2 border rounded">
                                         <x-input wire:model.defer="form.person.father_phonenumber" label="رقم هاتف الاب" placeholder="ادخل الرقم " />
                                     </div>
                                 </div>
@@ -96,11 +103,11 @@
             <!--  Wife info -->
             <div x-show="formStep === 2" class="space-y-4">
                 <span class="text-lg">معلومات ربة الاسرة</span>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5 px-5">
-                    <div class="border rounded p-3">
+                <div class="grid gap-5 px-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                    <div class="p-3 border rounded">
                         <x-input wire:model.defer="form.wife.name" label="اسم ربة الاسرة" placeholder="ادخل الاسم" />
                     </div>
-                    <div class="border rounded p-3">
+                    <div class="p-3 border rounded">
                         <x-select
                             label="النسب"
                             placeholder="اختر النسب"
@@ -108,10 +115,10 @@
                             wire:model.defer="form.wife.name"
                         />
                     </div>
-                    <div class="border rounded p-3">
+                    <div class="p-3 border rounded">
                         <x-input wire:model.defer="form.person.mother_phonenumber" label="رقم هاتف الام" placeholder="ادخل الرقم " />
                     </div>
-                    <div class="border rounded p-3">
+                    <div class="p-3 border rounded">
                         <x-select
                             label="الحالة"
                             placeholder="اختر الحالة"
@@ -126,14 +133,14 @@
             <!--  Location -->
             <div x-show="formStep === 3" class="space-y-4">
                 <span class="text-lg">معلومات السكن</span>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2 px-5">
-                    <div class="border rounded p-3">
+                <div class="grid gap-2 px-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                    <div class="p-3 border rounded">
                         <x-input wire:model.defer="form.person.location" label="عنوان السكن" placeholder="ادخل العنوان " />
                     </div>
-                    <div class="border rounded p-3">
+                    <div class="p-3 border rounded">
                         <x-input wire:model.defer="form.person.point" label="اقرب نقطة دالة" placeholder="ادخل العنوان " />
                     </div>
-                    <div class="border rounded p-3">
+                    <div class="p-3 border rounded">
                         <x-select
                             label="نوع السكن"
                             placeholder="اختر نوع السكن"
@@ -141,7 +148,7 @@
                             wire:model.defer="form.person.location_type"
                         />
                     </div>
-                    <div class="border rounded p-3">
+                    <div class="p-3 border rounded">
                         <x-input wire:model.defer="form.person.rent" label="مقدار الايجار الشهري" placeholder="ادخل المقدار" />
                     </div>
                 </div>
@@ -151,11 +158,11 @@
             <!--  Family member info  -->
             <div x-show="formStep === 4" class="space-y-4">
                 <span class="text-lg">معلومات اعضاء الفريق</span>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-10">
-                    <div class="border rounded p-3">
+                <div class="grid gap-10 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                    <div class="p-3 border rounded">
                         <x-input wire:model.defer="form.person.family_work" label="عمل افراد الاسرة" placeholder="ادخل العمل " />
                     </div>
-                    <div class="border rounded p-3">
+                    <div class="p-3 border rounded">
                         <x-input wire:model.lazy="form.person.family_count" label="عددهم" placeholder="ادخل العدد " />
                     </div>
                 </div>
