@@ -52,20 +52,18 @@ class Form extends Model
 
     public function add($data){
         // personal info
-        $this->person()->create($data['personal_info']);
+        $this->person()->create($data['person']);
 
         // head of the family info
         $this->head_family()->create($data['head_family']);
 
         // wife info
-        $this->wife()->create($data['wife_info']);
+        $this->wife()->create($data['wife']);
 
         // family members
         $this->family_members()->createMany($data['family_members']);
 
     }
-
-
 
     ### END MATHOD ###
 

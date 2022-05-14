@@ -54,7 +54,7 @@ class Add extends Component
     public function deleteFamilyMember($index){
         unset($this->form['family_members'][$index]);
     }
-    
+
     public function updatedFormPersonFamilyCount(){
         $this->form['family_members'] = [];
         foreach(range(1, $this->form['person']['family_count']) as $member)
@@ -77,12 +77,14 @@ class Add extends Component
     }
 
     public function save() {
-        dg($this->form);
-        // $form = new Form();
-        // $form->add($this->form);
-        // $this->notification()->success(
-        //     $title = 'تم إضافة البيانات بنجاح',
-        // );
+        $form = new Form;
+        $form->user_id = auth()->id();
+        $form->city_id = $this->form['city']['id'];
+        $form->save();
+
+        dd($this->form);
+        $form->add($this->form);
+
     }
 
     public function render(){
