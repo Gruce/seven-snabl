@@ -26,7 +26,14 @@
                         <x-select
                             label="مستوى الفقر"
                             placeholder="اختر مستوى الفقر"
-                            :options="['B1', 'B2', 'B3', 'B4']"
+                            :options="[
+                                ['name'=>'B1', 'value' => 1 ],
+                                ['name'=>'B2', 'value' => 2 ],
+                                ['name'=>'B3', 'value' => 3 ],
+                                ['name'=>'B4', 'value' => 4 ],
+                                ]"
+                            option-label="name"
+                            option-value="value"
                             wire:model.defer="form.person.level"
                         />
                     </div>
@@ -50,13 +57,23 @@
                                     <x-select
                                         label="النسب"
                                         placeholder="اختر النسب"
-                                        :options="['سيد', 'عامي']"
+                                        :options="[
+                                            ['name'=> 'سيد' , 'value'=> true],
+                                            ['name'=> 'عامي' , 'value'=> false ]
+                                            ]"
+                                        option-label="name"
+                                        option-value="value"
                                         wire:model.defer="form.head_family.is_mr"
                                     />
                                     <x-select
                                         label="الحالة"
                                         placeholder="اختر الحالة"
-                                        :options="['حي', 'متوفي']"
+                                        :options="[
+                                            ['name'=> 'حي', 'value'=> true],
+                                            ['name'=> 'متوفي', 'value'=> false]
+                                            ]"
+                                        option-label="name"
+                                        option-value="value"
                                         wire:model.defer="form.head_family.is_alive"
                                     />
                                 </div>
@@ -71,7 +88,7 @@
                         </div>
                         <div>
                             <div class="border rounded p-3 m-2">
-                                <x-input wire:model.defer="form.head_family.salary" label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
+                                <x-input type="number" wire:model.defer="form.head_family.salary" label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
                             </div>
                         </div>
                     </div>
@@ -80,17 +97,25 @@
                             <x-select
                                 label="هل يتقاضى راتب ؟"
                                 placeholder="اختر الراتب"
-                                :options="['تقاعد', 'رعاية','مؤسسة','مساعدات','حكومي']"
+                                :options="[
+                                    ['name'=> 'تقاعد', 'id'=> 1],
+                                    ['name'=> 'رعاية', 'id'=> 2],
+                                    ['name'=> 'مؤسسة', 'id'=> 3],
+                                    ['name'=> 'مساعدات', 'id'=> 4],
+                                    ['name'=> 'حكومي', 'id'=> 5]
+                                    ]"
+                                option-label="name"
+                                option-value="id"
                                 wire:model.defer="form.person.have_salary"
                             />
                         </div>
                         <div class="border rounded p-3 m-2">
-                            <x-input wire:model.defer="form.person.salary" label="مقداره" placeholder="ادخل مقداره" />
+                            <x-input type="number" wire:model.defer="form.person.salary" label="مقداره" placeholder="ادخل مقداره" />
                         </div>
                     </div>
                     <div class="mt-10">
                         <div class="border rounded p-3 m-2">
-                            <x-input wire:model.defer="form.person.father_phonenumber" label="رقم هاتف الاب" placeholder="ادخل الرقم " />
+                            <x-input type="number" wire:model.defer="form.person.father_phonenumber" label="رقم هاتف الاب" placeholder="ادخل الرقم " />
                         </div>
                     </div>
                 </div>
@@ -107,7 +132,12 @@
                         <x-select
                             label="النسب"
                             placeholder="اختر النسب"
-                            :options="['سيد', 'عامي']"
+                            :options="[
+                                ['name'=> 'علوية', 'value'=> true],
+                                ['name'=> 'عامية', 'value'=> false],
+                                ]"
+                            option-label="name"
+                            option-value="value"
                             wire:model.defer="form.wife.name"
                         />
                     </div>
@@ -118,7 +148,14 @@
                         <x-select
                             label="الحالة"
                             placeholder="اختر الحالة"
-                            :options="['حي', 'متوفية','مطلقة','أرملة']"
+                            :options="[
+                                ['name'=> 'حي', 'id'=> 1 ],
+                                ['name'=> 'متوفية', 'id'=> 2 ],
+                                ['name'=> 'مطلقة', 'id'=> 3 ],
+                                ['name'=> 'أرملة', 'id'=> 4 ],
+                                ]"
+                            option-label="name"
+                            option-value="id"
                             wire:model.defer="form.wife.state"
                         />
                     </div>
@@ -139,7 +176,14 @@
                         <x-select
                             label="نوع السكن"
                             placeholder="اختر نوع السكن"
-                            :options="['ملك', 'تجاوز','ايجار','زراعي']"
+                            :options="[
+                                ['name'=> 'ملك',  'id' => 1],
+                                ['name'=> 'تجاوز','id' => 2],
+                                ['name'=> 'ايجار','id' => 3],
+                                ['name'=> 'زراعي','id' => 4]
+                                ]"
+                            option-label="name"
+                            option-value="id"
                             wire:model.defer="form.person.location_type"
                         />
                     </div>
