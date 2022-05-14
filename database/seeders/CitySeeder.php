@@ -16,12 +16,12 @@ class CitySeeder extends Seeder
     public function run()
     {
         $city = new City;
-        $city->name = 'البصرة';
+        $city->name = 'شط العرب';
         $city->code = '#345';
         $city->save();
 
         $city = new City;
-        $city->name = 'بغداد';
+        $city->name = 'القبلة';
         $city->code = '#657';
         $city->save();
     }
