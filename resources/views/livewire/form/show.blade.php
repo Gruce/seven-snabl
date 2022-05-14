@@ -70,9 +70,20 @@
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">{{ $form->person->level_name }}</button>
-
                                     <ul x-show="open" @click.away="open = false">
-                                        <x-input class="w-64" wire:model.lazy="input.person.level" type="text"/>
+                                        <x-select
+                                        
+                                        :options="[
+                                            ['name' => 'B1',  'id' => 1],
+                                            ['name' => 'B2', 'id' => 2],
+                                            ['name' => 'B3',   'id' => 3],
+                                            ['name' => 'B4',    'id' => 4],
+                                        ]"
+                                        wire:model.lazy="input.person.level"
+                                        option-label="name"
+                                        option-value="id"
+                                    />
+
                                     </ul>
                                 </div>
                             </th>
