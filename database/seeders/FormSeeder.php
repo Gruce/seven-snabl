@@ -23,7 +23,7 @@ class FormSeeder extends Seeder
     public function run() {
 
         $form = new Form;
-        $form->user_id = auth()->id();
+        $form->user_id = 1;
         $form->city_id = 1;
 
         $form->save();
