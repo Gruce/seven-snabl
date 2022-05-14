@@ -69,10 +69,10 @@
                         <tr class="bg-white border-b ">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> B   </button>
+                                    <button x-show="!open" @click="open = true">B</button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.level" type="text">
                                     </ul>
                                 </div>
                             </th>
@@ -81,7 +81,7 @@
                                     <button x-show="!open"  @click="open = true"> حسن حازم جداوي </button >
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.name" type="text">
                                     </ul>
                                 </div>
 
@@ -91,7 +91,7 @@
                                     <button x-show="!open" @click="open = true"> سيد </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.is_mr" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -100,7 +100,7 @@
                                     <button x-show="!open" @click="open = true"> حي </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.is_alive" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -109,7 +109,7 @@
                                     <button x-show="!open" @click="open = true"> موظف   </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.job" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -118,7 +118,7 @@
                                     <button x-show="!open" @click="open = true"> 346   </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.head_family.salary" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -154,10 +154,10 @@
 
                             <td class="px-6 py-4">
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true"> هدى احمد مصطفى </button>
+                                    <button x-show="!open" @click="open = true"> هدى حيدر مصطفى </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -166,7 +166,7 @@
                                     <button x-show="!open" @click="open = true"> سيد  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.is_mis" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -175,7 +175,7 @@
                                     <button x-show="!open" @click="open = true"> حيه  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.state" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -184,7 +184,7 @@
                                     <button x-show="!open" @click="open = true"> 07729454553  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.father_phonenumber" type="text">
                                     </ul>
                                 </div>
 
@@ -194,7 +194,7 @@
                                     <button x-show="!open" @click="open = true"> 077159454553  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.mother_phonenumber" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -229,7 +229,7 @@
                                     <button x-show="!open" @click="open = true"> التنومة  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.location" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -238,7 +238,7 @@
                                     <button x-show="!open" @click="open = true"> شارع 34  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.point" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -247,7 +247,7 @@
                                     <button x-show="!open" @click="open = true"> ملك  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.location_type" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -256,7 +256,7 @@
                                     <button x-show="!open" @click="open = true"> 0  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.rent" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -291,7 +291,7 @@
                                     <button x-show="!open" @click="open = true"> لايوجد  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.family_work" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -300,7 +300,7 @@
                                     <button x-show="!open" @click="open = true"> 4  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.family_count" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -309,7 +309,7 @@
                                     <button x-show="!open" @click="open = true"> نعم  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.have_salary" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -318,7 +318,7 @@
                                     <button x-show="!open" @click="open = true"> 4435  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.person.salary" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -371,7 +371,7 @@
                                     <button x-show="!open" @click="open = true"> حسن كاظم حميد</button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -380,7 +380,7 @@
                                     <button x-show="!open" @click="open = true">ابن</button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name"  type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -389,7 +389,7 @@
                                     <button x-show="!open" @click="open = true"> ابي الخصيب </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -397,7 +397,7 @@
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> سيد  </button>
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -406,7 +406,7 @@
                                     <button x-show="!open" @click="open = true"> عاطل  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
@@ -415,7 +415,7 @@
                                     <button x-show="!open" @click="open = true"> مريض  </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <input type="text">
+                                        <input wire:model="form.wife.name" type="text">
                                     </ul>
                                 </div>
                             </td>
