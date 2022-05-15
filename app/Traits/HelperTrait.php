@@ -1,6 +1,7 @@
 <?php
 namespace App\Traits;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 
 trait HelperTrait {
@@ -23,5 +24,21 @@ trait HelperTrait {
                 $query->whereRelation($column[0], $column[1], $operator ,$value);
             else $query->where($column[0], $operator ,$value);
         }
+    }
+
+    protected function scopeModelSelect($query , $search = null , $selected = null){
+        $this->query()
+        ->select('id', 'name')
+        ->orderBy('name')
+        ->when(
+            $search,
+            fn (Builder $q) => $q
+                ->where('name', 'LIKE', '%' . $search . '%')
+        )
+        ->when(
+            $selected,
+            fn (Builder $q) => $q->whereIn('id', $selected),
+            fn (Builder $q) => $q->limit(10)
+        );
     }
 }

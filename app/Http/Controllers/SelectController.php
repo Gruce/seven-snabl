@@ -16,6 +16,8 @@ class SelectController extends Controller
     use LazilyRefreshDatabase;
     public function cities(Request $request): Collection
     {
+        // return City::modelSelect($request->search , $request->selected)->get();
+
         return City::query()
             ->select('id', 'name')
             ->orderBy('name')
@@ -34,6 +36,7 @@ class SelectController extends Controller
 
     public function giveTypes(Request $request): Collection
     {
+        // return GiveType::modelSelect($request->search , $request->selected)->get();
         return GiveType::query()
             ->select('id', 'name')
             ->orderBy('name')
