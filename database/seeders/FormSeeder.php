@@ -21,6 +21,7 @@ class FormSeeder extends Seeder
      * @return void
      */
     public function run() {
+        for ($i=0; $i < 10; $i++) {
 
         $form = new Form;
         $form->user_id = 1;
@@ -72,6 +73,8 @@ class FormSeeder extends Seeder
                 ]
             ]
         ]);
+
+    }
 
     }
 }

@@ -45,12 +45,15 @@
 
 
             @forelse ($forms as $form)
+
                 @livewire('form.card', ['form' => $form])
             @empty
                 <div>
                     <h1>لايوجد</h1>
                 </div>
             @endforelse
+
+            {{-- {{ $forms->links() }} --}}
 
         </x-card>
     </div>
