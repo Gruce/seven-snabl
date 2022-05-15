@@ -10,6 +10,8 @@ class Card extends Component
     public function mount(){
         $this->family_count = $this->form->family_members->count();
     }
+    
+
     public function render()
     {
         return view('livewire.form.card');
