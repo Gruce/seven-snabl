@@ -19,9 +19,12 @@
                     <x-jet-nav-link href="{{ route('forms') }}" :active="request()->routeIs('forms')">
                         الكشوفات
                     </x-jet-nav-link>
-                    {{-- <x-jet-nav-link href="{{ route('cities') }}" :active="request()->routeIs('cities')">
+                    <x-jet-nav-link href="{{ route('cities') }}" :active="request()->routeIs('cities')">
                         المدن
-                    </x-jet-nav-link> --}}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('give.type') }}" :active="request()->routeIs('give.type')">
+                        الهبات
+                    </x-jet-nav-link>
                 </div>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">

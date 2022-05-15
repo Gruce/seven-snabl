@@ -1,6 +1,5 @@
 <div>
     <x-card>
-        @livewire('givetype.add')
         <div class="relative overflow-x-auto  sm:rounded-lg mt-10" dir="rtl">
             <table class="w-full text-sm text-right text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
@@ -9,7 +8,13 @@
                             #
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            الهبة
+                            المتلقي
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            نوع الهبة
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            الملاحظات
                         </th>
                         <th scope="col" class="px-6 py-3">
                             الاجراءات
@@ -18,13 +23,20 @@
                 </thead>
                 <tbody>
                     @forelse ($gives as $give)
-                        <tr class="bg-white text-center">
+                        <tr class="bg-white  text-center">
                             <td class="px-6 py-4">
-                                {{ $loop->index + 1 }}
-                            <td class="px-6 py-4">
-                                {{ $give->name }}
+                                {{ $loop->iteration }}
                             </td>
-                            <td class="px-6 py-4 text-center">
+                            <td class="px-6 py-4">
+                                {{ $give->form->head_family->name }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $give->give_type->name}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $give->note }}
+                            </td>
+                            <td class="px-6 py-4 ">
                                 <x-button class="text-gray-500" icon="pencil-alt" secondary />
                                 <x-button wire:click="confirm({{ $give->id }},'delete')" class="text-red"
                                     icon="trash" negative />
@@ -32,7 +44,7 @@
                         </tr>
                     @empty
 
-                        <td colspan="3" class="text-center">لايوجد</td>
+                        <td colspan="4" class="text-center">لايوجد</td>
                     @endforelse
                 </tbody>
             </table>

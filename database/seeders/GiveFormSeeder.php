@@ -17,7 +17,7 @@ class GiveFormSeeder extends Seeder
     {
         $giveForme = new GiveForm;
         $giveForme->form_id = 1;
-        $giveForme->give_id = 1;
+        $giveForme->give_type_id = 1;
         $giveForme->note = 'ملاحظة ملاحظة';
 
         $giveForme->save();

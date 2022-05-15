@@ -29,7 +29,7 @@ class Add extends Component
         // $this->validate();
         $give = new GiveForm;
         $this->give['form_id'] = $this->form->id;
-        $this->give['give_id'] = $this->give['type'];
+        $this->give['give_type_id'] = $this->give['type'];
         $give->add($this->give);
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',

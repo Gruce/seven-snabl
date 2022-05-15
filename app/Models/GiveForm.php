@@ -13,15 +13,15 @@ class GiveForm extends Model
         return $this->belongsTo(Form::class);
     }
 
-    public function give_form(){
+    public function give_type(){
         return $this->belongsTo(GiveType::class);
     }
     public function add($data){
 
         $this->note=$data['note'];
         $this->form_id=$data['form_id'];
-        $this->give_id=$data['give_id'];
-        
+        $this->give_type_id=$data['give_type_id'];
+
         $this->save();
     }
 }

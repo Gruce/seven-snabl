@@ -1,5 +1,5 @@
 <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
-    <x-card shadow=false :title="'#'. $form->id. ' التنومة'">
+    <x-card shadow=false :title="'#'. $form->id. ' ' .$form->city->name">
         <x-slot  name="action">
             <x-dropdown>
                 <x-dropdown.item href="{{route('show', [ 'id'=> $form->id]) }}" icon="document-text" label="استعراض" />
@@ -45,7 +45,7 @@
                                 <x-button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full" slate outline href="#third" icon="user-group" label="العائلة" />
                                 <x-button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full" href="#third" icon="user-group" label="العائلة" />
                             </li>
-                           
+
                         </ul>
                     </nav>
                     {{-- FIRST TAB - BASICS --}}
