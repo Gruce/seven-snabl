@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\GiveType;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\City;
-use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use App\Models\{
+    GiveType,
+    City,
+};
 
 class SelectController extends Controller
 {
