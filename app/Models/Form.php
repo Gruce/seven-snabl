@@ -23,6 +23,8 @@ class Form extends Model
 
     protected $fillable = ['user_id','city_id'];
 
+    // protected $appends = ['head_family_name'];
+
     ### START RELATIONS ###
     public function city(){
         return $this->belongsTo(City::class);
@@ -90,8 +92,7 @@ class Form extends Model
 
     ### START ACCESSORS ###
 
-    protected function getX(): Attribute {
-        dd('getX');
+    protected function getHeadFamilyName(): Attribute {
         return Attribute::make(
             get: function () {
                 return $this->head_family->name;

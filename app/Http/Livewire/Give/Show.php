@@ -43,11 +43,9 @@ class Show extends Component
         $gives = GiveForm::with(
             [
                 'give_type:id,name',
-                'form:id,x',
+                // 'form',
             ]
         )->get();
-
-        // dd($gives->toArray());
         return view('livewire.give.show', compact('gives'));
     }
 }

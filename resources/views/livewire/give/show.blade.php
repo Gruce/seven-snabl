@@ -28,7 +28,7 @@
                                 {{ $loop->index + 1 }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $give->form_id }}
+                                {{ $give->form->head_family->name }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $give->give_type->name}}
