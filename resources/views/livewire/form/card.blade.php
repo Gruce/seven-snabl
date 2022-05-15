@@ -45,7 +45,7 @@
                                 <x-button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full" slate outline href="#third" icon="user-group" label="العائلة" />
                                 <x-button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full" href="#third" icon="user-group" label="العائلة" />
                             </li>
-                           
+
                         </ul>
                     </nav>
                     {{-- FIRST TAB - BASICS --}}

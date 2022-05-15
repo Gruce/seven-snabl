@@ -15,7 +15,7 @@
             <div class=" basis-1/3">
                 <div class="flex flex-row justify-end gap-2 ">
                     <div class="text-sm"> تاريخ التنظيم</div>
-                    <span class="text-sm">2022/5/13</span>
+                    <span class="text-sm">{{$form->format_date}}</span>
                 </div>
                 <div class="flex flex-row justify-end gap-2">
                     <div class="text-sm"> رقم الاستمارة </div>
@@ -72,7 +72,7 @@
                                     <button x-show="!open" @click="open = true">{{ $form->person->level_name }}</button>
                                     <ul x-show="open" @click.away="open = false">
                                         <x-select
-                                        
+
                                         :options="[
                                             ['name' => 'B1',  'id' => 1],
                                             ['name' => 'B2', 'id' => 2],

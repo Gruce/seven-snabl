@@ -14,11 +14,16 @@ class Main extends Component {
     public function mount(){
         $this->filter['city_id'] = null;
         $this->filter['person']['level'] = null;
+        $this->filter['search'] = null;
     }
 
     public function render(){
-        $forms = Form::whereExist(collect($this->filter)->toFilter())->get();
-        
+        $forms = Form::whereExist(collect($this->filter)->toFilter())->whereExist(
+            [
+                ['id' , '%' . $this->filter['search'] . '%' , 'LIKE'],
+            ]
+        )->get();
+
         return view('livewire.form.main', compact('forms'));
     }
 }

@@ -10,6 +10,7 @@ class HeadOfTheFamilyInfo extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    // protected $fillable = ['name'];
     protected $appends = ['is_mr_name','is_alive' ];
     ### START RELATIONS ###
     public function form(){
