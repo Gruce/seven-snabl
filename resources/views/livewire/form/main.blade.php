@@ -4,10 +4,16 @@
         <x-card shadow=false>
             <div class="flex justify-between p-2 mb-3 rounded bg-slate-50">
                 <x-button icon="plus" @click="open = ! open" primary label="اضافة" />
-
                 <div class="flex">
-                    <div x-show="filter" class="flex gap-1">
+                    <x-input
+                        class="w-full"
+                        placeholder="البحث عن رقم الاستمارة"
+                        wire:model="filter.search"
+                        @keydown.enter.prevent="$refresh"
+                    />
+                    <div x-show="filter" class="flex gap-1 mr-2">
                         <x-select
+                            class="{{$filter['city_id'] ? 'border-2 border-green-100 rounded-lg' : ''}} "
                             placeholder="المنطقة"
                             :async-data="route('cities_select')"
                             option-label="name"
@@ -15,6 +21,7 @@
                             wire:model="filter.city_id"
                         />
                         <x-select
+                            class="{{$filter['person']['level'] ? 'border-2 border-green-100 rounded-lg' : ''}} "
                             placeholder="مستوى الفقر"
                             :options="[
                                 ['name' => 'B1',  'id' => 1],
@@ -28,14 +35,15 @@
                         />
                     </div>
                     <x-button class="mr-2" icon="filter" @click="filter = ! filter" secondary />
+
                 </div>
             </div>
             <div x-show="open" @click.outside="open = false" class="mb-3">
                 @livewire('form.add')
             </div>
-            
 
-            
+
+
             @forelse ($forms as $form)
                 @livewire('form.card', ['form' => $form])
             @empty

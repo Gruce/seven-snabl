@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\FormatTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,6 +19,7 @@ class Form extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use FormatTrait;
 
     protected $fillable = ['user_id','city_id'];
 
@@ -75,18 +77,28 @@ class Form extends Model
 
     ### START SCOPES ###
 
-    public function scopeWhereExist($query, $column, $value = null){
-        if (is_array($column)) foreach ($column as $value) $query->whereExist($value[0], $value[1]);
-        elseif ($value) {
-            $column = explode('.', $column);
-            if (isset($column[1])) $query->whereRelation($column[0], $column[1], $value);
-            else $query->where($column[0], $value);
-        }
-    }
+    // public function scopeWhereExist($query, $column, $value = null){
+    //     if (is_array($column)) foreach ($column as $value) $query->whereExist($value[0], $value[1]);
+    //     elseif ($value) {
+    //         $column = explode('.', $column);
+    //         if (isset($column[1])) $query->whereRelation($column[0], $column[1], $value);
+    //         else $query->where($column[0], $value);
+    //     }
+    // }
 
     ### END SCOPES ###
 
+    ### START ACCESSORS ###
 
+    // protected function getFormatDate(): Attribute {
+    //     return Attribute::make(
+    //         get: function () {
+    //             return $this->created_at->format('Y-m-d');
+    //         },
+    //     );
+    // }
+
+    ### END ACCESSORS ###
 
 
 }

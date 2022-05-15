@@ -58,7 +58,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Route::get('/cities_select', CityController::class)->name('cities_select');
     Route::controller(SelectController::class)->group(function () {
-        Route::get('/cities', 'cities')->name('cities_select');
+        Route::get('/cities_select', 'cities')->name('cities_select');
         Route::get('/give_types', 'giveTypes')->name('give_types_select');
     });
 });
