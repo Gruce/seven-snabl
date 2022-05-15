@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Form;
 use Illuminate\Support\Arr;
+use Livewire\WithPagination;
 use Livewire\Component;
 use App\Models\{
     Form,
@@ -9,6 +10,7 @@ use App\Models\{
 };
 
 class Main extends Component {
+    use WithPagination;
     public $filter;
 
     public function mount(){
@@ -18,12 +20,11 @@ class Main extends Component {
     }
 
     public function render(){
-        $forms = Form::whereExist(collect($this->filter)->toFilter())->whereExist(
+        $forms = Form::with('city:id,name')->whereExist(collect($this->filter)->toFilter())->whereExist(
             [
                 ['id' , '%' . $this->filter['search'] . '%' , 'LIKE'],
             ]
         )->get();
-
         return view('livewire.form.main', compact('forms'));
     }
 }
