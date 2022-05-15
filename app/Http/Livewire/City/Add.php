@@ -17,7 +17,6 @@ class Add extends Component
 
     public function save()
     {
-
         $this->validate();
         $city = new City;
         $city->add($this->city);

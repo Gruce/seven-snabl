@@ -55,6 +55,7 @@ class Form extends Model
     ### START MATHOD ###
 
     public function add($data){
+        // dd($data);
         // personal info
         $this->person()->create($data['person']);
 
