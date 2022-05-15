@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\FormatTrait;
+use App\Traits\HelperTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,7 +19,7 @@ class Form extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    use FormatTrait;
+    use HelperTrait;
 
     protected $fillable = ['user_id','city_id'];
 

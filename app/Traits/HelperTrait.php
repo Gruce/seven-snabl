@@ -3,7 +3,7 @@ namespace App\Traits;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 
-trait FormatTrait {
+trait HelperTrait {
     protected function formatDate(): Attribute {
         return Attribute::make(
             get: function () {
