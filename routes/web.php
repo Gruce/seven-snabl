@@ -51,8 +51,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('give')->group(function(){
-        Route::get('/', GiveMain::class)->name('give');
-        Route::get('/type', GiveTypeMain::class)->name('give-type');
+        Route::get('/', GiveMain::class)->name('gives');
+        Route::get('/type', GiveTypeMain::class)->name('give.type');
     });
 
 
