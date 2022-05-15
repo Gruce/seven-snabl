@@ -6,9 +6,11 @@ use App\Models\Form;
 
 use App\Models\City;
 use Livewire\Component;
+use WireUi\Traits\Actions;
 
 class Add extends Component
 {
+    use Actions;
     public $form;
 
     protected $rules = [
@@ -83,7 +85,7 @@ class Add extends Component
     }
 
     public function save() {
-        // dd($this->form);
+        dg($this->form);
         // $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
