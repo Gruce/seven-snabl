@@ -2,7 +2,6 @@
 namespace App\Traits;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 
 
 trait HelperTrait {
@@ -28,13 +27,13 @@ trait HelperTrait {
     }
 
     protected function scopeModelSelect($query , $search = null , $selected = null){
-        dg($search);
-        $this->query()->select('id', 'name')
+        $this->query()
+        ->select('id', 'name')
         ->orderBy('name')
         ->when(
             $search,
             fn (Builder $q) => $q
-                ->where('name', 'like', "%{$search}%")
+                ->where('name', 'LIKE', '%' . $search . '%')
         )
         ->when(
             $selected,
