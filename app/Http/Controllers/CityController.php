@@ -14,19 +14,6 @@ class CityController extends Controller
 
     public function __invoke(Request $request): Collection
     {
-        return City::query()
-            ->select('id', 'name')
-            ->orderBy('name')
-            ->when(
-                $request->search,
-                fn (Builder $query) => $query
-                    ->where('name', 'like', "%{$request->search}%")
-            )
-            ->when(
-                $request->selected,
-                fn (Builder $query) => $query->whereIn('id', $request->selected),
-                fn (Builder $query) => $query->limit(10)
-            )
-            ->get();
+        return City::modelSelect($request->search , $request->selected)->get();
     }
 }
