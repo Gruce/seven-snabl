@@ -37,7 +37,6 @@ class Add extends Component
         // Wife
         'form.wife.name' => 'required',
         'form.wife.is_mis' => 'required',
-        'form.wife.job' => 'required',
         'form.wife.state' => 'required',
 
         // City
