@@ -175,7 +175,7 @@
                     <div class="flex flex-col w-full gap-5 mt-3">
                         @if (isset($form['family_members']))
                             @foreach ($form['family_members'] as $index => $member)
-                                <x-input class="w-full" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم ">
+                                <x-input class="w-full" wire:key="{{ $index . now() }}" wire:model.debounce.500ms="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم ">
                                     <x-slot name="prepend">
                                         <div class="absolute inset-y-0 left-0 flex items-center p-0.5">
                                             <x-button
