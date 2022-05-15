@@ -90,13 +90,14 @@ class Form extends Model
 
     ### START ACCESSORS ###
 
-    // protected function getFormatDate(): Attribute {
-    //     return Attribute::make(
-    //         get: function () {
-    //             return $this->created_at->format('Y-m-d');
-    //         },
-    //     );
-    // }
+    protected function getX(): Attribute {
+        dd('getX');
+        return Attribute::make(
+            get: function () {
+                return $this->head_family->name;
+            },
+        );
+    }
 
     ### END ACCESSORS ###
 

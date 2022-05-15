@@ -4,6 +4,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\SelectController;
 use App\Http\Livewire\City\Main as CityMain;
 use App\Http\Livewire\Form\Main as FormMain;
+use App\Http\Livewire\Give\Show as GiveShow;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Form\Show;
@@ -52,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('give')->group(function(){
         Route::get('/', GiveMain::class)->name('gives');
+        Route::get('/show', GiveShow::class)->name('give.show');
         Route::get('/type', GiveTypeMain::class)->name('give.type');
     });
 
