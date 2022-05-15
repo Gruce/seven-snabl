@@ -25,7 +25,7 @@
                     @forelse ($gives as $give)
                         <tr class="bg-white  text-center">
                             <td class="px-6 py-4">
-                                {{ $loop->index + 1 }}
+                                {{ $loop->iteration }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $give->form->head_family->name }}
