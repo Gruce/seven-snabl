@@ -28,7 +28,13 @@
                                 {{ $loop->iteration }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $give->form->head_family->name }}
+                                <div x-data="{ open: false }">
+                                    <button x-show="!open" @click="open = true">{{ $give->form->head_family->name }} </button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <x-input class="w-64" wire:model.lazy="input.head_family.name" type="text"/>
+                                    </ul>
+                                </div>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $give->give_type->name}}

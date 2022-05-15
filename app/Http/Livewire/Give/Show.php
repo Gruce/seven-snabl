@@ -14,6 +14,32 @@ class Show extends Component
     use Actions;
     protected $listeners = ['$refresh'];
 
+    public $input;
+
+    protected $rules = [
+
+        'input.give.note' => 'required',
+        'input.give.type' => 'required',
+        'input.give.form_id' => 'required',
+
+    ];
+
+    public function updatedInput($value, $index){
+        $index = explode('.', $index);
+
+        if (count($index) == 3) {
+
+            $this->form[$index[0]][$index[1]][$index[2]] = $value;
+            $this->form[$index[0]][$index[1]]->save();
+        } else {
+            $this->form[$index[0]][$index[1]] = $value;
+            $this->form[$index[0]]->save();
+        }
+
+        $this->notification()->info(
+            $title = 'تم تحديث البيانات بنجاح',
+        );
+    }
     public function confirm($id, $fun)
     {
         $this->notification()->confirm([
@@ -38,6 +64,9 @@ class Show extends Component
             $title = 'تم حذف البيانات بنجاح',
         );
     }
+
+    
+
     public function render()
     {
         $gives = GiveForm::with(

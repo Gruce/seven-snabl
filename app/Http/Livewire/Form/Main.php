@@ -17,6 +17,7 @@ class Main extends Component {
         $this->filter['city_id'] = null;
         $this->filter['person']['level'] = null;
         $this->filter['search'] = null;
+        $this->filter['review'] = null;
     }
 
     public function render(){
@@ -25,6 +26,7 @@ class Main extends Component {
                 ['id' , '%' . $this->filter['search'] . '%' , 'LIKE'],
             ]
         )->get();
+        dg($this->filter);
         return view('livewire.form.main', compact('forms'));
     }
 }

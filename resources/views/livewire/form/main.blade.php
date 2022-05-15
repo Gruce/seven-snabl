@@ -33,6 +33,18 @@
                             option-value="id"
                             wire:model="filter.person.level"
                         />
+                        <x-select
+                            class="{{$filter['review'] ? 'border-2 border-green-100 rounded-lg' : ''}} "
+                            placeholder="الحالة"
+                            :options="[
+                                ['name' => 'تمت المراجعة',  'value' =>true ],
+                                ['name' => 'لم تتم المراجعة', 'value' => false],
+
+                            ]"
+                            option-label="name"
+                            option-value="value"
+                            wire:model="filter.review"
+                        />
                     </div>
                     <x-button class="mr-2" icon="filter" @click="filter = ! filter" secondary />
 

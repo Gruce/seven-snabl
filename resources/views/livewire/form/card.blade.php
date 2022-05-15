@@ -17,13 +17,17 @@
                 </div>
 
                 <div class="flex flex-col items-center justify-center gap-1">
-                    @if (true)
+
+                    @if ($form->review)
+
                         <x-icon name="check" class="w-4 h-4 text-green-500" />
+
                         <span class="px-2 py-1 text-slate-500">تمت مراجعتها</span>
                     @else
                         <x-icon name="x" class="w-4 h-4 text-red-500" />
                         <span class="px-2 py-1 text-slate-500">لم تتم المراجعة</span>
                     @endif
+
                 </div>
             </div>
         </x-slot>
