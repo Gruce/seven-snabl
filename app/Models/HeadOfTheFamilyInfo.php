@@ -13,7 +13,14 @@ class HeadOfTheFamilyInfo extends Model
 
     protected $fillable = ['name'];
 
-    protected $appends = ['is_mr_name','is_alive' ];
+    protected $appends = ['is_mr_name','is_alive',
+    'form_id',
+    'name',
+    'is_mr',
+    'is_alive',
+    'job',
+    'salary',
+    ];
 
     ### START RELATIONS ###
     public function form(){

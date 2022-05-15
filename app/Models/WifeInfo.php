@@ -11,6 +11,8 @@ class WifeInfo extends Model
     use HasFactory;
     use SoftDeletes;
     protected $appends = ['is_mis_name','is_alive' ];
+    protected $fillable = ['name','is_mis', 'state'];
+
     ### START RELATIONS ###
     public function form(){
         return $this->belongsTo(Form::class);

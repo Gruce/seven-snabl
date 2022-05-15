@@ -86,7 +86,7 @@ class Add extends Component
 
     public function save() {
         dg($this->form);
-        // $this->validate();
+        $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
