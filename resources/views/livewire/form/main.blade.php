@@ -3,7 +3,9 @@
     <div class="mt-3" x-data="{ open: false, filter: false }">
         <x-card shadow=false>
             <div class="flex justify-between p-2 mb-3 rounded bg-slate-50">
-                <x-button icon="plus" @click="open = ! open" primary label="اضافة" />
+                <!--- Add button -->
+                <x-button icon="plus" @click="$openModal('addModal')" primary label="اضافة" class="mb-3" />
+                <!--- filter & search section -->
                 <div class="flex">
                     <x-input
                         class="w-full"
@@ -50,14 +52,14 @@
 
                 </div>
             </div>
-            <div x-show="open" @click.outside="open = false" class="mb-3">
-                @livewire('form.add')
-            </div>
-
-
+            <!--- Add modal -->
+            <x-modal  blur wire:model.defer="addModal" max-width="5xl">
+                <x-card fullscreen="false">
+                    @livewire('form.add')
+                </x-card>
+            </x-modal>
 
             @forelse ($forms as $form)
-
                 @livewire('form.card', ['form' => $form])
             @empty
                 <div>
