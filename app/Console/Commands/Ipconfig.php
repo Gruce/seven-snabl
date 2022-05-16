@@ -29,7 +29,7 @@ class Ipconfig extends Command
     {
         $x = shell_exec('ipconfig');
         $x = explode(':', $x);
-
+        dd($x);
         $index = count($x) == 18 ? 15 : 18;
 
         $ip = trim(explode('S' , $x[$index])[0]);
