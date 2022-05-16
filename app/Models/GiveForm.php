@@ -9,6 +9,7 @@ class GiveForm extends Model
 {
     use HasFactory;
 
+
     public function form(){
         return $this->belongsTo(Form::class);
     }

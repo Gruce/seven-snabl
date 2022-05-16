@@ -1,4 +1,4 @@
-<div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
+<div class="grid gap-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
     <x-card shadow=false :title="'#'. $form->id. ' ' .$form->city->name">
         <x-slot  name="action">
             <x-dropdown>
@@ -17,17 +17,13 @@
                 </div>
 
                 <div class="flex flex-col items-center justify-center gap-1">
-
                     @if ($form->review)
-
                         <x-icon name="check" class="w-4 h-4 text-green-500" />
-
                         <span class="px-2 py-1 text-slate-500">تمت مراجعتها</span>
                     @else
                         <x-icon name="x" class="w-4 h-4 text-red-500" />
                         <span class="px-2 py-1 text-slate-500">لم تتم المراجعة</span>
                     @endif
-
                 </div>
             </div>
         </x-slot>
@@ -114,7 +110,6 @@
                     </div>
                     {{-- END : FIRST TAB --}}
 
-
                     {{-- SECOND TAB --}}
                     <div x-show="activeTab === 'second'">
                         <div class="grid grid-cols-2 gap-1 my-1 text-center">
@@ -197,11 +192,9 @@
                         {{-- End Foreach members --}}
                     </div>
                     {{-- END : THIRD TAB --}}
-
-
                 </div>
             </div>
-
+        </div>
     </x-card>
     @livewire('give.add', ['form' => $form])
 </div>
