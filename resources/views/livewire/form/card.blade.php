@@ -1,5 +1,4 @@
 <div class="grid gap-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
-    @for ($i=0;$i<10;$i++)
     <x-card shadow=false :title="'#'. $form->id. ' ' .$form->city->name">
         <x-slot  name="action">
             <x-dropdown>
@@ -197,7 +196,5 @@
             </div>
         </div>
     </x-card>
-
-    @endfor
     @livewire('give.add', ['form' => $form])
 </div>
