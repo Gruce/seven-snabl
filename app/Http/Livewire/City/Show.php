@@ -13,6 +13,14 @@ class Show extends Component
     //     $this->cities = City::get();
 
     // }
+    public $input,$city_id;
+
+    protected $rules = [
+        'input.name' => 'required',
+        'input.code' => 'required',
+    ];
+
+
     public function confirm($id,$fun){
         $this->notification()->confirm([
             'title'       => 'هل انت متاكد',
@@ -37,6 +45,36 @@ class Show extends Component
 
     }
 
+    public function updatedInput($value, $index){
+        $index = explode('.', $index);
+
+        if (count($index) == 3) {
+            dg($index);
+            $this->city[$index[0]][$index[1]][$index[2]] = $value;
+            $this->city[$index[0]][$index[1]]->save();
+        } else {
+            $this->city[$index[0]][$index[1]] = $value;
+            $this->city[$index[0]]->save();
+        }
+
+        $this->notification()->info(
+            $title = 'تم تحديث البيانات بنجاح',
+        );
+    }
+    public function show($id){
+
+        $this->city = City::findOrfail($id);
+            $this->input['name'] = $this->city->name;
+            $this->input['code'] = $this->city->code;
+            $this->city->save();
+
+    }
+
+    // public function mount()
+    // {
+
+
+    // }
 
     public function render()
     {

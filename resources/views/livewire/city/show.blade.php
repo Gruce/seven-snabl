@@ -17,13 +17,21 @@
             </tr>
         </thead>
         <tbody>
+
             @forelse ($cities as $city)
                 <tr class="bg-white  text-center">
                     <td class="px-6 py-4">
                         {{ $loop->index + 1 }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $city->name }}
+
+                        <div x-data="{ open: false }">
+                            <button wire:click="show({{$city->id}})" x-show="!open" @click="open = true">{{$city->name}} </button>
+
+                            <ul x-show="open" @click.away="open = false">
+                                <x-input class="w-64" wire:model.lazy="input.name" type="text"/>
+                            </ul>
+                        </div>
                     </td>
                     <td class="px-6 py-4">
                         {{ $city->code }}
