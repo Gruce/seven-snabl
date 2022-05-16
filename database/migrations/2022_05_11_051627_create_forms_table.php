@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('city_id')->nullable()->constrained('cities')->onDelete('cascade');
-            $table->date('date')->nullable(); // تاريخ الكشف
+            $table->date('date')->nullable();//تاريخ الكشف
+            $table->boolean('review')->default(false);//تم الكشف بنجاح
             $table->timestamps();
             $table->softDeletes();
         });

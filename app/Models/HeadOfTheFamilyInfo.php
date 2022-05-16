@@ -6,21 +6,36 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+
 class HeadOfTheFamilyInfo extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    // protected $fillable = ['name'];
-    protected $appends = ['is_mr_name','is_alive' ];
+
+    protected $fillable = [
+        'name', 'form_id',
+        'name',
+        'is_mr',
+        'is_alive',
+        'job',
+        'salary',
+    ];
+
+    protected $appends = [
+        'is_mr_name', 'is_alive',
+    ];
+
     ### START RELATIONS ###
-    public function form(){
+    public function form()
+    {
         return $this->belongsTo(Form::class);
     }
     ### END RELATIONS ###
 
     ### START MATHOD ###
 
-    public function add($data){
+    public function add($data)
+    {
         $this->fill($data);
         $this->save();
     }
@@ -30,14 +45,15 @@ class HeadOfTheFamilyInfo extends Model
 
     ### END MATHOD ###
 
-        ### Accessors & Mutators ###
+    ### Accessors & Mutators ###
 
 
 
-    protected function isMrName(): Attribute {
+    protected function isMrName(): Attribute
+    {
         return Attribute::make(
             get: function () {
-                switch ($this->is_mr){
+                switch ($this->is_mr) {
                     case true:
                         return 'سيد';
                     case false:
@@ -47,10 +63,11 @@ class HeadOfTheFamilyInfo extends Model
         );
     }
 
-    protected function isAlive(): Attribute {
+    protected function isAlive(): Attribute
+    {
         return Attribute::make(
             get: function () {
-                switch ($this->is_aliv){
+                switch ($this->is_aliv) {
                     case true:
                         return 'حي';
                     case false:

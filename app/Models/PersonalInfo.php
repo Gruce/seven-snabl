@@ -13,9 +13,18 @@ class PersonalInfo extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'family_work'
-    ];
-
+    'family_work','form_id',
+    'level',
+    'location',
+    'point',
+    'location_type',
+    'rent',
+    'family_work',
+    'salary_type',
+    'salary',
+    'father_phonenumber',
+    'mother_phonenumber',
+];
     protected $appends = ['level_name', 'location_name' ];
 
     ### START RELATIONS ###

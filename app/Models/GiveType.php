@@ -13,7 +13,7 @@ class GiveType extends Model
     // use SoftDeletes;
     use helperTrait;
 
-    public function form_gives(){
+    public function give_forms(){
         return $this->hasMany(GiveForm::class);
     }
     public function add($data){

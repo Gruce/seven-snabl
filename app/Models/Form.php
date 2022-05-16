@@ -23,6 +23,8 @@ class Form extends Model
 
     protected $fillable = ['user_id','city_id'];
 
+    // protected $appends = ['head_family_name'];
+
     ### START RELATIONS ###
     public function city(){
         return $this->belongsTo(City::class);
@@ -57,16 +59,17 @@ class Form extends Model
     ### START MATHOD ###
 
     public function add($data){
+        dg($data['head_family']);
         // personal info
         $this->person()->create($data['person']);
 
-        // head of the family info
+        // // head of the family info
         $this->head_family()->create($data['head_family']);
 
-        // wife info
+        // // wife info
         $this->wife()->create($data['wife']);
 
-        // family members
+        // // family members
         $this->family_members()->createMany($data['family_members']);
 
     }
@@ -90,13 +93,13 @@ class Form extends Model
 
     ### START ACCESSORS ###
 
-    // protected function getFormatDate(): Attribute {
-    //     return Attribute::make(
-    //         get: function () {
-    //             return $this->created_at->format('Y-m-d');
-    //         },
-    //     );
-    // }
+    protected function getHeadFamilyName(): Attribute {
+        return Attribute::make(
+            get: function () {
+                return $this->head_family->name;
+            },
+        );
+    }
 
     ### END ACCESSORS ###
 

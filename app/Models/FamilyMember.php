@@ -12,7 +12,9 @@ class FamilyMember extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $appends = ['kinship_name', 'is_mr_name', 'is_alive' ];
+    protected $appends = ['kinship_name', 'is_mr_name', 'is_alive' ,];
+    protected $fillable = ['name'];
+
 
     public function form(){
         return $this->belongsTo(Form::class);
