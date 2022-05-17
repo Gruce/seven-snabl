@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\HelperTrait;
 
-class GiveType extends Model
-{
+class GiveType extends Model {
+
     use HasFactory;
     // use SoftDeletes;
     use helperTrait;
