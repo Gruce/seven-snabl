@@ -21,17 +21,14 @@ class Main extends Component {
     }
 
     public function render(){
-        $forms = Form::orderByDesc('id');
-        $forms = $forms->with('city:id,name');
+        $forms = Form::with('city:id,name')->orderByDesc('id');
 
-        if(auth()->user()->is_admin == false) $forms->where('user_id', auth()->id());
+        if(is_admin()) $forms->where('user_id', auth()->id());
 
-        $forms = $forms->whereExist(collect($this->filter)->toFilter())->whereExist(
-            [
+        $forms = $forms->whereExist(collect($this->filter)->toFilter())->whereExist([
                 ['id' , '%' . $this->filter['search'] . '%' , 'LIKE'],
             ]
-        )->get();
-        dg($this->filter);
+        )->paginate(10);
         return view('livewire.form.main', compact('forms'));
     }
 }

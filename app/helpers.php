@@ -10,8 +10,7 @@
     }
 
     function is_admin(){
-        $user = auth()->user();
-        $user->is_admin == false ?  $user : false;
-        return $user;
+        if(auth()->user()->is_admin == false)
+            return true;
     }
 

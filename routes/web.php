@@ -47,15 +47,22 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/show/{id}', Show::class)->name('show');
     });
 
-    Route::prefix('cities')->group(function(){
-        Route::get('/', CityMain::class)->name('cities');
+    Route::group(['prefix' => 'admin' , 'middleware' => 'admin'] ,function(){
+
+        Route::prefix('cities')->group(function(){
+            Route::get('/', CityMain::class)->name('cities');
+        });
+
+        Route::prefix('give')->group(function(){
+            Route::get('/', GiveMain::class)->name('gives');
+            Route::get('/show', GiveShow::class)->name('give.show');
+            Route::get('/type', GiveTypeMain::class)->name('give.type');
+        });
+
     });
 
-    Route::prefix('give')->group(function(){
-        Route::get('/', GiveMain::class)->name('gives');
-        Route::get('/show', GiveShow::class)->name('give.show');
-        Route::get('/type', GiveTypeMain::class)->name('give.type');
-    });
+
+
 
 
     // Route::get('/cities_select', CityController::class)->name('cities_select');
