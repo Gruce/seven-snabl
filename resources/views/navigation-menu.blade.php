@@ -138,7 +138,7 @@
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    تسجيل خروج
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
@@ -205,9 +205,8 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-
                     <x-jet-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                        {{ __('Log Out') }}
+                        تسجيل الخروج
                     </x-jet-responsive-nav-link>
                 </form>
 
