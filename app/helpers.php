@@ -9,3 +9,9 @@
         \Debugbar::$msg($data);
     }
 
+    function is_admin(){
+        $user = auth()->user();
+        $user->is_admin == false ?  $user : false;
+        return $user;
+    }
+
