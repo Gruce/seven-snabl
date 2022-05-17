@@ -13,11 +13,11 @@ class Show extends Component
     //     $this->cities = City::get();
 
     // }
-    public $input,$city_id;
+    public $input;
 
     protected $rules = [
-        'input.name' => 'required',
-        'input.code' => 'required',
+        'input.cities.*.name' => 'required',
+        'input.cities.*.code' => 'required',
     ];
 
 
@@ -47,34 +47,23 @@ class Show extends Component
 
     public function updatedInput($value, $index){
         $index = explode('.', $index);
+        dg($index);
 
-        if (count($index) == 3) {
-            dg($index);
-            $this->city[$index[0]][$index[1]][$index[2]] = $value;
-            $this->city[$index[0]][$index[1]]->save();
-        } else {
-            $this->city[$index[0]][$index[1]] = $value;
-            $this->city[$index[0]]->save();
-        }
+            $this->cities[$index[1]][$index[2]] = $value;
+
+            $this->cities[$index[1]]->save();
+
 
         $this->notification()->info(
             $title = 'تم تحديث البيانات بنجاح',
         );
     }
-    public function show($id){
 
-        $this->city = City::findOrfail($id);
-            $this->input['name'] = $this->city->name;
-            $this->input['code'] = $this->city->code;
-            $this->city->save();
 
+    public function mount(){
+        $this->cities = City::get();
+        $this->input['cities'] = $this->cities->toArray();
     }
-
-    // public function mount()
-    // {
-
-
-    // }
 
     public function render()
     {

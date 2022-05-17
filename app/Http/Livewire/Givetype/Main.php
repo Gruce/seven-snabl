@@ -9,11 +9,20 @@ use WireUi\Traits\Actions;
 class Main extends Component
 {
     use Actions;
+
+    public $input;
+
+    protected $rules = [
+        'input.give_types.*.name' => 'required',
+
+    ];
+
     protected $listeners = ['$refresh'];
     // public function mount(){
     //     $this->cities = City::get();
 
     // }
+
     public function confirm($id, $fun)
     {
         $this->notification()->confirm([
@@ -38,6 +47,26 @@ class Main extends Component
             $title = 'تم حذف البيانات بنجاح',
         );
     }
+
+    public function updatedInput($value, $index){
+        $index = explode('.', $index);
+        dg($index);
+
+            $this->give_types[$index[1]][$index[2]] = $value;
+
+            $this->give_types[$index[1]]->save();
+
+
+        $this->notification()->info(
+            $title = 'تم تحديث البيانات بنجاح',
+        );
+    }
+    public function mount(){
+        $this->give_types = GiveType::get();
+        $this->input['give_types'] = $this->give_types->toArray();
+        
+    }
+
     public function render()
     {
         $gives = GiveType::get();

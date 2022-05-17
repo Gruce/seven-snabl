@@ -21,11 +21,17 @@
                         <tr class="bg-white text-center">
                             <td class="px-6 py-4">
                                 {{ $loop->index + 1 }}
-                            <td class="px-6 py-4">
-                                {{ $give->name }}
-                            </td>
+                                <td class="px-6 py-4">
+
+                                    <div x-data="{ open: false }">
+                                        <button  x-show="!open" @click="open = true">{{$give->name}} </button>
+
+                                        <ul x-show="open" @click.away="open = false">
+                                            <x-input class="w-64" wire:model.lazy="input.give_types.{{$loop->index}}.name" type="text"/>
+                                        </ul>
+                                    </div>
+                                </td>
                             <td class="px-6 py-4 text-center">
-                                <x-button class="text-gray-500" icon="pencil-alt" secondary />
                                 <x-button wire:click="confirm({{ $give->id }},'delete')" class="text-red"
                                     icon="trash" negative />
                             </td>

@@ -25,23 +25,37 @@
                     @forelse ($gives as $give)
                         <tr class="bg-white  text-center">
                             <td class="px-6 py-4">
-                                {{ $loop->iteration }}
+                                {{ $loop->index + 1 }}
                             </td>
                             <td class="px-6 py-4">
+                                {{ $give->form->head_family->name }}
+                            </td>
+                            <td class="px-6 py-4">
+
                                 <div x-data="{ open: false }">
-                                    <button x-show="!open" @click="open = true">{{ $give->form->head_family->name }} </button>
+                                    <button  x-show="!open" @click="open = true"> {{ $give->give_type->name}} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <x-input class="w-64" wire:model.lazy="input.head_family.name" type="text"/>
+                                        <x-input class="w-64" wire:model.lazy="input.give_types.{{$loop->index}}.name" type="text"/>
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            {{-- <td class="px-6 py-4">
                                 {{ $give->give_type->name}}
-                            </td>
+                            </td> --}}
                             <td class="px-6 py-4">
-                                {{ $give->note }}
+
+                                <div x-data="{ open: false }">
+                                    <button  x-show="!open" @click="open = true"> {{ $give->note }}</button>
+
+                                    <ul x-show="open" @click.away="open = false">
+                                        <x-input class="w-64" wire:model.lazy="input.give_type.{{$loop->index}}.note" type="text"/>
+                                    </ul>
+                                </div>
                             </td>
+                            {{-- <td class="px-6 py-4">
+                                {{ $give->note }}
+                            </td> --}}
                             <td class="px-6 py-4 ">
                                 <x-button class="text-gray-500" icon="pencil-alt" secondary />
                                 <x-button wire:click="confirm({{ $give->id }},'delete')" class="text-red"
