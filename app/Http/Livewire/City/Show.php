@@ -13,6 +13,14 @@ class Show extends Component
     //     $this->cities = City::get();
 
     // }
+    public $input;
+
+    protected $rules = [
+        'input.cities.*.name' => 'required',
+        'input.cities.*.code' => 'required',
+    ];
+
+
     public function confirm($id,$fun){
         $this->notification()->confirm([
             'title'       => 'هل انت متاكد',
@@ -37,6 +45,25 @@ class Show extends Component
 
     }
 
+    public function updatedInput($value, $index){
+        $index = explode('.', $index);
+        dg($index);
+
+            $this->cities[$index[1]][$index[2]] = $value;
+
+            $this->cities[$index[1]]->save();
+
+
+        $this->notification()->info(
+            $title = 'تم تحديث البيانات بنجاح',
+        );
+    }
+
+
+    public function mount(){
+        $this->cities = City::get();
+        $this->input['cities'] = $this->cities->toArray();
+    }
 
     public function render()
     {
