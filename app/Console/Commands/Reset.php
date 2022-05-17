@@ -58,6 +58,8 @@ class Reset extends Command
         $total = number_format((microtime(true) - $start) , 2);
         $this->info('Total Time : ' . $total . ' Seconds.');
 
+        Artisan::call('optimize');
+        $this->info('optimized');
         return 0;
     }
 }
