@@ -36,7 +36,7 @@
                                     <button  x-show="!open" @click="open = true"> {{ $give->give_type->name}} </button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <x-input class="w-64" wire:model.lazy="input.give_types.{{$loop->index}}.name" type="text"/>
+                                        <x-input class="w-64" wire:model.lazy="input.give_type.{{$loop->index}}.name" type="text"/>
                                     </ul>
                                 </div>
                             </td>
@@ -49,7 +49,7 @@
                                     <button  x-show="!open" @click="open = true"> {{ $give->note }}</button>
 
                                     <ul x-show="open" @click.away="open = false">
-                                        <x-input class="w-64" wire:model.lazy="input.give_type.{{$loop->index}}.note" type="text"/>
+                                        <x-input class="w-64" wire:model.lazy="input.give_forms.{{$loop->index}}.note" type="text"/>
                                     </ul>
                                 </div>
                             </td>
