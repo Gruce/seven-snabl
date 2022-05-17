@@ -31,7 +31,7 @@ class Show extends Component
 
         $this->give_forms[$index[1]][$index[2]] = $value;
         $this->give_forms[$index[1]]->save();
-        
+
         $this->notification()->info(
             $title = 'تم تحديث البيانات بنجاح',
         );
@@ -74,6 +74,9 @@ class Show extends Component
                 'give_type:id,name',
             ]
         )->get();
-        return view('livewire.give.show', compact('gives'));
+
+        $give_types = GiveType::get()->toArray();
+
+        return view('livewire.give.show', compact('gives', 'give_types'));
     }
 }
