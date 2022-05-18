@@ -56,7 +56,7 @@
                 wire:model="filter.review"
             />
         </div>
-        <x-card shadow=false>
+        <x-card shadow=false class="grid gap-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
 
             {{-- ADD MODAL --}}
             <x-modal.card  blur wire:model.defer="addModal" max-width="5xl">

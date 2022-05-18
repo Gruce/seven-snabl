@@ -36,6 +36,7 @@ class Ipconfig extends Command
 
         $this->info('Your IP is : http://' . $ip . ':5000');
         Artisan::call('serve --host ' . $ip . ':5000');
+        // dd(gethostbyname(trim(`hostname`)));
         return 0;
     }
 }
