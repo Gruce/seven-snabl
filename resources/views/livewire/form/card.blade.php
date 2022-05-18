@@ -3,7 +3,7 @@
         <x-slot  name="action">
             <x-dropdown>
                 <x-dropdown.item href="{{route('show', [ 'id'=> $form->id]) }}" icon="document-text" label="استعراض" />
-                <x-dropdown.item @click="$openModal('cardModal-{{$form->id}}')" icon="document-text" label="تقديم هبه" />
+                <x-dropdown.item @click="$openModal('cardModal-{{$form->id}}')" icon="gift" label="تقديم هبه" />
                 <x-dropdown.item icon="x" label="حذف" />
             </x-dropdown>
         </x-slot>

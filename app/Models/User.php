@@ -75,9 +75,14 @@ class User extends Authenticatable
 
     //add
     public function add($data){
-        $this->fill($data);
+        $this->name = $data['name'];
+        $this->email = $data['email'];
+        $this->password = bcrypt($data['password']);
+        $this->is_admin = $data['is_admin'];
+        $this->phonenumber = $data['phonenumber'];
         $this->save();
     }
+
 
     ### END METHODS ###
 }
