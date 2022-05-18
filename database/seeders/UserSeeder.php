@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         $user->add([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('123456'),
+            'password' => '123456',
             'is_admin' => true,
             'phonenumber' => '09123456789',
         ]);
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         $user->add([
             'name' => 'User',
             'email' => 'user@gmail.com',
-            'password' => bcrypt('123456'),
+            'password' => '123456',
             'phonenumber' => '123456789',
         ]);
     }

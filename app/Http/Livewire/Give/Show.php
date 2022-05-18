@@ -19,24 +19,18 @@ class Show extends Component
 
     protected $rules = [
 
-        'input.give_forms.note' => 'required',
-        'input.give_types.name' => 'required',
+        'input.give_forms.*.note' => 'required',
+        'input.give_forms.*.give_type_id' => 'required',
+        // 'input.give_type.name' => 'required',
 
 
     ];
 
     public function updatedInput($value, $index){
         $index = explode('.', $index);
-        if (count($index) == 3) {
-        dg($index);
 
-            $this->give_forms[$index[0]][$index[1]][$index[2]] = $value;
-            $this->give_forms[$index[0]][$index[1]]->save();
-
-        } else {
-            $this->give_forms[$index[0]][$index[1]] = $value;
-            $this->give_forms[$index[0]]->save();
-        }
+        $this->give_forms[$index[1]][$index[2]] = $value;
+        $this->give_forms[$index[1]]->save();
 
         $this->notification()->info(
             $title = 'تم تحديث البيانات بنجاح',
@@ -69,9 +63,7 @@ class Show extends Component
 
     public function mount(){
         $this->give_forms = GiveForm::get();
-
         $this->input['give_forms'] = $this->give_forms->toArray();
-        $this->input['give_types'] = $this->give_forms->give_types->toArray();
 
     }
 
@@ -80,9 +72,11 @@ class Show extends Component
         $gives = GiveForm::with(
             [
                 'give_type:id,name',
-                // 'form',
             ]
         )->get();
-        return view('livewire.give.show', compact('gives'));
+
+        $give_types = GiveType::get()->toArray();
+
+        return view('livewire.give.show', compact('gives', 'give_types'));
     }
 }
