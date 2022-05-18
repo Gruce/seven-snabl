@@ -52,11 +52,8 @@
 
                                 <div x-data="{ open: false }">
                                     <button  x-show="!open" @click="open = true"> {{ $give->note }}</button>
-
                                     <ul x-show="open" @click.away="open = false">
                                         <x-input class="w-64" wire:model.lazy="input.give_forms.{{$loop->index}}.note" type="text"/>
-
-
                                     </ul>
                                 </div>
                             </td>

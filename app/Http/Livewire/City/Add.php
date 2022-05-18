@@ -4,9 +4,12 @@ namespace App\Http\Livewire\City;
 
 use Livewire\Component;
 use App\Models\City;
+use WireUi\Traits\Actions;
+
 
 class Add extends Component
 {
+    use Actions;
     public $city;
 
     protected $rules = [

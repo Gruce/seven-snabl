@@ -20,6 +20,9 @@
                         الكشوفات
                     </x-jet-nav-link>
                     @admin
+                        <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                            المخولون
+                        </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('cities') }}" :active="request()->routeIs('cities')">
                             المدن
                         </x-jet-nav-link>

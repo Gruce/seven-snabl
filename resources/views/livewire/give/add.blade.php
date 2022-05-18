@@ -9,8 +9,6 @@
 
     <x-slot name="footer">
         <div class="flex justify-between gap-x-4">
-
-
             <div class="flex">
                 <x-button flat label="الغاء" x-on:click="close" />
                 <x-button primary label="حفظ" wire:click="save" />

@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <x-button class="mt-10 w-full" wire:click="save" primary label="اضافة" />
+    <x-button class="mt-10" wire:click="save" primary label="اضافة" />
 
 
 </div>

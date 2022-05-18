@@ -1609,12 +1609,6 @@ select {
      -moz-appearance: none;
           appearance: none;
 }
-.grid-flow-row {
-  grid-auto-flow: row;
-}
-.grid-flow-col-dense {
-  grid-auto-flow: column dense;
-}
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -1888,13 +1882,13 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
-.border-secondary-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(226 232 240 / var(--tw-border-opacity));
-}
 .border-secondary-300 {
   --tw-border-opacity: 1;
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
+}
+.border-secondary-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(226 232 240 / var(--tw-border-opacity));
 }
 .border-negative-300 {
   --tw-border-opacity: 1;
@@ -2424,6 +2418,18 @@ select {
 .pb-1 {
   padding-bottom: 0.25rem;
 }
+.pl-2\.5 {
+  padding-left: 0.625rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
+}
+.pl-1 {
+  padding-left: 0.25rem;
+}
+.pl-8 {
+  padding-left: 2rem;
+}
 .pr-3\.5 {
   padding-right: 0.875rem;
 }
@@ -2432,9 +2438,6 @@ select {
 }
 .pr-14 {
   padding-right: 3.5rem;
-}
-.pl-2 {
-  padding-left: 0.5rem;
 }
 .pr-0\.5 {
   padding-right: 0.125rem;
@@ -2447,15 +2450,6 @@ select {
 }
 .pr-2 {
   padding-right: 0.5rem;
-}
-.pl-2\.5 {
-  padding-left: 0.625rem;
-}
-.pl-1 {
-  padding-left: 0.25rem;
-}
-.pl-8 {
-  padding-left: 2rem;
 }
 .pr-8 {
   padding-right: 2rem;
@@ -4146,13 +4140,13 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(51 65 85 / var(--tw-border-opacity));
 }
-.dark .dark\:bg-secondary-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
-}
 .dark .dark\:bg-secondary-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+.dark .dark\:bg-secondary-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
 .dark .dark\:bg-gray-700 {
   --tw-bg-opacity: 1;
@@ -5263,12 +5257,12 @@ select {
     width: 6rem;
   }
 
-  .lg\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-1 {
