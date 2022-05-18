@@ -49,7 +49,6 @@
                                 {{ $give->give_type->name}}
                             </td> --}}
                             <td class="px-6 py-4">
-
                                 <div x-data="{ open: false }">
                                     <button  x-show="!open" @click="open = true"> {{ $give->note }}</button>
                                     <ul x-show="open" @click.away="open = false">

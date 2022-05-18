@@ -1,6 +1,13 @@
 <div>
-    <x-card>
+    {{-- ADD BUTTON  --}}
+    <div class="flex justify-start">
+        <x-button icon="plus" onclick="$openModal('addModal')" primary label="اضافة" class="mb-3" />
+    </div>
+    {{-- ADD MODAL --}}
+    <x-modal.card  blur wire:model.defer="addModal" max-width="5xl">
         @livewire('givetype.add')
+    </x-modal.card>
+    <x-card>
         <div class="relative overflow-x-auto  sm:rounded-lg mt-10" dir="rtl">
             <table class="w-full text-sm text-right text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
@@ -43,6 +50,5 @@
                 </tbody>
             </table>
         </div>
-
     </x-card>
 </div>

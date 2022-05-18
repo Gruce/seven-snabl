@@ -1,5 +1,5 @@
 <div>
-    <div class="grid grid-cols-2 gap-5 mt-5">
+    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-3 mt-5">
         <div>
             <x-input wire:model.defer="user.name" label=" اسم المستخدم" placeholder="ادخل اسم المستخدم  " />
         </div>
