@@ -5,7 +5,8 @@ namespace App\Http\Livewire\Give;
 use Livewire\Component;
 use App\Models\{
     Form,
-    GiveForm
+    GiveForm,
+    GiveType,
 };
 use WireUi\Traits\Actions;
 
@@ -18,22 +19,23 @@ class Show extends Component
 
     protected $rules = [
 
-        'input.give.note' => 'required',
-        'input.give.type' => 'required',
-        'input.give.form_id' => 'required',
+        'input.give_forms.note' => 'required',
+        'input.give_types.name' => 'required',
+
 
     ];
 
     public function updatedInput($value, $index){
         $index = explode('.', $index);
-
         if (count($index) == 3) {
+        dg($index);
 
-            $this->form[$index[0]][$index[1]][$index[2]] = $value;
-            $this->form[$index[0]][$index[1]]->save();
+            $this->give_forms[$index[0]][$index[1]][$index[2]] = $value;
+            $this->give_forms[$index[0]][$index[1]]->save();
+
         } else {
-            $this->form[$index[0]][$index[1]] = $value;
-            $this->form[$index[0]]->save();
+            $this->give_forms[$index[0]][$index[1]] = $value;
+            $this->give_forms[$index[0]]->save();
         }
 
         $this->notification()->info(
@@ -65,7 +67,13 @@ class Show extends Component
         );
     }
 
-    
+    public function mount(){
+        $this->give_forms = GiveForm::get();
+
+        $this->input['give_forms'] = $this->give_forms->toArray();
+        $this->input['give_types'] = $this->give_forms->give_types->toArray();
+
+    }
 
     public function render()
     {
