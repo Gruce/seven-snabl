@@ -2,7 +2,9 @@
     <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
         <x-select label="اختر الهبة" wire:model="give.type" placeholder="اختر الهبة" :async-data="route('give_types_select')"
             option-label="name" option-value="id" />
+
         <x-textarea wire:model="give.note" label="الملاحظات" placeholder="الملاحظات" />
+
     </div>
 
     <x-slot name="footer">

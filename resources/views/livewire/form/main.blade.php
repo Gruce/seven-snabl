@@ -4,7 +4,7 @@
         <div class="grid lg:grid-cols-2 sm:grid-cols-1 p-2 mb-3 rounded bg-slate-50">
             {{-- ADD --}}
             <div class="flex justify-start">
-                <x-button icon="plus" onclick="$openModal('addModal')" primary label="اضافة" class="mb-3" />
+                <x-button icon="plus" @click="$openModal('addModal')" primary label="اضافة" class="mb-3" />
             </div>
 
             {{-- FILTER BUTTON --}}
