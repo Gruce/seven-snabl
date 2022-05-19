@@ -8,7 +8,10 @@
                             #
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            المتلقي
+                            رقم الاستمارة
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            رب الاسرة
                         </th>
                         <th scope="col" class="px-6 py-3">
                             نوع الهبة
@@ -26,6 +29,9 @@
                         <tr class="bg-white  text-center">
                             <td class="px-6 py-4">
                                 {{ $loop->index + 1 }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $give->form->id }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $give->form->head_family->name }}
@@ -61,7 +67,6 @@
                                 {{ $give->note }}
                             </td> --}}
                             <td class="px-6 py-4 ">
-                                <x-button class="text-gray-500" icon="pencil-alt" secondary />
                                 <x-button wire:click="confirm({{ $give->id }},'delete')" class="text-red"
                                     icon="trash" negative />
                             </td>
