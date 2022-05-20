@@ -26,88 +26,67 @@
             <!-- FIRST STEP -->
             <div x-show="formStep === 1" class="space-y-4">
                 <span class="text-lg">معلومات رب الاسرة</span>
-                <div class="mt-1" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
-                    <nav class="mb-5">
-                        <ul class="flex">
-                            <li class="ml-1 grow">
-                                <x-button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full" slate outline href="#first" icon="user" label="المعلومات العامة" />
-                                <x-button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full" href="#first" icon="user" label="المعلومات العامة" />
-                            </li>
-                            <li class="ml-1 grow">
-                                <x-button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full" slate outline href="#second" icon="location-marker" label="العمل" />
-                                <x-button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full" href="#second" icon="location-marker" label="العمل" />
-                            </li>
-                        </ul>
-                    </nav>
                     <div class="p-2 mt-1">
-                        <div x-show="activeTab === 'first'">
-                            <div class="grid lg:grid-cols-1">
-                                <div class="p-3 m-2 border rounded bg-gray-50 ">
-                                    <x-select label="مستوى الفقر" placeholder="اختر مستوى الفقر" :options="[
-                                            ['name' => 'B1',  'id' => 1],
-                                            ['name' => 'B2', 'id' => 2],
-                                            ['name' => 'B3',   'id' => 3],
-                                            ['name' => 'B4',    'id' => 4],
-                                        ]" wire:model.defer="form.person.level" option-label="name" option-value="id" />
-                                </div>
+                        <div class="grid lg:grid-cols-1">
+                            <div class="p-3 m-2 border rounded bg-gray-50 ">
+                                <x-select label="مستوى الفقر" placeholder="اختر مستوى الفقر" :options="[
+                                        ['name' => 'B1',  'id' => 1],
+                                        ['name' => 'B2', 'id' => 2],
+                                        ['name' => 'B3',   'id' => 3],
+                                        ['name' => 'B4',    'id' => 4],
+                                    ]" wire:model.defer="form.person.level" option-label="name" option-value="id" />
                             </div>
-                            <div class="grid gap-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
-                                <div class="p-3 m-2 border rounded bg-gray-50">
-                                    <x-input wire:model.defer="form.head_family.name" label="اسم رب الاسرة" placeholder="ادخل الاسم" />
-                                </div>
-                                <div class="p-3 m-2 border rounded bg-gray-50">
-                                    <div class="grid justify-center gap-2 lg:grid-cols-2 sm:grid-cols-1">
-                                        <x-select label="النسب" placeholder="اختر النسب" :options="[
-                                                ['name'=> 'سيد' , 'id' => true],
-                                                ['name'=> 'عامي' , 'id' => false],
-                                                ]" wire:model.defer="form.head_family.is_mr" option-label="name" option-value="id" />
-                                        <x-select label="الحالة" placeholder="اختر الحالة" :options="[
-                                                ['name'=> 'حي' , 'id' => true],
-                                                ['name'=> 'متوفي' , 'id' => false],
-                                                ]" wire:model.defer="form.head_family.is_alive" option-label="name" option-value="id" />
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="grid gap-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
+                            <div class="p-3 m-2 border rounded bg-gray-50">
+                                <x-input wire:model.defer="form.head_family.name" label="اسم رب الاسرة" placeholder="ادخل الاسم" />
                             </div>
-                            <div class="grid gap-5 lg:grid-cols-2 sm:grid-cols-1">
-                                <div>
-                                    <div class="p-3 m-2 border rounded bg-gray-50">
-                                        <x-input wire:model.defer="form.head_family.job" label="عمل رب الاسرة" placeholder="ادخل العمل " />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="p-3 m-2 border rounded bg-gray-50">
-
-                                        <x-inputs.currency prefix="IQD" thousands="," decimal="," wire:model.defer="form.head_family.salary" label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
-                                    </div>
+                            <div class="p-3 m-2 border rounded bg-gray-50">
+                                <div class="grid justify-center gap-2 lg:grid-cols-2 sm:grid-cols-1">
+                                    <x-select label="النسب" placeholder="اختر النسب" :options="[
+                                            ['name'=> 'سيد' , 'id' => true],
+                                            ['name'=> 'عامي' , 'id' => false],
+                                            ]" wire:model.defer="form.head_family.is_mr" option-label="name" option-value="id" />
+                                    <x-select label="الحالة" placeholder="اختر الحالة" :options="[
+                                            ['name'=> 'حي' , 'id' => true],
+                                            ['name'=> 'متوفي' , 'id' => false],
+                                            ]" wire:model.defer="form.head_family.is_alive" option-label="name" option-value="id" />
                                 </div>
                             </div>
                         </div>
+                        <div class="grid gap-5 lg:grid-cols-2 sm:grid-cols-1">
+                            <div>
+                                <div class="p-3 m-2 border rounded bg-gray-50">
+                                    <x-input wire:model.defer="form.head_family.job" label="عمل رب الاسرة" placeholder="ادخل العمل " />
+                                </div>
+                            </div>
+                            <div>
+                                <div class="p-3 m-2 border rounded bg-gray-50">
 
-                        <div x-show="activeTab === 'second'">
-                            <div class="px-5">
-                                <div class="grid gap-2 lg:grid-cols-2 sm:grid-cols-1">
-                                    <div class="p-3 m-2 border rounded bg-gray-50">
-                                        <x-select label="هل يتقاضى راتب ؟" placeholder="اختر الراتب" :options="[
-                                            ['name'=> 'تقاعد', 'id'=> 1 ],
-                                            ['name'=> 'رعاية', 'id'=> 2 ],
-                                            ['name'=> 'مؤسسة', 'id'=> 3 ],
-                                            ['name'=> 'مساعدات', 'id'=> 4 ],
-                                            ['name'=> 'حكومي', 'id'=> 5 ]
-                                            ]" wire:model.defer="form.person.salary_type" option-label="name" option-value="id" />
-                                    </div>
-                                    <div class="p-3 m-2 border rounded bg-gray-50">
-                                        <x-inputs.currency wire:model.defer="form.person.salary" label="مقداره" placeholder="ادخل مقداره" prefix="IQD" thousands="," decimal="," />
-                                    </div>
+                                    <x-inputs.currency prefix="IQD" thousands="," decimal="," wire:model.defer="form.head_family.salary" label="مقدار الدخل الشهري" placeholder="ادخل المقدار " />
                                 </div>
-                                <div>
-                                    <div class="p-3 m-2 border rounded bg-gray-50">
-                                        <x-inputs.phone wire:model.defer="form.person.father_phonenumber" label="رقم هاتف الاب" />
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="grid gap-2 lg:grid-cols-2 sm:grid-cols-1">
+                            <div class="p-3 m-2 border rounded bg-gray-50">
+                                <x-select label="هل يتقاضى راتب ؟" placeholder="اختر الراتب" :options="[
+                                    ['name'=> 'تقاعد', 'id'=> 1 ],
+                                    ['name'=> 'رعاية', 'id'=> 2 ],
+                                    ['name'=> 'مؤسسة', 'id'=> 3 ],
+                                    ['name'=> 'مساعدات', 'id'=> 4 ],
+                                    ['name'=> 'حكومي', 'id'=> 5 ]
+                                    ]" wire:model.defer="form.person.salary_type" option-label="name" option-value="id" />
+                            </div>
+                            <div class="p-3 m-2 border rounded bg-gray-50">
+                                <x-inputs.currency wire:model.defer="form.person.salary" label="مقداره" placeholder="ادخل مقداره" prefix="IQD" thousands="," decimal="," />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="p-3 m-2 border rounded bg-gray-50">
+                                <x-inputs.phone wire:model.defer="form.person.father_phonenumber" label="رقم هاتف الاب" />
                             </div>
                         </div>
                     </div>
-                </div>
                 <x-ui.button></x-ui.button>
             </div>
             <!-- END FIRST STEP -->
@@ -185,16 +164,60 @@
                         <x-button label="اضافة" wire:click="addFamilyMember" /> --}}
                     </div>
 
-                    <div class="flex flex-col w-full gap-5 mt-3">
+                    <div class="mt-3">
                         @if (isset($form['family_members']))
                         @foreach ($form['family_members'] as $index => $member)
-                        <x-input class="w-full" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم ">
-                            <x-slot name="prepend">
-                                <div class="absolute inset-y-0 left-0 flex items-center p-0.5">
-                                    <x-button class="h-full rounded bg-gray-50-r-md" icon="trash" negative flat squared {{-- wire:click="deleteFamilyMember({{ $index }})" --}} />
-                                </div>
-                            </x-slot>
-                        </x-input>
+                        <div class="p-5 border rounded bg-gray-50-lg mt-3">
+                            <span>معلومات الفرد {{++$index}}</span>
+                            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  gap-3 mt-3">
+                                <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم" />
+                                <!--
+                                <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم ">
+                                    <x-slot name="prepend">
+                                        <div class="absolute inset-y-0 left-0 flex items-center p-0.5">
+                                            <x-button class="h-full rounded bg-gray-50-r-md" icon="trash" negative flat squared {{-- wire:click="deleteFamilyMember({{ $index }})" --}} />
+                                        </div>
+                                    </x-slot>
+                                </x-input>
+                                -->
+                                <x-select label="الجنس" placeholder="اختر الجنس" :options="[
+                                                // غير الفاليو من ترو وفولس ل واحد و ثنين لان الفولس ما تشتغل بالسيليكت ونبي
+                                                ['name' => 'ذكر',  'id' => 1],
+                                                ['name' => 'انثى', 'id' => 2],
+                                            ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.is_mr" option-label="name" option-value="id" />
+                                <x-select label="الصلة" placeholder="اختر الصلة" :options="[
+                                                ['name' => 'اب',  'id' => 1],
+                                                ['name' => 'ام', 'id' => 2],
+                                                ['name' => 'ابن',   'id' => 3],
+                                                ['name' => 'جد',    'id' => 4],
+                                                ['name' => 'جدة',    'id' => 4],
+                                                ['name' => 'اخ',    'id' => 4],
+                                                ['name' => 'اخت',    'id' => 4],
+                                                ['name' => 'حفيد',    'id' => 4],
+                                            ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.kinship" option-label="name" option-value="id" />
+                                <x-datetime-picker
+                                    label="التولد"
+                                    placeholder="اختر التولد"
+                                    display-format="DD-MM-YYYY"
+                                    wire:model.defer="displayFormat"
+                                    wire:key="{{ $index . now() }}"
+                                    wire:model.defer="form.family_members.{{ $index }}.birthday"
+                                />
+                                <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.job" label="المهنة " placeholder="ادخل المهنة" />
+                                <x-select label="النسب" placeholder="اختر النسب" :options="[
+                                                // ما ضايفينها بقاعدة البيانات ضيفها وغير اسمها
+                                                ['name' => 'سيد',  'id' => 1],
+                                                ['name' => 'عامي', 'id' => 2],
+                                            ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.is_mr" option-label="name" option-value="id" />
+                                <x-select label="الحالة" placeholder="اختر النسب" :options="[
+                                    // ما ضايفين ملاحظات على انواعها بقاعدة البيانات ضيف انواعهن هنا
+                                    ['name' => 'جيد',  'id' => 1],
+                                    ['name' => 'سيء', 'id' => 2],
+                                    //اكو بعد انواع ما اعرفهن
+                                ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.health_state" option-label="name" option-value="id" />
+                                <x-textarea wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.note" label="الملاحظات " placeholder="ادخل الملاحظات" />
+                            </div>
+                        </div>
                         @endforeach
                         @endif
                     </div>
