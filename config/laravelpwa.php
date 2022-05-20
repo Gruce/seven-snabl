@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'LaravelPWA',
+    'name' => 'مجمع سبع سنابل',
     'manifest' => [
         'name' => env('APP_NAME', 'My PWA App'),
         'short_name' => 'PWA',
