@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Artisan;
+
 class Ipconfig extends Command
 {
     /**
@@ -18,7 +19,7 @@ class Ipconfig extends Command
      *
      * @var string
      */
-    protected $description = 'Start the server on the specified port';
+    protected $description = 'Run laraevl in your local ip';
 
     /**
      * Execute the console command.
@@ -27,16 +28,14 @@ class Ipconfig extends Command
      */
     public function handle()
     {
-        $x = shell_exec('ipconfig');
-        $x = explode(':', $x);
-       
-        $index = count($x) == 18 ? 15 : 18;
+        // ask
+        $port = $this->ask('What is your local port?');
+        $ip = gethostbyname(trim(`hostname`));
 
-        $ip = trim(explode('S' , $x[$index])[0]);
+        $port = $port ?? '5000';
 
-        $this->info('Your IP is : http://' . $ip . ':5000');
-        Artisan::call('serve --host ' . $ip . ':5000');
-        // dd(gethostbyname(trim(`hostname`)));
+        $this->info('Your IP is : http://' . $ip . ":$port");
+        Artisan::call('serve --host ' . $ip . ":$port");
         return 0;
     }
 }
