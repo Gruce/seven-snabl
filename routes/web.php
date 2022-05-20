@@ -11,7 +11,7 @@ use App\Http\Livewire\Form\Show;
 use App\Http\Livewire\Give\Main as GiveMain;
 use App\Http\Livewire\GiveType\Main as GiveTypeMain;
 use App\Http\Livewire\Admin\Main as AdminMain ;
-use 
+use App\Http\Livewire\Dashboard\Dashboard as DashboardMain; ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +33,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', DashboardMain::class)->name('dashboard');
+    ;
 });
 
 Route::middleware(['auth'])->group(function () {
