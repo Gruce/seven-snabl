@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('form_id')->nullable()->constrained('forms')->onDelete('cascade');
 
             $table->string('name')->nullable();
-            $table->boolean('is_mr')->default(false); // النسب
-            $table->boolean('is_alive')->default(true);
+            $table->integer('is_mr')->default(2); // النسب
+            $table->integer('is_alive')->default(1);
             $table->string('job')->nullable(); // عمل الرب الاسرة
             $table->integer('salary')->nullable();
             $table->timestamps();

@@ -30,10 +30,10 @@ return new class extends Migration
                 8 - حفيد
             */
             $table->date('birthday')->nullable();
-            $table->boolean('is_mr')->default(false);
+            $table->integer('is_mr')->default(2);
             $table->string('job')->nullable();
             $table->text('health_state')->nullable();
-            $table->string('note')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

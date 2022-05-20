@@ -44,12 +44,12 @@
                             <div class="p-3 m-2 border rounded bg-gray-50">
                                 <div class="grid justify-center gap-2 lg:grid-cols-2 sm:grid-cols-1">
                                     <x-select label="النسب" placeholder="اختر النسب" :options="[
-                                            ['name'=> 'سيد' , 'id' => true],
-                                            ['name'=> 'عامي' , 'id' => false],
+                                            ['name'=> 'سيد' , 'id' => 1],
+                                            ['name'=> 'عامي' , 'id' => 2],
                                             ]" wire:model.defer="form.head_family.is_mr" option-label="name" option-value="id" />
                                     <x-select label="الحالة" placeholder="اختر الحالة" :options="[
-                                            ['name'=> 'حي' , 'id' => true],
-                                            ['name'=> 'متوفي' , 'id' => false],
+                                            ['name'=> 'متوفي' , 'id' => 1],
+                                            ['name'=> 'حي' , 'id' => 2],
                                             ]" wire:model.defer="form.head_family.is_alive" option-label="name" option-value="id" />
                                 </div>
                             </div>
@@ -100,8 +100,8 @@
                     </div>
                     <div class="p-3 border rounded bg-gray-50">
                         <x-select label="النسب" pla ceholder="اختر النسب" :options="[
-                            ['name'=> 'علوية', 'id'=> true ],
-                            ['name'=> 'عامية', 'id'=> false ]
+                            ['name'=> 'علوية', 'id'=> 1 ],
+                            ['name'=> 'عامية', 'id'=> 2 ]
                             ]" wire:model.defer="form.wife.name" option-label="name" option-value="id" />
                     </div>
                     <div class="p-3 border rounded bg-gray-50">
@@ -168,7 +168,7 @@
                         @if (isset($form['family_members']))
                         @foreach ($form['family_members'] as $index => $member)
                         <div class="p-5 border rounded bg-gray-50-lg mt-3">
-                            <span>معلومات الفرد {{++$index}}</span>
+                            <span>معلومات الفرد {{++ $index}}</span>
                             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  gap-3 mt-3">
                                 <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم" />
                                 <!--
@@ -181,19 +181,18 @@
                                 </x-input>
                                 -->
                                 <x-select label="الجنس" placeholder="اختر الجنس" :options="[
-                                                // غير الفاليو من ترو وفولس ل واحد و ثنين لان الفولس ما تشتغل بالسيليكت ونبي
                                                 ['name' => 'ذكر',  'id' => 1],
                                                 ['name' => 'انثى', 'id' => 2],
                                             ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.is_mr" option-label="name" option-value="id" />
                                 <x-select label="الصلة" placeholder="اختر الصلة" :options="[
-                                                ['name' => 'اب',  'id' => 1],
+                                                ['name' => 'اب','id' => 1],
                                                 ['name' => 'ام', 'id' => 2],
-                                                ['name' => 'ابن',   'id' => 3],
-                                                ['name' => 'جد',    'id' => 4],
-                                                ['name' => 'جدة',    'id' => 4],
-                                                ['name' => 'اخ',    'id' => 4],
-                                                ['name' => 'اخت',    'id' => 4],
-                                                ['name' => 'حفيد',    'id' => 4],
+                                                ['name' => 'ابن','id' => 3],
+                                                ['name' => 'جد', 'id' => 4],
+                                                ['name' => 'جدة','id' => 5],
+                                                ['name' => 'اخ', 'id' => 6],
+                                                ['name' => 'اخت','id' => 7],
+                                                ['name' => 'حفيد','id' => 8],
                                             ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.kinship" option-label="name" option-value="id" />
                                 <x-datetime-picker
                                     label="التولد"
@@ -205,7 +204,6 @@
                                 />
                                 <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.job" label="المهنة " placeholder="ادخل المهنة" />
                                 <x-select label="النسب" placeholder="اختر النسب" :options="[
-                                                // ما ضايفينها بقاعدة البيانات ضيفها وغير اسمها
                                                 ['name' => 'سيد',  'id' => 1],
                                                 ['name' => 'عامي', 'id' => 2],
                                             ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.is_mr" option-label="name" option-value="id" />
@@ -215,7 +213,7 @@
                                     ['name' => 'سيء', 'id' => 2],
                                     //اكو بعد انواع ما اعرفهن
                                 ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.health_state" option-label="name" option-value="id" />
-                                <x-textarea wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.note" label="الملاحظات " placeholder="ادخل الملاحظات" />
+                                <x-textarea wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.note" label="الملاحظات" rows="1"  placeholder="ادخل الملاحظات" />
                             </div>
                         </div>
                         @endforeach

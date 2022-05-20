@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('form_id')->nullable()->constrained('forms')->onDelete('cascade');
 
             $table->string('name')->nullable();
-            $table->boolean('is_mis')->default(false); //  النسب الزوجة
+            $table->integer('is_mis')->default(2); //  النسب الزوجة
             $table->integer('state')->default(1);
             /*
                 1 - حي
