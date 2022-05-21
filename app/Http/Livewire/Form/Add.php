@@ -68,6 +68,13 @@ class Add extends Component
         foreach(range(1, $this->form['person']['family_count']) as $member)
             $this->form['family_members'][] = [
                 'name' => '',
+                'kinship' => '',
+                'birthday' => '',
+                'is_mr' => '',
+                'gender' => '',
+                'job' => '',
+                'health_state' => '',
+                'note' => '',
             ];
     }
 
