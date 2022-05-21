@@ -35,7 +35,7 @@
                             <button  x-show="!open" @click="open = true">{{$item->name}} </button>
 
                             <ul x-show="open" @click.away="open = false">
-                                <x-input class="w-64" wire:model.lazy="input.user.{{$item->index}}.name" type="text"/>
+                                <x-input class="w-64" wire:model.lazy="input.user.{{$loop->index}}.name" type="text"/>
                             </ul>
                         </div>
                     </td>
@@ -53,14 +53,13 @@
                     <td class="px-6 py-4">
 
                         <div x-data="{ open: false }">
-                            <button  x-show="!open" @click="open = true">{{$item->is_admin}} </button>
+                            <button  x-show="!open" @click="open = true">{{$item->is_admin == 1 ? 'مشرف' : 'مخول'}} </button>
 
                             <ul x-show="open" @click.away="open = false">
                                 <x-select
-
                                 :options="[
-                                        ['name'=> 'مشرف',   'id'=> true ],
-                                        ['name'=> 'مخول', 'id'=> false ],
+                                        ['name'=> 'مشرف','id'=> 1 ],
+                                        ['name'=> 'مخول', 'id'=> 2 ],
                                 ]"
                                 wire:model.lazy="input.user.{{$loop->index}}.is_admin"
                                 option-label="name"

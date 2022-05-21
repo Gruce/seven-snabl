@@ -17,9 +17,9 @@ class Add extends Component
         // Personal Info
         'form.person.level' => 'required',
         'form.person.location' => 'required',
-        'form.person.point' => 'required',
+        'form.person.point' => '',
         'form.person.location_type' => 'required',
-        'form.person.rent' => 'required',
+        'form.person.rent' => '',
         'form.person.family_work' => 'required',
         'form.person.family_count' => 'required',
         'form.person.salary_type' => 'required',
@@ -43,6 +43,13 @@ class Add extends Component
         'form.city.id' => 'required',
 
         'form.family_members.*.name' => 'required',
+        'form.family_members.*.kinship' => 'required',
+        'form.family_members.*.birthday' => 'required',
+        'form.family_members.*.is_mr' => 'required',
+        'form.family_members.*.gender' => 'required',
+        'form.family_members.*.job' => '',
+        'form.family_members.*.health_state' => 'required',
+        'form.family_members.*.note' => '',
     ];
 
 

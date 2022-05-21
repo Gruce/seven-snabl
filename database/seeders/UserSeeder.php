@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => '123456',
-            'is_admin' => true,
+            'is_admin' => 1,
             'phonenumber' => '09123456789',
         ]);
 
@@ -30,6 +30,7 @@ class UserSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@gmail.com',
             'password' => '123456',
+            'is_admin' => 2,
             'phonenumber' => '123456789',
         ]);
     }
