@@ -1,10 +1,10 @@
 <x-card shadow=false :title="'#'. $form->id. ' ' .$form->city->name">
     <x-slot  name="action">
-        <x-dropdown>
+        <x-dropdown align='left' >
             <x-dropdown.item href="{{route('show', [ 'id'=> $form->id]) }}" icon="document-text" label="استعراض" />
             <x-dropdown.item @click="$openModal('cardModal-{{$form->id}}')" icon="document-text" label="تقديم هبه" />
             <x-dropdown.item wire:click="confirm({{$form->id}},'delete')" icon="x" label="حذف" />
-                </x-dropdown>
+        </x-dropdown>
     </x-slot>
     <x-slot name="footer">
         <div class="flex justify-between text-xs">

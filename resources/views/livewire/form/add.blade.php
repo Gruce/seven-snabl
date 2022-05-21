@@ -172,7 +172,7 @@
                             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  gap-3 mt-3">
                                 <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم" />
 
-                                <x-select label="الجنس" placeholder="اختر الجنس" :options="[
+                                {{-- <x-select label="الجنس" placeholder="اختر الجنس" :options="[
                                                 ['name' => 'ذكر',  'id' => 1],
                                                 ['name' => 'انثى', 'id' => 2],
                                             ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.is_mr" option-label="name" option-value="id" />
@@ -205,7 +205,7 @@
                                     ['name' => 'سيء', 'id' => 2],
                                     //اكو بعد انواع ما اعرفهن
                                 ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.health_state" option-label="name" option-value="id" />
-                                <x-textarea wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.note" label="الملاحظات" rows="1"  placeholder="ادخل الملاحظات" />
+                                <x-textarea wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.note" label="الملاحظات" rows="1"  placeholder="ادخل الملاحظات" /> --}}
                             </div>
                         </div>
                         @endforeach
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <!--  Buttons -->
-                <x-ui.button></x-ui.button>
+                
             </div>
             <!-- END LAST STEP -->
         </form>
