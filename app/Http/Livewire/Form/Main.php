@@ -12,7 +12,7 @@ use App\Models\{
 class Main extends Component {
     use WithPagination;
     public $filter;
-     protected $listeners = ['$refresh'];
+    protected $listeners = ['$refresh'];
     public function mount(){
         $this->filter['city_id'] = null;
         $this->filter['person']['level'] = null;
