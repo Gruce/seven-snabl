@@ -10,7 +10,7 @@
     }
 
     function is_admin(){
-        if(auth()->user()->is_admin == false)
+        if(auth()->user()->is_admin == 2)
             return true;
     }
 

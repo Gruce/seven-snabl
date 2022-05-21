@@ -11,8 +11,8 @@
         </div>
         <div>
             <x-select label="نوع المستخدم" placeholder="اختر نوع المستخدم" :options="[
-                ['name'=> 'مشرف',   'id'=> true ],
-                ['name'=> 'مخول', 'id'=> false ],
+                ['name'=> 'مشرف',   'id'=> 1 ],
+                ['name'=> 'مخول', 'id'=> 3 ],
                 ]" wire:model.defer="user.is_admin" option-label="name" option-value="id" />
         </div>
         <div>

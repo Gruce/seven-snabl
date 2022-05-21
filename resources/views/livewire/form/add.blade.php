@@ -1,3 +1,4 @@
+@section('title', 'اضافة استمارة')
 <div>
     <x-card shadow=false>
         <form
@@ -165,8 +166,6 @@
                 <div class="p-5 border rounded bg-gray-50-lg">
                     <div class="flex items-center justify-between p-2 bg-gray-50 rounded bg-gray-50-lg">
                         <span>اسماء افراد العائلة</span>
-                        {{--
-                        <x-button label="اضافة" wire:click="addFamilyMember" /> --}}
                     </div>
 
                     <div class="mt-3">
