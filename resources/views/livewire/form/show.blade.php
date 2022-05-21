@@ -66,8 +66,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b ">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        <tr class="bg-white  border-b ">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 hover:bg-gray-200 whitespace-nowrap">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">{{ $form->person->level_name }}</button>
                                     <ul x-show="open" @click.away="open = false">
@@ -87,7 +87,7 @@
                                     </ul>
                                 </div>
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">{{ $form->head_family->name }} </button>
 
@@ -97,7 +97,7 @@
                                 </div>
 
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->head_family->is_mr_name }}
                                     </button>
@@ -107,7 +107,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->head_family->is_alive }}
                                     </button>
@@ -117,7 +117,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->head_family->job }} </button>
                                     <ul x-show="open" @click.away="open = false">
@@ -125,7 +125,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> @money($form->head_family->salary, 'IQD')
                                     </button>
@@ -164,7 +164,7 @@
                     <tbody>
                         <tr class="bg-white border-b ">
 
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->wife->name }} </button>
 
@@ -173,7 +173,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->wife->is_mis_name }}
                                     </button>
@@ -183,7 +183,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->wife->is_alive }} </button>
 
@@ -192,7 +192,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">
                                         {{ $form->person->father_phonenumber }} </button>
@@ -203,7 +203,7 @@
                                 </div>
 
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">
                                         {{ $form->person->mother_phonenumber }} </button>
@@ -239,7 +239,7 @@
                     </thead>
                     <tbody>
                         <tr class="bg-white border-b ">
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->person->location }}
                                     </button>
@@ -249,7 +249,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->person->point }} </button>
 
@@ -258,7 +258,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->person->location_name }}
                                     </button>
@@ -268,7 +268,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">
                                         {{ $form->person->location_name == 'ايجار' ? $form->person->rent : 'لايوجد' }}
@@ -305,7 +305,7 @@
                     </thead>
                     <tbody>
                         <tr class="bg-white border-b ">
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->person->family_work }}
                                     </button>
@@ -315,7 +315,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{ $form->person->family_count }}
                                     </button>
@@ -325,7 +325,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">
                                         {{ $form->person->salary != '0' ? 'نعم' : 'لا' }} </button>
@@ -335,7 +335,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> @money($form->person->salary, 'IQD') </button>
 
@@ -385,9 +385,9 @@
                     <tbody>
                         @forelse ($form->family_members as $index => $member)
                         <tr class="bg-white border-b ">
-                            <td class="px-6 py-4">{{ $loop->iteration }}</td>
+                            <td class="px-6 py-4 hover:bg-gray-200">{{ $loop->iteration }}</td>
 
-                            <td x-data="{ open: false }" class="px-6 py-4">
+                            <td x-data="{ open: false }" class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{$member->name}} </button>
 
@@ -396,7 +396,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true">{{$member->kinship_name}}</button>
 
@@ -405,7 +405,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 ">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{$member->birthday}} </button>
 
@@ -414,7 +414,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{$member->is_mr_name}} </button>
                                     <ul x-show="open" @click.away="open = false">
@@ -422,7 +422,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{$member->job}} </button>
 
@@ -431,7 +431,7 @@
                                     </ul>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 hover:bg-gray-200">
                                 <div x-data="{ open: false }">
                                     <button x-show="!open" @click="open = true"> {{$member->health_state}}  </button>
 

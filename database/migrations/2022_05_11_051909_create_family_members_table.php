@@ -31,6 +31,7 @@ return new class extends Migration
             */
             $table->date('birthday')->nullable();
             $table->integer('is_mr')->default(2);
+            $table->integer('gender')->default(1);
             $table->string('job')->nullable();
             $table->text('health_state')->nullable();
             $table->text('note')->nullable();

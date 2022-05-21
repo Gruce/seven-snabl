@@ -99,7 +99,7 @@
                         <x-input wire:model.defer="form.wife.name" label="اسم الزوجة " placeholder="ادخل الاسم" />
                     </div>
                     <div class="p-3 border rounded bg-gray-50">
-                        <x-select label="النسب" pla ceholder="اختر النسب" :options="[
+                        <x-select label="النسب" placeholder="اختر النسب" :options="[
                             ['name'=> 'علوية', 'id'=> 1 ],
                             ['name'=> 'عامية', 'id'=> 2 ]
                             ]" wire:model.defer="form.wife.name" option-label="name" option-value="id" />
@@ -171,15 +171,7 @@
                             <span>معلومات الفرد {{++ $index}}</span>
                             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  gap-3 mt-3">
                                 <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم" />
-                                <!--
-                                <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم ">
-                                    <x-slot name="prepend">
-                                        <div class="absolute inset-y-0 left-0 flex items-center p-0.5">
-                                            <x-button class="h-full rounded bg-gray-50-r-md" icon="trash" negative flat squared {{-- wire:click="deleteFamilyMember({{ $index }})" --}} />
-                                        </div>
-                                    </x-slot>
-                                </x-input>
-                                -->
+
                                 <x-select label="الجنس" placeholder="اختر الجنس" :options="[
                                                 ['name' => 'ذكر',  'id' => 1],
                                                 ['name' => 'انثى', 'id' => 2],

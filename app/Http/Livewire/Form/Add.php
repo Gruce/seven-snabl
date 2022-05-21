@@ -70,7 +70,7 @@ class Add extends Component
         $this->form['city']['id'] = 1;
         $this->form['person']['level'] = 1;
         $this->form['person']['location_type'] = 1;
-        $this->form['head_family']['is_mr'] = 1;
+        $this->form['head_family']['is_mr'] = 2;
         $this->form['head_family']['is_alive'] = 1;
         $this->form['wife']['name'] = '';
         $this->form['wife']['state'] = 1;

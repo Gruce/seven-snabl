@@ -54,9 +54,9 @@ class HeadOfTheFamilyInfo extends Model
         return Attribute::make(
             get: function () {
                 switch ($this->is_mr) {
-                    case true:
+                    case 1:
                         return 'سيد';
-                    case false:
+                    case 2:
                         return 'عامي';
                 }
             },
@@ -68,9 +68,9 @@ class HeadOfTheFamilyInfo extends Model
         return Attribute::make(
             get: function () {
                 switch ($this->is_aliv) {
-                    case true:
+                    case 1:
                         return 'حي';
-                    case false:
+                    case 2:
                         return 'متوفي';
                 }
             },

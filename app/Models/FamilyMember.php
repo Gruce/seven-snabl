@@ -61,9 +61,9 @@ class FamilyMember extends Model
         return Attribute::make(
             get: function () {
                 switch ($this->is_mr){
-                    case true:
+                    case 1:
                         return 'سيد';
-                    case false:
+                    case 2:
                         return 'عامي';
                 }
             },

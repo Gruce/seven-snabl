@@ -20,7 +20,7 @@
                         الكشوفات
                     </x-jet-nav-link>
                     @admin
-                    
+
                         <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
                             المخولون
                         </x-jet-nav-link>
@@ -175,6 +175,17 @@
             <x-jet-responsive-nav-link href="{{ route('forms') }}" :active="request()->routeIs('forms')">
                 الكشوفات
             </x-jet-responsive-nav-link>
+            @admin
+                <x-jet-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                    المخولون
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('cities') }}" :active="request()->routeIs('cities')">
+                    المدن
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('give.type') }}" :active="request()->routeIs('give.type')">
+                    الهبات
+                </x-jet-responsive-nav-link>
+            @endadmin
         </div>
 
         <!-- Responsive Settings Options -->
@@ -197,7 +208,7 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    الملف الشخصي
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
