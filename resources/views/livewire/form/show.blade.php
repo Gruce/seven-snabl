@@ -515,19 +515,16 @@
                             <x-select
                             :options="[
                                 ['name' => 'حي', 'id' => 1],
-                                ['name' => 'متوفية', 'id' => 2],
-                                ['name' => 'مطلقة', 'id' => 3],
-                                ['name' => 'ارملة', 'id' => 4],
+                                ['name' => 'متوفي', 'id' => 2],
+
 
                             ]"
-                            wire:model.lazy="input.wife.state"
+                            wire:model.lazy="input.head_family.is_alive"
                             option-label="name"
                             option-value="id"
                         />
                         </ul>
-                        <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.head_family.is_alive" type="text" />
-                        </ul>
+                        
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">عمل رب الاسرة</h5>

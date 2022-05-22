@@ -22,7 +22,7 @@ class HeadOfTheFamilyInfo extends Model
     ];
 
     protected $appends = [
-        'is_mr_name', 'is_alive',
+        'is_mr_name', 'is_alive_name',
     ];
 
     ### START RELATIONS ###
@@ -63,11 +63,11 @@ class HeadOfTheFamilyInfo extends Model
         );
     }
 
-    protected function isAlive(): Attribute
+    protected function isAliveName(): Attribute
     {
         return Attribute::make(
             get: function () {
-                switch ($this->is_aliv) {
+                switch ($this->is_alive) {
                     case 1:
                         return 'حي';
                     case 2:
