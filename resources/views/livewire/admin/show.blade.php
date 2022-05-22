@@ -60,6 +60,7 @@
                                     option-label="name"
                                     option-value="id"
                                 />
+                                </ul>
                             </div>
                         </td>
                         <td class="px-6 py-4">
