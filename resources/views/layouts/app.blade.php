@@ -12,9 +12,10 @@
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        @laravelPWA
         @livewireStyles
         @wireUiScripts
+        @laravelPWA
+
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
