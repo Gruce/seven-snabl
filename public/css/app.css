@@ -1526,6 +1526,9 @@ select {
 .table-auto {
   table-layout: auto;
 }
+.table-fixed {
+  table-layout: fixed;
+}
 .origin-top-left {
   transform-origin: top left;
 }

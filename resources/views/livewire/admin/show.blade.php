@@ -1,6 +1,6 @@
 <div>
     <div class="relative overflow-x-auto  sm:rounded-lg mt-10">
-        <table class="w-full text-sm text-right text-gray-500 table-auto">
+        <table class="w-full text-sm text-right text-gray-500 table-fixed">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                 <tr class="text-center">
                     <th scope="col" class="px-6 py-3">
