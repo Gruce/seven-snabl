@@ -29,6 +29,7 @@ return new class extends Migration
 
             $table->integer('rent')->nullable(); // الايجار
             $table->text('family_work')->nullable();
+            $table->integer('family_count')->default(2);
             $table->integer('salary_type')->default(1);
             /*
                 1 - تقاعد

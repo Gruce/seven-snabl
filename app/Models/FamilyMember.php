@@ -12,8 +12,8 @@ class FamilyMember extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $appends = ['kinship_name', 'is_mr_name', 'is_alive' ,];
-    protected $fillable = ['name'];
+    protected $appends = ['kinship_name', 'is_mr_name', 'is_alive_name' ,];
+    protected $fillable = ['name' ,'kinship'];
 
 
     public function form(){
@@ -70,10 +70,10 @@ class FamilyMember extends Model
         );
     }
 
-    protected function isAlive(): Attribute {
+    protected function isAliveName(): Attribute {
         return Attribute::make(
             get: function () {
-                switch ($this->is_aliv){
+                switch ($this->is_alive){
                     case 1:
                         return 'حي';
                     case 2:

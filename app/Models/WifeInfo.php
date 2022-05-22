@@ -10,7 +10,7 @@ class WifeInfo extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $appends = ['is_mis_name','is_alive' ];
+    protected $appends = ['is_mis_name','is_alive','wife_state' ];
     protected $fillable = ['name','is_mis', 'state'];
 
     ### START RELATIONS ###
@@ -51,6 +51,23 @@ class WifeInfo extends Model
                         return 'حي';
                     case 2:
                         return 'متوفي';
+                }
+            },
+        );
+    }
+
+    protected function wifeState(): Attribute {
+        return Attribute::make(
+            get: function () {
+                switch ($this->state){
+                    case 1:
+                        return 'حي';
+                    case 2:
+                        return 'متوفية';
+                    case 3:
+                        return 'مطلقة';
+                    case 4:
+                        return 'ارملة';
                 }
             },
         );

@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
                                     <span class="text-slate-400 text-2xs">الحالة</span>
-                                    <span class="text-slate-500">{{$form->wife->is_alive}}</span>
+                                    <span class="text-slate-500">{{$form->wife->wife_state}}</span>
                                 </div>
                             </div>
                         </div>

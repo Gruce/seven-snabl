@@ -37,6 +37,7 @@ class FormSeeder extends Seeder
                 'location_type' => 1,
                 'rent' => 300000,
                 'family_work' => 'اي شي',
+                'family_count' => 5,
                 'salary_type' => 1,
                 'salary' => 200000,
                 'father_phonenumber' => '0123456789',
@@ -44,7 +45,7 @@ class FormSeeder extends Seeder
             ],
             'head_family' => [
                 'name' => 'فلان فلان فلان',
-                'is_mr' => false,
+                'is_mr' => 2,
                 'job' => 'مدرس',
                 'salary' => 200000,
             ],
@@ -55,8 +56,8 @@ class FormSeeder extends Seeder
             'family_members' => [
                 [
                     'name' => 'ابن عبد العزيز',
-                    'is_mr' => false,
-                    'kinship' => 1,
+                    'is_mr' => 1,
+                    'kinship' => 3,
                     'birthday' => '2020-01-01',
                     'health_state' => 'مريض',
                     'job' => 'مدرس',
@@ -64,7 +65,7 @@ class FormSeeder extends Seeder
                 ],
                 [
                     'name' => 'ابن عبد عبدالله',
-                    'is_mr' => false,
+                    'is_mr' => 2,
                     'kinship' => 1,
                     'birthday' => '2020-01-01',
                     'health_state' => 'صاحي',

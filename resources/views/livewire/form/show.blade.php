@@ -17,11 +17,11 @@
                 </div>
                 <div class="flex flex-row justify-end gap-2">
                     <div class="text-sm"> رقم الاستمارة </div>
-                    <div class="text-sm">2022/5/13</div>
+                    <div class="text-sm">-{{$form->id}}-</div>
                 </div>
                 <div class="flex flex-row justify-end gap-2">
                     <div class="text-sm"> رمز المنطقة</div>
-                    <div class="text-sm">565656</div>
+                    <div class="text-sm">{{$form->city->code}}</div>
                 </div>
             </div>
         </div>
@@ -491,19 +491,42 @@
                     </div>
                     <div class="p-3 m-2 border  text-center rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">النسب</h5>
-                        <button x-show="!open" @click="open = true"> {{ $form->head_family->is_mr_name }}
+                        <button class="text-center font-semibold" x-show="!open" @click="open = true">
+                            {{$form->head_family->is_mr_name}} </button>
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.head_family.is_mr" type="text" />
+                            <x-select
+                            :options="[
+                                ['name' => 'سيد', 'id' => 1],
+                                ['name' => 'عامي', 'id' => 2],
+                            ]"
+                            wire:model.lazy="input.head_family.is_mr"
+                            option-label="name"
+                            option-value="id"
+                        />
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center  border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">الحالة</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
-                            {{ $form->head_family->is_mr_name }}
+                            {{ $form->head_family->is_alive_name }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.head_family.is_mr" type="text" />
+                            <x-select
+                            :options="[
+                                ['name' => 'حي', 'id' => 1],
+                                ['name' => 'متوفية', 'id' => 2],
+                                ['name' => 'مطلقة', 'id' => 3],
+                                ['name' => 'ارملة', 'id' => 4],
+
+                            ]"
+                            wire:model.lazy="input.wife.state"
+                            option-label="name"
+                            option-value="id"
+                        />
+                        </ul>
+                        <ul x-show="open" @click.away="open = false">
+                            <x-input class="w-64" wire:model.lazy="input.head_family.is_alive" type="text" />
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
@@ -538,7 +561,7 @@
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">النسب</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
-                            {{$form->wife->is_mis_name  }} </button>
+                            {{$form->wife->is_mis_name}} </button>
                         </button>
                         <ul x-show="open" @click.away="open = false">
                             <x-select
@@ -556,10 +579,21 @@
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">الحالة</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
-                            {{ $form->wife->is_alive }} </button>
-                        <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.wife.state" type="text" />
-                        </ul>
+                            {{ $form->wife->wife_state }} </button>
+                            <ul x-show="open" @click.away="open = false">
+                                <x-select
+                                :options="[
+                                    ['name' => 'حي', 'id' => 1],
+                                    ['name' => 'متوفية', 'id' => 2],
+                                    ['name' => 'مطلقة', 'id' => 3],
+                                    ['name' => 'ارملة', 'id' => 4],
+
+                                ]"
+                                wire:model.lazy="input.wife.state"
+                                option-label="name"
+                                option-value="id"
+                            />
+                            </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">رقم هاتف الاب</h5>
@@ -584,7 +618,7 @@
                 </div>
             </div>
             {{-- THIRD SECTION --}}
-            <div class="border rounded mt-4">
+            <div class="border rounded mt-4 ">
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">عنوان السكن </h5>
@@ -603,7 +637,7 @@
                             <x-input class="w-64" wire:model.lazy="input.person.point" type="text" />
                         </ul>
                     </div>
-                    <div class="p-3 m-2 border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 border text-center rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">نوع السكن</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->person->location_name }}
@@ -624,7 +658,7 @@
                 </div>
             </div>
             {{-- FIRD xD SECTION --}}
-            <div class="border rounded mt-4">
+            <div class="border rounded mt-4 ">
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">عمل افراد الاسرة</h5>
@@ -641,17 +675,15 @@
                             {{ $form->person->family_count }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.person.family_count" type="text" />
+                            <x-input class="w-64" wire:model.lazy="input.person.family_count" type="number" />
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">هل يتقاضى راتب</h5>
-                        <button class="text-center font-semibold" x-show="!open" @click="open = true">
+                        <h6 class="text-center font-semibold" >
                             {{ $form->person->salary != '0' ? 'نعم' : 'لا' }}
-                        </button>
-                        <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.person.have_salary" type="text" />
-                        </ul>
+                        </h6>
+
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">مقداره</h5>
@@ -670,8 +702,8 @@
                     @if (isset($form['family_members']))
                         @forelse ($form ['family_members'] as $index => $member)
                             <x-card shadow=false :title="'#' . $loop->index + 1 . ' ' . $member->name">
-                                <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                                    <div class="p-3 m-2 text-center border rounded bg-gray-50 "
+                                <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
+                                    <div class="p-3 m-2 text-center border rounded bg-gray-50  "
                                         x-data="{ open: false }">
                                         <h5 class="text-sm">الاسم</h5>
                                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
@@ -686,7 +718,7 @@
                                         x-data="{ open: false }">
                                         <h5 class="text-sm">الصلة</h5>
                                         <button class="text-center font-semibold" x-show="!open"
-                                            @click="open = true">{{ $member->kinship_name }}</button>
+                                            @click="open = true">{{ $member->kinship_name}}</button>
                                         <ul x-show="open" @click.away="open = false">
                                             <x-select :options="[
                                                 ['name' => 'اب', 'id' => 1],
@@ -697,8 +729,8 @@
                                                 ['name' => 'اخ', 'id' => 6],
                                                 ['name' => 'اخت', 'id' => 7],
                                                 ['name' => 'حفيد', 'id' => 8],
-                                            ]" wire:key="{{ $index . now() }}"
-                                                wire:model.defer="form.family_members.{{$loop->index}}.kinship"
+                                            ]"
+                                                wire:model.lazy="input.family_members.{{ $index }}.kinship"
                                                 option-label="name" option-value="id" />
 
                                         </ul>
@@ -719,11 +751,19 @@
                                         <h5 class="text-sm">النسب</h5>
                                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                                             {{ $member->is_mr_name }} </button>
-                                        <ul x-show="open" @click.away="open = false">
-                                            <x-input class="w-64"
-                                                wire:model.lazy="input.family_members.{{ $index }}.is_mr_name"
-                                                type="text" />
-                                        </ul>
+
+                                            <ul x-show="open" @click.away="open = false">
+                                                <x-select
+                                                :options="[
+                                                    ['name' => 'سيد', 'id' => 1],
+                                                    ['name' => 'عامي', 'id' => 2],
+                                                ]"
+                                                wire:model.lazy="input.family_members.{{ $index }}.is_mr"
+                                                option-label="name"
+                                                option-value="id"
+                                            />
+                                            </ul>
+
                                     </div>
                                     <div class="p-3 m-2 text-center border rounded bg-gray-50 "
                                         x-data="{ open: false }">
