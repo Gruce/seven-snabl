@@ -70,23 +70,23 @@
                         </div>
                             <!-- <tr class="bg-white  text-center">
                                 <td class="px-6 py-4">
-                                    {{ $loop->index + 1 }}
+                                    {{-- {{ $loop->index + 1 }} --}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $give->form->id }}
+                                    {{-- {{ $give->form->id }} --}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $give->form->head_family->name }}
+                                    {{-- {{ $give->form->head_family->name }} --}}
                                 </td>
                                 <td class="px-6 py-4">
 
                                     <div x-data="{ open: false }">
-                                        <button  x-show="!open" @click="open = true"> {{ $give->give_type->name}} </button>
+                                        {{-- <button  x-show="!open" @click="open = true"> {{ $give->give_type->name}} </button> --}}
 
-                                        <ul x-show="open" @click.away="open = false">
+                                        {{-- <ul x-show="open" @click.away="open = false"> --}}
                                             <x-select
-                                            :options="$give_types"
-                                            wire:model.lazy="input.give_forms.{{$loop->index}}.give_type_id"
+                                            {{-- :options="$give_types" --}}
+                                            {{-- wire:model.lazy="input.give_forms.{{$loop->index}}.give_type_id" --}}
                                             option-label="name"
                                             option-value="id"
                                             />
@@ -99,9 +99,9 @@
                                 <td class="px-6 py-4">
 
                                     <div x-data="{ open: false }">
-                                        <button  x-show="!open" @click="open = true"> {{ $give->note }}</button>
-                                        <ul x-show="open" @click.away="open = false">
-                                            <x-input class="w-64" wire:model.lazy="input.give_forms.{{$loop->index}}.note" type="text"/>
+                                        {{-- <button  x-show="!open" @click="open = true"> {{ $give->note }}</button> --}}
+                                        {{-- <ul x-show="open" @click.away="open = false"> --}}
+                                            {{-- <x-input class="w-64" wire:model.lazy="input.give_forms.{{$loop->index}}.note" type="text"/> --}}
                                         </ul>
                                     </div>
                                 </td>
@@ -109,7 +109,7 @@
                                     {{ $give->note }}
                                 </td> --}}
                                 <td class="px-6 py-4 ">
-                                    <x-button wire:click="confirm({{ $give->id }},'delete')" class="text-red"
+                                    {{-- <x-button wire:click="confirm({{ $give->id }},'delete')" class="text-red" --}}
                                         icon="trash" negative />
                                 </td>
                             </tr> -->

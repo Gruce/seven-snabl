@@ -12,7 +12,7 @@
                 @livewire('city.add')
             </div> --}}
             <div>
-                @livewire('city.show')
+                <livewire:city.show key={{now()}}/>
             </div>
         </x-card>
     </div>

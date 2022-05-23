@@ -20,7 +20,7 @@
 
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                 @forelse ($cities as $city)
-                <div class="m-3">
+                <div key="{{now()}}"  class="m-3">
                     <x-card shadow=false :title="'#'. ($loop->index + 1). ' ' .$city->name">
                         <x-slot name="footer">
                             <div class="flex justify-center text-xs">
