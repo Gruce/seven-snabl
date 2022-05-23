@@ -7,7 +7,7 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         {{-- <x-jet-application-mark class="block h-9 w-auto" /> --}}
-                        <img src="{{ asset('img/a.png') }}" class="mt-3 pb-3" alt="logo" width="80" height="80">
+                        <img src="{{ asset('img/a.png') }}" class="mt-3 pb-3" alt="logo" width="60" height="60">
                     </a>
                 </div>
 
