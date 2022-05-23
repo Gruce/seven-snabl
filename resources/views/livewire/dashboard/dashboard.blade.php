@@ -61,22 +61,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+                                        @forelse ( $users as $user )
                                         <tr>
                                             <th>
                                                 <div class="flex items-center space-x-3">
                                                     <div>
-                                                        <a href="#" class="font-bold btn-link">
-                                                            اجمالى
+                                                        <a class="font-bold btn-link">
+                                                            {{$user->name}}
                                                         </a>
-                                                        <div class="text-sm opacity-50"> -</div>
                                                     </div>
                                                 </div>
                                             </th>
                                             <td class="py-4 px-6 text-sm font-medium text-gray-900">
-                                                wer
+                                                {{$user->forms->count()}}
                                             </td>
                                         </tr>
+                                        @empty
+                                            لايود على احصائيات
+                                        @endforelse
+
                                     </tbody>
                                 </table>
                             </div>
