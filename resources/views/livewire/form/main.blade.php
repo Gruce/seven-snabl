@@ -20,9 +20,9 @@
         {{-- FILTERS --}}
         <div x-show="filter" class="grid lg:grid-cols-3 sm:grid-cols-1">
             <x-select
-
                 class="{{$filter['city_id'] ? 'border-2 border-green-100 rounded-lg' : ''}} m-3"
                 placeholder="المنطقة"
+
                 :async-data="route('cities_select')"
                 option-label="name"
                 option-value="id"
@@ -64,7 +64,7 @@
 
         <div class="grid gap-2 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
             @forelse ($forms as $form)
-                <div class="m-1">
+                <div class="mb-1">
                     @livewire('form.card', ['form' => $form])
                 </div>
             @empty

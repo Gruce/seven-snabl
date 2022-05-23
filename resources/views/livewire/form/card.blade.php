@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div class="max-w-sm bg-white rounded-lg border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
         {{-- HEADER --}}
         <div class="flex justify-between px-4 pt-4">
             <span class="px-2 py-1 rounded text-slate-500">
