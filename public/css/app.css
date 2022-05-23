@@ -1187,6 +1187,9 @@ select {
 .m-1 {
   margin: 0.25rem;
 }
+.m-6 {
+  margin: 1.5rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1303,6 +1306,9 @@ select {
 }
 .mr-10 {
   margin-right: 2.5rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 .block {
   display: block;
