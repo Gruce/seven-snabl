@@ -17,11 +17,11 @@
                 </div>
                 <div class="flex flex-row justify-end gap-2">
                     <div class="text-sm"> رقم الاستمارة </div>
-                    <div class="text-sm">-{{$form->id}}-</div>
+                    <div class="text-sm">-{{ $form->id }}-</div>
                 </div>
                 <div class="flex flex-row justify-end gap-2">
                     <div class="text-sm"> رمز المنطقة</div>
-                    <div class="text-sm">{{$form->city->code}}</div>
+                    <div class="text-sm">{{ $form->city->code }}</div>
                 </div>
             </div>
         </div>
@@ -41,13 +41,13 @@
                         <button class="text-center font-semibold" x-show="!open"
                             @click="open = true">{{ $form->person->level_name }}</button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-select :options="[
-                                ['name' => 'B1', 'id' => 1],
-                                ['name' => 'B2', 'id' => 2],
-                                ['name' => 'B3', 'id' => 3],
-                                ['name' => 'B4', 'id' => 4],
-                            ]" wire:model.lazy="input.person.level" option-label="name"
-                                option-value="id" />
+                            <select wire:model.lazy="input.person.level"
+                                class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                <option value="1" selected>B1</option>
+                                <option value="2">B2</option>
+                                <option value="3">B3</option>
+                                <option value="4">B4</option>
+                            </select>
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
@@ -57,61 +57,57 @@
                         <button class="text-sm font-semibold" x-show="!open"
                             @click="open = true">{{ $form->head_family->name }} </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.head_family.name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.head_family.name"
+                                class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 border  text-center rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">النسب</h5>
+                        <h5 class="text-sm   mb-3">النسب</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
-                            {{$form->head_family->is_mr_name}} </button>
+                            {{ $form->head_family->is_mr_name }} </button>
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-select
-                            :options="[
-                                ['name' => 'سيد', 'id' => 1],
-                                ['name' => 'عامي', 'id' => 2],
-                            ]"
-                            wire:model.lazy="input.head_family.is_mr"
-                            option-label="name"
-                            option-value="id"
-                            placeholder="اختر النسب"
-                        />
+                            <select wire:model.lazy="input.head_family.is_mr"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                <option value="1" selected>سيد</option>
+                                <option value="2">عامي</option>
+
+                            </select>
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center  border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">الحالة</h5>
+                        <h5 class="text-sm   mb-3">الحالة</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->head_family->is_alive_name }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-select
-                            :options="[
-                                ['name' => 'حي', 'id' => 1],
-                                ['name' => 'متوفي', 'id' => 2],
 
+                            <select wire:model.lazy="input.head_family.is_alive"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                <option value="1" selected>حي</option>
+                                <option value="2">متوفي</option>
 
-                            ]"
-                            wire:model.lazy="input.head_family.is_alive"
-                            option-label="name"
-                            option-value="id"
-                        />
+                            </select>
+
                         </ul>
 
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm mb-3">عمل رب الاسرة</h5>
+                        <h5 class="text-sm   mb-3">عمل رب الاسرة</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->head_family->job }} </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text"wire:model.lazy="input.head_family.job" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.head_family.job"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm mb-3">مقدار الدخل الشهري</h5>
+                        <h5 class="text-sm   mb-3">مقدار الدخل الشهري</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true"> @money($form->head_family->salary, 'IQD')
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.head_family.salary" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.head_family.salary"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                 </div>
@@ -120,49 +116,42 @@
             <div class="border rounded mt-4">
                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm mb-3">اسم الزوجة</h5>
+                        <h5 class="text-sm  mb-3">اسم الزوجة</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->wife->name }} </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.wife.name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.wife.name"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">النسب</h5>
+                        <h5 class="text-sm mb-3 ">النسب</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
-                            {{$form->wife->is_mis_name}} </button>
+                            {{ $form->wife->is_mis_name }} </button>
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-select
-                            :options="[
-                                ['name' => 'سيد', 'id' => 1],
-                                ['name' => 'عامي', 'id' => 2],
-                            ]"
-                            wire:model.lazy="input.wife.is_mis"
-                            option-label="name"
-                            option-value="id"
-                        />
+                            <select wire:model.lazy="input.wife.is_mis"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                <option value="1" selected>حي</option>
+                                <option value="2">متوفي</option>
+
+                            </select>
                         </ul>
 
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">الحالة</h5>
+                        <h5 class="text-sm mb-3">الحالة</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->wife->wife_state }} </button>
-                            <ul x-show="open" @click.away="open = false">
-                                <x-select
-                                :options="[
-                                    ['name' => 'حي', 'id' => 1],
-                                    ['name' => 'متوفية', 'id' => 2],
-                                    ['name' => 'مطلقة', 'id' => 3],
-                                    ['name' => 'ارملة', 'id' => 4],
-
-                                ]"
-                                wire:model.lazy="input.wife.state"
-                                option-label="name"
-                                option-value="id"
-                            />
-                            </ul>
+                        <ul x-show="open" @click.away="open = false">
+                            <select wire:model.lazy="input.wife.state"
+                                class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                <option value="1" selected>حي</option>
+                                <option value="2">متوفية</option>
+                                <option value="3">مطلقة</option>
+                                <option value="4">ارملة</option>
+                            </select>
+                        </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm mb-3">رقم هاتف الاب</h5>
@@ -170,7 +159,8 @@
                             {{ $form->person->father_phonenumber }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.person.father_phonenumber" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.person.father_phonenumber"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
 
                         </ul>
                     </div>
@@ -180,7 +170,8 @@
                             {{ $form->person->mother_phonenumber }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.person.mother_phonenumber" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.person.mother_phonenumber"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                 </div>
@@ -194,15 +185,17 @@
                             {{ $form->person->location }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.person.location" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.person.location"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">اقرب نقطة دالة</h5>
+                        <h5 class="text-sm mb-3 ">اقرب نقطة دالة</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->person->point }} </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.person.point" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.person.point"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 border text-center rounded bg-gray-50 " x-data="{ open: false }">
@@ -211,16 +204,18 @@
                             {{ $form->person->location_name }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.person.location_type" type="text" />
+                            <input type="text" wire:model.lazy="input.person.location_type"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">مقدار الايجاد الشهري</h5>
+                        <h5 class="text-sm mb-3">مقدار الايجاد الشهري</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->person->location_name == 'ايجار' ? $form->person->rent : 'لايوجد' }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text"  wire:model.lazy="input.person.rent" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.person.rent"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                 </div>
@@ -234,7 +229,8 @@
                             {{ $form->person->family_work }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text"   wire:model.lazy="input.person.family_work"  class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.person.family_work"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
@@ -243,22 +239,24 @@
                             {{ $form->person->family_count }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="number" wire:model.lazy="input.person.family_count"  class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="number" wire:model.lazy="input.person.family_count"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">هل يتقاضى راتب</h5>
-                        <h6 class="text-center font-semibold" >
+                        <h5 class="text-sm mb-3">هل يتقاضى راتب</h5>
+                        <h6 class="text-center font-semibold">
                             {{ $form->person->salary != '0' ? 'نعم' : 'لا' }}
                         </h6>
 
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">مقداره</h5>
+                        <h5 class="text-sm mb-3">مقداره</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true"> @money($form->person->salary, 'IQD')
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.person.salary" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                            <input type="text" wire:model.lazy="input.person.salary"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
                 </div>
@@ -273,78 +271,78 @@
                                 <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
                                     <div class="p-3 m-2 text-center border rounded bg-gray-50  "
                                         x-data="{ open: false }">
-                                        <h5 class="text-sm">الاسم</h5>
+                                        <h5 class="text-sm mb-3">الاسم</h5>
                                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                                             {{ $member->name }} </button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <input type="text" wire:model.lazy="input.family_members.{{ $index }}.name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                                            <input type="text"
+                                                wire:model.lazy="input.family_members.{{ $index }}.name"
+                                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                         </ul>
                                     </div>
                                     <div class="p-3 m-2 text-center border rounded bg-gray-50 "
                                         x-data="{ open: false }">
-                                        <h5 class="text-sm">الصلة</h5>
+                                        <h5 class="text-sm mb-3">الصلة</h5>
                                         <button class="text-center font-semibold" x-show="!open"
-                                            @click="open = true">{{ $member->kinship_name}}</button>
+                                            @click="open = true">{{ $member->kinship_name }}</button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <x-select :options="[
-                                                ['name' => 'اب', 'id' => 1],
-                                                ['name' => 'ام', 'id' => 2],
-                                                ['name' => 'ابن', 'id' => 3],
-                                                ['name' => 'جد', 'id' => 4],
-                                                ['name' => 'جدة', 'id' => 5],
-                                                ['name' => 'اخ', 'id' => 6],
-                                                ['name' => 'اخت', 'id' => 7],
-                                                ['name' => 'حفيد', 'id' => 8],
-                                            ]"
-                                                wire:model.lazy="input.family_members.{{ $index }}.kinship"
-                                                option-label="name" option-value="id" />
-
+                                            <select wire:model.lazy="input.family_members.{{ $index }}.kinship"
+                                                class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                                <option value="1" selected>اب</option>
+                                                <option value="2">ام</option>
+                                                <option value="3">ابن</option>
+                                                <option value="4">جد</option>
+                                                <option value="5">جدة</option>
+                                                <option value="6">اخ</option>
+                                                <option value="7">اخت</option>
+                                                <option value="8">حفيد</option>
+                                            </select>
                                         </ul>
                                     </div>
                                     <div class="p-3 m-2 text-center border rounded bg-gray-50 "
                                         x-data="{ open: false }">
-                                        <h5 class="text-sm">التولد</h5>
+                                        <h5 class="text-sm mb-3">التولد</h5>
                                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                                             {{ $member->birthday }} </button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <input type="text" wire:model.lazy="input.family_members.{{ $index }}.birthday" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                                            <input type="text"
+                                                wire:model.lazy="input.family_members.{{ $index }}.birthday"
+                                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                         </ul>
                                     </div>
                                     <div class="p-3 m-2 text-center border rounded bg-gray-50 "
                                         x-data="{ open: false }">
-                                        <h5 class="text-sm">النسب</h5>
+                                        <h5 class="text-sm mb-3">النسب</h5>
                                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                                             {{ $member->is_mr_name }} </button>
-
-                                            <ul x-show="open" @click.away="open = false">
-                                                <x-select
-                                                :options="[
-                                                    ['name' => 'سيد', 'id' => 1],
-                                                    ['name' => 'عامي', 'id' => 2],
-                                                ]"
-                                                wire:model.lazy="input.family_members.{{ $index }}.is_mr"
-                                                option-label="name"
-                                                option-value="id"
-                                            />
-                                            </ul>
-
+                                        <ul x-show="open" @click.away="open = false">
+                                            <select wire:model.lazy="input.family_members.{{ $index }}.is_mr"
+                                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                                <option value="1" selected>سيد</option>
+                                                <option value="2">عامي</option>
+                                            </select>
+                                        </ul>
                                     </div>
                                     <div class="p-3 m-2 text-center border rounded bg-gray-50 "
                                         x-data="{ open: false }">
-                                        <h5 class="text-sm">المهنة</h5>
+                                        <h5 class="text-sm mb-3">المهنة</h5>
                                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                                             {{ $member->job }} </button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <input type="text"  wire:model.lazy="input.family_members.{{ $index }}.job" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                                            <input type="text"
+                                                wire:model.lazy="input.family_members.{{ $index }}.job"
+                                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                         </ul>
                                     </div>
                                     <div class="p-3 m-2 text-center border rounded bg-gray-50 "
                                         x-data="{ open: false }">
-                                        <h5 class="text-sm">الحالة الصحية</h5>
+                                        <h5 class="text-sm mb-3">الحالة الصحية</h5>
                                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                                             {{ $member->health_state }} </button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <input type="text"  wire:model.lazy="input.family_members.{{ $index }}.health_state" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "  >
+                                            <input type="text"
+                                                wire:model.lazy="input.family_members.{{ $index }}.health_state"
+                                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                         </ul>
                                     </div>
                                 </div>
