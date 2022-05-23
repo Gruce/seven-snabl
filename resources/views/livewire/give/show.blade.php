@@ -27,7 +27,7 @@
                 <tbody> --}}
                     <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                         @forelse ($gives as $give)
-                        <div class="m-3">
+                        <div class="m-3 m">
                             <x-card shadow=false :title="'#'.$give->form->id. ' ' .$give->form->head_family->name ">
                                 <x-slot name="footer">
                                     <div class="flex justify-center text-xs">
