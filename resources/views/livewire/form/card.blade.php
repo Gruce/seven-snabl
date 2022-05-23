@@ -34,16 +34,16 @@
                     <nav class="mb-1">
                         <ul class="flex">
                             <li class="ml-1 grow">
-                                <x-button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full" slate outline href="#first" icon="user" label="اساسيات" />
-                                <x-button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full" href="#first" icon="user" label="اساسيات" />
+                                <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full text-gray-900 bg-gray-100" slate outline href="#first" icon="user">اساسيات</button>
+                                <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full text-gray-900 bg-gray-100" href="#first" icon="user">اساسيات</button>
                             </li>
                             <li class="ml-1 grow">
-                                <x-button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full" slate outline href="#second" icon="location-marker" label="السكن" />
-                                <x-button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full" href="#second" icon="location-marker" label="السكن" />
+                                <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full text-gray-900 bg-gray-100" slate outline href="#second" icon="location-marker" >السكن</button>
+                                <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full text-gray-900 bg-gray-100" href="#second" icon="location-marker" >السكن</button>
                             </li>
                             <li class="grow">
-                                <x-button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full" slate outline href="#third" icon="user-group" label="العائلة" />
-                                <x-button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full" href="#third" icon="user-group" label="العائلة" />
+                                <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full text-gray-900 bg-gray-100" slate outline href="#third" icon="user-group"  >العائلة</button>
+                                <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full text-gray-900 bg-gray-100" href="#third" icon="user-group"  >العائلة</button>
                             </li>
 
                         </ul>
@@ -148,8 +148,14 @@
 
                         @if ($family_count > 1)
                         <div class="flex justify-center my-1">
-                            <x-button x-show="max > 1 && count != 1" xs label="السابق" icon="arrow-narrow-right" @click="count--" />
-                            <x-button x-show="max > count" @click="count++" xs label="التالي" icon="arrow-narrow-left" />
+                            <button type="button" x-show="max > count" @click="count++" xs  @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg  focus:outline-none focus:ring-blue-300">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                التالي
+                            </button>
+                            <button type="button" x-show="max > 1 && count != 1"  xs  @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg  focus:outline-none focus:ring-blue-300 ">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                السابق
+                            </button>
                         </div>
                         @endif
 

@@ -44,10 +44,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
                 <div>
                     <h1 class="text-2xl mb-4 mr-2 font-semibold">احصائيات المخولون</h1>
                     <div class="flex flex-row ">
