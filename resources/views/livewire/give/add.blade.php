@@ -1,5 +1,5 @@
-<x-modal.card title="اضافة هبة" blur wire:model.defer="cardModal-{{ $form->id }}">
-    <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
+<x-modal.card title="اضافة هبة" blur wire:model.defer="cardModal">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
         <x-select label="اختر الهبة" wire:model="give.type" placeholder="اختر الهبة" :async-data="route('give_types_select')"
             option-label="name" option-value="id" />
 

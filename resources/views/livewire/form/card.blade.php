@@ -3,7 +3,7 @@
         <x-slot  name="action">
             <x-dropdown align='left' >
                 <x-dropdown.item href="{{route('show', [ 'id'=> $form->id]) }}" icon="document-text" label="استعراض" />
-                <x-dropdown.item @click="$openModal('cardModal-{{$form->id}}')" icon="document-text" label="تقديم هبه" />
+                <x-dropdown.item wire:click="$emit('getFormId', '{{$form->id}}')" @click="$openModal('cardModal')" icon="document-text" label="تقديم هبه" />
                 <x-dropdown.item wire:click="confirm({{$form->id}},'delete')" icon="x" label="حذف" />
             </x-dropdown>
         </x-slot>
@@ -196,5 +196,4 @@
             </div>
         </div>
     </x-card>
-    @livewire('give.add', ['form' => $form])
 </div>

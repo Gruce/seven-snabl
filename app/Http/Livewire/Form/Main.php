@@ -12,9 +12,14 @@ use App\Models\{
 class Main extends Component {
     use WithPagination;
     public $filter;
-    public $addModal;
-    
-    protected $listeners = ['$refresh'];
+    public $addModal, $form_id;
+
+    protected $listeners = ['$refresh', 'getFormId'];
+
+    public function getFormId($id) {
+        $this->form_id = $id;
+    }
+
     public function mount(){
         $this->filter['city_id'] = null;
         $this->filter['person']['level'] = null;

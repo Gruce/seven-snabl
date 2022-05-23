@@ -64,7 +64,7 @@ class Add extends Component
     }
 
     public function updatedFormPersonFamilyCount(){
-        $this->form['family_members'] = [];
+        $this->form['family_members'] = array();
         foreach(range(1, $this->form['person']['family_count']) as $member)
             $this->form['family_members'][] = [
                 'name' => '',
@@ -98,12 +98,11 @@ class Add extends Component
     }
 
     public function save() {
-        dg($this->form);
         $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
-        $form->save();
+        // $form->save();
 
         $form->add($this->form);
 
@@ -111,9 +110,9 @@ class Add extends Component
             $title = 'تم إضافة البيانات بنجاح',
         );
 
-        $this->emitTo('city.show', '$refresh');
+        // $this->emitTo('city.show', '$refresh');
 
-        $this->form = [];
+        // $this->form = [];
 
 
     }

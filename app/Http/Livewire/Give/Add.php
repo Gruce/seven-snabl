@@ -18,9 +18,8 @@ class Add extends Component
         'give.form_id' => 'required',
 
     ];
-    public function mount($form)
-    {
-
+    
+    public function mount(Form $form){
         $this->form = $form;
         $this->give['type'] = null;
     }
@@ -40,7 +39,6 @@ class Add extends Component
 
     public function render()
     {
-
         return view('livewire.give.add');
     }
 }

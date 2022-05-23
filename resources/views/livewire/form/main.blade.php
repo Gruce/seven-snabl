@@ -59,10 +59,11 @@
         <x-card shadow=false>
 
             {{-- ADD MODAL --}}
-            <x-modal.card  blur wire:model.defer="addModal">
+            <x-modal.card  blur wire:model.defer="addModal" max-width="5xl">
                 @livewire('form.add')
             </x-modal.card>
 
+            <div class="grid gap-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1">
             @forelse ($forms as $form)
                 @livewire('form.card', ['form' => $form])
             @empty
@@ -70,9 +71,12 @@
                     <h1>لايوجد</h1>
                 </div>
             @endforelse
+            </div>
 
             {{-- {{ $forms->links() }} --}}
 
         </x-card>
     </div>
+    
+    @livewire('give.add', ['form' => $form_id ?? 1])
 </div>
