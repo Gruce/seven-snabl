@@ -29,9 +29,7 @@ class Main extends Component {
 
     public function render(){
         $forms = Form::with('city:id,name')->orderByDesc('id');
-
         if(is_admin()) $forms->where('user_id', auth()->id());
-
         $forms = $forms->whereExist(collect($this->filter)->toFilter())->whereExist([
                 ['id' , '%' . $this->filter['search'] . '%' , 'LIKE'],
             ]

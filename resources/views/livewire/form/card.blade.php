@@ -74,7 +74,7 @@
                 <div class="p-1 border rounded">
                     <span class="mr-1 text-2xs text-slate-400">معلومات رب الأسرة</span>
                     <div class="flex items-center justify-between p-1 text-sm">
-                        <span class="font-semibold text-slate-500 text-md">{{ $form->head_family->name }}
+                        <span class="font-semibold text-slate-500 text-md">{{ $form->head_family->name??'غير محدد' }}</span>
                         </span>
                         <span
                             class="px-2 py-1 font-semibold rounded text-slate-500 bg-slate-50">{{ $form->person->level_name }}</span>
