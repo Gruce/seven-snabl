@@ -1,39 +1,40 @@
 <div>
     {{-- <div class="mt-1" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'"> --}}
     <div x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
-        <x-card>
+        <x-ui.card class="border bg-white">
                 <nav class="mb-1">
                     <ul class="flex">
                         <li class="ml-1 grow">
-                            <x-button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full" slate outline href="#first" icon="user" label="الهبات" />
-                            <x-button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full" href="#first" icon="user" label="الهبات" />
-                        </li>
-                        <li class="ml-1 grow">
-                            <x-button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full" slate outline href="#second" icon="location-marker" label="انواع الهبات" />
-                            <x-button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full" href="#second" icon="location-marker" label="انواع الهبات" />
-                        </li>
+                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'"
+                            class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#first"
+                            icon="user">اساسيات</button>
+                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'"
+                            class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#first"
+                            icon="user">اساسيات</button>
+                    </li>
+                    <li class="ml-1 grow">
+                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'"
+                            class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#second"
+                            icon="location-marker">السكن</button>
+                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'"
+                            class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#second"
+                            icon="location-marker">السكن</button>
+                    </li>
                     </ul>
                 </nav>
-        </x-card>
+        </x-ui.card>
         <br>
         <div x-show="activeTab === 'first'">
             <livewire:give.show key={{now()}}/>
         </div>
 
         <div x-show="activeTab === 'second'">
-            <x-card>
+            <x-ui.card class="border bg-white">
                 <livewire:givetype.add key={{now()}}/>
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-4">
                     @forelse ($gives as $give)
                     <div class="m-3">
-                        <x-card key="{{now()}}" shadow=false >
-                            <x-slot name="footer">
-                                <div class="flex justify-center text-xs">
-                                    <div class="flex flex-col items-center justify-center gap-1">
-                                        <x-button wire:click="confirm({{ $give->id }},'delete')" class="text-red" icon="trash" negative />
-                                    </div>
-                                </div>
-                            </x-slot>
+                        <x-ui.card class="border bg-gray-50" key="{{now()}}" shadow=false >
                             <!-- Card Content -->
                             <div class="flex flex-col">
                                 <div class="grid grid-cols-1 gap-1 my-1 text-center">
@@ -48,13 +49,21 @@
                                     </div>
                                 </div>
                             </div>
-                        </x-card>
+                            <div class="mt-2">
+                                <div class="flex justify-center text-xs">
+                                    <div class="flex flex-col items-center justify-center gap-1 ">
+                                        <button  wire:click="confirm({{$give->id}},'delete')"  type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </x-ui.card>
                     </div>
                     @empty
                         <td colspan="3" class="text-center">لايوجد</td>
                     @endforelse
                 </div>
-            </x-card>
+            </x-ui.card>
         </div>
     </div>
 </div>
