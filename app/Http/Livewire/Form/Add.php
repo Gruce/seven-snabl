@@ -79,7 +79,7 @@ class Add extends Component
     }
 
     public function mount(){
-        $this->cities = City::get(['id', 'name'])->toArray();
+        $this->cities = City::get(['id', 'name']);
         // Initiate data
         $this->form['city']['id'] = 1;
         $this->form['person']['level'] = 1;
