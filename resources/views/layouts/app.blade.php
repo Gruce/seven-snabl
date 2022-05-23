@@ -8,16 +8,20 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="icon" href="{{ asset('img/a.png') }}" type="image/x-icon">
         {{-- ` Fonts  --}}
+
         <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.6/dist/flowbite.min.css" />
+
         @livewireStyles
         @wireUiScripts
         @laravelPWA
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
     </head>
     <body class="font-sans antialiased" dir="rtl">
         <x-jet-banner />
