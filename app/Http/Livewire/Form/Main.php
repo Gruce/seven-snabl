@@ -12,6 +12,8 @@ use App\Models\{
 class Main extends Component {
     use WithPagination;
     public $filter;
+    public $addModal;
+    
     protected $listeners = ['$refresh'];
     public function mount(){
         $this->filter['city_id'] = null;

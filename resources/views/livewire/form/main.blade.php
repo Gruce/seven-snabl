@@ -1,7 +1,7 @@
 @section('title', 'الكشوفات')
 <div>
     <div class="mt-3" x-data="{ open: false, filter: false }">
-        <div class="grid lg:grid-cols-2 sm:grid-cols-1 p-2 mb-3 rounded bg-slate-50">
+        <div class="grid p-2 mb-3 rounded lg:grid-cols-2 sm:grid-cols-1 bg-slate-50">
             {{-- ADD --}}
             <div class="flex justify-start">
                 <x-button icon="plus" @click="$openModal('addModal')" primary label="اضافة" class="mb-3" />
@@ -56,10 +56,10 @@
                 wire:model="filter.review"
             />
         </div>
-        <x-card shadow=false class="grid gap-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
+        <x-card shadow=false>
 
             {{-- ADD MODAL --}}
-            <x-modal.card  blur wire:model.defer="addModal" max-width="5xl">
+            <x-modal.card  blur wire:model.defer="addModal">
                 @livewire('form.add')
             </x-modal.card>
 
