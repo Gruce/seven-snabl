@@ -26,7 +26,7 @@ class Add extends Component
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-        $this->emitTo('city.show', '$refresh');
+        $this->emitUp( '$refresh');
     }
 
 

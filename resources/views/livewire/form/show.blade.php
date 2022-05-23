@@ -486,7 +486,7 @@
                         <button class="text-sm font-semibold" x-show="!open"
                             @click="open = true">{{ $form->head_family->name }} </button>
                         <ul x-show="open" @click.away="open = false">
-                            <x-input class="w-64" wire:model.lazy="input.head_family.name" type="text" />
+                            <x-input class="w-64 "  wire:model.lazy="input.head_family.name" type="text" />
                         </ul>
                     </div>
                     <div class="p-3 m-2 border  text-center rounded bg-gray-50 " x-data="{ open: false }">
@@ -503,6 +503,7 @@
                             wire:model.lazy="input.head_family.is_mr"
                             option-label="name"
                             option-value="id"
+                            placeholder="اختر النسب"
                         />
                         </ul>
                     </div>
@@ -524,7 +525,7 @@
                             option-value="id"
                         />
                         </ul>
-                        
+
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm">عمل رب الاسرة</h5>

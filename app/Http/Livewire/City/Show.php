@@ -42,6 +42,8 @@ class Show extends Component
         $this->notification()->success(
             $title = 'تم حذف البيانات بنجاح',
         );
+        $this->emitUp('$refresh');
+
 
     }
 

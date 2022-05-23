@@ -9,7 +9,7 @@
         </x-modal.card>
         <x-card>
             <div >
-                @livewire('admin.show')
+                <livewire:admin.show key={{now()}}/>
             </div>
         </x-card>
     </div>

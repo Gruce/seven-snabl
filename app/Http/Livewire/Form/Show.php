@@ -53,10 +53,17 @@ class Show extends Component
         $index = explode('.', $index);
 
         if (count($index) == 3) {
-            dg($index);
+            if(!$value){
+                $this->input[$index[0]][$index[1]][$index[2]] = 1;
+                $value=1;
+            }
             $this->form[$index[0]][$index[1]][$index[2]] = $value;
             $this->form[$index[0]][$index[1]]->save();
         } else {
+            if(!$value){
+                $this->input[$index[0]][$index[1]] = 1;
+                $value=1;
+            }
             $this->form[$index[0]][$index[1]] = $value;
             $this->form[$index[0]]->save();
         }

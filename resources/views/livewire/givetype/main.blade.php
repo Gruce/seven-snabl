@@ -21,7 +21,7 @@
     <div x-show="activeTab === 'second'">
         <x-card>
             @livewire('givetype.add')
-            <div class="relative overflow-x-auto  sm:rounded-lg mt-10" dir="rtl">
+            {{-- <div class="relative overflow-x-auto  sm:rounded-lg mt-10" dir="rtl">
                 <table class="w-full text-sm text-right text-gray-500 ">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                         <tr class="text-center">
@@ -62,7 +62,7 @@
                         @endforelse
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
 
         </x-card>
     </div>

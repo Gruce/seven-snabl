@@ -28,7 +28,7 @@ class Show extends Component
 
     public function updatedInput($value, $index){
         $index = explode('.', $index);
-
+        
         $this->give_forms[$index[1]][$index[2]] = $value;
         $this->give_forms[$index[1]]->save();
 

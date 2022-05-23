@@ -5,10 +5,11 @@ namespace App\Http\Livewire\Give;
 use App\Models\Form;
 use App\Models\GiveForm;
 use Livewire\Component;
+use WireUi\Traits\Actions;
 
 class Add extends Component
 {
-
+    use Actions;
     public $give, $form;
     protected $rules = [
 
@@ -32,7 +33,7 @@ class Add extends Component
         $this->give['give_type_id'] = $this->give['type'];
         $give->add($this->give);
         $this->notification()->success(
-            $title = 'تم إضافة البيانات بنجاح',
+            $title = 'تم إضافة هبة بنجاح',
         );
         $this->emitTo('give.main', '$refresh');
     }
