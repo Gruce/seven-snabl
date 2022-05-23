@@ -4,7 +4,7 @@
             <x-input wire:model.defer="user.name" label=" اسم المستخدم" placeholder="ادخل اسم المستخدم  " />
         </div>
         <div>
-            <x-input wire:model.defer="user.email" label="  البريد الالكتروني " placeholder="ادخل البريد الالكتروني " />
+            <x-input dir="ltr" suffix="@gmail.com"  wire:model.defer="user.email" label="  البريد الالكتروني " placeholder="ادخل البريد الالكتروني "  />
         </div>
         <div>
             <x-input wire:model.defer="user.password" label=" الرمز السري " placeholder="ادخل الرمز " />
@@ -19,5 +19,5 @@
             <x-input  wire:model.defer="user.phonenumber"  label="  رقم الهاتف    "  />
         </div>
     </div>
-    <x-button class="mt-5" primary label="اضافة" wire:click="save" />
+    <x-button class="mt-5" x-on:click="close" primary label="اضافة" wire:click="save" />
 </div>

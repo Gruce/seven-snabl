@@ -42,7 +42,7 @@ class Show extends Component
         $this->notification()->success(
             $title = 'تم حذف البيانات بنجاح',
         );
-
+        $this->emitUp('$refresh');
     }
 
     public function updatedInput($value, $index){

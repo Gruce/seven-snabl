@@ -82,7 +82,8 @@ class User extends Authenticatable
         $this->phonenumber = $data['phonenumber'];
         $this->save();
     }
-
+    //reset data
+    
 
     ### END METHODS ###
 }

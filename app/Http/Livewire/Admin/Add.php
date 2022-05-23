@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\User;
+use WireUi\Traits\Actions;
+
 class Add extends Component
 {
     public $user;
-
+    use Actions;
     protected $rules = [
         // user
         'user.name' => 'required',
@@ -22,10 +24,13 @@ class Add extends Component
         $this->validate();
         $user = new User;
         $user->add($this->user);
+
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-        $this->emitTo('admin.show', '$refresh');
+
+        $this->emitUp( '$refresh');
+        $this->user=[];
 
     }
 
@@ -35,7 +40,7 @@ class Add extends Component
     }
     public function render()
     {
-        
+
         return view('livewire.admin.add');
     }
 }
