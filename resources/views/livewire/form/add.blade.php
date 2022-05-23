@@ -203,12 +203,7 @@
                                                     ['name' => 'سيد',  'id' => 1],
                                                     ['name' => 'عامي', 'id' => 2],
                                                 ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.is_mr" option-label="name" option-value="id" />
-                                    <x-select label="الحالة" placeholder="اختر النسب" :options="[
-                                        // ما ضايفين ملاحظات على انواعها بقاعدة البيانات ضيف انواعهن هنا
-                                        ['name' => 'جيد',  'id' => 1],
-                                        ['name' => 'سيء', 'id' => 2],
-                                        //اكو بعد انواع ما اعرفهن
-                                    ]" wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.health_state" option-label="name" option-value="id" />
+                                    <x-input wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.health_state" label="الحالة الصحية " placeholder="ادخل الحالة الصحية" />
                                     <x-textarea wire:key="{{ $index . now() }}" wire:model.defer="form.family_members.{{ $index }}.note" label="الملاحظات" rows="1"  placeholder="ادخل الملاحظات" />
                                 </div>
                             </div>
