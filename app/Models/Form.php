@@ -59,7 +59,7 @@ class Form extends Model
     ### START MATHOD ###
 
     public function add($data){
-        dg($data['head_family']);
+        // dg($data['head_family']);
         // personal info
         $this->person()->create($data['person']);
 

@@ -47,7 +47,7 @@ class Show extends Component
 
     public function updatedInput($value, $index){
         $index = explode('.', $index);
-        dg($index);
+        // dg($index);
 
             $this->user[$index[1]][$index[2]] = $value;
 

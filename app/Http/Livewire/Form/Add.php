@@ -98,18 +98,16 @@ class Add extends Component
     }
 
     public function save() {
-        $this->validate();
+        // $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
-        // $form->save();
-
+        $form->save();
         $form->add($this->form);
 
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-
         // $this->emitTo('city.show', '$refresh');
 
         // $this->form = [];

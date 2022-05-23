@@ -140,7 +140,7 @@
                             ['name'=> 'تجاوز', 'id'=> 2 ],
                             ['name'=> 'ايجار', 'id'=> 3 ],
                             ['name'=> 'زراعي', 'id'=> 4 ]
-                            ]" wire:model="form.person.location_type" option-label="name" option-value="id" />
+                            ]" wire:model.defer="form.person.location_type" option-label="name" option-value="id" />
                     </div>
                     @if ($form['person']['location_type'] == 3)
                         <div class="p-3 border rounded bg-gray-50">
@@ -168,10 +168,10 @@
                         <span>اسماء افراد العائلة</span>
                     </div>
 
-                    <div class="mt-3">
+                    <div class="mt-3" wire:ignore.self>
                         @if (isset($form['family_members']))
                             @foreach ($form['family_members'] as $index => $member)
-                            <div :key="$index" class="p-5 mt-3 border rounded bg-gray-50-lg">
+                            <div :key="$index.now()" class="p-5 mt-3 border rounded bg-gray-50-lg">
                                 <span>معلومات الفرد {{++ $index}}</span>
                                 <div class="grid gap-3 mt-3 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1">
                                     <x-input wire:model.defer="form.family_members.{{ $index }}.name" label="اسم الأفراد" placeholder="ادخل الاسم" />

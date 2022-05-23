@@ -50,7 +50,7 @@ class Main extends Component
 
     public function updatedInput($value, $index){
         $index = explode('.', $index);
-        dg($index);
+        // dg($index);
 
             $this->give_types[$index[1]][$index[2]] = $value;
 
