@@ -31,7 +31,7 @@
     <br>
     @admin
     <div>
-        <div class="border-3 bg-slate-200 rounded-2xl py-4 px-4">
+        <x-ui.card class="bg-slate-200">
             <div class="flex justify-between">
                 <div>
                     <h1 class="text-2xl mb-4 mr-2 font-semibold">احصائيات المناطق</h1>
@@ -89,7 +89,7 @@
                 </div>
 
             </div>
-        </div>
+        </x-ui.card>
     </div>
     @endadmin
 </div>
