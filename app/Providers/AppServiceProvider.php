@@ -32,7 +32,12 @@ class AppServiceProvider extends ServiceProvider
         ### ADMIN BLADE DIRECTIVES ###
 
         Blade::if('admin', function () {
-            return auth()->check() && auth()->user()->is_admin ;
+            return auth()->check() && auth()->user()->is_admin == 1 ;
+        });
+
+        ### USER BLADE DIRECTIVES ###
+        Blade::if('user', function () {
+            return auth()->check() && auth()->user()->is_admin == 2 ;
         });
 
         ### whereExist ###

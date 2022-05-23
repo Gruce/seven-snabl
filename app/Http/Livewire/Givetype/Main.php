@@ -64,7 +64,7 @@ class Main extends Component
     public function mount(){
         $this->give_types = GiveType::get();
         $this->input['give_types'] = $this->give_types->toArray();
-        
+
     }
 
     public function render()
