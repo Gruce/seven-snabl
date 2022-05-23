@@ -14,7 +14,7 @@
                     wire:model="filter.search"
                     @keydown.enter.prevent="$refresh"
                 />
-                <x-button class="mr-2 " icon="filter" @click="filter = ! filter" secondary />
+                <button @click="filter = ! filter" class="text-gray-900 bg-gray-400 rounded-sm w-16 mr-4"><i class="fa-solid fa-filter"></i></button>
             </div>
         </div>
         {{-- FILTERS --}}
@@ -56,27 +56,26 @@
                 wire:model="filter.review"
             />
         </div>
-        <x-card shadow=false>
 
-            {{-- ADD MODAL --}}
-            <x-modal.card  blur wire:model.defer="addModal" max-width="5xl">
-                @livewire('form.add')
-            </x-modal.card>
+        {{-- ADD MODAL --}}
+        <x-modal.card  blur wire:model.defer="addModal" max-width="5xl">
+            @livewire('form.add')
+        </x-modal.card>
 
-            <div class="grid gap-2 lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1">
+        <div class="grid gap-2 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
             @forelse ($forms as $form)
-                @livewire('form.card', ['form' => $form])
+                <div class="m-1">
+                    @livewire('form.card', ['form' => $form])
+                </div>
             @empty
                 <div>
                     <h1>لايوجد</h1>
                 </div>
             @endforelse
-            </div>
+        </div>
 
-            {{-- {{ $forms->links() }} --}}
-
-        </x-card>
+        {{-- {{ $forms->links() }} --}}
     </div>
-    
+
     @livewire('give.add', ['form' => $form_id ?? 1])
 </div>
