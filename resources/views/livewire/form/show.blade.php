@@ -503,7 +503,7 @@
                             wire:model.lazy="input.head_family.is_mr"
                             option-label="name"
                             option-value="id"
-                            clearable=false
+                            
                         />
                         </ul>
                     </div>
