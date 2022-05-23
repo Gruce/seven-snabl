@@ -19,6 +19,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
+        <script src="https://kit.fontawesome.com/4e8940f861.js" crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased" dir="rtl">
         <x-jet-banner />
