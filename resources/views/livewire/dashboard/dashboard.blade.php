@@ -29,6 +29,7 @@
         </div>
     </div>
     <br>
+    @admin
     <div>
         <div class="border-3 bg-slate-200 rounded-2xl py-4 px-4">
             <div class="flex justify-between">
@@ -90,4 +91,5 @@
             </div>
         </div>
     </div>
+    @endadmin
 </div>
