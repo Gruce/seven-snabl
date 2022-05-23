@@ -98,7 +98,8 @@ class Add extends Component
     }
 
     public function save() {
-        // $this->validate();
+        dg($this->form);
+        $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
@@ -108,9 +109,9 @@ class Add extends Component
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-        // $this->emitTo('city.show', '$refresh');
+        $this->emitTo('city.show', '$refresh');
 
-        // $this->form = [];
+        $this->form = [];
 
 
     }

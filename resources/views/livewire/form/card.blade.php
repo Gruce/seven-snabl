@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
                                     <span class="text-slate-400 text-2xs">الدخل الشهري</span>
-                                    <span class="text-slate-500">@money($form->head_family->salary, 'IQD')</span>
+                                    <span class="text-slate-500">@money($form->head_family->salary ?? 0, 'IQD')</span>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                 <span class="text-slate-400 text-2xs">الإيجار</span>
-                                <span class="text-slate-500">@money($form->person->rent, 'IQD')</span>
+                                <span class="text-slate-500">@money($form->person->rent ?? 0, 'IQD')</span>
                             </div>
                         </div>
                     </div>

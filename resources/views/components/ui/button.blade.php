@@ -17,7 +17,6 @@
     </div>
     <div class="flex justify-end" x-show="formStep == 4">
         <x-button
-            x-on:click="width ==10"
             label="ارسال"
             primary
             type="submit" />
