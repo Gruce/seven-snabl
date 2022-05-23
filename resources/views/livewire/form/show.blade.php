@@ -199,23 +199,34 @@
                         </ul>
                     </div>
                     <div class="p-3 m-2 border text-center rounded bg-gray-50 " x-data="{ open: false }">
-                        <h5 class="text-sm">نوع السكن</h5>
+                        <h5 class="text-sm mb-3">نوع السكن</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
                             {{ $form->person->location_name }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
-                            <input type="text" wire:model.lazy="input.person.location_type"
-                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <select wire:model.lazy="input.person.location_type"
+                            class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                            <option value="1" selected>ملك</option>
+                            <option value="2">تجاوز</option>
+                            <option value="3">ايجار</option>
+                            <option value="4">زراعي</option>
+                        </select>
                         </ul>
                     </div>
                     <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
                         <h5 class="text-sm mb-3">مقدار الايجاد الشهري</h5>
                         <button class="text-center font-semibold" x-show="!open" @click="open = true">
-                            {{ $form->person->location_name == 'ايجار' ? $form->person->rent : 'لايوجد' }}
+                            {{ $form->person->location_type == 3 ? $form->person->rent : 'لايوجد' }}
                         </button>
                         <ul x-show="open" @click.away="open = false">
+                            @if ($form->person->location_type != 3)
+                            <h5>
+                                لا يوجد
+                            </h5>
+                            @else
                             <input type="text" wire:model.lazy="input.person.rent"
                                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            @endif
                         </ul>
                     </div>
                 </div>
