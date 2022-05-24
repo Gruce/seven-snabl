@@ -29,12 +29,12 @@
         </div>
 
         <div x-show="activeTab === 'second'">
-            <x-ui.card class="border bg-white">
+            <x-ui.card >
                 <livewire:givetype.add key={{now()}}/>
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-4">
                     @forelse ($gives as $give)
                     <div class="m-3">
-                        <x-ui.card class="border bg-gray-50" key="{{now()}}" shadow=false >
+                        <x-ui.card class="border bg-white" key="{{now()}}" shadow=false >
                             <!-- Card Content -->
                             <div class="flex flex-col">
                                 <div class="grid grid-cols-1 gap-1 my-1 text-center">

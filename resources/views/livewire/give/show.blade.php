@@ -1,5 +1,5 @@
 <div>
-    <x-ui.card class="border bg-white" >
+    <x-ui.card  >
         <div class="relative sm:rounded-lg mt-10">
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                 @forelse ($gives as $give)

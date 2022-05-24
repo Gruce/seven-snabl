@@ -2,7 +2,7 @@
 
     <div class="mt-3">
         <div class="flex justify-start">
-            <button class="block mb-3 w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="city-modal">
+            <button class="block  w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="city-modal">
                 اضافة
             </button>
         </div>
@@ -35,10 +35,10 @@
                 </div>
             </div>
         </div>
-        <x-ui.card class="bg-white">
+
             <div>
                 <livewire:city.show key={{now()}} />
             </div>
-        </x-ui.card>
+
     </div>
 </div>

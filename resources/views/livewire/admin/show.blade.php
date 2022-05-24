@@ -1,9 +1,9 @@
 <div>
-    <div class="relative overflow-x-auto  sm:rounded-lg mt-10">
+    <div class="relative overflow-x-auto  sm:rounded-lg mt-4">
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                     @forelse ($user as $item)
                     <div key="{{now()}}" class="m-3">
-                        <x-ui.card class=" bg-gray-50">
+                        <x-ui.card class=" bg-white">
 
                             <div class="flex justify-between">
                                 <div>
