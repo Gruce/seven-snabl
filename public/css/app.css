@@ -1178,6 +1178,12 @@ select {
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
 .col-start-1 {
   grid-column-start: 1;
 }
@@ -1682,6 +1688,12 @@ select {
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -5201,6 +5213,18 @@ select {
     height: auto;
   }
 
+  .sm\:h-72 {
+    height: 18rem;
+  }
+
+  .sm\:h-2 {
+    height: 0.5rem;
+  }
+
+  .sm\:h-full {
+    height: 100%;
+  }
+
   .sm\:w-10 {
     width: 2.5rem;
   }
@@ -5502,6 +5526,22 @@ select {
 
   .md\:h-auto {
     height: auto;
+  }
+
+  .md\:h-36 {
+    height: 9rem;
+  }
+
+  .md\:h-40 {
+    height: 10rem;
+  }
+
+  .md\:h-72 {
+    height: 18rem;
+  }
+
+  .md\:h-10 {
+    height: 2.5rem;
   }
 
   .md\:w-full {
