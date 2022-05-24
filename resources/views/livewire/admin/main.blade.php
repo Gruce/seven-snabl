@@ -1,3 +1,5 @@
+@section('title', ' المخولون')
+
 <div>
     <div class="mt-3">
         <div class="flex justify-start">
@@ -38,6 +40,6 @@
             <div >
                 <livewire:admin.show key={{now()}}/>
             </div>
-        
+
     </div>
 </div>

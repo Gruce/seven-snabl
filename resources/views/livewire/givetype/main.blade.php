@@ -1,3 +1,5 @@
+@section('title', 'الهبات ')
+
 <div>
     {{-- <div class="mt-1" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'"> --}}
     <div x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
