@@ -14,16 +14,17 @@
                 </button>
 
                 <div id="dropdown" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(614px, 2991px);">
+
                     <ul class="py-1" aria-labelledby="dropdownButton">
                         <li>
                             <a href="{{ route('show', ['id' => $form->id]) }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">استعراض</a>
                         </li>
                         <li>
-                            <a wire:click="$emit('getFormId', '{{ $form->id }}')" data-modal-toggle="give-modal" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                تقديم هبه</a>
+                            <a href="#" wire:click="$emit('getFormId', '{{ $form->id }}')" data-modal-toggle="give-modal" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                تقديم هبة</a>
                         </li>
                         <li>
-                            <a wire:click="confirmed({{$form->id}})" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</a>
+                            <a href="#" wire:click="confirmed({{$form->id}})" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</a>
                         </li>
                     </ul>
                 </div>
