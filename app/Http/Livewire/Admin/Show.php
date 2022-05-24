@@ -10,7 +10,7 @@ class Show extends Component
 {
     use LivewireAlert;
     public $input,$ID;
-    protected $listeners = ['$refresh'];
+    protected $listeners = ['$refresh','delete'];
 
     protected $rules = [
         'input.user.*.name' => 'required',
@@ -33,9 +33,9 @@ class Show extends Component
         ]);
     }
 
-    public function delete($id)
+    public function delete()
     {
-        $user = User::findOrfail($id);
+        $user = User::findOrfail($this->ID);
         $user->delete();
         $this->alert('success', 'تم حذف البيانات بنجاح', [
             'position' => 'top-start',
