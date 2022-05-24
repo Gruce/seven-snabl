@@ -21,10 +21,10 @@
                         </li>
                         <li>
                             <a href="#" wire:click="$emit('getFormId', '{{ $form->id }}')" data-modal-toggle="give-modal" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                تقديم هبه</a>
+                                تقديم هبة</a>
                         </li>
                         <li>
-                            <a wire:click="confirmed({{$form->id}})" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</a>
+                            <a href="#" wire:click="confirmed({{$form->id}})" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</a>
                         </li>
                     </ul>
                 </div>
