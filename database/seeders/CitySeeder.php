@@ -24,5 +24,10 @@ class CitySeeder extends Seeder
         $city->name = 'القبلة';
         $city->code = '#657';
         $city->save();
+
+        $city = new City;
+        $city->name = 'الجزائر';
+        $city->code = '#654';
+        $city->save();
     }
 }

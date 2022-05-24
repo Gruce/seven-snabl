@@ -21,7 +21,7 @@
         <div x-show="filter" class="grid lg:grid-cols-3 sm:grid-cols-1 ">
             <select wire:model="filter.city_id"
                 class=" bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
-                    <option value="" selected>اختر المنطقة</option>
+                    <option value="" >اختر المنطقة</option>
                 @forelse ($cities as $city)
                     <option value="{{$city->id}}">{{$city->name}}</option>
                 @empty
@@ -30,14 +30,16 @@
             </select>
             <select  wire:model="filter.person.level"
                 class=" bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
-                <option value="1" selected>B1</option>
+                <option value="" >مستوى الفقر</option>
+                <option value="1">B1</option>
                 <option value="2">B2</option>
                 <option value="3">B3</option>
                 <option value="4">B4</option>
             </select>
             <select  wire:model="filter.review"
                 class=" bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
-                <option value="2" selected>تمت المراجعة</option>
+                <option value="" >الحالة</option>
+                <option value="2" >تمت المراجعة</option>
                 <option value="1">لم تتم المراجعة</option>
             </select>
 
@@ -73,7 +75,7 @@
         <div class="grid gap-2 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
             @forelse ($forms as $form)
                 <div class="mb-1 mt-5">
-                    @livewire('form.card', ['form' => $form])
+                    @livewire('form.card', ['form' => $form] , key($form->id))
                 </div>
             @empty
                 <div>
