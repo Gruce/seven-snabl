@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-sm bg-white rounded-lg border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
+    <div class="max-w-lg  bg-white rounded-lg border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
         {{-- HEADER --}}
         <div class="flex justify-between px-4 pt-4">
             <span class="px-2 py-1 rounded text-slate-500">
@@ -19,11 +19,11 @@
                             <a href="{{ route('show', ['id' => $form->id]) }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">استعراض</a>
                         </li>
                         <li>
-                            <a wire:click="$emit('getFormId', '{{ $form->id }}')" data-modal-toggle="give-modal" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                تقديم هبه</a>
+                            <a href="#" wire:click="$emit('getFormId', '{{ $form->id }}')" data-modal-toggle="give-modal" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                تقديم هبة</a>
                         </li>
                         <li>
-                            <a wire:click="confirmed({{$form->id}})" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</a>
+                            <a href="#" wire:click="confirmed({{$form->id}})" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</a>
                         </li>
                     </ul>
                 </div>
@@ -34,16 +34,16 @@
             <nav class="mb-1">
                 <ul class="flex">
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded text-gray-900 bg-gray-300 p-1" slate outline href="#first" icon="user">اساسيات</button>
-                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#first" icon="user">اساسيات</button>
                     </li>
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded text-gray-900 bg-gray-300 p-1" slate outline href="#second" icon="location-marker">السكن</button>
-                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#second" icon="location-marker">السكن</button>
                     </li>
                     <li class="grow">
-                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded text-gray-900 bg-gray-300 p-1" slate outline href="#third" icon="user-group">العائلة</button>
-                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#third" icon="user-group">العائلة</button>
                     </li>
                 </ul>
             </nav>

@@ -1,8 +1,8 @@
-<div class="relative overflow-x-auto  sm:rounded-lg mt-10" >
+<div class="relative overflow-x-auto  sm:rounded-lg mt-4" >
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                 @forelse ($cities as $city)
                 <div key="{{now()}}"  class="m-3">
-                    <x-ui.card class="border ">
+                    <x-ui.card class="border bg-white ">
                         <div class="flex justify-between">
                             <div>
                                 <h3 class="font-semibold">
