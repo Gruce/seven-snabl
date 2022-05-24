@@ -1,23 +1,25 @@
+@section('title', 'الهبات ')
+
 <div>
     {{-- <div class="mt-1" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'"> --}}
     <div x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
-        <x-ui.card class="border bg-white">
+        <x-ui.card class="border bg-slate-50">
                 <nav class="mb-1">
                     <ul class="flex">
                         <li class="ml-1 grow">
                             <button x-show="activeTab === 'first'" @click="activeTab = 'first'"
-                                class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#first"
+                                class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#first"
                                 icon="user">الهبات</button>
                             <button x-show="activeTab != 'first'" @click="activeTab = 'first'"
-                                class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#first"
+                                class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#first"
                                 icon="user">الهبات</button>
                         </li>
                         <li class="ml-1 grow">
                             <button x-show="activeTab === 'second'" @click="activeTab = 'second'"
-                                class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#second"
+                                class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#second"
                                 icon="location-marker">انواع الهبات</button>
                             <button x-show="activeTab != 'second'" @click="activeTab = 'second'"
-                                class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#second"
+                                class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#second"
                                 icon="location-marker">انواع الهبات</button>
                         </li>
                     </ul>
@@ -29,12 +31,12 @@
         </div>
 
         <div x-show="activeTab === 'second'">
-            <x-ui.card class="border bg-white">
+            <x-ui.card >
                 <livewire:givetype.add key={{now()}}/>
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-4">
                     @forelse ($gives as $give)
                     <div class="m-3">
-                        <x-ui.card class="border bg-gray-50" key="{{now()}}" shadow=false >
+                        <x-ui.card class="border bg-white" key="{{now()}}" shadow=false >
                             <!-- Card Content -->
                             <div class="flex flex-col">
                                 <div class="grid grid-cols-1 gap-1 my-1 text-center">

@@ -1,6 +1,6 @@
 <div>
-    <x-ui.card class="border bg-white" >
-        <div class="relative sm:rounded-lg mt-10">
+    <x-ui.card  >
+        <div class="relative sm:rounded-lg mt-5">
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                 @forelse ($gives as $give)
                 <div key="{{now()}}" class="m-3">
