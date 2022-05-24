@@ -7,12 +7,12 @@
 
     </div>
 
-    <x-slot name="footer">
+    <div>
         <div class="flex justify-between gap-x-4">
             <div class="flex">
                 <x-button flat label="الغاء" x-on:click="close" />
                 <x-button  x-on:click="close" primary label="حفظ" wire:click="save" />
             </div>
         </div>
-    </x-slot>
+    </div>
 </x-modal.card>

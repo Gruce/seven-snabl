@@ -5,7 +5,7 @@
                     <x-ui.card class="border bg-gray-50">
                         <div>
                             <h3 class="font-semibold">
-                                #{{$city->name}} {{$loop->index + 1}}
+                                #{{$loop->index + 1}} {{$city->name}}
                             </h3>
                         </div>
                         <!-- Card Content -->
@@ -28,7 +28,9 @@
                                     <div x-data="{ open: false }" class="flex justify-center">
                                         <button  x-show="!open" @click="open = true">{{$city->code}} </button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <x-input class="w-64" wire:model.lazy="input.cities.{{$loop->index}}.code" type="text"/>
+                                            <input type="text"
+                                            wire:model.lazy="input.cities.{{$loop->index}}.code"
+                                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                         </ul>
                                     </div>
                                 </div>
