@@ -1382,6 +1382,9 @@ select {
 .h-14 {
   height: 3.5rem;
 }
+.h-36 {
+  height: 9rem;
+}
 .max-h-96 {
   max-height: 24rem;
 }
@@ -2287,6 +2290,10 @@ select {
 .bg-negative-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
@@ -5100,6 +5107,10 @@ select {
 
   .sm\:h-6 {
     height: 1.5rem;
+  }
+
+  .sm\:h-auto {
+    height: auto;
   }
 
   .sm\:w-10 {
