@@ -4,11 +4,11 @@ namespace App\Http\Livewire\Givetype;
 
 use App\Models\GiveType;
 use Livewire\Component;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Main extends Component
 {
-    use Actions;
+    use LivewireAlert;
 
     public $input;
 
@@ -48,23 +48,24 @@ class Main extends Component
         );
     }
 
-    public function updatedInput($value, $index){
+    public function updatedInput($value, $index)
+    {
         $index = explode('.', $index);
         // dg($index);
 
-            $this->give_types[$index[1]][$index[2]] = $value;
+        $this->give_types[$index[1]][$index[2]] = $value;
 
-            $this->give_types[$index[1]]->save();
+        $this->give_types[$index[1]]->save();
 
 
         $this->notification()->info(
             $title = 'تم تحديث البيانات بنجاح',
         );
     }
-    public function mount(){
+    public function mount()
+    {
         $this->give_types = GiveType::get();
         $this->input['give_types'] = $this->give_types->toArray();
-
     }
 
     public function render()

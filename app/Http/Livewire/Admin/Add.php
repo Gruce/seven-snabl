@@ -4,12 +4,12 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\User;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Add extends Component
 {
     public $user;
-    use Actions;
+    use LivewireAlert;
     protected $rules = [
         // user
         'user.name' => 'required',
@@ -29,9 +29,8 @@ class Add extends Component
             $title = 'تم إضافة البيانات بنجاح',
         );
 
-        $this->emitUp( '$refresh');
-        $this->user=[];
-
+        $this->emitUp('$refresh');
+        $this->user = [];
     }
 
     public function mount()

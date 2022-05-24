@@ -6,11 +6,11 @@ use App\Models\Form;
 
 use App\Models\City;
 use Livewire\Component;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Add extends Component
 {
-    use Actions;
+    use LivewireAlert;
     public $form;
 
     protected $rules = [
@@ -53,19 +53,22 @@ class Add extends Component
     ];
 
 
-    public function addFamilyMember(){
+    public function addFamilyMember()
+    {
         $this->form['family_members'][] = [
             'name' => '',
         ];
     }
 
-    public function deleteFamilyMember($index){
+    public function deleteFamilyMember($index)
+    {
         unset($this->form['family_members'][$index]);
     }
 
-    public function updatedFormPersonFamilyCount(){
+    public function updatedFormPersonFamilyCount()
+    {
         $this->form['family_members'] = array();
-        foreach(range(1, $this->form['person']['family_count']) as $member)
+        foreach (range(1, $this->form['person']['family_count']) as $member)
             $this->form['family_members'][] = [
                 'name' => '',
                 'kinship' => '',
@@ -78,7 +81,8 @@ class Add extends Component
             ];
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->cities = City::get(['id', 'name']);
         // Initiate data
         $this->form['city']['id'] = 1;
@@ -97,7 +101,8 @@ class Add extends Component
         $this->form['head_family']['salary'] = null;
     }
 
-    public function save() {
+    public function save()
+    {
         dg($this->form);
         $this->validate();
         $form = new Form;
@@ -112,11 +117,10 @@ class Add extends Component
         $this->emitTo('city.show', '$refresh');
 
         $this->form = [];
-
-
     }
 
-    public function render(){
+    public function render()
+    {
         return view('livewire.form.add');
     }
 }

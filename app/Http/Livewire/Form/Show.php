@@ -4,11 +4,11 @@ namespace App\Http\Livewire\Form;
 
 use Livewire\Component;
 use App\Models\Form;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Show extends Component
 {
-    use Actions;
+    use LivewireAlert;
 
     public $input;
 
@@ -49,20 +49,21 @@ class Show extends Component
         'input.family_members.*.note' => 'required',
     ];
 
-    public function updatedInput($value, $index){
+    public function updatedInput($value, $index)
+    {
         $index = explode('.', $index);
 
         if (count($index) == 3) {
-            if(!$value){
+            if (!$value) {
                 $this->input[$index[0]][$index[1]][$index[2]] = 1;
-                $value=1;
+                $value = 1;
             }
             $this->form[$index[0]][$index[1]][$index[2]] = $value;
             $this->form[$index[0]][$index[1]]->save();
         } else {
-            if(!$value){
+            if (!$value) {
                 $this->input[$index[0]][$index[1]] = 1;
-                $value=1;
+                $value = 1;
             }
             $this->form[$index[0]][$index[1]] = $value;
             $this->form[$index[0]]->save();
@@ -73,13 +74,14 @@ class Show extends Component
         );
     }
 
-    public function mount($id){
+    public function mount($id)
+    {
         $this->form = Form::findOrfail($id);
         $this->input['person'] = $this->form->person->toArray();
         $this->input['family_members'] = $this->form->family_members->toArray();
         $this->input['wife'] = $this->form->wife->toArray();
         $this->input['head_family'] = $this->form->head_family->toArray();
-        $this->form->review=true;
+        $this->form->review = true;
         $this->form->save();
     }
 

@@ -51,5 +51,6 @@
         @stack('modals')
 
         @livewireScripts
+        <x-livewire-alert::scripts />
     </body>
 </html>

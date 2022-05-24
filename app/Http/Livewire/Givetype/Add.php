@@ -4,12 +4,12 @@ namespace App\Http\Livewire\Givetype;
 
 use App\Models\GiveType;
 use Livewire\Component;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Add extends Component
 {
     public $give;
-    use Actions;
+    use LivewireAlert;
     protected $rules = [
 
         'give.name' => 'required',
@@ -26,7 +26,7 @@ class Add extends Component
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-        $this->emitUp( '$refresh');
+        $this->emitUp('$refresh');
     }
     public function render()
     {

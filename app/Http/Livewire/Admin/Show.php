@@ -3,14 +3,14 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Models\User;
 
 class Show extends Component
 {
-    use Actions;
+    use LivewireAlert;
     public $input;
-    protected $listeners = [ '$refresh' ];
+    protected $listeners = ['$refresh'];
 
     protected $rules = [
         'input.user.*.name' => 'required',
@@ -21,7 +21,8 @@ class Show extends Component
 
     ];
 
-    public function confirm($id,$fun){
+    public function confirm($id, $fun)
+    {
         $this->notification()->confirm([
             'title'       => 'هل انت متاكد',
             'icon'        => 'question',
@@ -36,7 +37,8 @@ class Show extends Component
         ]);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $user = User::findOrfail($id);
         $user->delete();
         $this->notification()->success(
@@ -45,13 +47,14 @@ class Show extends Component
         $this->emitUp('$refresh');
     }
 
-    public function updatedInput($value, $index){
+    public function updatedInput($value, $index)
+    {
         $index = explode('.', $index);
         // dg($index);
 
-            $this->user[$index[1]][$index[2]] = $value;
+        $this->user[$index[1]][$index[2]] = $value;
 
-            $this->user[$index[1]]->save();
+        $this->user[$index[1]]->save();
 
 
         $this->notification()->info(
@@ -59,13 +62,14 @@ class Show extends Component
         );
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->user = User::get();
         $this->input['user'] = $this->user->toArray();
     }
     public function render()
     {
         $user = User::get();
-        return view('livewire.admin.show',compact('user'));
+        return view('livewire.admin.show', compact('user'));
     }
 }

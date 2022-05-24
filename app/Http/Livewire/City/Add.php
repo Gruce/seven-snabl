@@ -4,12 +4,12 @@ namespace App\Http\Livewire\City;
 
 use Livewire\Component;
 use App\Models\City;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 
 class Add extends Component
 {
-    use Actions;
+    use LivewireAlert;
     public $city;
 
     protected $rules = [
@@ -26,7 +26,7 @@ class Add extends Component
         $this->notification()->success(
             $title = 'تم إضافة البيانات بنجاح',
         );
-        $this->emitUp( '$refresh');
+        $this->emitUp('$refresh');
     }
 
 

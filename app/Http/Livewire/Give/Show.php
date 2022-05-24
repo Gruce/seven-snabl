@@ -8,11 +8,11 @@ use App\Models\{
     GiveForm,
     GiveType,
 };
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Show extends Component
 {
-    use Actions;
+    use LivewireAlert;
     protected $listeners = ['$refresh'];
 
     public $input;
@@ -26,9 +26,10 @@ class Show extends Component
 
     ];
 
-    public function updatedInput($value, $index){
+    public function updatedInput($value, $index)
+    {
         $index = explode('.', $index);
-        
+
         $this->give_forms[$index[1]][$index[2]] = $value;
         $this->give_forms[$index[1]]->save();
 
@@ -61,10 +62,10 @@ class Show extends Component
         );
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->give_forms = GiveForm::get();
         $this->input['give_forms'] = $this->give_forms->toArray();
-
     }
 
     public function render()

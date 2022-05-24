@@ -5,11 +5,11 @@ namespace App\Http\Livewire\Give;
 use App\Models\Form;
 use App\Models\GiveForm;
 use Livewire\Component;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Add extends Component
 {
-    use Actions;
+    use LivewireAlert;
     public $give, $form;
     protected $rules = [
 
@@ -18,8 +18,9 @@ class Add extends Component
         'give.form_id' => 'required',
 
     ];
-    
-    public function mount(Form $form){
+
+    public function mount(Form $form)
+    {
         $this->form = $form;
         $this->give['type'] = null;
     }

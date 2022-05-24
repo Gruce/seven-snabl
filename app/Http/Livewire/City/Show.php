@@ -4,11 +4,12 @@ namespace App\Http\Livewire\City;
 
 use Livewire\Component;
 use App\Models\City;
-use WireUi\Traits\Actions;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+
 class Show extends Component
 {
-    use Actions;
-    protected $listeners = [ '$refresh' ];
+    use LivewireAlert;
+    protected $listeners = ['$refresh'];
     // public function mount(){
     //     $this->cities = City::get();
 
@@ -21,7 +22,8 @@ class Show extends Component
     ];
 
 
-    public function confirm($id,$fun){
+    public function confirm($id, $fun)
+    {
         $this->notification()->confirm([
             'title'       => 'هل انت متاكد',
             'icon'        => 'question',
@@ -36,24 +38,24 @@ class Show extends Component
         ]);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $city = City::findOrfail($id);
         $city->delete();
         $this->notification()->success(
             $title = 'تم حذف البيانات بنجاح',
         );
         $this->emitUp('$refresh');
-
-
     }
 
-    public function updatedInput($value, $index){
+    public function updatedInput($value, $index)
+    {
         $index = explode('.', $index);
         // dg($index);
 
-            $this->cities[$index[1]][$index[2]] = $value;
+        $this->cities[$index[1]][$index[2]] = $value;
 
-            $this->cities[$index[1]]->save();
+        $this->cities[$index[1]]->save();
 
 
         $this->notification()->info(
@@ -62,14 +64,15 @@ class Show extends Component
     }
 
 
-    public function mount(){
+    public function mount()
+    {
         $this->cities = City::get();
         $this->input['cities'] = $this->cities->toArray();
     }
 
     public function render()
     {
-       $cities = City::get();
-        return view('livewire.city.show',compact('cities'));
+        $cities = City::get();
+        return view('livewire.city.show', compact('cities'));
     }
 }
