@@ -46,8 +46,8 @@
         </div>
 
         {{-- ADD MODAL --}}
-        <div id="form-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-2 md:h-full">
-            <div class="relative p-4 w-full max-w-4xl h-36 md:h-auto sm:h-auto">
+        <div id="form-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden absolute top-0 right-0 left-0 z-50 w-full md:inset-0  md:h-full">
+            <div class="relative p-4 w-full max-w-4xl  md:h-auto sm:h-auto">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <!-- Modal header -->
