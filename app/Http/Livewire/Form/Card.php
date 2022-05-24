@@ -4,33 +4,35 @@ namespace App\Http\Livewire\Form;
 
 use Livewire\Component;
 use App\Models\Form;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
-class Card extends Component
-{
+class Card extends Component{
+
+    use LivewireAlert;
+
+    protected $listeners = ['delete'];
     public Form $form;
-    public function mount()
-    {
+    public function mount(){
         $this->family_count = $this->form->family_members->count();
     }
 
-    public function confirm($id, $fun)
-    {
-        $this->notification()->confirm([
-            'title'       => 'هل انت متاكد',
-            'icon'        => 'question',
-            'accept'      => [
-                'label'  => 'نعم',
-                'method' => $fun,
-                'params' => $id,
-            ],
-            'reject' => [
-                'label'  => 'لا',
-            ],
+    public function confirmed($id){
+        $this->form->id = $id;
+        $this->confirm('هل انت متأكد؟', [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => "true",
+            'cancelButtonText' => "كلا",
+            'confirmButtonText' =>  'نعم',
+            'onConfirmed' => 'delete',
         ]);
     }
 
-    public function delete(Form $form)
-    {
+
+
+    public function delete() {
+
+        $form = Form::findOrFail($this->form->id);
         $form->delete();
         $this->alert('success', 'تم حذف البيانات بنجاح', [
             'position' => 'top-start',

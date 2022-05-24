@@ -1,5 +1,5 @@
 <div>
-    <x-ui.card>
+    <x-ui.card class="bg-white">
         <div class="grid place-content-center lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1">
             <div class=" basis-1/3">
                 <h1 class="text-lg font-bold">

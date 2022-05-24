@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <x-ui.card>
+        <x-ui.card class="bg-white">
             <div >
                 <livewire:admin.show key={{now()}}/>
             </div>

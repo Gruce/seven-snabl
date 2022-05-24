@@ -85,24 +85,23 @@ class Add extends Component
     {
         $this->cities = City::get(['id', 'name']);
         // Initiate data
-        $this->form['city']['id'] = 1;
-        $this->form['person']['level'] = 1;
-        $this->form['person']['location_type'] = 1;
-        $this->form['head_family']['is_mr'] = 2;
-        $this->form['head_family']['is_alive'] = 1;
+        $this->form['city']['id'] = '';
+        $this->form['person']['level'] = '';
+        $this->form['person']['location_type'] = '';
+        $this->form['head_family']['is_mr'] = '';
+        $this->form['head_family']['is_alive'] = '';
         $this->form['wife']['name'] = '';
-        $this->form['wife']['state'] = 1;
+        $this->form['wife']['state'] = '';
         $this->form['wife']['is_mis'] = 1;
-        $this->form['person']['father_phonenumber'] = null;
-        $this->form['person']['mother_phonenumber'] = null;
-        $this->form['person']['salary_type'] = 1;
-        $this->form['person']['rent'] = null;
-        $this->form['person']['salary'] = null;
-        $this->form['head_family']['salary'] = null;
+        $this->form['person']['father_phonenumber'] = '';
+        $this->form['person']['mother_phonenumber'] = '';
+        $this->form['person']['salary_type'] = '';
+        $this->form['person']['rent'] = 0;
+        $this->form['person']['salary'] = '';
+        $this->form['head_family']['salary'] = '';
     }
 
-    public function save()
-    {
+    public function save(){
         dg($this->form);
         $this->validate();
         $form = new Form;
@@ -120,7 +119,7 @@ class Add extends Component
         ]);
         $this->emitTo('city.show', '$refresh');
 
-        $this->form = [];
+        // $this->form = [];
     }
 
     public function render()

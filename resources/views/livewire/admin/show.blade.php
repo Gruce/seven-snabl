@@ -3,7 +3,7 @@
                 <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                     @forelse ($user as $item)
                     <div key="{{now()}}" class="m-3">
-                        <x-ui.card class="border bg-gray-50">
+                        <x-ui.card class=" bg-gray-50">
                             <div>
                                 <h3 class="font-semibold">
                                     #{{$item->name}} {{$loop->index + 1}}
