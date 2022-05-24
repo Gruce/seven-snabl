@@ -4,11 +4,19 @@
                     @forelse ($user as $item)
                     <div key="{{now()}}" class="m-3">
                         <x-ui.card class=" bg-gray-50">
-                            <div>
-                                <h3 class="font-semibold">
-                                    #{{$item->name}} {{$loop->index + 1}}
-                                </h3>
+
+                            <div class="flex justify-between">
+                                <div>
+                                    <h3 class="font-semibold">
+                                            #{{$item->name}} {{$loop->index + 1}}
+                                    </h3>
+                                </div>
+                                <div class="flex  text-xs">
+                                    <button  wire:click="confirmed({{$item->id}})"  type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-0.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
                             </div>
+
 
                             <!-- Card Content -->
                             <div class="flex flex-col">
@@ -68,14 +76,7 @@
                                 </div>
                                 {{-- END : CONTENT TAB --}}
                             </div>
-                            <div class="mt-2">
-                                <div class="flex justify-center text-xs">
-                                    <div class="flex flex-col items-center justify-center gap-1 ">
-                                        <button  wire:click="confirm({{$item->id}},'delete')"  type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+
                         </x-ui.card>
                     </div>
                     @empty

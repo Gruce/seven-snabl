@@ -9,7 +9,7 @@ use App\Models\User;
 class Show extends Component
 {
     use LivewireAlert;
-    public $input;
+    public $input,$ID;
     protected $listeners = ['$refresh'];
 
     protected $rules = [
@@ -21,19 +21,15 @@ class Show extends Component
 
     ];
 
-    public function confirm($id, $fun)
-    {
-        $this->notification()->confirm([
-            'title'       => 'هل انت متاكد',
-            'icon'        => 'question',
-            'accept'      => [
-                'label'  => 'نعم',
-                'method' => $fun,
-                'params' => $id,
-            ],
-            'reject' => [
-                'label'  => 'لا',
-            ],
+    public function confirmed($id){
+        $this->ID = $id;
+        $this->confirm('هل انت متأكد؟', [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => "true",
+            'cancelButtonText' => "كلا",
+            'confirmButtonText' =>  'نعم',
+            'onConfirmed' => 'delete',
         ]);
     }
 
