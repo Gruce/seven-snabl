@@ -14,7 +14,6 @@
                 </button>
 
                 <div id="dropdown" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(614px, 2991px);">
-
                     <ul class="py-1" aria-labelledby="dropdownButton">
                         <li>
                             <a href="{{ route('show', ['id' => $form->id]) }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">استعراض</a>
@@ -35,16 +34,16 @@
             <nav class="mb-1">
                 <ul class="flex">
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded text-gray-900 bg-gray-300 p-1" slate outline href="#first" icon="user">اساسيات</button>
-                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#first" icon="user">اساسيات</button>
                     </li>
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded text-gray-900 bg-gray-300 p-1" slate outline href="#second" icon="location-marker">السكن</button>
-                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#second" icon="location-marker">السكن</button>
                     </li>
                     <li class="grow">
-                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded text-gray-900 bg-gray-300 p-1" slate outline href="#third" icon="user-group">العائلة</button>
-                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#third" icon="user-group">العائلة</button>
                     </li>
                 </ul>
             </nav>
