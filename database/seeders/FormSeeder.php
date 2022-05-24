@@ -25,16 +25,16 @@ class FormSeeder extends Seeder
 
         $form = new Form;
         $form->user_id = 1;
-        $form->city_id = 1;
+        $form->city_id = rand(1,3);
 
         $form->save();
 
         $form->add([
             'person' => [
-                'level' => 1,
+                'level' => rand(1,4),
                 'location' => 'شط العرب',
                 'point' => 'جسر الحوامد',
-                'location_type' => 1,
+                'location_type' => rand(1,4),
                 'rent' => 300000,
                 'family_work' => 'اي شي',
                 'family_count' => 5,
@@ -51,13 +51,13 @@ class FormSeeder extends Seeder
             ],
             'wife' => [
                 'name' => 'زوجة',
-                'state' => 1,
+                'state' => rand(1,4),
             ],
             'family_members' => [
                 [
                     'name' => 'ابن عبد العزيز',
-                    'is_mr' => 1,
-                    'kinship' => 3,
+                    'is_mr' => rand(1,2),
+                    'kinship' => rand(1,4),
                     'birthday' => '2020-01-01',
                     'health_state' => 'مريض',
                     'job' => 'مدرس',
@@ -65,8 +65,8 @@ class FormSeeder extends Seeder
                 ],
                 [
                     'name' => 'ابن عبد عبدالله',
-                    'is_mr' => 2,
-                    'kinship' => 1,
+                    'is_mr' => rand(1,2),
+                    'kinship' => rand(1,4),
                     'birthday' => '2020-01-01',
                     'health_state' => 'صاحي',
                     'job' => 'مدرس',
