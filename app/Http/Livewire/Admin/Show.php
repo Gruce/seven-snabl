@@ -41,9 +41,14 @@ class Show extends Component
     {
         $user = User::findOrfail($id);
         $user->delete();
-        $this->notification()->success(
-            $title = 'تم حذف البيانات بنجاح',
-        );
+        $this->alert('success', 'تم حذف البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
+
         $this->emitUp('$refresh');
     }
 
@@ -56,10 +61,14 @@ class Show extends Component
 
         $this->user[$index[1]]->save();
 
+        $this->alert('info', 'تم تحديث البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
 
-        $this->notification()->info(
-            $title = 'تم تحديث البيانات بنجاح',
-        );
     }
 
     public function mount()

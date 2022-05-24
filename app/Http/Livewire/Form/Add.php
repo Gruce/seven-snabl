@@ -111,9 +111,13 @@ class Add extends Component
         $form->save();
         $form->add($this->form);
 
-        $this->notification()->success(
-            $title = 'تم إضافة البيانات بنجاح',
-        );
+        $this->alert('success', 'تم إضافة البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
         $this->emitTo('city.show', '$refresh');
 
         $this->form = [];

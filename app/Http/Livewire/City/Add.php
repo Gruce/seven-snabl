@@ -23,9 +23,13 @@ class Add extends Component
         $this->validate();
         $city = new City;
         $city->add($this->city);
-        $this->notification()->success(
-            $title = 'تم إضافة البيانات بنجاح',
-        );
+        $this->alert('success', 'تم إضافة البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
         $this->emitUp('$refresh');
     }
 

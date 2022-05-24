@@ -43,9 +43,13 @@ class Main extends Component
     {
         $give = GiveType::findOrfail($id);
         $give->delete();
-        $this->notification()->success(
-            $title = 'تم حذف البيانات بنجاح',
-        );
+        $this->alert('success', 'تم حذف البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
     }
 
     public function updatedInput($value, $index)
@@ -58,9 +62,13 @@ class Main extends Component
         $this->give_types[$index[1]]->save();
 
 
-        $this->notification()->info(
-            $title = 'تم تحديث البيانات بنجاح',
-        );
+        $this->alert('info', 'تم تحديث البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
     }
     public function mount()
     {

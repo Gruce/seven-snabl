@@ -69,9 +69,13 @@ class Show extends Component
             $this->form[$index[0]]->save();
         }
 
-        $this->notification()->info(
-            $title = 'تم تحديث البيانات بنجاح',
-        );
+        $this->alert('info', 'تم تحديث البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
     }
 
     public function mount($id)

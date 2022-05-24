@@ -25,9 +25,14 @@ class Add extends Component
         $user = new User;
         $user->add($this->user);
 
-        $this->notification()->success(
-            $title = 'تم إضافة البيانات بنجاح',
-        );
+        $this->alert('success', 'تم إضافة البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
+
 
         $this->emitUp('$refresh');
         $this->user = [];

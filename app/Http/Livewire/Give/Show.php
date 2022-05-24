@@ -33,9 +33,13 @@ class Show extends Component
         $this->give_forms[$index[1]][$index[2]] = $value;
         $this->give_forms[$index[1]]->save();
 
-        $this->notification()->info(
-            $title = 'تم تحديث البيانات بنجاح',
-        );
+        $this->alert('info', 'تم تحديث البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
     }
     public function confirm($id, $fun)
     {
@@ -57,9 +61,13 @@ class Show extends Component
     {
         $city = GiveForm::findOrfail($id);
         $city->delete();
-        $this->notification()->success(
-            $title = 'تم حذف البيانات بنجاح',
-        );
+        $this->alert('success', 'تم حذف البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
     }
 
     public function mount()

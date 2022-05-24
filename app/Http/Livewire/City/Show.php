@@ -42,9 +42,13 @@ class Show extends Component
     {
         $city = City::findOrfail($id);
         $city->delete();
-        $this->notification()->success(
-            $title = 'تم حذف البيانات بنجاح',
-        );
+        $this->alert('success', 'تم حذف البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
         $this->emitUp('$refresh');
     }
 
@@ -58,9 +62,13 @@ class Show extends Component
         $this->cities[$index[1]]->save();
 
 
-        $this->notification()->info(
-            $title = 'تم تحديث البيانات بنجاح',
-        );
+        $this->alert('info', 'تم تحديث البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
     }
 
 

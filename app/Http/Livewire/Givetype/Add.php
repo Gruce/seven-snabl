@@ -23,9 +23,13 @@ class Add extends Component
         $this->validate();
         $give = new GiveType;
         $give->add($this->give);
-        $this->notification()->success(
-            $title = 'تم إضافة البيانات بنجاح',
-        );
+        $this->alert('success', 'تم إضافة البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
         $this->emitUp('$refresh');
     }
     public function render()
