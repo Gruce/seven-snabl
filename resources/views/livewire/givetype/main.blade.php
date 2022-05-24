@@ -41,7 +41,7 @@
                                     <div class="flex items-center flex-col py-1 text-sm border border-gray-200 rounded">
                                         <span class="text-slate-400 text-sm mb-2">نوع الهبة</span>
                                         <div x-data="{ open: false }">
-                                            <button  x-show="!open" @click="open = true">{{$give->name}} </button>
+                                            <button class="font-semibold " x-show="!open" @click="open = true">{{$give->name}} </button>
                                             <ul x-show="open" @click.away="open = false">
                                                 <x-input class="w-64" wire:model.lazy="input.give_types.{{$loop->index}}.name" type="text"/>
                                             </ul>

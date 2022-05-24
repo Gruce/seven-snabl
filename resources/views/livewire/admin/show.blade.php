@@ -81,7 +81,6 @@
                     @empty
                 </div>
                     <h2 class="text-center">لايوجد</h2>
-                    {{-- <td colspan="4" class="text-center">لايوجد</td> --}}
                 @endforelse
             </tbody>
         </table>

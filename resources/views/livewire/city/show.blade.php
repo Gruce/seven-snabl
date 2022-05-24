@@ -15,7 +15,7 @@
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="text-slate-400 text-sm mb-2">اسم المنطقة</span>
                                     <div x-data="{ open: false }" class="flex justify-center">
-                                        <button  x-show="!open" @click="open = true">{{$city->name}} </button>
+                                        <button class="font-semibold "  x-show="!open" @click="open = true">{{$city->name}} </button>
                                         <ul x-show="open" @click.away="open = false">
                                             <input type="text"
                                                     wire:model.lazy="input.cities.{{$loop->index}}.name"
@@ -26,7 +26,7 @@
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="text-slate-400 text-sm mb-2">الرمز</span>
                                     <div x-data="{ open: false }" class="flex justify-center">
-                                        <button  x-show="!open" @click="open = true">{{$city->code}} </button>
+                                        <button class="font-semibold " x-show="!open" @click="open = true">{{$city->code}} </button>
                                         <ul x-show="open" @click.away="open = false">
                                             <input type="text"
                                             wire:model.lazy="input.cities.{{$loop->index}}.code"
