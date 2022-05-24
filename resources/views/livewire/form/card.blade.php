@@ -209,7 +209,7 @@
             </div>
 
             <div class="flex flex-col items-center justify-center gap-1">
-                @if ($form->review)
+                @if ($form->review == 1)
                 <i class="fa-solid fa-check text-green-500"></i>
                 <span class="px-2 py-1 text-slate-500">تمت مراجعتها</span>
                 @else

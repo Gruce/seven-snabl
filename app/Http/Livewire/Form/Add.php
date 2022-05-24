@@ -102,13 +102,15 @@ class Add extends Component
     }
 
     public function save(){
-        dg($this->form);
+
         $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
         $form->save();
         $form->add($this->form);
+
+        // if ($form->save() && $form->add($this->form)) {
 
         $this->alert('success', 'تم إضافة البيانات بنجاح', [
             'position' => 'top-start',
@@ -120,6 +122,16 @@ class Add extends Component
         $this->emitTo('city.show', '$refresh');
 
         // $this->form = [];
+        // } else {
+        //     $this->alert('error', 'يرجا التاكد من الحقول المطلوبة', [
+        //         'position' => 'top-start',
+        //         'timer' => 3000,
+        //         'toast' => true,
+        //         'timerProgressBar' => true,
+        //         'width' => '300',
+        //     ]);
+        // }
+
     }
 
     public function render()
