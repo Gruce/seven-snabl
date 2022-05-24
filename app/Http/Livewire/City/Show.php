@@ -9,12 +9,12 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Show extends Component
 {
     use LivewireAlert;
-    protected $listeners = ['$refresh'];
+    protected $listeners = ['$refresh'  , 'delete'];
     // public function mount(){
     //     $this->cities = City::get();
 
     // }
-    public $input;
+    public $input , $ID;
 
     protected $rules = [
         'input.cities.*.name' => 'required',
@@ -22,25 +22,11 @@ class Show extends Component
     ];
 
 
-    public function confirm($id, $fun)
-    {
-        $this->notification()->confirm([
-            'title'       => 'هل انت متاكد',
-            'icon'        => 'question',
-            'accept'      => [
-                'label'  => 'نعم',
-                'method' => $fun,
-                'params' => $id,
-            ],
-            'reject' => [
-                'label'  => 'لا',
-            ],
-        ]);
-    }
 
-    public function delete($id)
+
+    public function delete()
     {
-        $city = City::findOrfail($id);
+        $city = City::findOrfail($this->ID);
         $city->delete();
         $this->alert('success', 'تم حذف البيانات بنجاح', [
             'position' => 'top-start',
@@ -68,6 +54,18 @@ class Show extends Component
             'toast' => true,
             'timerProgressBar' => true,
             'width' => '300',
+        ]);
+    }
+
+    public function confirmed($id){
+        $this->ID = $id;
+        $this->confirm('هل انت متأكد؟', [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => "true",
+            'cancelButtonText' => "كلا",
+            'confirmButtonText' =>  'نعم',
+            'onConfirmed' => 'delete',
         ]);
     }
 

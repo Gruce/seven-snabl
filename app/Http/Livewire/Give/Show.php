@@ -13,9 +13,9 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Show extends Component
 {
     use LivewireAlert;
-    protected $listeners = ['$refresh'];
+    protected $listeners = ['$refresh' , 'delete'];
 
-    public $input;
+    public $input , $ID;
 
     protected $rules = [
 
@@ -41,26 +41,23 @@ class Show extends Component
             'width' => '300',
         ]);
     }
-    public function confirm($id, $fun)
-    {
-        $this->notification()->confirm([
-            'title'       => 'هل انت متاكد',
-            'icon'        => 'question',
-            'accept'      => [
-                'label'  => 'نعم',
-                'method' => $fun,
-                'params' => $id,
-            ],
-            'reject' => [
-                'label'  => 'لا',
-            ],
+    
+    public function confirmed($id){
+        $this->ID = $id;
+        $this->confirm('هل انت متأكد؟', [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => "true",
+            'cancelButtonText' => "كلا",
+            'confirmButtonText' =>  'نعم',
+            'onConfirmed' => 'delete',
         ]);
     }
 
-    public function delete($id)
-    {
-        $city = GiveForm::findOrfail($id);
-        $city->delete();
+
+    public function delete(){
+        $give = GiveForm::findOrfail($this->ID);
+        $give->delete();
         $this->alert('success', 'تم حذف البيانات بنجاح', [
             'position' => 'top-start',
             'timer' => 3000,

@@ -6,13 +6,14 @@ use Livewire\WithPagination;
 use Livewire\Component;
 use App\Models\{
     Form,
-    City
+    City,
+    GiveType
 };
 
 class Main extends Component {
     use WithPagination;
     public $filter;
-    public $addModal, $form_id;
+    public $form_id;
 
     protected $listeners = ['$refresh', 'getFormId'];
 
@@ -21,6 +22,7 @@ class Main extends Component {
     }
 
     public function mount(){
+        $this->cities = City::get(['id', 'name']);
         $this->filter['city_id'] = null;
         $this->filter['person']['level'] = null;
         $this->filter['search'] = null;
