@@ -5,21 +5,21 @@
                 <nav class="mb-1">
                     <ul class="flex">
                         <li class="ml-1 grow">
-                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'"
-                            class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#first"
-                            icon="user">الهبات</button>
-                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'"
-                            class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#first"
-                            icon="user">الهبات</button>
-                    </li>
-                    <li class="ml-1 grow">
-                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'"
-                            class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#second"
-                            icon="location-marker">انواع الهبات</button>
-                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'"
-                            class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#second"
-                            icon="location-marker">انواع الهبات</button>
-                    </li>
+                            <button x-show="activeTab === 'first'" @click="activeTab = 'first'"
+                                class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#first"
+                                icon="user">الهبات</button>
+                            <button x-show="activeTab != 'first'" @click="activeTab = 'first'"
+                                class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#first"
+                                icon="user">الهبات</button>
+                        </li>
+                        <li class="ml-1 grow">
+                            <button x-show="activeTab === 'second'" @click="activeTab = 'second'"
+                                class="w-full rounded text-gray-900 bg-gray-200 p-1" slate outline href="#second"
+                                icon="location-marker">انواع الهبات</button>
+                            <button x-show="activeTab != 'second'" @click="activeTab = 'second'"
+                                class="w-full rounded text-gray-900 bg-gray-100 p-1" href="#second"
+                                icon="location-marker">انواع الهبات</button>
+                        </li>
                     </ul>
                 </nav>
         </x-ui.card>
