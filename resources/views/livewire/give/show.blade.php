@@ -16,7 +16,7 @@
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="text-slate-400 text-sm mb-2">نوع الهبة</span>
                                     <div x-data="{ open: false }" class="flex justify-center">
-                                        <button  x-show="!open" @click="open = true"> {{ $give->give_type->name}} </button>
+                                        <button class="font-semibold " x-show="!open" @click="open = true"> {{ $give->give_type->name}} </button>
                                         <ul x-show="open" @click.away="open = false">
                                             <select  wire:model.lazy="input.give_forms.{{$loop->index}}.give_type_id"
                                                 class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
@@ -30,7 +30,7 @@
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="text-slate-400 text-sm mb-2">الملاحظات</span>
                                     <div x-data="{ open: false }" class="flex justify-center">
-                                        <button  x-show="!open" @click="open = true"> {{ $give->note }}</button>
+                                        <button class="font-semibold " x-show="!open" @click="open = true"> {{ $give->note }}</button>
                                         <ul x-show="open" @click.away="open = false">
                                             <input type="text"
                                             wire:model.lazy="input.give_forms.{{$loop->index}}.note"
