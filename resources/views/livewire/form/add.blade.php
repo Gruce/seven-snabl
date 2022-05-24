@@ -50,8 +50,8 @@
                             @error('form.head_family.name') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
                         <div class="p-3 m-2 grid lg:grid-cols-2 sm:grid-cols-1">
-                            <div class="sm:mb-5">
-                                <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر النسب</label>
+                            <div class="mb-5 lg:ml-3 ">
+                                <label class="block mb-2 text-sm  font-medium text-gray-900 ">اختر النسب</label>
                                 <select wire:model.defer="form.head_family.is_mr" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                                     <option selected>النسب</option>
                                     <option value="1">سيد</option>
