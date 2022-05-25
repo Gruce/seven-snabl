@@ -20,7 +20,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'sans': ['Tajawal', ...defaultTheme.fontFamily.sans],
+                'sans': ['Tajawal',],
             },
         },
     },
