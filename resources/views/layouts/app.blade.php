@@ -7,11 +7,13 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="icon" href="{{ asset('img/a.png') }}" type="image/x-icon">
         {{--  Fonts  --}}
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400&display=swap" rel="stylesheet">
+
+        {{-- <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@200&display=swap" rel="stylesheet"> --}}
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.6/dist/flowbite.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
         @livewireStyles
         @wireUiScripts
         @laravelPWA
