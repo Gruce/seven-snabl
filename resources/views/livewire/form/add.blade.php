@@ -17,9 +17,9 @@
                 <div class="flex items-center justify-center p-2 rounded-lg bg-gray-50 bg-gray-50-lg">
                     <span class="text-lg">معلومات رب الاسرة</span>
                 </div>
-                <div class="p-2 mt-1">
-                    <div class="grid lg:grid-cols-2">
-                        <div class="p-3 m-2">
+                <div class="lg:p-2 lg:mt-1 sm:m-0 sm:p-0">
+                    <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 ">
+                        <div class="mb-3 lg:ml-3 md:ml-3">
                             <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر مستوى الفقر</label>
                             <select wire:model.defer="form.person.level" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                                 <option selected>مسوى الفقر</option>
@@ -30,7 +30,7 @@
                             </select>
                             @error('form.person.level') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        <div class="p-3 m-2">
+                        <div class="mb-3">
                             <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر مستوى الفقر</label>
                             <select wire:model.defer="form.city.id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                                 <option selected>المنطقة</option>
@@ -43,14 +43,14 @@
                             @error('form.city.id') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="grid gap-2 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
-                        <div class="p-3 m-2 ">
+                    <div class="grid gap-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                        <div class="mb-3 lg:ml-3 md:ml-3">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم رب الاسرة</label>
                             <input wire:model.defer="form.head_family.name" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الاسم">
                             @error('form.head_family.name') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        <div class="p-3 m-2 grid lg:grid-cols-2 sm:grid-cols-1">
-                            <div class="mb-5 lg:ml-3 ">
+                        <div class="mb-3 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                            <div class="mb-5 lg:ml-3 md:ml-3 ">
                                 <label class="block mb-2 text-sm  font-medium text-gray-900 ">اختر النسب</label>
                                 <select wire:model.defer="form.head_family.is_mr" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                                     <option selected>النسب</option>
@@ -70,24 +70,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid gap-5 lg:grid-cols-2 sm:grid-cols-1">
-                        <div>
-                            <div class="p-3 m-2">
-                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">عمل رب الاسرة</label>
-                                <input wire:model.defer="form.head_family.job" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل العمل">
-                                @error('form.head_family.job') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
-                            </div>
+                    <div class="grid gap-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                        <div class="mb-3 lg:ml-3 md:ml-3">
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">عمل رب الاسرة</label>
+                            <input wire:model.defer="form.head_family.job" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل العمل">
+                            @error('form.head_family.job') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        <div>
-                            <div class="p-3 m-2">
-                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">مقدار الدخل الشهري</label>
-                                <input wire:model.defer="form.head_family.salary" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل المقدار">
-                                @error('form.head_family.salary') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
-                            </div>
+                        <div class="mb-3">
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">مقدار الدخل الشهري</label>
+                            <input wire:model.defer="form.head_family.salary" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل المقدار">
+                            @error('form.head_family.salary') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="grid gap-2 lg:grid-cols-2 sm:grid-cols-1">
-                        <div class="p-3 m-2">
+                    <div class="grid gap-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                        <div class="mb-3 lg:ml-3 md:ml-3">
                             <label class="block mb-2 text-sm font-medium text-gray-900 ">هل يتقاضى راتب ؟</label>
                             <select wire:model.defer="form.person.salary_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                                 <option selected>نوع الراتب</option>
@@ -99,14 +95,14 @@
                             </select>
                             @error('form.person.salary_type') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        <div class="p-3 m-2">
+                        <div class="mb-3">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">مقدار الراتب</label>
-                            <input wire:model.defer="form.person.salary" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="مقدار الدخل">
+                            <input wire:model.defer="form.person.salary" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="مقدار الدخل">
                             @error('form.person.salary') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div>
-                        <div class="p-3 m-2">
+                        <div class="mb-3">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">رقم الهاتف</label>
                             <input wire:model.defer="form.person.father_phonenumber" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الرقم">
                             @error('form.person.father_phonenumber') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
@@ -122,14 +118,13 @@
                 <div class="flex items-center justify-center p-2 rounded-lg bg-gray-50 bg-gray-50-lg">
                     <span class="text-lg">معلومات الزوجة</span>
                 </div>
-                <div class="grid gap-5 px-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-                    <div class="p-3">
+                <div class="grid gap-2 lg:px-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم الزوجة</label>
                         <input wire:model.defer="form.wife.name" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الاسم">
                         @error('form.wife.name') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
-
                     </div>
-                    <div class="p-3">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر النسب</label>
                         <select wire:model.defer="form.wife.name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                             <option selected>النسب</option>
@@ -138,12 +133,12 @@
                         </select>
                         @error('form.wife.name') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                     </div>
-                    <div class="p-3">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">رقم هاتف الام</label>
                         <input wire:model.defer="form.person.mother_phonenumber" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الرقم">
                         @error('form.person.mother_phonenumber') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                     </div>
-                    <div class="p-3">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر الحالة</label>
                         <select wire:model.defer="form.wife.state" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                             <option selected>الحالة</option>
@@ -164,18 +159,18 @@
                 <div class="flex items-center justify-center p-2 rounded-lg bg-gray-50 bg-gray-50-lg">
                     <span class="text-lg">معلومات السكن</span>
                 </div>
-                <div class="grid gap-2 px-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-                    <div class="p-3">
+                <div class="grid gap-2 lg:px-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">عنوان السكن</label>
                         <input wire:model.defer="form.person.location" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل العنوان ">
                         @error('form.person.location') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                     </div>
-                    <div class="p-3">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اقرب نقطة دالة</label>
                         <input wire:model.defer="form.person.point" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل اقرب نقطة دالة ">
                         @error('form.person.point') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                     </div>
-                    <div class="p-3">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر نوع السكن</label>
                         <select wire:model="form.person.location_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                             <option selected>نوع السكن</option>
@@ -187,12 +182,10 @@
                         @error('form.person.location_type') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
 
                     </div>
-
-                    <div class="p-3">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">الايجار</label>
                         <input @if ($form['person']['location_type'] !=3) disabled @endif wire:model.defer="form.person.rent" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل اقرب ">
                     </div>
-
                 </div>
                 <x-ui.button></x-ui.button>
             </div>
@@ -203,13 +196,13 @@
                 <div class="flex items-center justify-center p-2 rounded-lg bg-gray-50 bg-gray-50-lg">
                     <span class="text-lg">معلومات افراد العائلة</span>
                 </div>
-                <div class="grid gap-10 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
-                    <div class="p-3">
+                <div class="grid lg:gap-10 gap-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">عمل افراد الاسرة</label>
                         <input wire:model.defer="form.person.family_work" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل العمل">
                         @error('form.person.family_work') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                     </div>
-                    <div class="p-3">
+                    <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">عددهم</label>
                         <input wire:model.lazy="form.person.family_count" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل العدد">
                         @error('form.person.family_count') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror

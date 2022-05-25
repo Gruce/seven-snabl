@@ -35,15 +35,15 @@
                 <ul class="flex">
                     <li class="ml-1 grow">
                         <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#first" icon="user">اساسيات</button>
-                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#first" icon="user">اساسيات</button>
                     </li>
                     <li class="ml-1 grow">
                         <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#second" icon="location-marker">السكن</button>
-                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#second" icon="location-marker">السكن</button>
                     </li>
                     <li class="grow">
                         <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#third" icon="user-group">العائلة</button>
-                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#third" icon="user-group">العائلة</button>
                     </li>
                 </ul>
             </nav>

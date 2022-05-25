@@ -67,7 +67,7 @@
                     </div>
 
                     <!-- Modal body -->
-                    <div class="p-6 space-y-6">
+                    <div class="p-0 m-0">
                         @livewire('form.add')
                     </div>
                     <!-- Modal footer -->

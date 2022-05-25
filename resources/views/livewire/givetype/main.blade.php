@@ -11,7 +11,7 @@
                                 class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#first"
                                 icon="user">الهبات</button>
                             <button x-show="activeTab != 'first'" @click="activeTab = 'first'"
-                                class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#first"
+                                class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#first"
                                 icon="user">الهبات</button>
                         </li>
                         <li class="ml-1 grow">
@@ -19,7 +19,7 @@
                                 class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#second"
                                 icon="location-marker">انواع الهبات</button>
                             <button x-show="activeTab != 'second'" @click="activeTab = 'second'"
-                                class="w-full rounded bg-blue-300 text-gray-100 p-1" href="#second"
+                                class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#second"
                                 icon="location-marker">انواع الهبات</button>
                         </li>
                     </ul>
