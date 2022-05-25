@@ -7,7 +7,7 @@ return [
         'short_name' => 'سبع سنابل',
         'start_url' => 'https://seven.gruceing.dev/',
         'background_color' => '#ffffff',
-        'theme_color' => '#76A9FA',
+        'theme_color' => '#2d3286',
         'display' => 'standalone',
         'orientation'=> 'any',
         'status_bar'=> 'black',
