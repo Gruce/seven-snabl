@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
-class FamilyMember extends Model
-{
+class FamilyMember extends Model {
     use HasFactory;
     use SoftDeletes;
 
-    protected $appends = ['kinship_name', 'is_mr_name', 'is_alive_name' ,];
-    protected $fillable = ['name' ,'kinship'];
+    protected $appends = ['kinship_name', 'is_mr_name'];
+    protected $fillable = ['name' ,'kinship', 'birthday', 'is_mr','job', 'health_state', 'note' , 'gender'];
 
 
     public function form(){
@@ -70,16 +69,5 @@ class FamilyMember extends Model
         );
     }
 
-    protected function isAliveName(): Attribute {
-        return Attribute::make(
-            get: function () {
-                switch ($this->is_alive){
-                    case 1:
-                        return 'حي';
-                    case 2:
-                        return 'متوفي';
-                }
-            },
-        );
-    }
+
 }

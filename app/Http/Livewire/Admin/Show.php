@@ -9,8 +9,8 @@ use App\Models\User;
 class Show extends Component
 {
     use LivewireAlert;
-    public $input;
-    protected $listeners = ['$refresh'];
+    public $input,$ID;
+    protected $listeners = ['$refresh','delete'];
 
     protected $rules = [
         'input.user.*.name' => 'required',
@@ -21,25 +21,21 @@ class Show extends Component
 
     ];
 
-    public function confirm($id, $fun)
-    {
-        $this->notification()->confirm([
-            'title'       => 'هل انت متاكد',
-            'icon'        => 'question',
-            'accept'      => [
-                'label'  => 'نعم',
-                'method' => $fun,
-                'params' => $id,
-            ],
-            'reject' => [
-                'label'  => 'لا',
-            ],
+    public function confirmed($id){
+        $this->ID = $id;
+        $this->confirm('هل انت متأكد؟', [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => "true",
+            'cancelButtonText' => "كلا",
+            'confirmButtonText' =>  'نعم',
+            'onConfirmed' => 'delete',
         ]);
     }
 
-    public function delete($id)
+    public function delete()
     {
-        $user = User::findOrfail($id);
+        $user = User::findOrfail($this->ID);
         $user->delete();
         $this->alert('success', 'تم حذف البيانات بنجاح', [
             'position' => 'top-start',

@@ -28,8 +28,8 @@
                                 <option value="3">B3</option>
                                 <option value="4">B4</option>
                             </select>
+                            @error('form.person.level') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        @error('form.person.level') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         <div class="p-3 m-2">
                             <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر مستوى الفقر</label>
                             <select wire:model.defer="form.city.id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
@@ -49,26 +49,24 @@
                             <input wire:model.defer="form.head_family.name" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الاسم">
                             @error('form.head_family.name') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                         </div>
-                        <div class="p-3 m-2 ">
-                            <div class="grid justify-center gap-2 lg:grid-cols-2 sm:grid-cols-1">
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر النسب</label>
-                                    <select wire:model.defer="form.head_family.is_mr" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
-                                        <option selected>النسب</option>
-                                        <option value="1">سيد</option>
-                                        <option value="2">عامي</option>
-                                    </select>
-                                    @error('form.head_family.is_mr') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
-                                </div>
-                                <div>
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر الحالة</label>
-                                    <select wire:model.defer="form.head_family.is_alive" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
-                                        <option selected>الحالة</option>
-                                        <option value="1">متوفي</option>
-                                        <option value="2">حي</option>
-                                    </select>
-                                    @error('form.head_family.is_alive') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
-                                </div>
+                        <div class="p-3 m-2 grid lg:grid-cols-2 sm:grid-cols-1">
+                            <div class="mb-5 lg:ml-3 ">
+                                <label class="block mb-2 text-sm  font-medium text-gray-900 ">اختر النسب</label>
+                                <select wire:model.defer="form.head_family.is_mr" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
+                                    <option selected>النسب</option>
+                                    <option value="1">سيد</option>
+                                    <option value="2">عامي</option>
+                                </select>
+                                @error('form.head_family.is_mr') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
+                            </div>
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر الحالة</label>
+                                <select wire:model.defer="form.head_family.is_alive" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
+                                    <option selected>الحالة</option>
+                                    <option value="1">متوفي</option>
+                                    <option value="2">حي</option>
+                                </select>
+                                @error('form.head_family.is_alive') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                             </div>
                         </div>
                     </div>
@@ -230,6 +228,8 @@
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">اسم الأفراد</label>
                                     <input wire:model.defer="form.family_members.*.name" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الاسم">
+                                    @error('form.family_members.*.name') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
+
                                 </div>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر الجنس</label>
@@ -258,7 +258,7 @@
                                 <div>
                                     <div class="relative">
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">تاريخ التولد</label>
-                                        <input wire:model.defer="form.family_members.*.birthday" datepicker="" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Select date">
+                                        <input wire:model.defer="form.family_members.*.birthday"  value="{{date('Y-m-d')}}" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Select date">
                                         @error('form.family_members.*.birthday') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
