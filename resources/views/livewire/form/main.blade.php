@@ -80,7 +80,8 @@
         <div class="grid gap-2 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
             @forelse ($forms as $form)
                 <div class="mb-1 mt-5">
-                    @livewire('form.card', ['form' => $form] , key($form->id))
+                    <livewire:form.card :form="$form" key="{{now()}}" />
+                    {{-- @livewire('form.card', ['form' => $form] , key(now())) --}}
                 </div>
             @empty
                 <div class="col-span-3 mt-4 ">
