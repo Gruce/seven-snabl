@@ -21,7 +21,7 @@
         {{-- FILTERS --}}
         <div x-show="filter" class="grid lg:grid-cols-3 sm:grid-cols-1 ">
             <select wire:model="filter.city_id"
-                class=" bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
+                class=" bg-white border   border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
                     <option value="" >اختر المنطقة</option>
                 @forelse ($cities as $city)
                     <option value="{{$city->id}}">{{$city->name}}</option>
@@ -30,7 +30,7 @@
                 @endforelse
             </select>
             <select  wire:model="filter.person.level"
-                class=" bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
+                class=" bg-white border   border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
                 <option value="" >مستوى الفقر</option>
                 <option value="1">B1</option>
                 <option value="2">B2</option>

@@ -5074,6 +5074,10 @@ select {
     margin-top: 1.5rem;
   }
 
+  .sm\:mb-3 {
+    margin-bottom: 0.75rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -5368,6 +5372,10 @@ select {
     text-align: left;
   }
 
+  .sm\:text-center {
+    text-align: center;
+  }
+
   .sm\:text-right {
     text-align: right;
   }
@@ -5500,6 +5508,14 @@ select {
   .lg\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  .lg\:text-center {
+    text-align: center;
+  }
+
+  .lg\:text-right {
+    text-align: right;
   }
 }
 @media (min-width: 1280px) {

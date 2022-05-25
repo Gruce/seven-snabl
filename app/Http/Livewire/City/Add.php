@@ -31,6 +31,7 @@ class Add extends Component
             'width' => '300',
         ]);
         $this->emitUp('$refresh');
+        $this->reset();
     }
 
 
