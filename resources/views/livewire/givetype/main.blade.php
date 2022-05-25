@@ -24,7 +24,6 @@
 
             <div x-show="activeTab === 'second'">
                 <x-ui.card>
-
                         <button class="block  w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="givetype-modal">
                             اضافة
                         </button>
@@ -35,7 +34,6 @@
                                 <!-- Card Content -->
                                 <div class="flex flex-col">
                                     <div class="flex justify-end">
-
                                         <div class="flex  text-xs">
                                             <button wire:click="confirmed({{$give->id}},'delete')" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-0.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                                                 <i class="fa-solid fa-trash"></i>
@@ -59,7 +57,9 @@
                             </x-ui.card>
                         </div>
                         @empty
-                        <td colspan="3" class="text-center">لايوجد</td>
+                        <div class="col-span-2 mt-4 ">
+                            <h1 class="text-center">لايوجد</h1>
+                        </div>
                         @endforelse
                     </div>
                 </x-ui.card>
