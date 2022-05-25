@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('forms')->group(function(){
         Route::get('/', FormMain::class)->name('forms');
-        Route::get('/show/{id}', Show::class)->name('show');
+        Route::get('/show/{form_id}', Show::class)->name('show');
     });
 
     Route::group(['prefix' => 'admin' , 'middleware' => 'admin'] ,function(){

@@ -78,9 +78,8 @@ class Show extends Component
         ]);
     }
 
-    public function mount($id)
-    {
-        $this->form = Form::findOrfail($id);
+    public function mount($form_id) {
+        $this->form = Form::findOrfail($form_id);
         $this->input['person'] = $this->form->person->toArray();
         $this->input['family_members'] = $this->form->family_members->toArray();
         $this->input['wife'] = $this->form->wife->toArray();
