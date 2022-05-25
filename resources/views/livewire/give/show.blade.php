@@ -5,10 +5,17 @@
                 @forelse ($gives as $give)
                 <div key="{{now()}}" class="m-3">
                     <x-ui.card class="border bg-gray-50">
-                        <div>
-                            <h3 class="font-semibold">
-                                # {{$give->form->id}} {{$give->form->head_family->name}}
-                            </h3>
+                        <div class="flex justify-between">
+                            <div>
+                                <h3 class="font-semibold">
+                                    # {{$give->form->id}} {{$give->form->head_family->name}}
+                                </h3>
+                            </div>
+                            <div class="flex  text-xs">
+                                    <button  wire:click="confirmed({{$give->id}})"   type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-0.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                            </div>
                         </div>
                         <!-- Card Content -->
                         <div class="flex flex-col">
@@ -40,13 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-3">
-                            <div class="flex justify-center text-xs">
-                                <div class="flex flex-col items-center justify-center gap-1">
-                                    <button  wire:click="confirmed({{$give->id}})"  type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i class="fa-solid fa-trash"></i>
-                                </div>
-                            </div>
-                        </div>
+
                     </x-ui.card>
                 </div>
                 @empty

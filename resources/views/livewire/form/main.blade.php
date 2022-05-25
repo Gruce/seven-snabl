@@ -1,7 +1,7 @@
 @section('title', 'الكشوفات')
 <div>
     <div class="mt-3" x-data="{ open: false, filter: false }">
-        <div class="grid p-2 mb-3 rounded-lg lg:grid-cols-2 sm:grid-cols-1 bg-slate-50">
+        <div class="grid p-2 mb-3 rounded-lg lg:grid-cols-2 sm:grid-cols-1 gap-2 bg-slate-50">
             {{-- ADD --}}
 
             <div class="flex justify-start">
@@ -12,9 +12,9 @@
 
             {{-- FILTER BUTTON --}}
             <div class="flex justify-end">
-                <input placeholder="البحث عن رقم الاستمارة" wire:model="filter.search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-30 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <input placeholder="البحث عن رقم الاستمارة" wire:model="filter.search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-30 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     @keydown.enter.prevent="$refresh" />
-                <button @click="filter = ! filter" class="text-gray-200 bg-blue-600 rounded-lg w-16 mr-4"><i
+                <button  @click="filter = ! filter" class=" text-gray-200 bg-blue-600 rounded-lg w-16  mr-4"><i
                         class="fa-solid fa-filter"></i></button>
             </div>
         </div>
