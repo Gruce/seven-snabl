@@ -39,6 +39,14 @@
                         <x-ui.card class="border bg-white" key="{{now()}}" shadow=false >
                             <!-- Card Content -->
                             <div class="flex flex-col">
+                                <div class="flex justify-end">
+
+                                    <div class="flex  text-xs">
+                                            <button  wire:click="confirmed({{$give->id}},'delete')"   type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-0.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                    </div>
+                                </div>
                                 <div class="grid grid-cols-1 gap-1 my-1 text-center">
                                     <div class="flex items-center flex-col py-1 text-sm border border-gray-200 rounded">
                                         <span class="text-slate-400 text-sm mb-2">نوع الهبة</span>
@@ -52,14 +60,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-2">
-                                <div class="flex justify-center text-xs">
-                                    <div class="flex flex-col items-center justify-center gap-1 ">
-                                        <button  wire:click="confirmed({{$give->id}},'delete')"  type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </x-ui.card>
                     </div>
                     @empty
