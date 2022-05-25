@@ -30,7 +30,7 @@
     </div>
     <br>
     @admin
-    <div>
+    {{-- <div>
         <x-ui.card class="bg-slate-200">
             <div class="flex justify-center">
                 <div>
@@ -49,7 +49,7 @@
                 <div>
                     <h1 class="text-2xl mb-4 mr-2 font-semibold">احصائيات المخولون</h1>
                     <div class="flex flex-col">
-                        {{-- CONTENT TAB --}}
+
                         <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-1 my-1 text-center">
                             <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                 <span class="text-slate-400 text-sm mb-2">اسم المنطقة</span>
@@ -58,7 +58,7 @@
                                 <span class="text-slate-400 text-sm mb-2">الرمز</span>
                             </div>
                         </div>
-                        {{-- END : CONTENT TAB --}}
+                        
                     </div>
                     <div class="flex flex-row ">
                         <div class="w-full ml-3 bg-gray-100  rounded-2xl py-4 px-4">
@@ -99,6 +99,6 @@
 
             </div>
         </x-ui.card>
-    </div>
+    </div> --}}
     @endadmin
 </div>
