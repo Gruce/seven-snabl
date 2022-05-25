@@ -9,7 +9,7 @@ use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Form\Show;
 use App\Http\Livewire\Give\Main as GiveMain;
-use App\Http\Livewire\GiveType\Main as GiveTypeMain;
+use App\Http\Livewire\Givetype\Main as GiveTypeMain;
 use App\Http\Livewire\Admin\Main as AdminMain ;
 use App\Http\Livewire\Dashboard\Dashboard as DashboardMain; ;
 /*
