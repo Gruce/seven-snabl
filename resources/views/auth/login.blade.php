@@ -20,7 +20,7 @@
             @csrf
 
             <div dir="rtl">
-                <x-jet-label  for="email" value="البريد الاكتروني" />
+                <x-jet-label  for="email" value="البريد الالكتروني" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
