@@ -10,38 +10,34 @@ class Main extends Component
 {
     use LivewireAlert;
 
-    public $input;
+    public $input , $ID;
 
     protected $rules = [
         'input.give_types.*.name' => 'required',
-
     ];
 
-    protected $listeners = ['$refresh'];
+    protected $listeners = ['$refresh' , 'delete'];
     // public function mount(){
     //     $this->cities = City::get();
 
     // }
 
-    public function confirm($id, $fun)
+    public function confirmed($id, $fun)
     {
-        $this->notification()->confirm([
-            'title'       => 'هل انت متاكد',
-            'icon'        => 'question',
-            'accept'      => [
-                'label'  => 'نعم',
-                'method' => $fun,
-                'params' => $id,
-            ],
-            'reject' => [
-                'label'  => 'لا',
-            ],
+        $this->ID = $id;
+        $this->confirm('هل انت متأكد؟', [
+            'toast' => false,
+            'position' => 'center',
+            'showConfirmButton' => "true",
+            'cancelButtonText' => "كلا",
+            'confirmButtonText' =>  'نعم',
+            'onConfirmed' =>  $fun,
         ]);
     }
 
-    public function delete($id)
+    public function delete()
     {
-        $give = GiveType::findOrfail($id);
+        $give = GiveType::findOrfail($this->ID);
         $give->delete();
         $this->alert('success', 'تم حذف البيانات بنجاح', [
             'position' => 'top-start',

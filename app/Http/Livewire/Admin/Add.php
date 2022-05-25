@@ -13,7 +13,7 @@ class Add extends Component
     protected $rules = [
         // user
         'user.name' => 'required',
-        'user.email' => 'required',
+        'user.email' => 'required:email|unique:users,email',
         'user.password' => 'required',
         'user.is_admin' => 'required',
         'user.phonenumber' => 'required',
