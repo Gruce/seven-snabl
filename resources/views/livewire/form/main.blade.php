@@ -39,8 +39,8 @@
             <select  wire:model="filter.review"
                 class=" bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 mr-2  ">
                 <option value="" >الحالة</option>
-                <option value="2" >تمت المراجعة</option>
-                <option value="1">لم تتم المراجعة</option>
+                <option value="1" >تمت المراجعة</option>
+                <option value="2">لم تتم المراجعة</option>
             </select>
 
         </div>

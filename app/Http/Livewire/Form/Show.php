@@ -85,7 +85,7 @@ class Show extends Component
         $this->input['family_members'] = $this->form->family_members->toArray();
         $this->input['wife'] = $this->form->wife->toArray();
         $this->input['head_family'] = $this->form->head_family->toArray();
-        $this->form->review = true;
+        $this->form->review = 1;
         $this->form->save();
     }
 
