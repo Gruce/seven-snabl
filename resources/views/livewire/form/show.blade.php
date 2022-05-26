@@ -1,25 +1,25 @@
 <div>
     <x-ui.card class="bg-white">
         <div class="grid place-content-center lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1">
-            <div class=" basis-1/3">
-                <h1 class="text-lg font-bold">
+            <div class=" basis-1/3 text-center">
+                <h1 class="text-lg font-bold ">
                     مجمع سبع سنابل الطبي الخيري
                 </h1>
-                <span>لجنة الرعاية الاجتماعية</span>
+                <span class="">لجنة الرعاية الاجتماعية</span>
             </div>
             <div class="flex justify-center basis-1/3 ">
                 <img width="100" height="100" src="{{ asset('img/a.png') }}">
             </div>
             <div class=" basis-1/3">
-                <div class="flex flex-row justify-end gap-2 ">
+                <div class="flex flex-row place-content-center gap-2 ">
                     <div class="text-sm"> تاريخ التنظيم</div>
                     <span class="text-sm">{{ $form->format_date }}</span>
                 </div>
-                <div class="flex flex-row justify-end gap-2">
+                <div class="flex flex-row place-content-center  gap-2">
                     <div class="text-sm"> رقم الاستمارة </div>
                     <div class="text-sm">-{{ $form->id }}-</div>
                 </div>
-                <div class="flex flex-row justify-end gap-2">
+                <div class="flex flex-row place-content-center gap-2">
                     <div class="text-sm"> رمز المنطقة</div>
                     <div class="text-sm">{{ $form->city->code }}</div>
                 </div>
