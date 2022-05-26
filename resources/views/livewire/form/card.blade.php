@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-lg  bg-white rounded-lg border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
+    <div class="max-w-lg   bg-white rounded-lg border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
         {{-- HEADER --}}
         <div class="flex justify-between px-4 pt-4">
             <span class="px-2 py-1 rounded text-slate-500">
@@ -35,16 +35,16 @@
             <nav class="mb-1">
                 <ul class="flex">
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#first" icon="user">اساسيات</button>
-                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-700 text-gray-300 p-1" slate outline href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded border border-blue-700 text-gray-800 p-1" href="#first" icon="user">اساسيات</button>
                     </li>
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#second" icon="location-marker">السكن</button>
-                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-700 text-gray-300 p-1" slate outline href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded border border-blue-700 text-gray-800 p-1" href="#second" icon="location-marker">السكن</button>
                     </li>
                     <li class="grow">
-                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-400 text-gray-800 p-1" slate outline href="#third" icon="user-group">العائلة</button>
-                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded border border-blue-400 text-gray-800 p-1" href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-700 text-gray-300 p-1" slate outline href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded border border-blue-700 text-gray-800 p-1" href="#third" icon="user-group">العائلة</button>
                     </li>
                 </ul>
             </nav>
@@ -160,6 +160,7 @@
                 @endif
 
                 @forelse ($form->family_members as $index => $family_member)
+                {{dg($family_member->name)}}
                 <div x-show="count == {{ $index + 1 }}" class="p-1 mb-1 border rounded">
                     <span class="mr-1 text-2xs text-slate-400">معلومات الفرد {{ $loop->index + 1 }}</span>
                     <div class="flex items-center justify-between p-1">
