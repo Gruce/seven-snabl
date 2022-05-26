@@ -15,11 +15,8 @@ class Main extends Component {
     public $filter;
     public $form_id;
 
-    protected $listeners = ['$refresh', 'getFormId'];
+    protected $listeners = ['$refresh'];
 
-    public function getFormId($id) {
-        $this->form_id = $id;
-    }
 
     public function mount(){
         $this->cities = City::get(['id', 'name']);

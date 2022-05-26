@@ -1,33 +1,21 @@
 <div>
-    <div class="max-w-lg   bg-white rounded-lg border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
+    <div class="max-w-lg bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
         {{-- HEADER --}}
-        <div class="flex justify-between px-4 pt-4">
-            <span class="px-2 py-1 rounded text-slate-500">
-                #{{$form->id}} - {{$form->city->name}}
-            </span>
-            <div>
-                <button id="dropdownButton" data-dropdown-toggle="dropdown-{{$form->id}}" class=" sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
-                        </path>
-                    </svg>
+        <div class="flex flex-col justify-between px-4 pt-4 sm:flex-row">
+            <div class="flex justify-between mb-1">
+                <span class="px-2 py-1 rounded text-slate-500">
+                    #{{$form->id}} - {{$form->city->name}}
+                </span>
+                <button class="px-4 border rounded-lg sm:hidden">
+                    <i class="text-gray-400 fas fa-ellipsis-vertical"></i>
                 </button>
+            </div>
+            <div class="flex border rounded-lg">
+                <a href="{{ route('show', ['form_id' => $form->id]) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">استعراض</a>
+                <button @click="() => {addGiven=true; window.scrollTo(0, 0);}" wire:click="$emitTo('give.add', 'getFormId', {{ $form->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    تقديم هبة</button>
+                <button wire:click="confirmed({{$form->id}})" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</button>
 
-                <div id="dropdown-{{$form->id}}" class=" hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(614px, 2991px);">
-                    <ul class="py-1" aria-labelledby="dropdownButton">
-                        <li>
-                            <a href="{{ route('show', ['form_id' => $form->id]) }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">استعراض</a>
-                        </li>
-
-                        <li>
-                            <a href="#" wire:click="$emit('getFormId', '{{ $form->id }}')" data-modal-toggle="give-modal" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                                تقديم هبة</a>
-                        </li>
-                        <li>
-                            <a href="#" wire:click="confirmed({{$form->id}})" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">حذف</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
         {{-- CARD CONTENT --}}
@@ -35,16 +23,16 @@
             <nav class="mb-1">
                 <ul class="flex">
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full rounded bg-blue-700 text-gray-300 p-1" slate outline href="#first" icon="user">اساسيات</button>
-                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full rounded border border-blue-700 text-gray-800 p-1" href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full p-1 text-white bg-blue-700 border border-blue-800 rounded" slate outline href="#first" icon="user">اساسيات</button>
+                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full p-1 text-gray-800 border border-blue-700 rounded" href="#first" icon="user">اساسيات</button>
                     </li>
                     <li class="ml-1 grow">
-                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full rounded bg-blue-700 text-gray-300 p-1" slate outline href="#second" icon="location-marker">السكن</button>
-                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full rounded border border-blue-700 text-gray-800 p-1" href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full p-1 text-white bg-blue-700 border border-blue-800 rounded" slate outline href="#second" icon="location-marker">السكن</button>
+                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full p-1 text-gray-800 border border-blue-700 rounded" href="#second" icon="location-marker">السكن</button>
                     </li>
                     <li class="grow">
-                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full rounded bg-blue-700 text-gray-300 p-1" slate outline href="#third" icon="user-group">العائلة</button>
-                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full rounded border border-blue-700 text-gray-800 p-1" href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full p-1 text-white bg-blue-700 border border-blue-800 rounded" slate outline href="#third" icon="user-group">العائلة</button>
+                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full p-1 text-gray-800 border border-blue-700 rounded" href="#third" icon="user-group">العائلة</button>
                     </li>
                 </ul>
             </nav>
@@ -148,11 +136,11 @@
 
                 @if ($family_count > 1)
                 <div class="flex justify-center my-1">
-                    <button type="button" x-show="max > count" @click="count++" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg  focus:outline-none focus:ring-blue-300">
+                    <button type="button" x-show="max > count" @click="count++" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg focus:outline-none focus:ring-blue-300">
                         <i class="fa-solid fa-arrow-left"></i>
                         التالي
                     </button>
-                    <button type="button" x-show="max > 1 && count != 1" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg  focus:outline-none focus:ring-blue-300 ">
+                    <button type="button" x-show="max > 1 && count != 1" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg focus:outline-none focus:ring-blue-300 ">
                         <i class="fa-solid fa-arrow-right"></i>
                         السابق
                     </button>
@@ -160,7 +148,6 @@
                 @endif
 
                 @forelse ($form->family_members as $index => $family_member)
-                {{dg($family_member->name)}}
                 <div x-show="count == {{ $index + 1 }}" class="p-1 mb-1 border rounded">
                     <span class="mr-1 text-2xs text-slate-400">معلومات الفرد {{ $loop->index + 1 }}</span>
                     <div class="flex items-center justify-between p-1">
@@ -202,7 +189,7 @@
             {{-- END : THIRD TAB --}}
         </div>
         {{-- FOOTER --}}
-        <div class="flex justify-between text-xs m-3">
+        <div class="flex justify-between m-3 text-xs">
             <div class="flex flex-col items-center justify-center gap-1">
                 <i class="fa-solid fa-clock text-slate-400"></i>
                 <span class="px-2 py-1 rounded text-slate-500">
@@ -212,11 +199,11 @@
 
             <div class="flex flex-col items-center justify-center gap-1">
                 @if ($form->review == 1)
-                    <i class="fa-solid fa-check text-green-500"></i>
-                    <span class="px-2 py-1 text-slate-500">تمت مراجعتها</span>
+                <i class="text-green-500 fa-solid fa-check"></i>
+                <span class="px-2 py-1 text-slate-500">تمت مراجعتها</span>
                 @else
-                    <i class="fa-solid fa-x text-red-500"></i>
-                    <span class="px-2 py-1 text-slate-500">لم تتم المراجعة</span>
+                <i class="text-red-500 fa-solid fa-x"></i>
+                <span class="px-2 py-1 text-slate-500">لم تتم المراجعة</span>
                 @endif
             </div>
         </div>

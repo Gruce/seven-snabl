@@ -20,9 +20,18 @@ class Add extends Component
 
     ];
 
-    public function mount(Form $form)
-    {
+    protected $listeners = [
+        'getFormId'
+    ];
+
+    
+    public function getFormId(Form $form) {
         $this->form = $form;
+    }
+
+    public function mount()
+    {
+        $this->form = new Form();
         $this->give['type'] = null;
         $this->gives = GiveType::get(['id', 'name']);
     }
