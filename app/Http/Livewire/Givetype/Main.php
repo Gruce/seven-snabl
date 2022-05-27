@@ -75,6 +75,8 @@ class Main extends Component
     public function render()
     {
         $gives = GiveType::get();
+        $this->input['give_types'] = $gives->toArray();
+
         return view('livewire.givetype.main', compact('gives'));
     }
 }

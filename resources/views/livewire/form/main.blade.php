@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div x-show="addGiven">
+        <div x-show="addGiven" class="mb-3">
             <livewire:give.add />
         </div>
 
