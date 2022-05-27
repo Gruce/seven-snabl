@@ -1,7 +1,7 @@
 <div>
     <div class="max-w-lg bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
         {{-- HEADER --}}
-        <div x-data="{ openSetting: false}" x-init="openSetting = window.innerWidth < 1024 ? false : true" class="flex flex-col justify-between px-4 pt-4 sm:flex-row">
+        <div x-data="{ openSetting: false}" class="flex flex-col justify-between p-3 pb-0 sm:flex-row">
             <div class="flex justify-between mb-1">
                 <span class="px-2 py-1 rounded text-slate-500">
                     #{{$form->id}} - {{$form->city->name}}
@@ -10,7 +10,7 @@
                     <i class="text-gray-400 fas fa-ellipsis-vertical"></i>
                 </button>
             </div>
-            <div x-show=openSetting  class="flex border rounded-lg justify-between">
+            <div :class="openSetting ? 'flex' : 'hidden sm:flex'" class="justify-between border rounded-lg">
                 <a href="{{ route('show', ['form_id' => $form->id]) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">استعراض</a>
                 <button @click="() => {addGiven=true; window.scrollTo(0, 0);}" wire:click="$emitTo('give.add', 'getFormId', {{ $form->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     تقديم هبة</button>
@@ -20,79 +20,76 @@
         </div>
         {{-- CARD CONTENT --}}
         <div class="m-3" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
-            <nav class="mb-1">
-                <ul class="flex">
-                    <li class="ml-1 grow">
-                        <button x-show="activeTab === 'first'" @click="activeTab = 'first'" class="w-full p-1 text-white bg-blue-700 border border-blue-800 rounded" slate outline href="#first" icon="user">اساسيات</button>
-                        <button x-show="activeTab != 'first'" @click="activeTab = 'first'" class="w-full p-1 text-gray-800 border border-blue-700 rounded" href="#first" icon="user">اساسيات</button>
-                    </li>
-                    <li class="ml-1 grow">
-                        <button x-show="activeTab === 'second'" @click="activeTab = 'second'" class="w-full p-1 text-white bg-blue-700 border border-blue-800 rounded" slate outline href="#second" icon="location-marker">السكن</button>
-                        <button x-show="activeTab != 'second'" @click="activeTab = 'second'" class="w-full p-1 text-gray-800 border border-blue-700 rounded" href="#second" icon="location-marker">السكن</button>
-                    </li>
-                    <li class="grow">
-                        <button x-show="activeTab === 'third'" @click="activeTab = 'third'" class="w-full p-1 text-white bg-blue-700 border border-blue-800 rounded" slate outline href="#third" icon="user-group">العائلة</button>
-                        <button x-show="activeTab != 'third'" @click="activeTab = 'third'" class="w-full p-1 text-gray-800 border border-blue-700 rounded" href="#third" icon="user-group">العائلة</button>
-                    </li>
-                </ul>
+            <nav class="flex mb-1 border rounded">
+                {{--  x-show="activeTab === 'third'" --}}
+                <button @click="activeTab = 'first'" class="p-2 rounded-r grow" :class="(activeTab === 'first') ? 'text-white bg-blue-500' : 'hover:bg-gray-100 text-gray-600'"  href="#first">اساسيات</button>
+                <button @click="activeTab = 'second'" class="p-2 grow" :class="(activeTab === 'second') ? 'text-white bg-blue-500' : 'hover:bg-gray-100 text-gray-600'" href="#second">السكن</button>
+                <button @click="activeTab = 'third'" class="p-2 rounded-l grow" :class="(activeTab === 'third') ? 'text-white bg-blue-500' : 'hover:bg-gray-100 text-gray-600'" href="#third">العائلة</button>
             </nav>
             {{-- FIRST TAB - BASICS --}}
             <div x-show="activeTab === 'first'">
                 {{-- Head of Family --}}
                 <div class="p-1 border rounded">
-                    <span class="mr-1 text-2xs text-slate-400">معلومات رب الأسرة</span>
-                    <div class="flex items-center justify-between p-1 text-sm">
-                        <span class="font-semibold text-slate-500 text-md">{{ $form->head_family->name??'غير محدد' }}</span>
-                        </span>
-                        <span class="px-2 py-1 font-semibold rounded text-slate-500 bg-slate-50">{{ $form->person->level_name }}</span>
+                    <div class="flex justify-between">
+                        <div class="flex flex-col mr-1">
+                            <span class="text-2xs text-slate-400">معلومات رب الأسرة</span>
+                            <span class="font-semibold text-slate-500 text-md">{{ $form->head_family->name??'غير محدد' }}</span>
+                        </div>
+                        <span class="px-4 py-2 text-lg font-semibold rounded text-slate-500 bg-slate-50">{{ $form->person->level_name }}</span>
                     </div>
-                    <div class="grid grid-cols-2 gap-1 mt-1 text-center">
-                        <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
+                    <div class="grid grid-cols-4 gap-1 mt-2 text-center">
+                        <div class="flex flex-col py-1 text-sm">
                             <span class="text-slate-400 text-2xs">النسب</span>
-                            <span class="text-slate-500">{{ $form->head_family->is_mr_name }}</span>
+                            <span class="font-semibold text-slate-500">{{ $form->head_family->is_mr_name }}</span>
                         </div>
-                        <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
+                        <div class="flex flex-col py-1 text-sm">
                             <span class="text-slate-400 text-2xs">الحالة</span>
-                            <span class="text-slate-500">{{ $form->head_family->is_alive_name }}</span>
+                            <span class="font-semibold text-slate-500">{{ $form->head_family->is_alive_name }}</span>
                         </div>
-                        <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
+                        <div class="flex flex-col py-1 text-sm">
                             <span class="text-slate-400 text-2xs">العمل</span>
-                            <span class="text-slate-500">{{ $form->head_family->job }}</span>
+                            <span class="font-semibold text-slate-500">{{ $form->head_family->job }}</span>
                         </div>
-                        <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
+                        <div class="flex flex-col py-1 text-sm">
                             <span class="text-slate-400 text-2xs">الدخل الشهري</span>
-                            <span class="text-slate-500">@money($form->head_family->salary ?? 0, 'IQD')</span>
+                            <span class="font-semibold text-slate-500">@money($form->head_family->salary ?? 0, 'IQD')</span>
                         </div>
                     </div>
                 </div>
 
                 {{-- Wife --}}
                 <div class="p-1 mt-1 border rounded">
-                    <span class="mr-1 text-2xs text-slate-400">معلومات الزوجة</span>
-                    <div class="flex items-center p-1 text-sm">
-                        <span class="font-semibold text-slate-500 text-md">{{ $form->wife->name }} </span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-1 mt-1 text-center">
-                        <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
-                            <span class="text-slate-400 text-2xs">النسب</span>
-                            <span class="text-slate-500">{{ $form->wife->is_mis_name }}</span>
+                    <div class="flex justify-between">
+                        <div class="w-1/2 basis-1/2">
+                            <span class="mr-1 text-2xs text-slate-400">معلومات الزوجة</span>
+                            <div class="flex items-center p-1 text-sm">
+                                <span class="font-semibold text-slate-500 text-md">{{ $form->wife->name }} </span>
+                            </div>
                         </div>
-                        <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
-                            <span class="text-slate-400 text-2xs">الحالة</span>
-                            <span class="text-slate-500">{{ $form->wife->wife_state }}</span>
+                        <div class="grid w-1/2 grid-cols-2 gap-1 mt-1 text-center basis-1/2">
+                            <div class="flex flex-col py-1 text-sm">
+                                <span class="text-slate-400 text-2xs">النسب</span>
+                                <span class="font-semibold text-slate-500">{{ $form->wife->is_mis_name }}</span>
+                            </div>
+                            <div class="flex flex-col py-1 text-sm">
+                                <span class="text-slate-400 text-2xs">الحالة</span>
+                                <span class="font-semibold text-slate-500">{{ $form->wife->wife_state }}</span>
+                            </div>
                         </div>
                     </div>
+                   
+                    
                 </div>
 
                 {{-- Phone numbers --}}
                 <div class="grid grid-cols-2 gap-1 my-1 text-center">
                     <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
                         <span class="text-slate-400 text-2xs">رقم هاتف الأب</span>
-                        <span class="text-slate-500">{{ $form->person->father_phonenumber }}</span>
+                        <span class="font-semibold text-slate-500">{{ $form->person->father_phonenumber }}</span>
                     </div>
                     <div class="flex flex-col py-1 text-sm border border-gray-100 rounded">
                         <span class="text-slate-400 text-2xs">رقم هاتف الأم</span>
-                        <span class="text-slate-500">{{ $form->person->mother_phonenumber }}</span>
+                        <span class="font-semibold text-slate-500">{{ $form->person->mother_phonenumber }}</span>
                     </div>
                 </div>
             </div>
@@ -136,11 +133,11 @@
 
                 @if ($family_count > 1)
                 <div class="flex justify-center my-1">
-                    <button type="button" x-show="max > count" @click="count++" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg focus:outline-none focus:ring-blue-300">
+                    <button type="button" x-show="max > count" @click="count++" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-100 rounded-lg focus:outline-none focus:ring-blue-300">
                         <i class="fa-solid fa-arrow-left"></i>
                         التالي
                     </button>
-                    <button type="button" x-show="max > 1 && count != 1" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 rounded-lg focus:outline-none focus:ring-blue-300 ">
+                    <button type="button" x-show="max > 1 && count != 1" xs @click="count--" class="px-3 py-2 text-xs font-medium text-center text-black bg-gray-100 rounded-lg focus:outline-none focus:ring-blue-300 ">
                         <i class="fa-solid fa-arrow-right"></i>
                         السابق
                     </button>

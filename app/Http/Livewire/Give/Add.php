@@ -13,11 +13,8 @@ class Add extends Component
     use LivewireAlert;
     public $give, $form;
     protected $rules = [
-
         'give.note' => 'required',
         'give.type' => 'required',
-        'give.form_id' => 'required',
-
     ];
 
     protected $listeners = [
