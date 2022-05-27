@@ -21,7 +21,7 @@ class Add extends Component
         'getFormId'
     ];
 
-    
+
     public function getFormId(Form $form) {
         $this->form = $form;
     }
@@ -46,8 +46,9 @@ class Add extends Component
             'timerProgressBar' => true,
             'width' => '300',
         ]);
-        
-        $this->emitTo('give.main', '$refresh');
+        $this->emitTo('give.main','form.main', '$refresh');
+        $this->give['type'] = null;
+
     }
 
     public function render()

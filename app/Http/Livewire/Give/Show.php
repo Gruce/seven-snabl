@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Give;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\{
     Form,
     GiveForm,
@@ -41,7 +42,7 @@ class Show extends Component
             'width' => '300',
         ]);
     }
-    
+
     public function confirmed($id){
         $this->ID = $id;
         $this->confirm('هل انت متأكد؟', [
@@ -80,7 +81,6 @@ class Show extends Component
                 'give_type:id,name',
             ]
         )->get();
-
         $give_types = GiveType::get()->toArray();
 
         return view('livewire.give.show', compact('gives', 'give_types'));

@@ -175,8 +175,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 @empty
                 <div class="flex items-center justify-between p-2 mt-1 text-sm rounded bg-slate-50">
                     <span class="text-sm text-slate-600">لا يوجد أفراد</span>
@@ -185,12 +183,49 @@
                 {{-- End Foreach members --}}
             </div>
             {{-- END : THIRD TAB --}}
-
             {{-- FOURTH TAB --}}
             <div x-data="{ count: 1, max: $wire.family_count }" x-show="activeTab === 'fourth'">
                 <div class="grid grid-rows-2 gap-1 my-1 text-center">
-                    @forelse ($form->gives as $give)
-                    <div class="flex justify-around border border-gray-200 rounded">
+                    <div class="relative overflow-x-auto  sm:rounded-lg">
+                        <table class="w-full h-3 text-sm text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                       #
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        وصف الهبة
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        نوع الهبة
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($form->gives as $give)
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    {{ $loop->iteration	 }}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {{ $give->note }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $give->give_type->name }}
+                                    </td>
+                                </tr>
+                                @empty
+                                <div class="flex items-center justify-center p-1">
+                                    <span class="text-sm font-semibold text-slate-500">
+                                        لا يوجد هبات
+                                    </span>
+                                </div>
+                                @endforelse
+                                {{-- {{ $form->gives->links() }} --}}
+                            </tbody>
+                        </table>
+                    </div>
+                    {{-- <div class="flex justify-around border border-gray-200 rounded">
                         <div class="flex flex-col py-1 text-sm">
                             <span class="text-slate-400 text-2xs">وصف الهبة</span>
                             <span class="font-semibold text-slate-500">{{ $give->note }}</span>
@@ -199,14 +234,8 @@
                             <span class="text-slate-400 text-2xs">نوع الهبة</span>
                             <span class="font-semibold text-slate-500">{{ $give->give_type->name }}</span>
                         </div>
-                    </div>
-                    @empty
-                    <div class="flex items-center justify-center p-1">
-                        <span class="text-sm font-semibold text-slate-500">
-                            لا يوجد هبات
-                        </span>
-                    </div>
-                    @endforelse
+                    </div> --}}
+
                 </div>
                 {{-- End Foreach members --}}
             </div>
