@@ -1,16 +1,16 @@
 <div>
     <div class="max-w-lg bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
         {{-- HEADER --}}
-        <div class="flex flex-col justify-between px-4 pt-4 sm:flex-row">
+        <div x-data="{ openSetting: false}" x-init="openSetting = window.innerWidth < 1024 ? false : true" class="flex flex-col justify-between px-4 pt-4 sm:flex-row">
             <div class="flex justify-between mb-1">
                 <span class="px-2 py-1 rounded text-slate-500">
                     #{{$form->id}} - {{$form->city->name}}
                 </span>
-                <button class="px-4 border rounded-lg sm:hidden">
+                <button @click="openSetting=!openSetting" class="px-4 border rounded-lg sm:hidden">
                     <i class="text-gray-400 fas fa-ellipsis-vertical"></i>
                 </button>
             </div>
-            <div class="flex border rounded-lg">
+            <div x-show=openSetting  class="flex border rounded-lg justify-between">
                 <a href="{{ route('show', ['form_id' => $form->id]) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">استعراض</a>
                 <button @click="() => {addGiven=true; window.scrollTo(0, 0);}" wire:click="$emitTo('give.add', 'getFormId', {{ $form->id }})" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                     تقديم هبة</button>
