@@ -47,7 +47,7 @@
                                                 <button class="font-semibold " x-show="!open" @click="open = true">{{$give->name}} </button>
                                                 <ul x-show="open" @click.away="open = false">
 
-                                                    <input class="w-64 rounded-lg" wire:model.lazy="input.give_types.{{$loop->index}}.name" type="text" />
+                                                    <input class="w-48 rounded-lg" wire:model.lazy="input.give_types.{{$loop->index}}.name" type="text" />
                                                 </ul>
                                             </div>
                                         </div>

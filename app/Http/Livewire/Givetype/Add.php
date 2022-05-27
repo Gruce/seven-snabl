@@ -11,15 +11,11 @@ class Add extends Component
     public $give;
     use LivewireAlert;
     protected $rules = [
-
         'give.name' => 'required',
-
-
     ];
 
     public function save()
     {
-
         $this->validate();
         $give = new GiveType;
         $give->add($this->give);

@@ -19,12 +19,13 @@
             </div>
         </div>
         {{-- CARD CONTENT --}}
-        <div class="m-3" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
+        <div class="m-3" x-data="{ activeTab: 'fourth' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'fourth'">
             <nav class="flex mb-1 border rounded">
-                {{--  x-show="activeTab === 'third'" --}}
-                <button @click="activeTab = 'first'" class="p-2 rounded-r grow" :class="(activeTab === 'first') ? 'text-white bg-blue-500' : 'hover:bg-gray-100 text-gray-600'"  href="#first">اساسيات</button>
-                <button @click="activeTab = 'second'" class="p-2 grow" :class="(activeTab === 'second') ? 'text-white bg-blue-500' : 'hover:bg-gray-100 text-gray-600'" href="#second">السكن</button>
-                <button @click="activeTab = 'third'" class="p-2 rounded-l grow" :class="(activeTab === 'third') ? 'text-white bg-blue-500' : 'hover:bg-gray-100 text-gray-600'" href="#third">العائلة</button>
+                {{-- x-show="activeTab === 'third'" --}}
+                <button @click="activeTab = 'first'" class="p-2 rounded-r grow" :class="(activeTab === 'first') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#first">اساسيات</button>
+                <button @click="activeTab = 'second'" class="p-2 grow" :class="(activeTab === 'second') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#second">السكن</button>
+                <button @click="activeTab = 'third'" class="p-2 rounded-l grow" :class="(activeTab === 'third') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#third">العائلة</button>
+                <button @click="activeTab = 'fourth'" class="p-2 rounded-l grow" :class="(activeTab === 'fourth') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#fourth">الهبات</button>
             </nav>
             {{-- FIRST TAB - BASICS --}}
             <div x-show="activeTab === 'first'">
@@ -77,8 +78,8 @@
                             </div>
                         </div>
                     </div>
-                   
-                    
+
+
                 </div>
 
                 {{-- Phone numbers --}}
@@ -184,6 +185,32 @@
                 {{-- End Foreach members --}}
             </div>
             {{-- END : THIRD TAB --}}
+
+            {{-- FOURTH TAB --}}
+            <div x-data="{ count: 1, max: $wire.family_count }" x-show="activeTab === 'fourth'">
+                <div class="grid grid-rows-2 gap-1 my-1 text-center">
+                    @forelse ($form->gives as $give)
+                    <div class="flex justify-around border border-gray-200 rounded">
+                        <div class="flex flex-col py-1 text-sm">
+                            <span class="text-slate-400 text-2xs">وصف الهبة</span>
+                            <span class="font-semibold text-slate-500">{{ $give->note }}</span>
+                        </div>
+                        <div class="flex flex-col py-1 text-sm">
+                            <span class="text-slate-400 text-2xs">نوع الهبة</span>
+                            <span class="font-semibold text-slate-500">{{ $give->give_type->name }}</span>
+                        </div>
+                    </div>
+                    @empty
+                    <div class="flex items-center justify-center p-1">
+                        <span class="text-sm font-semibold text-slate-500">
+                            لا يوجد هبات
+                        </span>
+                    </div>
+                    @endforelse
+                </div>
+                {{-- End Foreach members --}}
+            </div>
+            {{-- END : FOURTH TAB --}}
         </div>
         {{-- FOOTER --}}
         <div class="flex justify-between m-3 text-xs">
