@@ -14,8 +14,8 @@ class Show extends Component
     //     $this->cities = City::get();
 
     // }
-    public $input , $ID;
-
+    public $input , $ID,$searchCity;
+    protected $queryString = ['searchCity'];
     protected $rules = [
         'input.cities.*.name' => 'required',
         'input.cities.*.code' => 'required',
@@ -78,7 +78,15 @@ class Show extends Component
 
     public function render()
     {
-        $cities = City::get();
+        $searchCity= '%'.$this->searchCity.'%';
+        if($this->searchCity){
+        $cities = City::where('name', 'like', $searchCity)
+        ->orWhere('code', 'LIKE', $searchCity )->get();
+    }
+        else{
+            $cities = City::get();
+        }
+        dg($searchCity);
         return view('livewire.city.show', compact('cities'));
     }
 }
