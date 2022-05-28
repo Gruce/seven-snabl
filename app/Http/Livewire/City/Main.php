@@ -8,11 +8,10 @@ class Main extends Component
 {
     public $searchCity;
     protected $listeners = [ '$refresh' ];
-    protected $queryString = ['searchCity'];
+
     public function render()
     {
-
-
+        $this->emit('search', $this->searchCity);
         return view('livewire.city.main');
     }
 

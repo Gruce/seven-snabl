@@ -9,19 +9,19 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Show extends Component
 {
     use LivewireAlert;
-    protected $listeners = ['$refresh'  , 'delete'];
-    // public function mount(){
-    //     $this->cities = City::get();
+    protected $listeners = ['$refresh'  , 'delete' , 'search'];
 
-    // }
-    public $input , $ID,$searchCity;
+    public $input , $ID,$searchCity , $cities;
     protected $queryString = ['searchCity'];
     protected $rules = [
         'input.cities.*.name' => 'required',
         'input.cities.*.code' => 'required',
     ];
 
-
+    public function search($search)
+    {
+        $this->searchCity = $search;
+    }
 
 
     public function delete()
@@ -78,15 +78,12 @@ class Show extends Component
 
     public function render()
     {
-        $searchCity= '%'.$this->searchCity.'%';
         if($this->searchCity){
-        $cities = City::where('name', 'like', $searchCity)
-        ->orWhere('code', 'LIKE', $searchCity )->get();
-    }
-        else{
-            $cities = City::get();
-        }
-        dg($searchCity);
-        return view('livewire.city.show', compact('cities'));
+            $searchCity= '%'.$this->searchCity.'%';
+            $this->cities = City::where('name', 'LIKE', $searchCity)
+                ->orWhere('code', 'LIKE', $searchCity )->get();
+        }else $this->cities = City::get();
+
+        return view('livewire.city.show');
     }
 }
