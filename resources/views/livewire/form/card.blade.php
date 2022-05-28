@@ -19,7 +19,7 @@
             </div>
         </div>
         {{-- CARD CONTENT --}}
-        <div class="m-3" x-data="{ activeTab: 'fourth' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'fourth'">
+        <div class="m-3" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'fourth'">
             <nav class="flex mb-1 border rounded">
                 {{-- x-show="activeTab === 'third'" --}}
                 <button @click="activeTab = 'first'" class="p-2 rounded-r grow" :class="(activeTab === 'first') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#first">اساسيات</button>

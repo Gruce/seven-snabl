@@ -29,10 +29,13 @@ class Main extends Component {
     public function render(){
         $forms = Form::with('city:id,name')->orderByDesc('id');
         if(is_admin()) $forms->where('user_id', auth()->id());
-        $forms = $forms->whereExist(collect($this->filter)->toFilter())->whereExist([
-                ['id' , '%' . $this->filter['search'] . '%' , 'LIKE'],
-            ]
-        )->paginate(10);
+        $forms = $forms->whereExist(collect($this->filter)->toFilter());
+        
+        $forms=$forms->whereHas('head_family', function($query) {
+            $query->where('name', 'like', '%' . $this->filter['search'] . '%');
+        })->orWhereHas('wife', function($query) {
+            $query->where('name', 'like', '%' . $this->filter['search'] . '%');
+        })->paginate(10);
         return view('livewire.form.main', compact('forms'));
     }
 }
