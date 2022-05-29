@@ -29,8 +29,8 @@ class Main extends Component {
 
     public function render(){
         $forms = Form::with(['city:id,name','gives'=>function($query){
-            // return $query->latest()->take(5)->get();
-            return $query->paginate(5);
+            return $query->latest()->take(3)->get();
+
         }])->orderByDesc('id');
         if(is_admin()) $forms->where('user_id', auth()->id());
         $forms = $forms->whereExist(collect($this->filter)->toFilter());

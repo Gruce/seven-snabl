@@ -19,7 +19,7 @@
             </div>
         </div>
         {{-- CARD CONTENT --}}
-        <div class="m-3" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'fourth'">
+        <div class="m-3" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
             <nav class="flex mb-1 border rounded">
                 {{-- x-show="activeTab === 'third'" --}}
                 <button @click="activeTab = 'first'" class="p-2 rounded-r grow" :class="(activeTab === 'first') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#first">اساسيات</button>
@@ -183,15 +183,16 @@
                 {{-- End Foreach members --}}
             </div>
             {{-- END : THIRD TAB --}}
+
             {{-- FOURTH TAB --}}
-            <div x-data="{ count: 1, max: $wire.family_count }" x-show="activeTab === 'fourth'">
-                <div class="grid grid-rows-2 gap-1 my-1 text-center">
+            <div x-show="activeTab === 'fourth'">
+                <div class="grid grid-rows-1 gap-1 my-1 text-center">
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <table class="w-full h-3 text-sm text-right text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                       #
+                                        #
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         وصف الهبة
@@ -221,29 +222,10 @@
                                     </span>
                                 </div>
                                 @endforelse
-                                @if ($form->gives->count() > 3)
-                                    <tr class="px-6 py-4">
-                                        <td colspan="3" class="text-center">
-                                            <a href="{{ route('forms.show', $form) }}" class="text-sm text-slate-500">
-                                                عرض المزيد
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endif
+
                             </tbody>
                         </table>
                     </div>
-                    {{-- <div class="flex justify-around border border-gray-200 rounded">
-                        <div class="flex flex-col py-1 text-sm">
-                            <span class="text-slate-400 text-2xs">وصف الهبة</span>
-                            <span class="font-semibold text-slate-500">{{ $give->note }}</span>
-                        </div>
-                        <div class="flex flex-col py-1 text-sm">
-                            <span class="text-slate-400 text-2xs">نوع الهبة</span>
-                            <span class="font-semibold text-slate-500">{{ $give->give_type->name }}</span>
-                        </div>
-                    </div> --}}
-
                 </div>
                 {{-- End Foreach members --}}
             </div>
