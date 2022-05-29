@@ -26,11 +26,15 @@ class Main extends Component {
         $this->filter['review'] = null;
     }
 
+
     public function render(){
-        $forms = Form::with('city:id,name')->orderByDesc('id');
+        $forms = Form::with(['city:id,name','gives'=>function($query){
+            // return $query->latest()->take(5)->get();
+            return $query->paginate(5);
+        }])->orderByDesc('id');
         if(is_admin()) $forms->where('user_id', auth()->id());
         $forms = $forms->whereExist(collect($this->filter)->toFilter());
-        
+
         $forms=$forms->whereHas('head_family', function($query) {
             $query->where('name', 'like', '%' . $this->filter['search'] . '%');
         })->orWhereHas('wife', function($query) {
