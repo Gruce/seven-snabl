@@ -221,10 +221,10 @@
                                     </span>
                                 </div>
                                 @endforelse
-                                @if ($form->gives->count() > 3)
+                                @if ($form->gives->count() >= 3)
                                     <tr class="px-6 py-4">
                                         <td colspan="3" class="text-center">
-                                            <a href="{{ route('forms.show', $form) }}" class="text-sm text-slate-500">
+                                            <a href="{{ route('show-gives') }}" class="text-sm text-slate-500">
                                                 عرض المزيد
                                             </a>
                                         </td>
