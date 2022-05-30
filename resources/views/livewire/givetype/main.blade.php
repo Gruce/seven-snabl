@@ -54,7 +54,7 @@
                                         <div class="flex flex-col items-center py-1 text-sm border border-gray-200 rounded">
                                             <span class="mb-2 text-sm text-slate-400">مجموع الهبات</span>
                                             <div x-data="{ open: false }">
-                                                <span class="font-semibold ">{{$give->give_forms()->count()}} </span>
+                                                <span class="font-semibold ">{{$give->give_forms()->count()}}</span>
                                             </div>
                                         </div>
                                     </div>

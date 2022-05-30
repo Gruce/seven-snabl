@@ -1,24 +1,23 @@
 <?php
 
 namespace App\Http\Livewire\Form;
-use Illuminate\Support\Arr;
-use Livewire\WithPagination;
-use Livewire\Component;
-use App\Models\{
-    Form,
-    City,
-    GiveType
-};
 
-class Main extends Component {
+use App\Models\City;
+
+use App\Models\Form;
+
+use Illuminate\Support\Arr;use Livewire\Component;use Livewire\WithPagination;
+
+class Main extends Component
+{
     use WithPagination;
     public $filter;
     public $form_id;
 
     protected $listeners = ['$refresh'];
 
-
-    public function mount(){
+    public function mount()
+    {
         $this->cities = City::get(['id', 'name']);
         $this->filter['city_id'] = null;
         $this->filter['person']['level'] = null;
@@ -26,20 +25,21 @@ class Main extends Component {
         $this->filter['review'] = null;
     }
 
-
-    public function render(){
+    public function render()
+    {
         $forms = Form::with(['city:id,name','gives'=>function($query){
             return $query->latest()->take(3)->get();
-
         }])->orderByDesc('id');
         if(is_admin()) $forms->where('user_id', auth()->id());
-        $forms = $forms->whereExist(collect($this->filter)->toFilter());
 
         $forms=$forms->whereHas('head_family', function($query) {
             $query->where('name', 'like', '%' . $this->filter['search'] . '%');
         })->orWhereHas('wife', function($query) {
             $query->where('name', 'like', '%' . $this->filter['search'] . '%');
-        })->paginate(10);
+        })->orWhere('id', $this->filter['search']);
+
+        $forms = $forms->whereExist(collect($this->filter)->toFilter())->paginate(10);
+
         return view('livewire.form.main', compact('forms'));
     }
 }

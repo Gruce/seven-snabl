@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "io.sevensnabl.app",
+               "sha256_cert_fingerprints": ["C4:3C:FC:E0:2C:8E:21:B3:A3:E3:AD:1A:AD:1F:F7:35:8B:C4:29:4A:B0:59:3D:F6:14:E9:53:64:4B:56:83:13"] }
+}]
