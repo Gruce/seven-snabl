@@ -51,7 +51,7 @@
                     </x-ui.card>
                 </div>
                 @empty
-                <h2 class="text-center">لايوجد</h2>
+                <h1 class="text-center">لايوجد</h1>
                 @endforelse
             </div>
         </div>
