@@ -11,7 +11,15 @@ class ShowGive extends Component
 {
     protected $listeners = ['$refresh' , 'delete'];
     use LivewireAlert;
-    public $ID,$form_id;
+    public $ID,$form_id,$input;
+
+    protected $rules = [
+
+        'input.give_forms.*.note' => 'required',
+        'input.give_forms.*.give_type_id' => 'required',
+        // 'input.give_type.name' => 'required',
+    ];
+
     public function confirmed($id){
         $this->ID = $id;
         $this->confirm('هل انت متأكد؟', [
@@ -38,7 +46,12 @@ class ShowGive extends Component
         $this->emit('$refresh');
     }
 
-    
+    public function mount()
+    {
+        $this->give_forms = GiveForm::get();
+        $this->input['give_forms'] = $this->give_forms->toArray();
+    }
+
     public function render()
     {
         $this->form = Form::findOrFail($this->form_id);
