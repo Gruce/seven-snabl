@@ -7,11 +7,12 @@ use App\Models\Form;
 use App\Models\GiveType;
 use App\Models\GiveForm;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+
 class ShowGive extends Component
 {
-    protected $listeners = ['$refresh' , 'delete'];
+    protected $listeners = ['$refresh', 'delete'];
     use LivewireAlert;
-    public $ID,$form_id,$input;
+    public $ID, $form_id, $input, $give_forms;
 
     protected $rules = [
 
@@ -20,7 +21,27 @@ class ShowGive extends Component
         // 'input.give_type.name' => 'required',
     ];
 
-    public function confirmed($id){
+    public function updatedInput($value, $index)
+    {
+        $index = explode('.', $index);
+        // dg($index);
+
+        $this->give_forms[$index[1]][$index[2]] = $value;
+
+        $this->give_forms[$index[1]]->save();
+
+
+        $this->alert('info', 'تم تحديث البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
+    }
+
+    public function confirmed($id)
+    {
         $this->ID = $id;
         $this->confirm('هل انت متأكد؟', [
             'toast' => false,
@@ -33,7 +54,8 @@ class ShowGive extends Component
     }
 
 
-    public function delete(){
+    public function delete()
+    {
         $give = GiveForm::findOrfail($this->ID);
         $give->delete();
         $this->alert('success', 'تم حذف البيانات بنجاح', [
@@ -55,9 +77,9 @@ class ShowGive extends Component
     public function render()
     {
         $this->form = Form::findOrFail($this->form_id);
-        $this->gives=$this->form->gives;
+        // $this->gives = $this->form->gives;
 
-        $give_types = GiveType::get()->toArray();
+        $give_types = GiveType::get();
         return view('livewire.form.show-give', compact('give_types'));
     }
 }

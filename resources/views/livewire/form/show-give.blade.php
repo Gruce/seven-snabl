@@ -1,8 +1,9 @@
 <div>
-    <x-ui.card  >
+    <x-ui.card>
         <div class="relative mt-3 sm:rounded-lg">
             <div class="grid gap-2 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1">
-                @forelse ($form->gives as $give)
+                @forelse ($form->gives as $index => $give)
+                {{-- {{$loop->index +1}} --}}
                 <div key="{{now()}}">
                     <x-ui.card class="bg-white border">
                         <div class="flex justify-between">
@@ -25,11 +26,10 @@
                                     <div x-data="{ open: false }" class="flex justify-center">
                                         <button class="font-semibold " x-show="!open" @click="open = true"> {{ $give->give_type->name}} </button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <select  wire:model.lazy="input.give_forms.{{$loop->index}}.give_type_id"
-                                                class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
-                                            @foreach ($give_types as  $give_type)
-                                            <option  value="{{$give_type['id']}}">{{$give_type['name']}}</option>
-                                            @endforeach
+                                            <select wire:model.lazy="input.give_forms.{{$loop->index}}.give_type_id" class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8 ">
+                                                @foreach ($give_types as $give_type)
+                                                <option value="{{$give_type->id}}">{{$give_type->name}}</option>
+                                                @endforeach
                                             </select>
                                         </ul>
                                     </div>
@@ -39,9 +39,7 @@
                                     <div x-data="{ open: false }" class="flex justify-center">
                                         <button class="font-semibold " x-show="!open" @click="open = true"> {{ $give->note }}</button>
                                         <ul x-show="open" @click.away="open = false">
-                                            <input type="text"
-                                            wire:model.lazy="input.give_forms.{{$loop->index}}.note"
-                                            class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                            <input type="text" wire:model.lazy="input.give_forms.{{$loop->index}}.note" class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                         </ul>
                                     </div>
                                 </div>

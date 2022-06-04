@@ -9,10 +9,11 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Show extends Component
 {
     use LivewireAlert;
-    protected $listeners = ['$refresh'  , 'delete' , 'search'];
+    protected $listeners = ['$refresh', 'delete', 'search'];
 
-    public $input , $ID,$searchCity , $cities;
+    public $input, $ID, $searchCity, $cities;
     protected $queryString = ['searchCity'];
+
     protected $rules = [
         'input.cities.*.name' => 'required',
         'input.cities.*.code' => 'required',
@@ -57,7 +58,8 @@ class Show extends Component
         ]);
     }
 
-    public function confirmed($id){
+    public function confirmed($id)
+    {
         $this->ID = $id;
         $this->confirm('هل انت متأكد؟', [
             'toast' => false,
@@ -78,11 +80,11 @@ class Show extends Component
 
     public function render()
     {
-        if($this->searchCity){
-            $searchCity= '%'.$this->searchCity.'%';
+        if ($this->searchCity) {
+            $searchCity = '%' . $this->searchCity . '%';
             $this->cities = City::where('name', 'LIKE', $searchCity)
-                ->orWhere('code', 'LIKE', $searchCity )->get();
-        }else $this->cities = City::get();
+                ->orWhere('code', 'LIKE', $searchCity)->get();
+        } else $this->cities = City::get();
 
         return view('livewire.city.show');
     }
