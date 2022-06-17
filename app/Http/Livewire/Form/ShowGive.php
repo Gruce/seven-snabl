@@ -68,26 +68,14 @@ class ShowGive extends Component
         $this->emit('$refresh');
     }
 
-<<<<<<< HEAD
-=======
-    public function mount()
-    {
-        $this->give_forms = GiveForm::get();
-        $this->input['give_forms'] = $this->give_forms->toArray();
-    }
->>>>>>> master
 
     public function render()
     {
         $this->form = Form::findOrFail($this->form_id);
         // $this->gives = $this->form->gives;
 
-<<<<<<< HEAD
         $give_types = GiveType::get()->toArray();
 
-=======
-        $give_types = GiveType::get();
->>>>>>> master
         return view('livewire.form.show-give', compact('give_types'));
     }
 }

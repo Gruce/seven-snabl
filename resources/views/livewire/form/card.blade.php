@@ -26,6 +26,7 @@
                 <button @click="activeTab = 'second'" class="p-2 grow" :class="(activeTab === 'second') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#second">السكن</button>
                 <button @click="activeTab = 'third'" class="p-2 rounded-l grow" :class="(activeTab === 'third') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#third">العائلة</button>
                 <button @click="activeTab = 'fourth'" class="p-2 rounded-l grow" :class="(activeTab === 'fourth') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#fourth">الهبات</button>
+                <button @click="activeTab = 'fifth'" class="p-2 rounded-l grow" :class="(activeTab === 'fifth') ? 'text-white bg-blue-600' : 'hover:bg-gray-100 text-gray-600'" href="#fourth">الملفات</button>
             </nav>
             {{-- FIRST TAB - BASICS --}}
             <div x-show="activeTab === 'first'">
@@ -227,7 +228,7 @@
                                         <td colspan="3" class="text-center">
                                             <a href="{{ route('show.gives', ['form_id' => $form->id]) }}" class="  text-sm text-blue-500 hover:bg-blue-200 ">
                                                 عرض المزيد
-                                                
+
                                             </a>
                                         </td>
                                     </tr>
@@ -239,6 +240,61 @@
                 {{-- End Foreach members --}}
             </div>
             {{-- END : FOURTH TAB --}}
+            {{-- FIFTH TAB --}}
+            <div x-show="activeTab === 'fifth'">
+                <div class="grid grid-rows-1 gap-1 my-1 text-center">
+                    <div class="relative overflow-x-auto  sm:rounded-lg">
+                        <table class="w-full h-3 text-sm text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        #
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        اسم الملف
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                         تحميل
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @forelse ($form->gives as $give) --}}
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    {{ $loop->iteration	 }}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        يب
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        بيب
+                                    </td>
+                                </tr>
+                                {{-- @empty --}}
+                                <div class="flex items-center justify-center p-1">
+                                    <span class="text-sm font-semibold text-slate-500">
+                                        لا يوجد ملفات
+                                    </span>
+                                </div>
+                                {{-- @endforelse --}}
+                                {{-- @if ($form->gives->count() >= 3)
+                                    <tr class="px-6 py-4">
+                                        <td colspan="3" class="text-center">
+                                            <a href="{{ route('show.gives', ['form_id' => $form->id]) }}" class="  text-sm text-blue-500 hover:bg-blue-200 ">
+                                                عرض المزيد
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endif --}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {{-- End Foreach members --}}
+            </div>
+            {{-- END : FIFTH TAB --}}
         </div>
         {{-- FOOTER --}}
         <div class="flex justify-between m-3 text-xs">

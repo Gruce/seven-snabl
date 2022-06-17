@@ -54,6 +54,10 @@ class Form extends Model
         return $this->hasOne(WifeInfo::class);
     }
 
+    public function files(){
+        return $this->hasMany(File::class);
+    }
+
     ### END RELATIONS ###
 
     ### START MATHOD ###
