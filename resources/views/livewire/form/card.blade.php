@@ -265,12 +265,14 @@
                                     {{ $loop->iteration	 }}
                                     </th>
                                     <td class="px-6 py-4">
-                                        {{ $file->name }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="{{ asset('storage/doc/' . $file->path) }}" class="  text-sm text-blue-500 hover:bg-blue-200 ">
-                                            تحميل
-                                    </td>
+                                        <a href="{{ asset('storage/doc/' . $file->path) }}"  class="  text-sm text-blue-500 hover:bg-blue-200 ">
+                                            {{ $file->name }}
+                                        </td>
+
+                                        <td class="px-6 py-4">
+                                            <a href="{{ asset('storage/doc/' . $file->path) }}" download class="  text-sm text-blue-500 hover:bg-blue-200 ">
+                                                <i class="fa-solid fa-download text-blue-600"></i>
+                                            </td>
                                 </tr>
                                  @empty
                                 <div class="flex items-center justify-center p-1">
