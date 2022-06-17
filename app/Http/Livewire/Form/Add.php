@@ -11,7 +11,7 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class Add extends Component
 {
     use LivewireAlert;
-    public $form;
+    public $form,$files=[];
 
     protected $rules = [
         // Personal Info
