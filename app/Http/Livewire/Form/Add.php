@@ -7,11 +7,12 @@ use App\Models\Form;
 use App\Models\City;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\WithFileUploads;
 
 class Add extends Component
 {
-    use LivewireAlert;
-    public $form,$files=[];
+    use LivewireAlert, WithFileUploads;
+    public $form, $files = [];
 
     protected $rules = [
         // Personal Info
@@ -101,24 +102,32 @@ class Add extends Component
         $this->form['head_family']['salary'] = '';
     }
 
-    public function save(){
+    public function save()
+    {
 
-        $this->validate();
+        // $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
         $form->save();
         $form->add($this->form);
 
+        if (isset($this->files)) {
+            foreach ($this->files as $file) {
+                $ext = $file->extension();
+                $name = \Str::random(10) . '.' . $ext;
+                $file->storeAs('public/doc', $name);
+                $data['path'] = $name;
+                $form->files()->create($data);
+            }
+        }
+
+
+
+
         // if ($form->save() && $form->add($this->form)) {
 
-        $this->alert('success', 'تم إضافة البيانات بنجاح', [
-            'position' => 'top-start',
-            'timer' => 3000,
-            'toast' => true,
-            'timerProgressBar' => true,
-            'width' => '300',
-        ]);
+
         $this->emitTo('city.show', '$refresh');
 
         // $this->form = [];
