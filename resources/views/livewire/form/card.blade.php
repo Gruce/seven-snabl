@@ -259,26 +259,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse ($form->gives as $give) --}}
+                                @forelse ($form->files as $file)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     {{ $loop->iteration	 }}
                                     </th>
                                     <td class="px-6 py-4">
-                                        يب
+                                        {{ $file->name }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        بيب
+                                        <a href="{{ asset('storage/doc/' . $file->path) }}" class="  text-sm text-blue-500 hover:bg-blue-200 ">
+                                            تحميل
                                     </td>
                                 </tr>
-                                {{-- @empty --}}
+                                 @empty
                                 <div class="flex items-center justify-center p-1">
                                     <span class="text-sm font-semibold text-slate-500">
                                         لا يوجد ملفات
                                     </span>
                                 </div>
-                                {{-- @endforelse --}}
-                                {{-- @if ($form->gives->count() >= 3)
+                                 @endforelse
+                                 {{-- @if ($form->files>count() >= 3)
                                     <tr class="px-6 py-4">
                                         <td colspan="3" class="text-center">
                                             <a href="{{ route('show.gives', ['form_id' => $form->id]) }}" class="  text-sm text-blue-500 hover:bg-blue-200 ">
