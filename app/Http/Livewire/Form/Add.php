@@ -105,7 +105,7 @@ class Add extends Component
     public function save()
     {
 
-        // $this->validate();
+        $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
@@ -118,10 +118,17 @@ class Add extends Component
                 $name = \Str::random(10) . '.' . $ext;
                 $file->storeAs('public/doc', $name);
                 $data['path'] = $name;
+                $data['name'] = $file->getClientOriginalName();
                 $form->files()->create($data);
             }
         }
-
+        $this->alert('success', 'تم إضافة البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
 
 
 
