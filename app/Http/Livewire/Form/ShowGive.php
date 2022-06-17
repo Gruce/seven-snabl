@@ -38,13 +38,14 @@ class ShowGive extends Component
         $this->emit('$refresh');
     }
 
-    
+
     public function render()
     {
         $this->form = Form::findOrFail($this->form_id);
         $this->gives=$this->form->gives;
 
         $give_types = GiveType::get()->toArray();
+
         return view('livewire.form.show-give', compact('give_types'));
     }
 }
