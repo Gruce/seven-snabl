@@ -12,7 +12,9 @@ use App\Http\Livewire\Form\Show;
 use App\Http\Livewire\Give\Main as GiveMain;
 use App\Http\Livewire\Givetype\Main as GiveTypeMain;
 use App\Http\Livewire\Admin\Main as AdminMain ;
-use App\Http\Livewire\Dashboard\Dashboard as DashboardMain; ;
+use App\Http\Livewire\Dashboard\Dashboard as DashboardMain;
+use App\Http\Controllers\ExportData;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,11 +73,13 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
     // Route::get('/cities_select', CityController::class)->name('cities_select');
     Route::controller(SelectController::class)->group(function () {
         Route::get('/cities_select', 'cities')->name('cities_select');
         Route::get('/give_types', 'giveTypes')->name('give_types_select');
+    });
+    Route::controller(ExportData::class)->group(function () {
+        Route::get('/export', 'export')->name('export');
     });
 });
 
