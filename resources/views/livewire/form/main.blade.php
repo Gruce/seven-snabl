@@ -4,11 +4,16 @@
         <div class="grid gap-2 p-2 mb-3 rounded-lg lg:grid-cols-2 sm:grid-cols-1 bg-slate-50">
             {{-- ADD --}}
 
-            <div class="flex justify-start">
+            <div class="flex justify-between">
                 <button class="block w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="form-modal">
                     اضافة
                 </button>
-
+                <a href="{{route('export')}}" class="btn btn-default ml-5">
+                    <button class="border bg-gray-300 p-2 rounded-lg hover:bg-gray-400 font-semibold">
+                        تصدير البيانات
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                    </button>
+                </a>
             </div>
 
             {{-- FILTER BUTTON --}}

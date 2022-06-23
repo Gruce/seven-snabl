@@ -17,8 +17,6 @@
                         <span class="text-black-500">{{$total_form_month}}</span>
                     </div>
                 </div>
-                <a href="{{route('export')}}" class="btn btn-default"> Norm Index </a>
-
             </div>
             <div class="bg-gray-100 m-3 rounded-2xl py-4 px-4">
                 <div>

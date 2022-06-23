@@ -60,6 +60,7 @@ class ExportData extends Controller
                 'معلومات افراد العائلة' => $family_members,
             ];
         }
+
         // dd($data);
         function cleanData(&$str){
         if($str == 't') $str = 'TRUE';
@@ -82,7 +83,6 @@ class ExportData extends Controller
 
         $flag = false;
         foreach($data as $row) {
-
             if(!$flag) {
                 // display field/column names as first row
                 fputcsv($out, array_keys($row), ',', '"');
