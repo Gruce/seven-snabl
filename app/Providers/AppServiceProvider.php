@@ -29,15 +29,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->environment('production')) {
+            \URL::forceScheme('https');
+        }
         ### ADMIN BLADE DIRECTIVES ###
 
         Blade::if('admin', function () {
-            return auth()->check() && auth()->user()->is_admin == 1 ;
+            return auth()->check() && auth()->user()->is_admin == 1;
         });
 
         ### USER BLADE DIRECTIVES ###
         Blade::if('user', function () {
-            return auth()->check() && auth()->user()->is_admin == 2 ;
+            return auth()->check() && auth()->user()->is_admin == 2;
         });
 
         ### whereExist ###
@@ -47,6 +50,5 @@ class AppServiceProvider extends ServiceProvider
                 return [$key, $value];
             })->toArray();
         });
-
     }
 }
