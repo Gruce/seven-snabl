@@ -61,19 +61,17 @@ class ExportData extends Controller
             ];
         }
 
-        // dd($data);
         function cleanData(&$str){
-        if($str == 't') $str = 'TRUE';
-        if($str == 'f') $str = 'FALSE';
-        if(preg_match("/^0/", $str) || preg_match("/^\+?\d{8,}$/", $str) || preg_match("/^\d{4}.\d{1,2}.\d{1,2}/", $str)) {
-            $str = "'$str";
-        }
-        if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
+            if($str == 't') $str = 'TRUE';
+            if($str == 'f') $str = 'FALSE';
+            if(preg_match("/^0/", $str) || preg_match("/^\+?\d{8,}$/", $str) || preg_match("/^\d{4}.\d{1,2}.\d{1,2}/", $str)) {
+                $str = "'$str";
+            }
+            if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
         }
 
         // filename for download
         $filename = "seven_snabl" . date('Ymd') . ".csv";
-
         header("Content-Disposition: attachment; filename=\"$filename\"");
         header("Content-Encoding: UTF-8 ");
         header("Content-type: text/csv; charset=UTF-8");
@@ -90,9 +88,6 @@ class ExportData extends Controller
             }
             array_walk($row, __NAMESPACE__ . '\cleanData');
             fputcsv($out, array_values($row), ',', '"');
-
-            fclose($out);
-            exit;
         }
     }
 }
