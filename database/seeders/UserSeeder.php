@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
 
         $user = new User;
         $user->add([
-            'name' => 'Admin',
+            'name' => 'مشرف',
             'email' => 'admin@gmail.com',
             'password' => '123456',
             'is_admin' => 1,
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
 
         $user = new User;
         $user->add([
-            'name' => 'User',
+            'name' => 'مخول',
             'email' => 'user@gmail.com',
             'password' => '123456',
             'is_admin' => 2,
