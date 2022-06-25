@@ -1,7 +1,7 @@
 @section('title', 'اضافة استمارة')
 <div>
     <x-ui.card class="bg-white">
-        <form x-data="{ formStep: 1 ,  width: '10' }" x-init="width=10" wire:submit.prevent="save">
+        <form x-cloak x-data="{ formStep: 1 ,  width: '10' }" x-init="width=10" wire:submit.prevent="save">
 
             <!-- Start Progress Bar -->
             <div class="max-w-full mb-4">
@@ -191,30 +191,28 @@
                     <span class="text-lg">اضافة صور</span>
                 </div>
                 <div class="flex w-full items-center justify-center bg-grey-lighter">
-                    <label
-                        class="w-full flex flex-col justify-around items-center px-1 py-3  @if (count($files) > 0) bg-blue-700 text-white @else bg-white text-blue-900  @endif rounded-lg tracking-wide border border-blue-700 cursor-pointer hover:bg-blue-700 hover:text-white">
+                    <label class="w-full flex flex-col justify-around items-center px-1 py-3  @if (count($files) > 0) bg-blue-700 text-white @else bg-white text-blue-900  @endif rounded-lg tracking-wide border border-blue-700 cursor-pointer hover:bg-blue-700 hover:text-white">
                         <div wire:loading wire:target="files">
                             <x-ui.loading />
                         </div>
                         <div wire:loading.remove wire:target="files">
                             @if (count($files) > 0)
-                                <i class="fa-solid fa-check text-xl"></i>
+                            <i class="fa-solid fa-check text-xl"></i>
                             @else
-                                <i class="fa-solid fa-upload text-xl"></i>
+                            <i class="fa-solid fa-upload text-xl"></i>
                             @endif
                         </div>
                         <span class="mt-2 text-sm leading-normal">
                             @if (count($files) > 0)
-                                Selected {{ count($files) }} Files
+                            Selected {{ count($files) }} Files
                             @else
-                                Select Files
+                            Select Files
                             @endif
                         </span>
                         <input id="file" required type='file' class="hidden" wire:model="files" multiple />
                     </label>
                     @error('files')
-                        <span
-                            class="error text-red-600 bg-red-100 rounded-lg py-1 px-2 text-xs">{{ $message }}</span>
+                    <span class="error text-red-600 bg-red-100 rounded-lg py-1 px-2 text-xs">{{ $message }}</span>
                     @enderror
                 </div>
                 <x-ui.button></x-ui.button>
@@ -281,7 +279,7 @@
                                 <div>
                                     <div class="relative">
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">تاريخ التولد</label>
-                                        <input wire:model.defer="form.family_members.*.birthday"  value="{{date('Y-m-d')}}" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Select date">
+                                        <input wire:model.defer="form.family_members.*.birthday" value="{{date('Y-m-d')}}" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Select date">
                                         @error('form.family_members.*.birthday') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                                     </div>
                                 </div>

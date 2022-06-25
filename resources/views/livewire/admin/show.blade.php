@@ -26,7 +26,7 @@
                             <div class="grid gap-1 my-1 text-center lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="mb-2 text-sm text-slate-400">اسم المستخدم</span>
-                                    <div x-data="{ open: false }" class="flex justify-center">
+                                    <div x-cloak x-data="{ open: false }" class="flex justify-center">
                                         <button class="font-semibold " x-show="!open" @click="open = true">{{$item->name}} </button>
                                         <ul x-show="open" @click.away="open = false">
                                             <input type="text" wire:model.lazy="input.user.{{$loop->index}}.name" class="bg-white border border-gray-300 text-gray-900 text-sm font-s rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="mb-2 text-sm text-slate-400">البريد الالكتروني</span>
-                                    <div x-data="{ open: false }" class="flex justify-center">
+                                    <div x-cloak x-data="{ open: false }" class="flex justify-center">
                                         <button class="font-semibold " x-show="!open" @click="open = true">{{$item->email}} </button>
                                         <ul x-show="open" @click.away="open = false">
                                             <input type="text" wire:model.lazy="input.user.{{$loop->index}}.email" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="mb-2 text-sm text-slate-400">نوع المستخدم</span>
-                                    <div x-data="{ open: false }" class="flex justify-center">
+                                    <div x-cloak x-data="{ open: false }" class="flex justify-center">
                                         <button class="font-semibold " x-show="!open" @click="open = true">{{$item->is_admin == 1 ? 'مشرف' : 'مخول'}} </button>
                                         <ul x-show="open" @click.away="open = false">
 
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="flex flex-col py-1 text-sm border border-gray-200 rounded">
                                     <span class="mb-2 text-sm text-slate-400">رقم الهاتف</span>
-                                    <div x-data="{ open: false }" class="flex justify-center">
+                                    <div x-cloak x-data="{ open: false }" class="flex justify-center">
                                         <button class="font-semibold " x-show="!open" @click="open = true">{{$item->phonenumber}} </button>
                                         <ul x-show="open" @click.away="open = false">
                                             <input type="text" wire:model.lazy="input.user.{{$loop->index}}.phonenumber" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">

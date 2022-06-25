@@ -1,8 +1,8 @@
 @section('title', 'الهبات ')
 
 <div>
-    {{-- <div class="mt-1" x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'"> --}}
-        <div x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
+    {{-- <div class="mt-1" x-cloak x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'"> --}}
+        <div x-cloak x-data="{ activeTab: 'first' }" x-init="activeTab = window.location.hash ? window.location.hash.replace('#', '') : 'first'">
             <x-ui.card class="border bg-slate-50">
                 <nav class="mb-1">
                     <ul class="flex">
@@ -43,7 +43,7 @@
                                     <div class="grid grid-cols-2 gap-1 my-1 text-center">
                                         <div class="flex flex-col items-center py-1 text-sm border border-gray-200 rounded">
                                             <span class="mb-2 text-sm text-slate-400">نوع الهبة</span>
-                                            <div x-data="{ open: false }">
+                                            <div x-cloak x-data="{ open: false }">
                                                 <button class="font-semibold " x-show="!open" @click="open = true">{{$give->name}} </button>
                                                 <ul x-show="open" @click.away="open = false">
 
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="flex flex-col items-center py-1 text-sm border border-gray-200 rounded">
                                             <span class="mb-2 text-sm text-slate-400">مجموع الهبات</span>
-                                            <div x-data="{ open: false }">
+                                            <div x-cloak x-data="{ open: false }">
                                                 <span class="font-semibold ">{{$give->give_forms()->count()}}</span>
                                             </div>
                                         </div>
@@ -82,13 +82,13 @@
                         </div>
                         <div>
                             <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="givetype-modal">
-                            <i class="text-lg fa-solid fa-xmark"></i>
+                                <i class="text-lg fa-solid fa-xmark"></i>
                             </button>
                         </div>
                     </div>
 
                     <div class="p-6 space-y-6">
-                        <livewire:givetype.add key={{now()}}/>
+                        <livewire:givetype.add key={{now()}} />
                     </div>
                 </div>
             </div>

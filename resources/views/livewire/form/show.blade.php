@@ -36,7 +36,7 @@
             <div class="mt-4 border rounded">
                 <h1 class="items-center p-3 text-lg">المعلومات الشخصية</h1>
                 <div class="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-2">
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">مستوى الفقر</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">{{ $form->person->level_name }}</button>
                         <ul x-show="open" @click.away="open = false">
@@ -48,7 +48,7 @@
                             </select>
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <div>
                             <h5 class="mb-3 text-sm">اسم رب الاسرة</h5>
                         </div>
@@ -57,7 +57,7 @@
                             <input type="text" wire:model.lazy="input.head_family.name" class="bg-white border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">النسب</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->head_family->is_mr_name }} </button>
@@ -70,7 +70,7 @@
                             </select>
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">الحالة</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->head_family->is_alive_name }}
@@ -86,7 +86,7 @@
                         </ul>
 
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">عمل رب الاسرة</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->head_family->job }} </button>
@@ -94,7 +94,7 @@
                             <input type="text" wire:model.lazy="input.head_family.job" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">مقدار الدخل الشهري</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true"> @money($form->head_family->salary, 'IQD')
                         </button>
@@ -107,7 +107,7 @@
             {{-- SECOND SECTION --}}
             <div class="mt-4 border rounded">
                 <div class="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-2">
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">اسم الزوجة</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->wife->name }} </button>
@@ -115,7 +115,7 @@
                             <input type="text" wire:model.lazy="input.wife.name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm ">النسب</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->wife->is_mis_name }} </button>
@@ -129,7 +129,7 @@
                         </ul>
 
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">الحالة</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->wife->wife_state }} </button>
@@ -142,7 +142,7 @@
                             </select>
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">رقم هاتف الاب</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->father_phonenumber }}
@@ -152,7 +152,7 @@
 
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">رقم هاتف الام</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->mother_phonenumber }}
@@ -166,7 +166,7 @@
             {{-- THIRD SECTION --}}
             <div class="mt-4 border rounded ">
                 <div class="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-2">
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">عنوان السكن </h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->location }}
@@ -175,7 +175,7 @@
                             <input type="text" wire:model.lazy="input.person.location" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm ">اقرب نقطة دالة</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->point }} </button>
@@ -183,7 +183,7 @@
                             <input type="text" wire:model.lazy="input.person.point" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">نوع السكن</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->location_name }}
@@ -197,7 +197,7 @@
                             </select>
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">مقدار الايجاد الشهري</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->location_type == 3 ? $form->person->rent : 'لايوجد' }}
@@ -217,7 +217,7 @@
             {{-- FIRD xD SECTION --}}
             <div class="mt-4 border rounded ">
                 <div class="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-2">
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">عمل افراد الاسرة</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->family_work }}
@@ -226,7 +226,7 @@
                             <input type="text" wire:model.lazy="input.person.family_work" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">عددهم</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true">
                             {{ $form->person->family_count }}
@@ -235,14 +235,14 @@
                             <input type="number" wire:model.lazy="input.person.family_count" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         </ul>
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">هل يتقاضى راتب</h5>
                         <h6 class="font-semibold text-center">
                             {{ $form->person->salary != '0' ? 'نعم' : 'لا' }}
                         </h6>
 
                     </div>
-                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                    <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                         <h5 class="mb-3 text-sm">مقداره</h5>
                         <button class="font-semibold text-center" x-show="!open" @click="open = true"> @money($form->person->salary, 'IQD')
                         </button>
@@ -260,7 +260,7 @@
                     @forelse ($form ['family_members'] as $index => $member)
                     <x-ui.card shadow=false :title="'#' . $loop->index + 1 . ' ' . $member->name">
                         <div class="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-2 ">
-                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                                 <h5 class="mb-3 text-sm">الاسم</h5>
                                 <button class="font-semibold text-center" x-show="!open" @click="open = true">
                                     {{ $member->name }} </button>
@@ -268,7 +268,7 @@
                                     <input type="text" wire:model.lazy="input.family_members.{{ $index }}.name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 </ul>
                             </div>
-                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                                 <h5 class="mb-3 text-sm">الصلة</h5>
                                 <button class="font-semibold text-center" x-show="!open" @click="open = true">{{ $member->kinship_name }}</button>
                                 <ul x-show="open" @click.away="open = false">
@@ -284,7 +284,7 @@
                                     </select>
                                 </ul>
                             </div>
-                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                                 <h5 class="mb-3 text-sm">التولد</h5>
                                 <button class="font-semibold text-center" x-show="!open" @click="open = true">
                                     {{ $member->birthday }} </button>
@@ -292,7 +292,7 @@
                                     <input type="text" wire:model.lazy="input.family_members.{{ $index }}.birthday" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 </ul>
                             </div>
-                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                                 <h5 class="mb-3 text-sm">النسب</h5>
                                 <button class="font-semibold text-center" x-show="!open" @click="open = true">
                                     {{ $member->is_mr_name }} </button>
@@ -303,7 +303,7 @@
                                     </select>
                                 </ul>
                             </div>
-                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                                 <h5 class="mb-3 text-sm">المهنة</h5>
                                 <button class="font-semibold text-center" x-show="!open" @click="open = true">
                                     {{ $member->job }} </button>
@@ -311,7 +311,7 @@
                                     <input type="text" wire:model.lazy="input.family_members.{{ $index }}.job" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 </ul>
                             </div>
-                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-data="{ open: false }">
+                            <div class="p-3 m-2 text-center border rounded bg-gray-50 " x-cloak x-data="{ open: false }">
                                 <h5 class="mb-3 text-sm">الحالة الصحية</h5>
                                 <button class="font-semibold text-center" x-show="!open" @click="open = true">
                                     {{ $member->health_state }} </button>

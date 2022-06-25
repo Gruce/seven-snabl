@@ -1,6 +1,6 @@
 @section('title', 'الكشوفات')
 <div>
-    <div class="mt-3" x-data="{ open: false, filter: false, addGiven: false }">
+    <div class="mt-3" x-cloak x-data="{ open: false, filter: false, addGiven: false }">
         <div class="grid gap-2 p-2 mb-3 rounded-lg lg:grid-cols-2 sm:grid-cols-1 bg-slate-50">
             {{-- ADD --}}
 
