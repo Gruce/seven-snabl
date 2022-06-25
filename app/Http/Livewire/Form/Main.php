@@ -6,7 +6,9 @@ use App\Models\City;
 
 use App\Models\Form;
 
-use Illuminate\Support\Arr;use Livewire\Component;use Livewire\WithPagination;
+use Illuminate\Support\Arr;
+use Livewire\Component;
+use Livewire\WithPagination;
 
 class Main extends Component
 {
@@ -27,14 +29,14 @@ class Main extends Component
 
     public function render()
     {
-        $forms = Form::with(['city:id,name','gives'=>function($query){
+        $forms = Form::with(['city:id,name', 'gives' => function ($query) {
             return $query->latest()->take(3)->get();
         }])->orderByDesc('id');
-        if(is_admin()) $forms->where('user_id', auth()->id());
+        if (is_admin()) $forms->where('user_id', auth()->id());
 
-        $forms=$forms->whereHas('head_family', function($query) {
+        $forms = $forms->whereHas('head_family', function ($query) {
             $query->where('name', 'like', '%' . $this->filter['search'] . '%');
-        })->orWhereHas('wife', function($query) {
+        })->orWhereHas('wife', function ($query) {
             $query->where('name', 'like', '%' . $this->filter['search'] . '%');
         })->orWhere('id', $this->filter['search']);
 

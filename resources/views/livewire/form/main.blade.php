@@ -4,28 +4,28 @@
         <div class="grid gap-2 p-2 mb-3 rounded-lg lg:grid-cols-2 sm:grid-cols-1 bg-slate-50">
             {{-- ADD --}}
 
-            <div class="flex justify-between">
-                <button class="block w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="form-modal">
+            <div class="flex justify-between ">
+                <button class="block w-20 md:w-auto  text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="form-modal">
                     اضافة
                 </button>
                 <a href="{{route('export')}}" class="btn btn-default ml-5">
                     <button class="border bg-gray-300 p-2 rounded-lg hover:bg-gray-400 font-semibold">
-                        تصدير البيانات
-                        <i class="fa-solid fa-file-arrow-down"></i>
+                        تصدير
+                        <i class="fa-solid fa-file-csv"></i>
                     </button>
                 </a>
             </div>
 
             {{-- FILTER BUTTON --}}
-            <div class="flex justify-end">
-                <input placeholder="ادخل اسم رب الاسرة او الزوجة" wire:model="filter.search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-30 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            <div class="flex justify-end ml-5">
+                <input placeholder="ادخل اسم رب الاسرة او الزوجة" wire:model="filter.search" class=" bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-30 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     @keydown.enter.prevent="$refresh" />
-                <button  @click="filter = ! filter" class="w-16 mr-4 text-gray-200 bg-blue-700 rounded-lg "><i
+                <button  @click="filter = ! filter" class="w-16 mr-4  text-gray-200 bg-blue-700 rounded-lg "><i
                         class="fa-solid fa-filter"></i></button>
             </div>
         </div>
         {{-- FILTERS --}}
-        <div x-show="filter" class="grid lg:grid-cols-3 sm:grid-cols-1 ">
+        <div x-show="filter" class="grid lg:grid-cols-3 sm:grid-cols-1 mb-5 ">
             <select wire:model="filter.city_id"
                 class="mr-2 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
                     <option value="" >اختر المنطقة</option>
@@ -97,13 +97,14 @@
                 </div>
             @endforelse
         </div>
-
-        {{-- {{ $forms->links() }} --}}
+        <div class=" mt-2 p-2 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            {{$forms->links()}}
+        </div>
     </div>
 </div>
-<script>
+{{-- <script>
     function exportTasks(_this) {
        let _url = $(_this).data('href');
        window.location.href = _url;
     }
- </script>
+ </script> --}}

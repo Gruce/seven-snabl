@@ -5,11 +5,12 @@ namespace App\Http\Livewire\Form;
 use Livewire\Component;
 use App\Models\Form;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-
+use Livewire\WithPagination;
+use App\Models\File;
 class Card extends Component{
 
     use LivewireAlert;
-
+    use WithPagination;
     protected $listeners = ['delete'];
     public Form $form;
     public function mount(){
@@ -46,7 +47,7 @@ class Card extends Component{
 
     public function render()
     {
-        
-        return view('livewire.form.card');
+        $files=File::where('form_id',$this->form->id)->paginate(3);
+        return view('livewire.form.card',compact('files'));
     }
 }

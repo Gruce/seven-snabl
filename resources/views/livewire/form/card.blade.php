@@ -281,7 +281,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($form->files as $file)
+                                @forelse ($files as $file)
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 text-center font-medium text-gray-900 dark:text-white whitespace-nowrap">
@@ -299,7 +299,6 @@
                                                 class="text-sm text-blue-500 hover:bg-blue-200">
                                                 <i class="fa-solid fa-cloud-arrow-down"></i> </a>
                                         </td>
-
                                     </tr>
                                 @empty
                                     <div class="flex items-center justify-center p-1">
@@ -308,9 +307,11 @@
                                         </span>
                                     </div>
                                 @endforelse
-
                             </tbody>
                         </table>
+                        <div class=" mt-2 p-2 ">
+                            {{$files->links()}}
+                        </div>
                     </div>
                 </div>
                 {{-- End Foreach members --}}
