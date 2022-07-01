@@ -243,6 +243,25 @@
             {{-- fifth TAB --}}
             <div x-show="activeTab === 'fifth'">
                 <div class="grid grid-rows-1 gap-1 my-1 text-center">
+
+                    <div class="">
+                        <div class="grow">
+                            {{-- <div>
+                                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Light</button>
+
+                            </div> --}}
+                            {{-- <div class="relative flex items-center justify-center h-12 border-2 border-dotted rounded-lg bg-secondary-50 border-secondary-300">
+                                <div class="absolute">
+                                    <div class="flex flex-col items-center cursor-pointer">
+                                        <span class="block font-normal text-secondary-600"><i class="fa-solid fa-upload"></i></span>
+                                    </div>
+                                </div>
+                                <input wire:model="filess" type="file" class="w-full h-full opacity-0 cursor-pointer" multiple>
+                                @error('filess')<span class="text-red-500">{{ $message }}</span> @enderror
+                            </div> --}}
+                        </div>
+
+                    </div>
                     <div class="relative overflow-x-auto  sm:rounded-lg">
                         <table class="w-full h-3 text-sm text-right text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -255,6 +274,9 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-center">
                                         تحميل الملف
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        حذف الملف
                                     </th>
                                 </tr>
                             </thead>
@@ -273,6 +295,11 @@
                                     <td class="px-6 py-4 text-center">
                                         <a download="" href="{{ asset('storage/doc/' . $file->path) }}" class="text-sm text-blue-500 hover:bg-blue-200">
                                             <i class="fa-solid fa-cloud-arrow-down"></i> </a>
+                                    </td>
+                                    <td class="px-6 py-4 text-center">
+                                        <button wire:click="deleteFile({{ $file->id }})" class="px-4 py-1 duration-150 ease-in-out delay-75 rounded-lg hover:text-error-600 hover:bg-error-100">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 @empty
