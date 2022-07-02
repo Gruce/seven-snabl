@@ -245,21 +245,21 @@
                 <div class="grid grid-rows-1 gap-1 my-1 text-center">
 
                     <div class="">
-                        <div class="grow">
-                            {{-- <div>
-                                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Light</button>
-
-                            </div> --}}
-                            {{-- <div class="relative flex items-center justify-center h-12 border-2 border-dotted rounded-lg bg-secondary-50 border-secondary-300">
+                        <div class="grow flex justify-center">
+                            <div class="relative w-full flex items-center justify-center h-12 border-2 border-dotted rounded-lg bg-secondary-50 border-secondary-300">
                                 <div class="absolute">
                                     <div class="flex flex-col items-center cursor-pointer">
                                         <span class="block font-normal text-secondary-600"><i class="fa-solid fa-upload"></i></span>
                                     </div>
                                 </div>
-                                <input wire:model="filess" type="file" class="w-full h-full opacity-0 cursor-pointer" multiple>
-                                @error('filess')<span class="text-red-500">{{ $message }}</span> @enderror
+                                <input wire:model="docs" type="file" class="w-full h-full opacity-0 cursor-pointer" multiple>
+                                @error('docs')<span class="text-red-500">{{ $message }}</span> @enderror
+                            </div>
+                            {{-- <div>
+                                <button wire:click="updatedDocs" type="button" class="text-gray-900  h-12 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">حفظ</button>
                             </div> --}}
                         </div>
+
 
                     </div>
                     <div class="relative overflow-x-auto  sm:rounded-lg">

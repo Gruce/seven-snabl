@@ -54,12 +54,12 @@ class Add extends Component
     ];
 
 
-    public function addFamilyMember()
-    {
-        $this->form['family_members'][] = [
-            'name' => '',
-        ];
-    }
+    // public function addFamilyMember()
+    // {
+    //     $this->form['family_members'][] = [
+    //         'name' => '',
+    //     ];
+    // }
 
     public function deleteFamilyMember($index)
     {
@@ -104,13 +104,21 @@ class Add extends Component
 
     public function save()
     {
-
         $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
         $form->city_id = $this->form['city']['id'];
         $form->save();
         $form->add($this->form);
+
+
+        $this->alert('success', 'تم إضافة البيانات بنجاح', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
 
         if (isset($this->files)) {
             foreach ($this->files as $file) {
@@ -122,20 +130,11 @@ class Add extends Component
                 $form->files()->create($data);
             }
         }
-        $this->alert('success', 'تم إضافة البيانات بنجاح', [
-            'position' => 'top-start',
-            'timer' => 3000,
-            'toast' => true,
-            'timerProgressBar' => true,
-            'width' => '300',
-        ]);
-
-
-
         // if ($form->save() && $form->add($this->form)) {
 
-
-        $this->emitTo('city.show', '$refresh');
+        dg($this->form);
+        // $this->emitTo('city.show', '$refresh');
+        $this->emitUp('$refresh');
 
         // $this->form = [];
         // } else {

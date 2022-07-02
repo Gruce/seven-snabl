@@ -17,28 +17,33 @@ class Card extends Component
     use WithPagination, WithFileUploads;
     protected $listeners = ['delete'];
     public Form $form;
-    public $filess = [];
+    public $docs = [];
     public function mount()
     {
         $this->family_count = $this->form->family_members->count();
     }
 
 
-    // public function updatedFiles($filess)
-    // {
-    //     dd($filess);
-    //     foreach ($this->filess as $file) {
-    //         $ext = $file->extension();
-    //         $name = \Str::random(10) . '.' . $ext;
-    //         $file->storeAs('public/doc', $name);
-    //         $data['path'] = $name;
-    //         $data['name'] = $file->getClientOriginalName();
-    //         $this->form->files()->create($data);
-    //     }
+    public function updatedDocs($value)
+    {
+        foreach ($value as $file) {
+            $ext = $file->extension();
+            $name = \Str::random(10) . '.' . $ext;
+            $file->storeAs('public/doc', $name);
+            $data['path'] = $name;
+            $data['name'] = $file->getClientOriginalName();
+            $this->form->files()->create($data);
+        }
+        $this->alert('success', 'تم اضافة الملفات', [
+            'position' => 'top-start',
+            'timer' => 3000,
+            'toast' => true,
+            'timerProgressBar' => true,
+            'width' => '300',
+        ]);
 
-    //     $this->emitSelf('$refresh');
-
-    // }
+        $this->emitSelf('$refresh');
+    }
 
     public function confirmed($id)
     {
