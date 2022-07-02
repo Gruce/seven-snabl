@@ -93,7 +93,7 @@ class Add extends Component
         $this->form['head_family']['is_alive'] = '';
         $this->form['wife']['name'] = '';
         $this->form['wife']['state'] = '';
-        $this->form['wife']['is_mis'] = 1;
+        $this->form['wife']['is_mis'] = '';
         $this->form['person']['father_phonenumber'] = '';
         $this->form['person']['mother_phonenumber'] = '';
         $this->form['person']['salary_type'] = '';
@@ -104,6 +104,7 @@ class Add extends Component
 
     public function save()
     {
+        dd($this->form);
         $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
@@ -132,9 +133,9 @@ class Add extends Component
         }
         // if ($form->save() && $form->add($this->form)) {
 
-        dg($this->form);
+
         // $this->emitTo('city.show', '$refresh');
-        $this->emitUp('$refresh');
+        // $this->emitUp('$refresh');
 
         // $this->form = [];
         // } else {
