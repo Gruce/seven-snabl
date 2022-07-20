@@ -112,7 +112,6 @@ class Add extends Component
         $form->save();
         $form->add($this->form);
 
-
         $this->alert('success', 'تم إضافة البيانات بنجاح', [
             'position' => 'top-start',
             'timer' => 3000,
