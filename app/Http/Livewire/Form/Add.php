@@ -104,7 +104,7 @@ class Add extends Component
 
     public function save()
     {
-        dd($this->form);
+
         $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();
