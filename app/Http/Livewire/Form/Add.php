@@ -51,6 +51,7 @@ class Add extends Component
         'form.family_members.*.job' => '',
         'form.family_members.*.health_state' => 'required',
         'form.family_members.*.note' => '',
+
     ];
 
 
