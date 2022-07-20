@@ -16,37 +16,37 @@ class Add extends Component
 
     protected $rules = [
         // Personal Info
-        'form.person.level' => 'required',
+        'form.person.level' => 'required|integer',
         'form.person.location' => 'required',
         'form.person.point' => '',
-        'form.person.location_type' => 'required',
+        'form.person.location_type' => 'required|integer',
         'form.person.rent' => '',
         'form.person.family_work' => 'required',
-        'form.person.family_count' => 'required',
-        'form.person.salary_type' => 'required',
+        'form.person.family_count' => 'required|integer',
+        'form.person.salary_type' => 'required|integer',
         'form.person.salary' => 'required',
         'form.person.father_phonenumber' => 'required',
         'form.person.mother_phonenumber' => 'required',
 
         // Head of the family
         'form.head_family.name' => 'required',
-        'form.head_family.is_mr' => 'required',
+        'form.head_family.is_mr' => 'required|integer',
         'form.head_family.job' => 'required',
-        'form.head_family.is_alive' => 'required',
+        'form.head_family.is_alive' => 'required|integer',
         'form.head_family.salary' => 'required',
 
         // Wife
         'form.wife.name' => 'required',
-        'form.wife.is_mis' => 'required',
-        'form.wife.state' => 'required',
+        'form.wife.is_mis' => 'required|integer',
+        'form.wife.state' => 'required|integer',
 
         // City
         'form.city.id' => 'required',
 
         'form.family_members.*.name' => 'required',
-        'form.family_members.*.kinship' => 'required',
+        'form.family_members.*.kinship' => 'required|integer',
         'form.family_members.*.birthday' => 'required',
-        'form.family_members.*.is_mr' => 'required',
+        'form.family_members.*.is_mr' => 'required|integer',
         'form.family_members.*.gender' => 'required',
         'form.family_members.*.job' => '',
         'form.family_members.*.health_state' => 'required',
@@ -104,7 +104,7 @@ class Add extends Component
 
     public function save()
     {
-
+        dg($this->form);
         $this->validate();
         $form = new Form;
         $form->user_id = auth()->id();

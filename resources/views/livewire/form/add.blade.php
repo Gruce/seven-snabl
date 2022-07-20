@@ -126,12 +126,12 @@
                     </div>
                     <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 ">اختر النسب</label>
-                        <select wire:model.defer="form.wife.name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
+                        <select wire:model.defer="form.wife.is_mis" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-8">
                             <option selected>النسب</option>
                             <option value="1">علوية</option>
                             <option value="2">عامية</option>
                         </select>
-                        @error('form.wife.name') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
+                        @error('form.wife.is_mis') <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3 lg:ml-3">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">رقم هاتف الام</label>
